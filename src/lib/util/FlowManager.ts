@@ -56,7 +56,6 @@ export class FlowManager extends Disposable {
 				}
 				default: {
 					throw new Error('[FlowManager] Unknown flow: [' + pageInstance.flow + ']');
-					break;
 				}
 			}
 		}
