@@ -1,12 +1,6 @@
-[![Travis](https://img.shields.io/travis/mediamonks/seng-boilerplate.svg?maxAge=2592000)](https://travis-ci.org/mediamonks/seng-boilerplate)
-[![Code Climate](https://img.shields.io/codeclimate/github/mediamonks/seng-boilerplate.svg?maxAge=2592000)](https://codeclimate.com/github/mediamonks/seng-boilerplate)
-[![Coveralls](https://img.shields.io/coveralls/mediamonks/seng-boilerplate.svg?maxAge=2592000)](https://coveralls.io/github/mediamonks/seng-boilerplate?branch=master)
-[![npm](https://img.shields.io/npm/v/seng-boilerplate.svg?maxAge=2592000)](https://www.npmjs.com/package/seng-boilerplate)
-[![npm](https://img.shields.io/npm/dm/seng-boilerplate.svg?maxAge=2592000)](https://www.npmjs.com/package/seng-boilerplate)
-
 # vue-transition
 
-Add a description here...
+Work in progress!
 
 
 ## Installation
@@ -24,37 +18,7 @@ npm i -S vue-transition
 ### other
 
 We also have browser, amd, commonjs, umd, systemjs and es6 versions of
-this module available attached to the [Github Releases](https://github.com/mediamonks/seng-boilerplate/releases).
-
-<!---
-
-Note: The below cannot be used yet, as there is no way to link to a
-specific version yet without updating this readme manually after each
-new version.
-
-
-### browser
-
-```html
-<script src="http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate.min.js"></script>
-```
-```js
-console.log(window.SengBoilerplate)
-```
-
-### other
-
-Besides the browser version, there are other versions available for
-download as well:
-
-- [browser](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate.js) (and [minified](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate.min.js))
-- [umd](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate.js) (and [minified](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate-umd.min.js))
-- [amd](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate-amd.js)
-- [commonjs](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate-commonjs.js)
-- [systemjs](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate-system.js)
-- [es6](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate-es6.zip)
-
--->
+this module available attached to the [Github Releases](https://github.com/larsvanbraam/vue-transition/releases).
 
 ### manual
 
@@ -63,32 +27,26 @@ targets yourself.
 
 ## Usage
 
-```ts
-import SengBoilerplate from 'seng-boilerplate';
-// import SengBoilerplate from 'seng-boilerplate/lib/classname';
-
-// do something with SengBoilerplate
-```
-
+TODO: add usage documentation
 
 ## Documentation
 
-View the [generated documentation](http://mediamonks.github.io/seng-boilerplate/).
+View the [generated documentation](http://larsvanbraam.github.io/vue-transition/).
 
 
 ## Building
 
-In order to build seng-boilerplate, ensure that you have [Git](http://git-scm.com/downloads)
+In order to build vue-transition, ensure that you have [Git](http://git-scm.com/downloads)
 and [Node.js](http://nodejs.org/) installed.
 
 Clone a copy of the repo:
 ```sh
-git clone https://github.com/mediamonks/seng-boilerplate.git
+git clone https://github.com/larsvanbraam/vue-transition.git
 ```
 
-Change to the seng-boilerplate directory:
+Change to the vue-transition directory:
 ```sh
-cd seng-boilerplate
+cd vue-transition
 ```
 
 Install dev dependencies:
@@ -115,19 +73,19 @@ If you want to create the distribution files yourself, you can run the
 `build-dist` script, and the following files will get generated in the
 `dist` folder:
 
-- **/dist/seng-boilerplate.js**: bundled with webpack, can be loaded from
+- **/dist/vue-transition.js**: bundled with webpack, can be loaded from
 	a script tag, available as `window.SengBoilerplate`
-- **/dist/seng-boilerplate.min.js**: same as above, but minified
-- **/dist/seng-boilerplate-amd.js**: bundled with webpack, can be used
+- **/dist/vue-transition.min.js**: same as above, but minified
+- **/dist/vue-transition-amd.js**: bundled with webpack, can be used
 	with e.g. requirejs
-- **/dist/seng-boilerplate-commonjs.js**: bundled with webpack, can be
+- **/dist/vue-transition-commonjs.js**: bundled with webpack, can be
 	used in systems that support commonjs, but you should just use npm
-- **/dist/seng-boilerplate-umd.js**: bundled with webpack, works in the
+- **/dist/vue-transition-umd.js**: bundled with webpack, works in the
 	browser, with requirejs, and in a commonjs system
-- **/dist/seng-boilerplate-umd.min.js**: same as above, but minified
-- **/dist/seng-boilerplate-system.js**: bundled with typescript, can be
+- **/dist/vue-transition-umd.min.js**: same as above, but minified
+- **/dist/vue-transition-system.js**: bundled with typescript, can be
 	used in systems	that support systemjs
-- **/dist/seng-boilerplate-es6.zip**: transpiled with typescript, only
+- **/dist/vue-transition-es6.zip**: transpiled with typescript, only
 	types are removed from the source files
 
 ## Contribute
@@ -223,7 +181,7 @@ sure the encrypted values only work for that repository.
 
     ```sh
     $ travis encrypt <your_auth_token>
-    Detected repository as mediamonks/seng-boilerplate, is this correct? |yes|
+    Detected repository as larsvanbraam/vue-transition, is this correct? |yes|
     Please add the following to your .travis.yml file:
 
       secure: "YcN...Zb="

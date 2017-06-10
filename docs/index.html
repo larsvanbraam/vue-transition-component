@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>seng-boilerplate</title>
+	<title>vue-transition</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">seng-boilerplate</a>
+					<a href="index.html" class="title">vue-transition</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> seng-boilerplate</h1>
+			<h1> vue-transition</h1>
 		</div>
 	</div>
 </header>
@@ -64,20 +64,17 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<p><a href="https://travis-ci.org/mediamonks/seng-boilerplate"><img src="https://img.shields.io/travis/mediamonks/seng-boilerplate.svg?maxAge=2592000" alt="Travis"></a>
-					<a href="https://codeclimate.com/github/mediamonks/seng-boilerplate"><img src="https://img.shields.io/codeclimate/github/mediamonks/seng-boilerplate.svg?maxAge=2592000" alt="Code Climate"></a>
-					<a href="https://coveralls.io/github/mediamonks/seng-boilerplate?branch=master"><img src="https://img.shields.io/coveralls/mediamonks/seng-boilerplate.svg?maxAge=2592000" alt="Coveralls"></a>
-					<a href="https://www.npmjs.com/package/seng-boilerplate"><img src="https://img.shields.io/npm/v/seng-boilerplate.svg?maxAge=2592000" alt="npm"></a>
-				<a href="https://www.npmjs.com/package/seng-boilerplate"><img src="https://img.shields.io/npm/dm/seng-boilerplate.svg?maxAge=2592000" alt="npm"></a></p>
-				<h1 id="seng-boilerplate">seng-boilerplate</h1>
-				<p>Add a description here...</p>
+				<h1 id="vue-transition">vue-transition</h1>
+				<p>Work in progress!</p>
 				<h2 id="installation">Installation</h2>
-				<h3 id="npm">npm</h3>
-				<pre><code class="lang-sh">npm i -S seng-boilerplate
+				<h3 id="yarn-npm">yarn / npm</h3>
+				<pre><code class="lang-sh">yarn add vue-transition
+</code></pre>
+				<pre><code class="lang-sh">npm i -S vue-transition
 </code></pre>
 				<h3 id="other">other</h3>
 				<p>We also have browser, amd, commonjs, umd, systemjs and es6 versions of
-				this module available attached to the <a href="https://github.com/mediamonks/seng-boilerplate/releases">Github Releases</a>.</p>
+				this module available attached to the <a href="https://github.com/larsvanbraam/vue-transition/releases">Github Releases</a>.</p>
 				<!---
 
 Note: The below cannot be used yet, as there is no way to link to a
@@ -117,7 +114,7 @@ download as well:
 <span class="hljs-comment">// do something with SengBoilerplate</span>
 </code></pre>
 				<h2 id="documentation">Documentation</h2>
-				<p>View the <a href="https://rawgit.com/mediamonks/seng-boilerplate/master/docs/index.html">generated documentation</a>.</p>
+				<p>View the <a href="http://mediamonks.github.io/seng-boilerplate/">generated documentation</a>.</p>
 				<h2 id="building">Building</h2>
 				<p>In order to build seng-boilerplate, ensure that you have <a href="http://git-scm.com/downloads">Git</a>
 				and <a href="http://nodejs.org/">Node.js</a> installed.</p>
@@ -127,21 +124,18 @@ download as well:
 				<p>Change to the seng-boilerplate directory:</p>
 				<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> seng-boilerplate
 </code></pre>
-				<p>Install typings cli utility:</p>
-				<pre><code class="lang-sh">npm install typings --global
-</code></pre>
 				<p>Install dev dependencies:</p>
-				<pre><code class="lang-sh">npm install
+				<pre><code class="lang-sh">yarn
 </code></pre>
 				<p>Use one of the following main scripts:</p>
-				<pre><code class="lang-sh">npm run build           <span class="hljs-comment"># build this project</span>
-npm run dev             <span class="hljs-comment"># run dev-watch mode, serving example/index.html in the browser</span>
-npm run generate        <span class="hljs-comment"># generate all artifacts (compiles ts, webpack, docs and coverage)</span>
-npm run typings         <span class="hljs-comment"># install .d.ts dependencies (done on install)</span>
-npm run <span class="hljs-built_in">test</span>:unit       <span class="hljs-comment"># run the unit tests</span>
-npm run validate        <span class="hljs-comment"># runs validation scripts, including test, lint and coverage check</span>
-npm run lint            <span class="hljs-comment"># run tslint on this project</span>
-npm run doc             <span class="hljs-comment"># generate typedoc documentation</span>
+				<pre><code class="lang-sh">yarn build           <span class="hljs-comment"># build this project</span>
+yarn dev             <span class="hljs-comment"># run dev-watch mode, serving example/index.html in the browser</span>
+yarn generate        <span class="hljs-comment"># generate all artifacts (compiles ts, webpack, docs and coverage)</span>
+yarn typings         <span class="hljs-comment"># install .d.ts dependencies (done on install)</span>
+yarn <span class="hljs-built_in">test</span>:unit       <span class="hljs-comment"># run the unit tests</span>
+yarn validate        <span class="hljs-comment"># runs validation scripts, including test, lint and coverage check</span>
+yarn lint            <span class="hljs-comment"># run tslint on this project</span>
+yarn doc             <span class="hljs-comment"># generate typedoc documentation</span>
 </code></pre>
 				<p>When installing this module, it adds a pre-push hook, that runs the <code>validate</code>
 				script before committing, so you can be sure that everything checks out.</p>
@@ -172,60 +166,6 @@ npm run doc             <span class="hljs-comment"># generate typedoc documentat
 				<p>View <a href="./AUTHORS.md">AUTHORS.md</a></p>
 				<h2 id="license">LICENSE</h2>
 				<p><a href="./LICENSE">MIT</a> © MediaMonks</p>
-				<h2 id="about-this-boilerplate">About this boilerplate</h2>
-				<p><strong>Remove this section when cloning this boilerplate to a real project!</strong></p>
-				<h3 id="folders">Folders</h3>
-				<p>This boilerplate contains the following folders:</p>
-				<ul>
-					<li><strong>/config</strong> - Contains the config files for karma and webpack</li>
-					<li><strong>/coverage</strong> - Contains the generated test code coverage, is sent to Code
-					Climage and Coveral.io.</li>
-					<li><strong>/dist</strong> - Contains the compiled code in different forms for manual usage.</li>
-					<li><strong>/docs</strong> - Contains the generated documentation by typedoc.</li>
-					<li><strong>/example</strong> - Can contain additional examples on how to use this module.</li>
-					<li><strong>/lib</strong> - Contains the built code from <code>src/lib</code>, will be published to npm.</li>
-					<li><strong>/node_modules</strong> - Contains the node modules generated by running <code>npm i</code>.</li>
-					<li><strong>/script</strong> - Contains scripts being called from npm scripts.</li>
-					<li><strong>/src</strong> - Contains the source code.</li>
-					<li><strong>/test</strong> - Contains the tests.</li>
-					<li><strong>/typings</strong> - Contains the .d.ts files generated by running <code>typings i</code>.</li>
-					<li><strong>/vendor</strong> - Can contain 3rd party code used in this project, when not
-					available on npm.</li>
-				</ul>
-				<h3 id="files">Files</h3>
-				<p>This boilerplate contains the following files:</p>
-				<ul>
-					<li><strong>/config/karma.conf.js</strong> - Configuration for Karma test runner.</li>
-					<li><strong>/config/webpack.conf.js</strong> - Configuration for Webpack builds.</li>
-					<li><strong>/script/webpack.js</strong> - Creates all the different webpack dist builds.</li>
-					<li><strong>.codeclimate.yml</strong> - The Code Climate configuration for this project.</li>
-					<li><strong>.editorconfig</strong> - Defines general formatting rules.</li>
-					<li><strong>.gitignore</strong> - These files should not end up in git.</li>
-					<li><strong>.npmignore</strong> - These files should not end up in npm.</li>
-					<li><strong>.travis.yml</strong> - Configuration for Travis CI.</li>
-					<li><strong>AUTHORS.md</strong> - Contains a list of all the authors that worked on this module.</li>
-					<li><strong>CONTRIBUTING.md</strong> - Contains information on how to contribute on this project.</li>
-					<li><strong>index.d.ts</strong> - The built Typescript definitions, referenced in the package.json.
-					Will be published to npm.</li>
-					<li><strong>index.d.ts</strong> - The built Typescript index, referenced in the package.json.
-					Will be published to npm.</li>
-					<li><strong>LICENSE</strong> - Our license file.</li>
-					<li><strong>package.json</strong> - To list the npm package information, all the dependencies,
-					and contains all the scripts that can be run.</li>
-					<li><strong>README.MD</strong> - This file, remove the about section when cloning this boilerplate.</li>
-					<li><strong>tsconfig.json</strong> - The TypeScript configuration file for this project.</li>
-					<li><strong>/test/tsconfig.json</strong> - The TypeScript configuration file for the tests.</li>
-					<li><strong>tslint.json</strong> - The linting rules for our TypeScript code.</li>
-					<li><strong>typings.json</strong> - The .d.ts dependencies for this project.</li>
-				</ul>
-				<h3 id="typescript">TypeScript</h3>
-				<p>Todo: describe TypeScript configuration and usage.</p>
-				<h3 id="karma">Karma</h3>
-				<p>Todo: describe Karma configuration and usage.</p>
-				<h3 id="tslint">TSLint</h3>
-				<p>Todo: describe TSLint configuration and usage.</p>
-				<h3 id="typedoc">TypeDoc</h3>
-				<p>Todo: describe TypeDoc configuration and usage.</p>
 				<h3 id="travis">Travis</h3>
 				<p>This project uses <a href="https://travis-ci.org">Travis</a> to build, test and
 				publish its code to npm. Travis is free for public Github repositories.</p>
@@ -314,13 +254,34 @@ Please add the following to your .travis.yml file:
 						<a href="modules/_index_.html">"index"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_lib_dummy_.html">"lib/<wbr>Dummy"</a>
+						<a href="modules/_lib_enum_flowtypes_.html">"lib/enum/<wbr>Flow<wbr>Types"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_lib_example_.html">"lib/<wbr>Example"</a>
+						<a href="modules/_lib_event_transitionevent_.html">"lib/event/<wbr>Transition<wbr>Event"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_lib_iexample_.html">"lib/IExample"</a>
+						<a href="modules/_lib_interface_iabstractpagetransitioncomponent_.html">"lib/interface/IAbstract<wbr>Page<wbr>Transition<wbr>Component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_interface_iabstractregistrablecomponent_.html">"lib/interface/IAbstract<wbr>Registrable<wbr>Component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_interface_iabstracttransitioncomponent_.html">"lib/interface/IAbstract<wbr>Transition<wbr>Component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_mixin_abstractpagetransitioncomponent_.html">"lib/mixin/<wbr>Abstract<wbr>Page<wbr>Transition<wbr>Component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_mixin_abstractregistrablecomponent_.html">"lib/mixin/<wbr>Abstract<wbr>Registrable<wbr>Component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_mixin_abstracttransitioncomponent_.html">"lib/mixin/<wbr>Abstract<wbr>Transition<wbr>Component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_util_abstracttransitioncontroller_.html">"lib/util/<wbr>Abstract<wbr>Transition<wbr>Controller"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_util_flowmanager_.html">"lib/util/<wbr>Flow<wbr>Manager"</a>
 					</li>
 				</ul>
 			</nav>

@@ -23,7 +23,7 @@
     "compile:dist:webpack": "node script/webpack.js",
     "doc": "npm-run-all -p doc:*",
     "doc:typedoc": "typedoc --out docs/ src/",
-    "generate": "npm-run-all clean compile test:unit doc",
+    "generate": "npm-run-all clean compile doc",
     "build": "npm-run-all clean compile",
     "dev": "node script/webpack-dev.js",
     "build:npm": "npm-run-all test compile:npm",
