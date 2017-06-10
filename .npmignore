@@ -1,0 +1,31 @@
+# .gitignore
+.idea
+node_modules
+typings
+.tscache
+.sass-cache
+.DS_Store
+npm-debug.log
+/coverage
+/dist
+/seng-*.zip
+/seng-*.tar.gz
+/test/*.js
+!/test/index.js
+
+# .npmignore
+.editorconfig
+.gitignore
+.travis.yml
+tsconfig.json
+tslint.json
+karma.conf.js
+CONTRIBUTING.md
+AUTHORS.md
+/docs
+/example
+/src
+/test
+/script
+/definition
+/config

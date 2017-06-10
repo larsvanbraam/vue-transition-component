@@ -1,0 +1,31 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"target": "es5",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"preserveConstEnums": true,
+		"noImplicitAny": false,
+		"removeComments": false,
+		"sourceMap": false,
+		"inlineSourceMap": false,
+		"forceConsistentCasingInFileNames": true,
+		"importHelpers": true,
+		"strictNullChecks": false,
+		"noImplicitReturns": true,
+		"noImplicitThis": false,
+		"noUnusedLocals": true,
+		"noUnusedParameters": false,
+		"outDir": "./npm",
+		"typeRoots": [
+			"./node_modules/@types"
+		]
+	},
+	"include": [
+		"./src/**/*"
+	],
+	"exclude": [
+		"./src/bundle.ts"
+	]
+}
