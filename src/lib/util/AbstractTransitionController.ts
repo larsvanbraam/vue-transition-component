@@ -385,12 +385,13 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @description Because Vue destructs the VM instance before it removes the DOM node we want to finish the
 	 * transition out before actually cleaning everything
 	 */
-	public destruct(): void {
+	public dispose(): void {
 		if (this._transitionOutPromise && this._transitionOutResolveMethod) {
 			this._transitionOutPromise.then(() => this.clean());
 		} else {
 			this.clean();
 		}
+		super.dispose();
 	}
 }
 
