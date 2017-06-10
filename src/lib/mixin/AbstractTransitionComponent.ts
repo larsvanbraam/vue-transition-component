@@ -43,7 +43,7 @@ export default {
 		 */
 		transitionIn() {
 			return this.allComponentsReady
-				.then(() => this.transitionController.transitionIn())
+				.then(() => this.transitionController.transitionIn());
 		},
 		/**
 		 * @public
@@ -52,7 +52,7 @@ export default {
 		 * @returns {Promise<any>}
 		 */
 		transitionOut() {
-			return this.transitionController.transitionOut()
+			return this.transitionController.transitionOut();
 		},
 	},
 	beforeDestroy() {

@@ -114,10 +114,10 @@ abstract class AbstractTransitionController extends EventDispatcher {
 		if (this._transitionInPromise === null && this._isHidden) {
 			this._transitionInPromise = new Promise<void>((resolve: () => void) => {
 				if (this.transitionInTimeline.duration() === 0) {
-					console.warn('[AbstractTransitionController] This block does not have transition, so resolve right away');
+					console.info('[AbstractTransitionController] This block does not have transition, so resolve' +
+						' right away');
 					resolve();
-				}
-				else {
+				} else {
 					this._transitionInResolveMethod = resolve;
 					this.transitionInTimeline.restart();
 				}
@@ -150,8 +150,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 		if (this.transitionOutTimeline.duration() > 0) {
 			this.transitionOutTimeline.paused(false);
 			this.transitionInTimeline.paused(true);
-		}
-		else {
+		} else {
 			// We don't have a transitionOutTimeline, so we are reversing it, therefore removing the paused state.
 			this.transitionInTimeline.paused(false);
 		}
@@ -164,8 +163,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				this._transitionOutResolveMethod = resolve;
 				if (this.transitionOutTimeline.duration() > 0) {
 					this.transitionOutTimeline.restart();
-				}
-				else {
+				} else {
 					this.transitionInTimeline.reverse();
 				}
 			});
@@ -317,8 +315,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 		timeline.getChildren().forEach((target) => {
 			if ((<Tween>target).target) {
 				TweenLite.set((<Tween>target).target, { clearProps: 'all' });
-			}
-			else {
+			} else {
 				this.clearTimeline(<TimelineLite>target);
 			}
 		});
@@ -333,7 +330,6 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	private handleTransitionComplete(type: string, direction: string): void {
 		switch (type) {
 			case AbstractTransitionController.IN:
-
 				this._transitionInPromise = null;
 				if (this._transitionInResolveMethod) {
 					this._transitionInResolveMethod();
@@ -342,7 +338,6 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_COMPLETE));
 				break;
 			case AbstractTransitionController.OUT: {
-
 				this._transitionOutPromise = null;
 				if (this._transitionOutResolveMethod) {
 					this._transitionOutResolveMethod();
@@ -393,8 +388,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	public destruct(): void {
 		if (this._transitionOutPromise && this._transitionOutResolveMethod) {
 			this._transitionOutPromise.then(() => this.clean());
-		}
-		else {
+		} else {
 			this.clean();
 		}
 	}

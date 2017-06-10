@@ -40,8 +40,7 @@ export class FlowManager extends Disposable {
 	public start(pageInstance: IAbstractPageTransitionComponent, release: () => void): void {
 		if (this._previousComponentId === pageInstance[FlowManager.COMPONENT_ID]) {
 			release();
-		}
-		else {
+		} else {
 			this._previousComponentId = pageInstance[FlowManager.COMPONENT_ID];
 
 			switch (pageInstance.flow) {
@@ -56,7 +55,7 @@ export class FlowManager extends Disposable {
 					break;
 				}
 				default: {
-					console.error('[FlowManager] Unknown flow: [' + pageInstance.flow + ']');
+					throw new Error('[FlowManager] Unknown flow: [' + pageInstance.flow + ']');
 					break;
 				}
 			}
@@ -67,8 +66,7 @@ export class FlowManager extends Disposable {
 	 * @public
 	 * @description Dispose the flow manager
 	 */
-	public dispose():void
-	{
+	public dispose():void {
 		this._transitionOut = null;
 		this._previousComponentId = null;
 

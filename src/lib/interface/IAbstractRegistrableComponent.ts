@@ -10,7 +10,7 @@ interface IAbstractRegistrableComponent extends Vue {
 	 * @property registeredComponents
 	 * @description Array of registered components
 	 */
-	registeredComponents: Array<string>
+	registeredComponents: Array<string>;
 	/**
 	 * @property allComponentsReadyResolveMethod
 	 * @description All components ready resolve method
@@ -36,7 +36,7 @@ interface IAbstractRegistrableComponent extends Vue {
 	 * this is usually when it's children are ready but it could require more async data
 	 * @returns { void }
 	 */
-	isReady(): void
+	isReady(): void;
 	/**
 	 * @public
 	 * @method checkComponentsReady
