@@ -1,6 +1,17 @@
 # vue-transition
 
-Work in progress!
+Provides transition functionality to vue.js components.
+
+### Provided mixins
+The functionality is provided through 3 types of mixins. These mixins give you an easy way of transitioning components.
+
+- **AbstractRegistrableComponent**
+- **AbstractTransitionComponent**
+- **AbstractPageTransitionComponent**
+
+### Provided utils
+- **AbstractTransitionController** - is the base for all your transitions, It contains the timelines for transitioning in and out
+- **FlowManager** - allows you to control the flow between two pages 
 
 
 ## Installation
@@ -26,8 +37,136 @@ Check the **build** section below to see your you can build for all the
 targets yourself.
 
 ## Usage
+All examples below are based on the [vue-skeleton](https://github.com/hjeti/vue-skeleton) by [hjeti](https://github.com/hjeti/)
 
-TODO: add usage documentation
+### 1. Creating a TransitionComponent
+For demonstration purpose we will create a new component called DummyComponent. Check out the [seng-generator](https://github.com/mediamonks/seng-generator) generating components automatically!
+
+#### DummyComponent.vue
+The *.vue file does not require any modification.
+
+#### DummyComponent.js
+HandleAllComponentsReady is triggered when all the child components are 'ready'. Therefore we can create the DummyComponentTransition and be sure that all the child components are initialized.  
+
+```js
+import AbstractTransitionComponent from 'vue-transition';
+import DummyComponentTransition from 'component/DummyComponent/DummyComponentTransition';
+
+export default {
+	name: 'DummyComponent',
+	extends: AbstractTransitionComponent,
+	methods: {
+		handleAllComponentsReady() {
+			this.transitionController = new DummyComponentTransition(this.$el, this);
+			this.isReady();
+		},
+	},
+};
+
+```
+
+**Note**: Vue.js will overwrite your methods so be aware of overwriting the `handleAllComponentsReady` , `transitionIn`, `transitionOut`, `checkComponentsReady` and `componentReady` methods
+
+#### DummyComponentTransitionController.ts
+This file will contain all the transitions for your page, you can add tweens to the [provided greensock timelines](https://greensock.com/docs/#/HTML5/GSAP/TimelineLite/). 
+
+```js
+import AbstractTransitionController from 'vue-transition';
+
+class DummyComponentTransition extends AbstractTransitionController
+{
+	/**
+	 * @public
+	 * @method setupTransitionInTimeline
+	 * @description Use this method to setup your transition in timeline
+	 * */
+	protected setupTransitionInTimeline(): void {
+	}
+
+	/**
+	* @public
+	* @method setupTransitionOutTimeline
+	* @description Use this method to setup your transition out timeline
+	* */
+	protected setupTransitionOutTimeline(): void {
+	}
+}
+
+export default DummyComponentTransition;
+
+```
+
+To setup the transitionIn you can do the following example:
+
+```js
+protected setupTransitionInTimeline(): void {
+	this.transitionInTimeline.fromTo(this.element, 1, {autoAlpha: 0}, {autoAlpha: 1});
+}
+```
+
+To setup the transitionOut you can pretty much do the same thing, keep in mind that if the transitionOutTimeline is not set it will reverse the transitionInTimeline.
+
+```js
+protected setupTransitionOutTimeline(): void {
+	this.transitionOutTimeline.to(this.element, 1, {autoAlpha: 0});
+}
+```
+
+### 2. Rendering the component
+Using transition components is the same as using any other component in Vue.js exept for the fact that you have to provide two extra props. The componentReady listener is the callback for when the component is ready and the componentId is the unique id of the component.
+
+```html
+<DummyComponent @componentReady="componentReady" componentId="DummyComponent"/>
+```
+
+### 3. Nesting timelines
+The best part about components is that you can re-use them. This also applies to the timelines that you created for a component. When creating a transition component that contains another transition component you can add the subTimeline to your main timeline. You do this by refering to the `componentId`
+
+```js
+protected setupTransitionOutTimeline(): void {
+	this.transitionOutTimeline.add(this.getSubTimeline('DummyComponent'));
+}
+```
+**Note:** When you inject a timeline into another timeline you can no longer use the transitionIn/transitionOut outside of this timeline. For example when you want to transitionOut a component by triggering the transitionOut method but the timeline is also part of the parent component timeline this will not work.
+
+
+### 4. Page transitions
+Since pages are components as well we can also use this transition functionality to apply fancy animations on pages. To make this possible we have the FlowManager. The FlowManager handles the flow between two pages. The code uses the [javascript hook of the transition component](https://vuejs.org/v2/guide/transitions.html#JavaScript-Hooks). Make sure to update the `App.vue` and the `App.js` file to use the FlowManager. After you've done that make sure you set the componentId on the route object, you can find this file in the `routes.js`
+
+#### App.vue
+```html
+<transition @leave="onLeave" v-bind:css="false">
+	<router-view></router-view>
+</transition>
+```
+
+#### App.js
+```js
+export default {
+	name: 'App',
+	methods: {
+		onLeave(element, done) {
+			FlowManager.transitionOut.then(done);
+		},
+	},
+};
+```
+
+#### Routes.js
+```js
+import HomePage from 'page/HomePage';
+import Pages from 'data/enum/Pages';
+# import PageNames from 'data/enum/PageNames';
+
+export default [
+	{
+		path: Pages.HOME,
+		component: HomePage,
+		name: PageNames.HOME,
+		props: { componentId: PageNames.HOME },
+	},
+];
+```
 
 ## Documentation
 
@@ -197,15 +336,3 @@ sure the encrypted values only work for that repository.
       api_key:
         secure: "YcN...Zb="
     ```
-
-### Code Climate
-
-Todo: describe Code Climate configuration and usage.
-
-### Coverall
-
-Todo: describe Coverall configuration and usage.
-
-### NPM
-
-Todo: describe NPM configuration and usage.

@@ -23,7 +23,7 @@
     "compile:dist:webpack": "node script/webpack.js",
     "doc": "npm-run-all -p doc:*",
     "doc:typedoc": "typedoc --out docs/ src/",
-    "generate": "npm-run-all clean compile doc",
+    "generate": "npm-run-all clean compile test:unit doc",
     "build": "npm-run-all clean compile",
     "dev": "node script/webpack-dev.js",
     "build:npm": "npm-run-all test compile:npm",
@@ -66,11 +66,11 @@
     "vue"
   ],
   "bugs": {
-    "url": "https://github.com/larsvanbraam/vue-transition/issues"
+    "url": "https://github.com/larsvanbraam/vue-transition-boilerplate/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/larsvanbraam/vue-transition.git"
+    "url": "https://github.com/mediamonks/seng-boilerplate.git"
   },
   "devDependencies": {
     "@types/chai": "^3.4.34",

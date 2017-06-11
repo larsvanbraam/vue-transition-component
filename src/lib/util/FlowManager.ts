@@ -32,10 +32,9 @@ export class FlowManager extends Disposable {
 	 * @method start
 	 * @param pageInstance
 	 * @param flow
+	 * @description The vue router triggers the onLeave method twice, so we need to store the current componentId to
+	 * avoid weird page transition issues. If it's triggered on the same page we release the hijack right away.
 	 * @returns {void}
-	 *
-	 * The vue router triggers the onLeave method twice, so we need to store the current componentId to avoid
-	 * weird page transition issues. If it's triggered on the same page we release the hijack right away.
 	 */
 	public start(pageInstance: IAbstractPageTransitionComponent, release: () => void): void {
 		if (this._previousComponentId === pageInstance[FlowManager.COMPONENT_ID]) {
