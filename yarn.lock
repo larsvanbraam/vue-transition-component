@@ -60,12 +60,6 @@
   dependencies:
     "@types/source-map" "*"
 
-"@types/vue@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@types/vue/-/vue-2.0.0.tgz#ec77b3d89591deb9ca5cb052368aa9c32be088e7"
-  dependencies:
-    vue "*"
-
 "@types/webpack@^1.12.35":
   version "1.12.36"
   resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-1.12.36.tgz#46349f6fb34549ef472a96c5cec030a544f26924"
@@ -3962,7 +3956,7 @@ vrsource-tslint-rules@^5.1.0:
     chokidar-cli "~1.2.0"
     tslint "~5.1.0"
 
-vue@*:
+vue@^2.3.4:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.3.4.tgz#5ec3b87a191da8090bbef56b7cfabd4158038171"
 

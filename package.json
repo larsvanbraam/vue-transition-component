@@ -55,6 +55,7 @@
     "build:dist": "Prepares the checkout for travis deployments to github and s3"
   },
   "pre-push": [
+    "validate"
   ],
   "author": "Lars van Braam <lars@mediamonks.com> (https://github.com/larsvanbraam)",
   "homepage": "https://www.mediamonks.com/",
@@ -115,12 +116,12 @@
   },
   "dependencies": {
     "@types/gsap": "^1.19.1",
-    "@types/vue": "^2.0.0",
     "array-find": "^1.0.0",
     "array-find-index": "^1.0.2",
     "gsap": "^1.19.1",
     "seng-disposable": "^1.0.1",
     "seng-event": "^1.1.1",
-    "tslib": "^1.2.0"
+    "tslib": "^1.2.0",
+    "vue": "^2.3.4"
   }
 }
