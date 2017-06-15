@@ -1,6 +1,6 @@
 {
 	"name": "vue-transition-component",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Javascript transitions for Vue.js components.",
 	"main": "index.js",
 	"scripts": {
@@ -81,9 +81,6 @@
 		"awesome-typescript-loader": "^3.0.0-beta.17",
 		"chai": "^3.5.0",
 		"coveralls": "^2.11.6",
-		"es6-promise": "^3.2.1",
-		"es6-promisify": "^4.1.0",
-		"es6-promisify-all": "^0.1.0",
 		"istanbul": "^0.4.3",
 		"istanbul-instrumenter-loader": "^0.2.0",
 		"karma": "^0.13.22",
@@ -118,6 +115,9 @@
 		"@types/gsap": "^1.19.1",
 		"array-find": "^1.0.0",
 		"array-find-index": "^1.0.2",
+		"es6-promise": "^3.2.1",
+		"es6-promisify": "^4.1.0",
+		"es6-promisify-all": "^0.1.0",
 		"gsap": "^1.19.1",
 		"seng-disposable": "^1.0.1",
 		"seng-event": "^1.1.1",
