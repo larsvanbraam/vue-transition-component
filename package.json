@@ -1,5 +1,5 @@
 {
-  "name": "vue-transition",
+  "name": "vue-transition-component",
   "version": "0.0.1",
   "description": "Javascript transitions for Vue.js components.",
   "main": "index.js",
@@ -66,11 +66,11 @@
     "vue"
   ],
   "bugs": {
-    "url": "https://github.com/larsvanbraam/vue-transition-boilerplate/issues"
+    "url": "https://github.com/larsvanbraam/vue-transition-component-boilerplate/issues"
   },
   "repository": {
     "type": "git",
-    "url": "github.com/larsvanbraam/vue-transition.git"
+    "url": "github.com/larsvanbraam/vue-transition-component.git"
   },
   "devDependencies": {
     "@types/chai": "^3.4.34",

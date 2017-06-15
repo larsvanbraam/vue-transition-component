@@ -12,11 +12,11 @@ var baseConfig = require('../config/webpack.config.dist');
 
 var umd = baseConfig();
 umd.output.libraryTarget = "umd";
-umd.output.filename = "./dist/vue-transition-umd.js";
+umd.output.filename = "./dist/vue-transition-component-umd.js";
 
 var umdMin = baseConfig();
 umdMin.output.libraryTarget = "umd";
-umdMin.output.filename = "./dist/vue-transition-umd.min.js";
+umdMin.output.filename = "./dist/vue-transition-component-umd.min.js";
 umdMin.plugins = umdMin.plugins.concat(
 	uglifyPluginSetting
 );
@@ -25,13 +25,13 @@ umdMin.plugins = umdMin.plugins.concat(
 var amd = baseConfig();
 delete amd.output.library;
 amd.output.libraryTarget = "amd";
-amd.output.filename = "./dist/vue-transition-amd.js";
+amd.output.filename = "./dist/vue-transition-component-amd.js";
 
 
 var cjs2 = baseConfig();
 delete cjs2.output.library;
 cjs2.output.libraryTarget = "commonjs2";
-cjs2.output.filename = "./dist/vue-transition-commonjs.js";
+cjs2.output.filename = "./dist/vue-transition-component-commonjs.js";
 
 
 var system = baseConfig();
@@ -41,20 +41,20 @@ system.plugins.push(
 	new WebpackSystemRegister({
 		systemjsDeps: [
 		],
-		registerName: 'vue-transition', // optional name that SystemJS will know this bundle as.
+		registerName: 'vue-transition-component', // optional name that SystemJS will know this bundle as.
 	})
 );
-system.output.filename = "./dist/vue-transition-systemjs.js";
+system.output.filename = "./dist/vue-transition-component-systemjs.js";
 
 
 var browser = baseConfig();
 browser.output.libraryTarget = "var";
-browser.output.filename = "./dist/vue-transition.js";
+browser.output.filename = "./dist/vue-transition-component.js";
 
 
 var browserMin = baseConfig();
 browserMin.output.libraryTarget = "var";
-browserMin.output.filename = "./dist/vue-transition.min.js";
+browserMin.output.filename = "./dist/vue-transition-component.min.js";
 browserMin.plugins = browserMin.plugins.concat(
 	uglifyPluginSetting
 );

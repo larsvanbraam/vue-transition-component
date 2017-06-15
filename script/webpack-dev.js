@@ -8,7 +8,7 @@ var serverURI = `webpack-dev-server/client?http://localhost:${port}/`;
 
 var browser = baseConfig();
 browser.output.libraryTarget = "var";
-browser.output.filename = "./dist/vue-transition.js";
+browser.output.filename = "./dist/vue-transition-component.js";
 browser.output.path = path.join(__dirname, '../dist');
 browser.entry = [serverURI, browser.entry];
 
