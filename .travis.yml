@@ -7,14 +7,6 @@ node_js:
 
 sudo: false
 
-before_install:
-  - npm install -g typings
-  - npm install -g codeclimate-test-reporter
-
-after_script:
-  - codeclimate-test-reporter < coverage/report-lcov/lcov.info
-  - node_modules/.bin/coveralls < coverage/report-lcov/lcov.info
-
 deploy:
   provider: npm
   email: 'larsvanbraam@gmail.com'
