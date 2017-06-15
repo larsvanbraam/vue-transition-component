@@ -5,6 +5,7 @@ export const COMPONENT_ID = 'componentId';
 
 export default {
 	name: 'AbstractRegistrableComponent',
+	props: [ COMPONENT_ID ],
 	computed: {
 		components() {
 			return this.$children.filter(childComponent => childComponent[COMPONENT_ID] !== undefined);
@@ -34,7 +35,7 @@ export default {
 		 * @description Get a child component reference
 		 */
 		getChildComponent(componentId) {
-			return find(this.$children, child => child.componentId === componentId);
+			return find(this.$children, child => child[COMPONENT_ID] === componentId);
 		},
 		/**
 		 * @public
