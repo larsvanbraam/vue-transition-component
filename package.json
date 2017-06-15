@@ -1,6 +1,6 @@
 {
 	"name": "vue-transition-component",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"description": "Javascript transitions for Vue.js components.",
 	"main": "index.js",
 	"scripts": {
@@ -111,7 +111,6 @@
 		"webpack-validator": "^2.1.3"
 	},
 	"dependencies": {
-		"ts-helpers": "^1.1.1",
 		"@types/gsap": "^1.19.1",
 		"array-find": "^1.0.0",
 		"array-find-index": "^1.0.2",
@@ -121,6 +120,7 @@
 		"gsap": "^1.19.1",
 		"seng-disposable": "^1.0.1",
 		"seng-event": "^1.1.1",
+		"ts-helpers": "^1.1.1",
 		"tslib": "^1.2.0",
 		"vue": "^2.3.4"
 	}
