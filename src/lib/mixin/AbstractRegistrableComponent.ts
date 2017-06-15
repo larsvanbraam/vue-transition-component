@@ -7,7 +7,7 @@ export default {
 	name: 'AbstractRegistrableComponent',
 	computed: {
 		components() {
-			return this.$children.filter(childComponent => childComponent['_events'].componentReady !== undefined);
+			return this.$children.filter(childComponent => childComponent[COMPONENT_ID] !== undefined);
 		},
 	},
 	beforeCreate() {
