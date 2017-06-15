@@ -5,7 +5,7 @@ export const COMPONENT_ID = 'componentId';
 
 export default {
 	name: 'AbstractRegistrableComponent',
-	props: [ COMPONENT_ID ],
+	props: [COMPONENT_ID],
 	computed: {
 		components() {
 			return this.$children.filter(childComponent => childComponent[COMPONENT_ID] !== undefined);
