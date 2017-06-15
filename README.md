@@ -1,5 +1,4 @@
-# vue-transition ![dependencies](https://img.shields.io/david/larsvanbraam/vue-transition.svg?style=flat-square)
-[![GitHub issues](https://img.shields.io/github/issues/larsvanbraam/vue-transition.svg?style=flat-square)](https://github.com/larsvanbraam/vue-transition/issues) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/larsvanbraam/vue-transition/master/LICENSE)
+# vue-transition ![dependencies](https://img.shields.io/david/larsvanbraam/vue-transition.svg?style=flat-square)[![GitHub issues](https://img.shields.io/github/issues/larsvanbraam/vue-transition.svg?style=flat-square)](https://github.com/larsvanbraam/vue-transition/issues) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/larsvanbraam/vue-transition/master/LICENSE)
 Provides transition functionality to vue.js components.
 
 ### Provided mixins
