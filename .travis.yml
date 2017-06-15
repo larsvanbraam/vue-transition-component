@@ -8,15 +8,14 @@ node_js:
 sudo: false
 
 before_install:
-  - if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
-  - npm install -g codeclimate-test-reporter
+  - if [[ `npm -v` != 5* ]]; then npm i -g npm@5; fi
+  - npm install -g typings
 
 script:
   - npm run build
   - npm run validate
 
 after_script:
-  - codeclimate-test-reporter < coverage/lcov.info
   - node_modules/.bin/coveralls < coverage/lcov.info
 
 before_deploy:
