@@ -1,6 +1,28 @@
-# vue-transition ![dependencies](https://img.shields.io/david/larsvanbraam/vue-transition.svg?style=flat-square)[![GitHub issues](https://img.shields.io/github/issues/larsvanbraam/vue-transition.svg?style=flat-square)](https://github.com/larsvanbraam/vue-transition/issues) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/larsvanbraam/vue-transition/master/LICENSE)
+![dependencies](https://img.shields.io/david/larsvanbraam/vue-transition.svg?style=flat-square) [![GitHub issues](https://img.shields.io/github/issues/larsvanbraam/vue-transition.svg?style=flat-square)](https://github.com/larsvanbraam/vue-transition/issues) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/larsvanbraam/vue-transition/master/LICENSE)
+# vue-transition-component 
+
 Provides transition functionality to vue.js components.
 
+
+## Table of contents
+
+1. [Features](#features)
+	1. [Provided mixins](#provided-mixins)
+	2. [Provided utils ](#provided-utils)
+2. [Installation](#installation)
+3. [Usage](#usage)
+	1. [Creating a TransitionComponent](#creating-a-transitionComponent)
+	2. [Rendering the component](#rendering-the-component)
+	3. [Nesting timelines](#nesting-timelines)
+	4. [Page transitions](#page-transitions)
+	5. [Access a child component](#access-a-child-component)
+4. [Documentation](#documentation)
+5. [Building](#building)
+5. [Authors](#authors)
+6. [Contribute](#contribute)
+7. [License](#license)
+
+## Features
 ### Provided mixins
 The functionality is provided through 3 types of mixins. These mixins give you an easy way of transitioning components.
 
@@ -12,28 +34,16 @@ The functionality is provided through 3 types of mixins. These mixins give you a
 - **AbstractTransitionController** - is the base for all your transitions, It contains the timelines for transitioning in and out
 - **FlowManager** - allows you to control the flow between two pages 
 
-
 ## Installation
-
 ### yarn / npm
 
 ```sh
-yarn add vue-transition
+yarn add vue-transition-component
 ```
 
 ```sh
-npm i -S vue-transition
+npm i -S vue-transition-component
 ```
-
-### other
-
-We also have browser, amd, commonjs, umd, systemjs and es6 versions of
-this module available attached to the [Github Releases](https://github.com/larsvanbraam/vue-transition/releases).
-
-### manual
-
-Check the **build** section below to see your you can build for all the
-targets yourself.
 
 ## Usage
 All examples below are based on the [vue-skeleton](https://github.com/hjeti/vue-skeleton) by [hjeti](https://github.com/hjeti/)
@@ -48,7 +58,7 @@ The *.vue file does not require any modification.
 HandleAllComponentsReady is triggered when all the child components are 'ready'. Therefore we can create the DummyComponentTransition and be sure that all the child components are initialized.  
 
 ```js
-import AbstractTransitionComponent from 'vue-transition';
+import AbstractTransitionComponent from 'vue-transition-component';
 import DummyComponentTransition from 'component/DummyComponent/DummyComponentTransition';
 
 export default {
@@ -64,7 +74,14 @@ export default {
 
 ```
 
-**Note**: Vue.js will overwrite your methods so be aware of overwriting the `handleAllComponentsReady` , `transitionIn`, `transitionOut`, `checkComponentsReady` and `componentReady` methods
+**Note:** *Vue.js will overwrite your methods so be aware of overwriting the following methods:*
+
+1. `isReady`
+2. `handleAllComponentsReady`
+3. `transitionIn`
+4. `transitionOut`
+5. `checkComponentsReady`
+6. `componentReady`
 
 #### DummyComponentTransitionController.ts
 This file will contain all the transitions for your page, you can add tweens to the [provided greensock timelines](https://greensock.com/docs/#/HTML5/GSAP/TimelineLite/). 
@@ -98,27 +115,31 @@ export default DummyComponentTransition;
 To setup the transitionIn you can do the following example:
 
 ```js
+...
 protected setupTransitionInTimeline(): void {
 	this.transitionInTimeline.fromTo(this.viewModel.$el, 1, {autoAlpha: 0}, {autoAlpha: 1});
 }
+...
 ```
 
 To setup the transitionOut you can pretty much do the same thing, keep in mind that if the transitionOutTimeline is not set it will reverse the transitionInTimeline.
 
 ```js
+...
 protected setupTransitionOutTimeline(): void {
 	this.transitionOutTimeline.to(this.viewModel.$el, 1, {autoAlpha: 0});
 }
+...
 ```
 
-### 2. Rendering the component
+### Rendering the component
 Using transition components is the same as using any other component in Vue.js exept for the fact that you have to provide two extra props. The componentReady listener is the callback for when the component is ready and the componentId is the unique id of the component.
 
 ```html
 <DummyComponent componentId="DummyComponent"/>
 ```
 
-### 3. Nesting timelines
+### Nesting timelines
 The best part about components is that you can re-use them. This also applies to the timelines that you created for a component. When creating a transition component that contains another transition component you can add the subTimeline to your main timeline. You do this by refering to the `componentId`
 
 ```js
@@ -128,15 +149,16 @@ protected setupTransitionOutTimeline(): void {
 ```
 **Note:** When you inject a timeline into another timeline you can no longer use the transitionIn/transitionOut outside of this timeline. For example when you want to transitionOut a component by triggering the transitionOut method but the timeline is also part of the parent component timeline this will not work.
 
-
-### 4. Page transitions
+### Page transitions
 Since pages are components as well we can also use this transition functionality to apply fancy animations on pages. To make this possible we have the FlowManager. The FlowManager handles the flow between two pages. The code uses the [javascript hook of the transition component](https://vuejs.org/v2/guide/transitions.html#JavaScript-Hooks). Make sure to update the `App.vue` and the `App.js` file to use the FlowManager. After you've done that make sure you set the componentId on the route object, you can find this file in the `routes.js`
 
 #### App.vue
 ```html
+...
 <transition @leave="onLeave" v-bind:css="false">
 	<router-view></router-view>
 </transition>
+...
 ```
 
 #### App.js
@@ -155,7 +177,7 @@ export default {
 ```js
 import HomePage from 'page/HomePage';
 import Pages from 'data/enum/Pages';
-# import PageNames from 'data/enum/PageNames';
+import PageNames from 'data/enum/PageNames';
 
 export default [
 	{
@@ -167,15 +189,22 @@ export default [
 ];
 ```
 
+### Access a child component
+To acces get a child component reference you can call the method `getChildComponent` providing the component id you provided while registering the component
+
+```js
+...
+this.dummyComponent = this.getChildComponent('DummyComponent');
+...
+
+```
+
 ## Documentation
-
 View the [generated documentation](http://larsvanbraam.github.io/vue-transition/).
-
 
 ## Building
 
-In order to build vue-transition, ensure that you have [Git](http://git-scm.com/downloads)
-and [Node.js](http://nodejs.org/) installed.
+In order to build vue-transition-component, ensure that you have [Git](http://git-scm.com/downloads) and [Node.js](http://nodejs.org/) installed.
 
 Clone a copy of the repo:
 ```sh
@@ -211,127 +240,26 @@ If you want to create the distribution files yourself, you can run the
 `build-dist` script, and the following files will get generated in the
 `dist` folder:
 
-- **/dist/vue-transition.js**: bundled with webpack, can be loaded from
+- **/dist/vue-transition-component.js**: bundled with webpack, can be loaded from
 	a script tag, available as `window.SengBoilerplate`
-- **/dist/vue-transition.min.js**: same as above, but minified
-- **/dist/vue-transition-amd.js**: bundled with webpack, can be used
+- **/dist/vue-transition-component.min.js**: same as above, but minified
+- **/dist/vue-transition-component-amd.js**: bundled with webpack, can be used
 	with e.g. requirejs
-- **/dist/vue-transition-commonjs.js**: bundled with webpack, can be
+- **/dist/vue-transition-component-commonjs.js**: bundled with webpack, can be
 	used in systems that support commonjs, but you should just use npm
-- **/dist/vue-transition-umd.js**: bundled with webpack, works in the
+- **/dist/vue-transition-component-umd.js**: bundled with webpack, works in the
 	browser, with requirejs, and in a commonjs system
-- **/dist/vue-transition-umd.min.js**: same as above, but minified
-- **/dist/vue-transition-system.js**: bundled with typescript, can be
+- **/dist/vue-transition-component-umd.min.js**: same as above, but minified
+- **/dist/vue-transition-component-system.js**: bundled with typescript, can be
 	used in systems	that support systemjs
-- **/dist/vue-transition-es6.zip**: transpiled with typescript, only
+- **/dist/vue-transition-component-es6.zip**: transpiled with typescript, only
 	types are removed from the source files
 
-## Contribute
-
-View [CONTRIBUTING.md](./CONTRIBUTING.md)
-
-
-## Changelog
-
-View [CHANGELOG.md](./CHANGELOG.md)
-
-
 ## Authors
-
 View [AUTHORS.md](./AUTHORS.md)
 
+## Contribute
+View [CONTRIBUTING.md](./CONTRIBUTING.md)
 
-## LICENSE
-
-[MIT](./LICENSE) © MediaMonks
-
-### Travis
-
-This project uses [Travis](https://travis-ci.org) to build, test and
-publish its code to npm. Travis is free for public Github repositories.
-
-It runs on all commits, shows the build status for pull requests, and
-publishes to npm when a new tag/release is created.
-
-Travis only runs the `npm test` script, so have configured that script
-to run everything we want Travis to check. Besides the unit tests, we
-also run our validations and linters.
-
-The travis configuration is placed in a `.travis.yml` file, consisting
-of multiple sections.
-
-1.  Defines the `node_js` [language](https://docs.travis-ci.com/user/languages/javascript-with-nodejs),
-    and tells travis on which node versions to run the process.
-2.  Before running, it needs to install some global dependencies, and
-    when it processes some coverage results.
-3.  It can do a [npm deploy](https://docs.travis-ci.com/user/deployment/npm),
-    telling it to keep the generated artifacts and only publish when run
-    on node 4 and when a tag was committed. It also contains the email
-    address and api key of the npm user.
-4.  Code Climate has a [travis plugin](https://docs.travis-ci.com/user/code-climate/)
-    that automatically uploads the code coverage results.
-
-Because we want to keep the npm api key secret, we generate a secure
-token with the [Travis Client](https://github.com/travis-ci/travis.rb),
-a CLI written in ruby.
-
-Before we can do this, we must make sure that the repository is added
-to Travis, because Travis needs the repository owner/name info to make
-sure the encrypted values only work for that repository.
-
-1.  First you need to [login](https://github.com/travis-ci/travis.rb#login)
-    with your travis account:
-
-    ```sh
-    $ travis login
-    ```
-
-    To verify that you are logged in correctly you can check:
-
-    ```sh
-    $ travis whoami
-    ```
-
-2.  Then make sure you are logged in to your npm account with the
-    [adduser](https://docs.npmjs.com/cli/adduser) command:
-
-    ```sh
-    $ npm adduser
-    ```
-
-    To verify that you are logged in correctly you can check:
-
-    ```sh
-    $ npm whoami
-    ```
-
-3.  Now we need to grab your auth token so we can encrypt it:
-
-    ```sh
-    $ cat ~/.npmrc
-
-    # outputs:
-    //registry.npmjs.org/:_authToken=<your_auth_token>
-    ```
-
-4.  Then let's encrypt that token using the travis [encrypt](https://github.com/travis-ci/travis.rb#encrypt)
-    command:
-
-    ```sh
-    $ travis encrypt <your_auth_token>
-    Detected repository as larsvanbraam/vue-transition, is this correct? |yes|
-    Please add the following to your .travis.yml file:
-
-      secure: "YcN...Zb="
-    ```
-
-    Now copy that last line, paste it into your `.travis.yml`, and make
-    sure it looks something like this:
-
-    ```yml
-    deploy:
-      provider: npm
-      email: "john@doe.com"
-      api_key:
-        secure: "YcN...Zb="
-    ```
+## License
+[MIT](./LICENSE) © Lars van Braam
