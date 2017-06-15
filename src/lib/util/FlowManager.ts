@@ -1,7 +1,7 @@
 import Disposable from 'seng-disposable';
 import FlowTypes from '../enum/FlowTypes';
 import IAbstractPageTransitionComponent from '../interface/IAbstractPageTransitionComponent';
-import { COMPONENT_ID } from 'src/lib/mixin/AbstractRegistrableComponent';
+import { COMPONENT_ID } from '../mixin/AbstractRegistrableComponent';
 
 export class FlowManager extends Disposable {
 	/**
