@@ -1,14 +1,9 @@
 import Disposable from 'seng-disposable';
 import FlowTypes from '../enum/FlowTypes';
 import IAbstractPageTransitionComponent from '../interface/IAbstractPageTransitionComponent';
+import { COMPONENT_ID } from 'src/lib/mixin/AbstractRegistrableComponent';
 
 export class FlowManager extends Disposable {
-	/**
-	 * @private static
-	 * @property COMPONENT_ID
-	 * @type {string}
-	 */
-	private static COMPONENT_ID: string = 'componentId';
 	/**
 	 * @property _transitionOut
 	 * @type Promise<void>
@@ -37,10 +32,10 @@ export class FlowManager extends Disposable {
 	 * @returns {void}
 	 */
 	public start(pageInstance: IAbstractPageTransitionComponent, release: () => void): void {
-		if (this._previousComponentId === pageInstance[FlowManager.COMPONENT_ID]) {
+		if (this._previousComponentId === pageInstance[COMPONENT_ID]) {
 			release();
 		} else {
-			this._previousComponentId = pageInstance[FlowManager.COMPONENT_ID];
+			this._previousComponentId = pageInstance[COMPONENT_ID];
 
 			switch (pageInstance.flow) {
 				case FlowTypes.NORMAL: {

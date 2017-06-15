@@ -1,8 +1,10 @@
 import { Promise } from 'es6-promise';
+import find from 'array-find';
+
+export const COMPONENT_ID = 'componentId';
 
 export default {
 	name: 'AbstractRegistrableComponent',
-	props: ['componentId'],
 	computed: {
 		components() {
 			return this.$children.filter(childComponent => childComponent['_events'].componentReady !== undefined);
@@ -23,7 +25,16 @@ export default {
 		 * @returns {void}
 		 */
 		isReady() {
-			this.$emit('componentReady', this);
+			this.$parent[COMPONENT_ID](this);
+		},
+		/**
+		 * @public
+		 * @method getChildComponent
+		 * @param componentId
+		 * @description Get a child component reference
+		 */
+		getChildComponent(componentId) {
+			return find(this.$children, child => child.componentId === componentId);
 		},
 		/**
 		 * @public

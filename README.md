@@ -57,7 +57,7 @@ export default {
 	extends: AbstractTransitionComponent,
 	methods: {
 		handleAllComponentsReady() {
-			this.transitionController = new DummyComponentTransition(this.$el, this);
+			this.transitionController = new DummyComponentTransition(this);
 			this.isReady();
 		},
 	},
@@ -100,7 +100,7 @@ To setup the transitionIn you can do the following example:
 
 ```js
 protected setupTransitionInTimeline(): void {
-	this.transitionInTimeline.fromTo(this.element, 1, {autoAlpha: 0}, {autoAlpha: 1});
+	this.transitionInTimeline.fromTo(this.viewModel.$el, 1, {autoAlpha: 0}, {autoAlpha: 1});
 }
 ```
 
@@ -108,7 +108,7 @@ To setup the transitionOut you can pretty much do the same thing, keep in mind t
 
 ```js
 protected setupTransitionOutTimeline(): void {
-	this.transitionOutTimeline.to(this.element, 1, {autoAlpha: 0});
+	this.transitionOutTimeline.to(this.viewModel.$el, 1, {autoAlpha: 0});
 }
 ```
 
@@ -116,7 +116,7 @@ protected setupTransitionOutTimeline(): void {
 Using transition components is the same as using any other component in Vue.js exept for the fact that you have to provide two extra props. The componentReady listener is the callback for when the component is ready and the componentId is the unique id of the component.
 
 ```html
-<DummyComponent @componentReady="componentReady" componentId="DummyComponent"/>
+<DummyComponent componentId="DummyComponent"/>
 ```
 
 ### 3. Nesting timelines

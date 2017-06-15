@@ -63,7 +63,6 @@
   "keywords": [
     "seng",
     "mediamonks",
-    "boilerplate",
     "vue"
   ],
   "bugs": {
@@ -71,7 +70,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mediamonks/seng-boilerplate.git"
+    "url": "github.com/larsvanbraam/vue-transition.git"
   },
   "devDependencies": {
     "@types/chai": "^3.4.34",

@@ -18,7 +18,6 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	protected static FORWARD: string = 'AbstractTransitionController.FORWARD';
 	protected static REVERSED: string = 'AbstractTransitionController.REVERSED';
 
-	protected element: HTMLElement;
 	/**
 	 * @type { IAbstractTransitionComponent }
 	 * @protected
@@ -81,12 +80,9 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	private _transitionInPromise: Promise<void> = null;
 	private _transitionOutPromise: Promise<void> = null;
 
-	constructor(element: HTMLElement, viewModel: IAbstractTransitionComponent) {
+	constructor(viewModel: IAbstractTransitionComponent) {
 		super();
-
-		this.element = element;
 		this.viewModel = viewModel;
-
 		this.init();
 	}
 
@@ -147,7 +143,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 
 		// If we do have a transitionOut make sure the transitionIn is paused in case we clicked the
 		// transitionOut while the transitionIn was not finished yet.
-		if (this.transitionOutTimeline.duration() > 0) {
+		if (this.transitionOutTimeline.getChildren().length > 0) {
 			this.transitionOutTimeline.paused(false);
 			this.transitionInTimeline.paused(true);
 		} else {
@@ -161,7 +157,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 
 			this._transitionOutPromise = new Promise<void>((resolve: () => void) => {
 				this._transitionOutResolveMethod = resolve;
-				if (this.transitionOutTimeline.duration() > 0) {
+				if (this.transitionOutTimeline.getChildren().length > 0) {
 					this.transitionOutTimeline.restart();
 				} else {
 					this.transitionInTimeline.reverse();
@@ -220,7 +216,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				return transitionInTimeline.restart();
 			}
 			case AbstractTransitionController.OUT: {
-				if (transitionOutTimeline.duration() > 0) {
+				if (transitionOutTimeline.getChildren().length > 0) {
 					return transitionOutTimeline.restart();
 				}
 
@@ -255,7 +251,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				return transitionInTimeline.duration();
 			}
 			case AbstractTransitionController.OUT: {
-				if (transitionOutTimeline.duration() > 0) {
+				if (transitionOutTimeline.getChildren().length > 0) {
 					return transitionOutTimeline.duration();
 				}
 
@@ -302,7 +298,6 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 */
 	protected killAndClearTimeline(timeline: TimelineLite): void {
 		this.clearTimeline(timeline);
-
 		timeline.kill();
 	}
 
@@ -319,7 +314,6 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				this.clearTimeline(<TimelineLite>target);
 			}
 		});
-
 		timeline.clear();
 	}
 
@@ -358,7 +352,6 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @description Clean all the timelines and the resolve method
 	 */
 	private clean(): void {
-		this.element = null;
 		this.viewModel = null;
 		this._isHidden = null;
 
