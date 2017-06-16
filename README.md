@@ -200,7 +200,7 @@ this.dummyComponent = this.getChildComponent('DummyComponent');
 ```
 
 ## Documentation
-View the [generated documentation](http://larsvanbraam.github.io/vue-transition-component/).
+View the [generated documentation](http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/).
 
 ## Building
 
