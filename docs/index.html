@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>vue-transition</title>
+	<title>vue-transition-component</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">vue-transition</a>
+					<a href="index.html" class="title">vue-transition-component</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> vue-transition</h1>
+			<h1> vue-transition-component</h1>
 		</div>
 	</div>
 </header>
@@ -64,65 +64,179 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="vue-transition">vue-transition</h1>
-				<p>Work in progress!</p>
+				<p><img src="https://img.shields.io/david/larsvanbraam/vue-transition.svg?style=flat-square" alt="dependencies"> <a href="https://github.com/larsvanbraam/vue-transition/issues"><img src="https://img.shields.io/github/issues/larsvanbraam/vue-transition.svg?style=flat-square" alt="GitHub issues"></a> <a href="https://raw.githubusercontent.com/larsvanbraam/vue-transition/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="GitHub license"></a></p>
+				<h1 id="vue-transition-component">vue-transition-component</h1>
+				<p>Provides transition functionality to vue.js components.</p>
+				<h2 id="table-of-contents">Table of contents</h2>
+				<ol>
+					<li><a href="#features">Features</a><ol>
+							<li><a href="#provided-mixins">Provided mixins</a></li>
+							<li><a href="#provided-utils">Provided utils </a></li>
+						</ol>
+					</li>
+					<li><a href="#installation">Installation</a></li>
+					<li><a href="#usage">Usage</a><ol>
+							<li><a href="#creating-a-transitionComponent">Creating a TransitionComponent</a></li>
+							<li><a href="#rendering-the-component">Rendering the component</a></li>
+							<li><a href="#nesting-timelines">Nesting timelines</a></li>
+							<li><a href="#page-transitions">Page transitions</a></li>
+							<li><a href="#access-a-child-component">Access a child component</a></li>
+						</ol>
+					</li>
+					<li><a href="#documentation">Documentation</a></li>
+					<li><a href="#building">Building</a></li>
+					<li><a href="#authors">Authors</a></li>
+					<li><a href="#contribute">Contribute</a></li>
+					<li><a href="#license">License</a></li>
+				</ol>
+				<h2 id="features">Features</h2>
+				<h3 id="provided-mixins">Provided mixins</h3>
+				<p>The functionality is provided through 3 types of mixins. These mixins give you an easy way of transitioning components.</p>
+				<ul>
+					<li><strong>AbstractRegistrableComponent</strong></li>
+					<li><strong>AbstractTransitionComponent</strong></li>
+					<li><strong>AbstractPageTransitionComponent</strong></li>
+				</ul>
+				<h3 id="provided-utils">Provided utils</h3>
+				<ul>
+					<li><strong>AbstractTransitionController</strong> - is the base for all your transitions, It contains the timelines for transitioning in and out</li>
+					<li><strong>FlowManager</strong> - allows you to control the flow between two pages </li>
+				</ul>
 				<h2 id="installation">Installation</h2>
 				<h3 id="yarn-npm">yarn / npm</h3>
-				<pre><code class="lang-sh">yarn add vue-transition
+				<pre><code class="lang-sh">yarn add vue-transition-component
 </code></pre>
-				<pre><code class="lang-sh">npm i -S vue-transition
+				<pre><code class="lang-sh">npm i -S vue-transition-component
 </code></pre>
-				<h3 id="other">other</h3>
-				<p>We also have browser, amd, commonjs, umd, systemjs and es6 versions of
-				this module available attached to the <a href="https://github.com/larsvanbraam/vue-transition/releases">Github Releases</a>.</p>
-				<!---
-
-Note: The below cannot be used yet, as there is no way to link to a
-specific version yet without updating this readme manually after each
-new version.
-
-
-### browser
-
-```html
-<script src="http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate.min.js"></script>
-```
-```js
-console.log(window.SengBoilerplate)
-```
-
-### other
-
-Besides the browser version, there are other versions available for
-download as well:
-
-- [browser](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate.js) (and [minified](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate.min.js))
-- [umd](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate.js) (and [minified](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate-umd.min.js))
-- [amd](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate-amd.js)
-- [commonjs](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate-commonjs.js)
-- [systemjs](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate-system.js)
-- [es6](http://mediamonks-development.s3.amazonaws.com/seng/libs/seng-boilerplate/1.2.0/seng-boilerplate-es6.zip)
-
--->
-				<h3 id="manual">manual</h3>
-				<p>Check the <strong>build</strong> section below to see your you can build for all the
-				targets yourself.</p>
 				<h2 id="usage">Usage</h2>
-				<pre><code class="lang-ts"><span class="hljs-keyword">import</span> SengBoilerplate <span class="hljs-keyword">from</span> <span class="hljs-string">'seng-boilerplate'</span>;
-<span class="hljs-comment">// import SengBoilerplate from 'seng-boilerplate/lib/classname';</span>
+				<p>All examples below are based on the <a href="https://github.com/hjeti/vue-skeleton">vue-skeleton</a> by <a href="https://github.com/hjeti/">hjeti</a></p>
+				<h3 id="1-creating-a-transitioncomponent">1. Creating a TransitionComponent</h3>
+				<p>For demonstration purpose we will create a new component called DummyComponent. Check out the <a href="https://github.com/mediamonks/seng-generator">seng-generator</a> generating components automatically!</p>
+				<h4 id="dummycomponent-vue">DummyComponent.vue</h4>
+				<p>The *.vue file does not require any modification.</p>
+				<h4 id="dummycomponent-js">DummyComponent.js</h4>
+				<p>HandleAllComponentsReady is triggered when all the child components are &#39;ready&#39;. Therefore we can create the DummyComponentTransition and be sure that all the child components are initialized.  </p>
+				<pre><code class="lang-js"><span class="hljs-keyword">import</span> AbstractTransitionComponent <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-transition-component'</span>;
+<span class="hljs-keyword">import</span> DummyComponentTransition <span class="hljs-keyword">from</span> <span class="hljs-string">'component/DummyComponent/DummyComponentTransition'</span>;
 
-<span class="hljs-comment">// do something with SengBoilerplate</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'DummyComponent'</span>,
+    <span class="hljs-attr">extends</span>: AbstractTransitionComponent,
+    <span class="hljs-attr">methods</span>: {
+        handleAllComponentsReady() {
+            <span class="hljs-keyword">this</span>.transitionController = <span class="hljs-keyword">new</span> DummyComponentTransition(<span class="hljs-keyword">this</span>);
+            <span class="hljs-keyword">this</span>.isReady();
+        },
+    },
+};
+</code></pre>
+				<p><strong>Note:</strong> <em>Vue.js will overwrite your methods so be aware of overwriting the following methods:</em></p>
+				<ol>
+					<li><code>isReady</code></li>
+					<li><code>handleAllComponentsReady</code></li>
+					<li><code>transitionIn</code></li>
+					<li><code>transitionOut</code></li>
+					<li><code>checkComponentsReady</code></li>
+					<li><code>componentReady</code></li>
+				</ol>
+				<h4 id="dummycomponenttransitioncontroller-ts">DummyComponentTransitionController.ts</h4>
+				<p>This file will contain all the transitions for your page, you can add tweens to the <a href="https://greensock.com/docs/#/HTML5/GSAP/TimelineLite/">provided greensock timelines</a>. </p>
+				<pre><code class="lang-js"><span class="hljs-keyword">import</span> AbstractTransitionController <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-transition'</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DummyComponentTransition</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractTransitionController</span>
+</span>{
+    <span class="hljs-comment">/**
+     * @public
+     * @method setupTransitionInTimeline
+     * @description Use this method to setup your transition in timeline
+     * */</span>
+    protected setupTransitionInTimeline(): <span class="hljs-keyword">void</span> {
+    }
+
+    <span class="hljs-comment">/**
+    * @public
+    * @method setupTransitionOutTimeline
+    * @description Use this method to setup your transition out timeline
+    * */</span>
+    protected setupTransitionOutTimeline(): <span class="hljs-keyword">void</span> {
+    }
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> DummyComponentTransition;
+</code></pre>
+				<p>To setup the transitionIn you can do the following example:</p>
+				<pre><code class="lang-js">...
+protected setupTransitionInTimeline(): <span class="hljs-keyword">void</span> {
+    <span class="hljs-keyword">this</span>.transitionInTimeline.fromTo(<span class="hljs-keyword">this</span>.viewModel.$el, <span class="hljs-number">1</span>, {<span class="hljs-attr">autoAlpha</span>: <span class="hljs-number">0</span>}, {<span class="hljs-attr">autoAlpha</span>: <span class="hljs-number">1</span>});
+}
+...
+</code></pre>
+				<p>To setup the transitionOut you can pretty much do the same thing, keep in mind that if the transitionOutTimeline is not set it will reverse the transitionInTimeline.</p>
+				<pre><code class="lang-js">...
+protected setupTransitionOutTimeline(): <span class="hljs-keyword">void</span> {
+    <span class="hljs-keyword">this</span>.transitionOutTimeline.to(<span class="hljs-keyword">this</span>.viewModel.$el, <span class="hljs-number">1</span>, {<span class="hljs-attr">autoAlpha</span>: <span class="hljs-number">0</span>});
+}
+...
+</code></pre>
+				<h3 id="rendering-the-component">Rendering the component</h3>
+				<p>Using transition components is the same as using any other component in Vue.js exept for the fact that you have to provide two extra props. The componentReady listener is the callback for when the component is ready and the componentId is the unique id of the component.</p>
+				<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">DummyComponent</span> <span class="hljs-attr">componentId</span>=<span class="hljs-string">"DummyComponent"</span>/&gt;</span>
+</code></pre>
+				<h3 id="nesting-timelines">Nesting timelines</h3>
+				<p>The best part about components is that you can re-use them. This also applies to the timelines that you created for a component. When creating a transition component that contains another transition component you can add the subTimeline to your main timeline. You do this by refering to the <code>componentId</code></p>
+				<pre><code class="lang-js">protected setupTransitionOutTimeline(): <span class="hljs-keyword">void</span> {
+    <span class="hljs-keyword">this</span>.transitionOutTimeline.add(<span class="hljs-keyword">this</span>.getSubTimeline(<span class="hljs-string">'DummyComponent'</span>));
+}
+</code></pre>
+				<p><strong>Note:</strong> When you inject a timeline into another timeline you can no longer use the transitionIn/transitionOut outside of this timeline. For example when you want to transitionOut a component by triggering the transitionOut method but the timeline is also part of the parent component timeline this will not work.</p>
+				<h3 id="page-transitions">Page transitions</h3>
+				<p>Since pages are components as well we can also use this transition functionality to apply fancy animations on pages. To make this possible we have the FlowManager. The FlowManager handles the flow between two pages. The code uses the <a href="https://vuejs.org/v2/guide/transitions.html#JavaScript-Hooks">javascript hook of the transition component</a>. Make sure to update the <code>App.vue</code> and the <code>App.js</code> file to use the FlowManager. After you&#39;ve done that make sure you set the componentId on the route object, you can find this file in the <code>routes.js</code></p>
+				<h4 id="app-vue">App.vue</h4>
+				<pre><code class="lang-html">...
+<span class="hljs-tag">&lt;<span class="hljs-name">transition</span> @<span class="hljs-attr">leave</span>=<span class="hljs-string">"onLeave"</span> <span class="hljs-attr">v-bind:css</span>=<span class="hljs-string">"false"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">router-view</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">router-view</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span>
+...
+</code></pre>
+				<h4 id="app-js">App.js</h4>
+				<pre><code class="lang-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'App'</span>,
+    <span class="hljs-attr">methods</span>: {
+        onLeave(element, done) {
+            FlowManager.transitionOut.then(done);
+        },
+    },
+};
+</code></pre>
+				<h4 id="routes-js">Routes.js</h4>
+				<pre><code class="lang-js"><span class="hljs-keyword">import</span> HomePage <span class="hljs-keyword">from</span> <span class="hljs-string">'page/HomePage'</span>;
+<span class="hljs-keyword">import</span> Pages <span class="hljs-keyword">from</span> <span class="hljs-string">'data/enum/Pages'</span>;
+<span class="hljs-keyword">import</span> PageNames <span class="hljs-keyword">from</span> <span class="hljs-string">'data/enum/PageNames'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> [
+    {
+        <span class="hljs-attr">path</span>: Pages.HOME,
+        <span class="hljs-attr">component</span>: HomePage,
+        <span class="hljs-attr">name</span>: PageNames.HOME,
+        <span class="hljs-attr">props</span>: { <span class="hljs-attr">componentId</span>: PageNames.HOME },
+    },
+];
+</code></pre>
+				<h3 id="access-a-child-component">Access a child component</h3>
+				<p>To acces get a child component reference you can call the method <code>getChildComponent</code> providing the component id you provided while registering the component</p>
+				<pre><code class="lang-js">...
+this.dummyComponent = <span class="hljs-keyword">this</span>.getChildComponent(<span class="hljs-string">'DummyComponent'</span>);
+...
 </code></pre>
 				<h2 id="documentation">Documentation</h2>
-				<p>View the <a href="http://mediamonks.github.io/seng-boilerplate/">generated documentation</a>.</p>
+				<p>View the <a href="http://larsvanbraam.github.io/vue-transition/">generated documentation</a>.</p>
 				<h2 id="building">Building</h2>
-				<p>In order to build seng-boilerplate, ensure that you have <a href="http://git-scm.com/downloads">Git</a>
-				and <a href="http://nodejs.org/">Node.js</a> installed.</p>
+				<p>In order to build vue-transition-component, ensure that you have <a href="http://git-scm.com/downloads">Git</a> and <a href="http://nodejs.org/">Node.js</a> installed.</p>
 				<p>Clone a copy of the repo:</p>
-				<pre><code class="lang-sh">git <span class="hljs-built_in">clone</span> https://github.com/mediamonks/seng-boilerplate.git
+				<pre><code class="lang-sh">git <span class="hljs-built_in">clone</span> https://github.com/larsvanbraam/vue-transition.git
 </code></pre>
-				<p>Change to the seng-boilerplate directory:</p>
-				<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> seng-boilerplate
+				<p>Change to the vue-transition directory:</p>
+				<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> vue-transition
 </code></pre>
 				<p>Install dev dependencies:</p>
 				<pre><code class="lang-sh">yarn
@@ -143,105 +257,27 @@ yarn doc             <span class="hljs-comment"># generate typedoc documentation
 					<code>build-dist</code> script, and the following files will get generated in the
 				<code>dist</code> folder:</p>
 				<ul>
-					<li><strong>/dist/seng-boilerplate.js</strong>: bundled with webpack, can be loaded from
+					<li><strong>/dist/vue-transition-component.js</strong>: bundled with webpack, can be loaded from
 					a script tag, available as <code>window.SengBoilerplate</code></li>
-					<li><strong>/dist/seng-boilerplate.min.js</strong>: same as above, but minified</li>
-					<li><strong>/dist/seng-boilerplate-amd.js</strong>: bundled with webpack, can be used
+					<li><strong>/dist/vue-transition-component.min.js</strong>: same as above, but minified</li>
+					<li><strong>/dist/vue-transition-component-amd.js</strong>: bundled with webpack, can be used
 					with e.g. requirejs</li>
-					<li><strong>/dist/seng-boilerplate-commonjs.js</strong>: bundled with webpack, can be
+					<li><strong>/dist/vue-transition-component-commonjs.js</strong>: bundled with webpack, can be
 					used in systems that support commonjs, but you should just use npm</li>
-					<li><strong>/dist/seng-boilerplate-umd.js</strong>: bundled with webpack, works in the
+					<li><strong>/dist/vue-transition-component-umd.js</strong>: bundled with webpack, works in the
 					browser, with requirejs, and in a commonjs system</li>
-					<li><strong>/dist/seng-boilerplate-umd.min.js</strong>: same as above, but minified</li>
-					<li><strong>/dist/seng-boilerplate-system.js</strong>: bundled with typescript, can be
+					<li><strong>/dist/vue-transition-component-umd.min.js</strong>: same as above, but minified</li>
+					<li><strong>/dist/vue-transition-component-system.js</strong>: bundled with typescript, can be
 					used in systems    that support systemjs</li>
-					<li><strong>/dist/seng-boilerplate-es6.zip</strong>: transpiled with typescript, only
+					<li><strong>/dist/vue-transition-component-es6.zip</strong>: transpiled with typescript, only
 					types are removed from the source files</li>
 				</ul>
-				<h2 id="contribute">Contribute</h2>
-				<p>View <a href="./CONTRIBUTING.md">CONTRIBUTING.md</a></p>
-				<h2 id="changelog">Changelog</h2>
-				<p>View <a href="./CHANGELOG.md">CHANGELOG.md</a></p>
 				<h2 id="authors">Authors</h2>
 				<p>View <a href="./AUTHORS.md">AUTHORS.md</a></p>
-				<h2 id="license">LICENSE</h2>
-				<p><a href="./LICENSE">MIT</a> © MediaMonks</p>
-				<h3 id="travis">Travis</h3>
-				<p>This project uses <a href="https://travis-ci.org">Travis</a> to build, test and
-				publish its code to npm. Travis is free for public Github repositories.</p>
-				<p>It runs on all commits, shows the build status for pull requests, and
-				publishes to npm when a new tag/release is created.</p>
-				<p>Travis only runs the <code>npm test</code> script, so have configured that script
-					to run everything we want Travis to check. Besides the unit tests, we
-				also run our validations and linters.</p>
-				<p>The travis configuration is placed in a <code>.travis.yml</code> file, consisting
-				of multiple sections.</p>
-				<ol>
-					<li>Defines the <code>node_js</code> <a href="https://docs.travis-ci.com/user/languages/javascript-with-nodejs">language</a>,
-					and tells travis on which node versions to run the process.</li>
-					<li>Before running, it needs to install some global dependencies, and
-					when it processes some coverage results.</li>
-					<li>It can do a <a href="https://docs.travis-ci.com/user/deployment/npm">npm deploy</a>,
-						telling it to keep the generated artifacts and only publish when run
-						on node 4 and when a tag was committed. It also contains the email
-					address and api key of the npm user.</li>
-					<li>Code Climate has a <a href="https://docs.travis-ci.com/user/code-climate/">travis plugin</a>
-					that automatically uploads the code coverage results.</li>
-				</ol>
-				<p>Because we want to keep the npm api key secret, we generate a secure
-					token with the <a href="https://github.com/travis-ci/travis.rb">Travis Client</a>,
-				a CLI written in ruby.</p>
-				<p>Before we can do this, we must make sure that the repository is added
-					to Travis, because Travis needs the repository owner/name info to make
-				sure the encrypted values only work for that repository.</p>
-				<ol>
-					<li><p>First you need to <a href="https://github.com/travis-ci/travis.rb#login">login</a>
-						with your travis account:</p>
-						<pre><code class="lang-sh">$ travis login
-</code></pre>
-						<p>To verify that you are logged in correctly you can check:</p>
-						<pre><code class="lang-sh">$ travis whoami
-</code></pre>
-					</li>
-					<li><p>Then make sure you are logged in to your npm account with the
-						<a href="https://docs.npmjs.com/cli/adduser">adduser</a> command:</p>
-						<pre><code class="lang-sh">$ npm adduser
-</code></pre>
-						<p>To verify that you are logged in correctly you can check:</p>
-						<pre><code class="lang-sh">$ npm whoami
-</code></pre>
-					</li>
-					<li><p>Now we need to grab your auth token so we can encrypt it:</p>
-						<pre><code class="lang-sh">$ cat ~/.npmrc
-
-<span class="hljs-comment"># outputs:</span>
-//registry.npmjs.org/:_authToken=&lt;your_auth_token&gt;
-</code></pre>
-					</li>
-					<li><p>Then let&#39;s encrypt that token using the travis <a href="https://github.com/travis-ci/travis.rb#encrypt">encrypt</a>
-						command:</p>
-						<pre><code class="lang-sh">$ travis encrypt &lt;your_auth_token&gt;
-Detected repository as mediamonks/seng-boilerplate, is this correct? |yes|
-Please add the following to your .travis.yml file:
-
-  secure: <span class="hljs-string">"YcN...Zb="</span>
-</code></pre>
-						<p>Now copy that last line, paste it into your <code>.travis.yml</code>, and make
-						sure it looks something like this:</p>
-						<pre><code class="lang-yml"><span class="hljs-attr">deploy:</span>
-<span class="hljs-attr">  provider:</span> <span class="hljs-string">npm</span>
-<span class="hljs-attr">  email:</span> <span class="hljs-string">"john@doe.com"</span>
-<span class="hljs-attr">  api_key:</span>
-<span class="hljs-attr">    secure:</span> <span class="hljs-string">"YcN...Zb="</span>
-</code></pre>
-					</li>
-				</ol>
-				<h3 id="code-climate">Code Climate</h3>
-				<p>Todo: describe Code Climate configuration and usage.</p>
-				<h3 id="coverall">Coverall</h3>
-				<p>Todo: describe Coverall configuration and usage.</p>
-				<h3 id="npm">NPM</h3>
-				<p>Todo: describe NPM configuration and usage.</p>
+				<h2 id="contribute">Contribute</h2>
+				<p>View <a href="./CONTRIBUTING.md">CONTRIBUTING.md</a></p>
+				<h2 id="license">License</h2>
+				<p><a href="./LICENSE">MIT</a> © Lars van Braam</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -279,6 +315,9 @@ Please add the following to your .travis.yml file:
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_lib_util_abstracttransitioncontroller_.html">"lib/util/<wbr>Abstract<wbr>Transition<wbr>Controller"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_util_dummyutil_.html">"lib/util/<wbr>Dummy<wbr>Util"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_lib_util_flowmanager_.html">"lib/util/<wbr>Flow<wbr>Manager"</a>

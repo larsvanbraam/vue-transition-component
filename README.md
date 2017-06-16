@@ -200,7 +200,7 @@ this.dummyComponent = this.getChildComponent('DummyComponent');
 ```
 
 ## Documentation
-View the [generated documentation](http://larsvanbraam.github.io/vue-transition/).
+View the [generated documentation](http://larsvanbraam.github.io/vue-transition-component/).
 
 ## Building
 
@@ -208,12 +208,12 @@ In order to build vue-transition-component, ensure that you have [Git](http://gi
 
 Clone a copy of the repo:
 ```sh
-git clone https://github.com/larsvanbraam/vue-transition.git
+git clone https://github.com/larsvanbraam/vue-transition-component.git
 ```
 
 Change to the vue-transition directory:
 ```sh
-cd vue-transition
+cd vue-transition-component
 ```
 
 Install dev dependencies:
