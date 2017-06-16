@@ -1,8 +1,8 @@
 import { TimelineLite, TweenLite, Tween, Animation } from 'gsap';
-import IAbstractTransitionComponent from '../interface/IAbstractTransitionComponent';
 import { Promise } from 'es6-promise';
 import find from 'array-find';
 import EventDispatcher from 'seng-event';
+import IAbstractTransitionComponent from '../interface/IAbstractTransitionComponent';
 import TransitionEvent from '../event/TransitionEvent';
 
 /**

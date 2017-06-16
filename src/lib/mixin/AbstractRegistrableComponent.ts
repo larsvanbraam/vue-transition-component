@@ -21,7 +21,7 @@ export default {
 		/**
 		 * @public
 		 * @method isReady
-		 * @description The init method should be called when the component is fully ready,
+		 * @description The init method should be called when the component is full y ready,
 		 * this is usually when it's mounted but it could require more async data
 		 * @returns {void}
 		 */
