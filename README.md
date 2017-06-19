@@ -143,7 +143,9 @@ protected setupTransitionOutTimeline(): void {
 ```
 
 #### Seng-generator
-Check out the [seng-generator](https://github.com/mediamonks/seng-generator) generating components automatically! I've added template files for automatically generating components with the seng-generator. If you use the vue-skeleton you can download [these folders](templates) and paste them in your template folder!
+Check out the [seng-generator](https://github.com/mediamonks/seng-generator) generating components automatically!
+I've added template files for automatically generating components with the seng-generator. If you use the
+vue-skeleton you can download [these folders](/https://github.com/larsvanbraam/vue-transition-component/tree/master/seng-generator-templates) and paste them in your template folder!
 
 
 ### Rendering the component
