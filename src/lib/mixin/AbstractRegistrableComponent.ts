@@ -1,5 +1,5 @@
 import { Promise } from 'es6-promise';
-import find from 'array-find';
+import * as find from 'array.prototype.find';
 
 export const COMPONENT_ID = 'componentId';
 
@@ -26,7 +26,7 @@ export default {
 		 * @returns {void}
 		 */
 		isReady() {
-			this.$parent['componentReady'](this);
+			if(this.$parent) this.$parent['componentReady'](this);
 		},
 		/**
 		 * @public
@@ -52,8 +52,7 @@ export default {
 		/**
 		 * @public
 		 * @method componentReady
-		 * @description This method is a callback for when the child component is ready, it should be added
-		 * to the .vue template (<ComponentA @componentReady="componentReady"/>)
+		 * @description This method is called by the child component so we can keep track of components that are loaded.
 		 * @param component
 		 * @returns {void}
 		 */

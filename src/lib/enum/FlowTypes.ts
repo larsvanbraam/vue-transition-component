@@ -1,18 +1,15 @@
 /**
- * @enum EventState
- * @description Possible values for flow of a page
+ * Enum that determines the page flow
  */
 const enum FlowTypes {
 	/**
-	 * @property
-	 * @description The flow will go normal, transition out --> transition in
+	 * The flow will go normal, transition out --> transition in
 	 */
-	NORMAL,
+	NORMAL = 0,
 	/**
-	 * @property
-	 * @description The in and out transition will go at the same time
+	 * The in and out transition will go at the same time
 	 */
-	CROSS,
+	CROSS = 1,
 }
 
 export default FlowTypes;

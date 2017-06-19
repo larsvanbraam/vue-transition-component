@@ -1,4 +1,5 @@
 import AbstractEvent from 'seng-event/lib/AbstractEvent';
+import { generateEventTypes } from 'seng-event/lib/util/eventTypeUtils';
 
 class TransitionEvent extends AbstractEvent {
 	public static TRANSITION_IN_START: string = 'TransitionEvent.TRANSITION_IN_START';
@@ -10,5 +11,7 @@ class TransitionEvent extends AbstractEvent {
 		return new TransitionEvent(this.type, this.bubbles, this.cancelable);
 	}
 }
+
+generateEventTypes({ TransitionEvent });
 
 export default TransitionEvent;

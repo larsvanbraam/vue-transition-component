@@ -64,7 +64,9 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<p><img src="https://img.shields.io/david/larsvanbraam/vue-transition.svg?style=flat-square" alt="dependencies"> <a href="https://github.com/larsvanbraam/vue-transition/issues"><img src="https://img.shields.io/github/issues/larsvanbraam/vue-transition.svg?style=flat-square" alt="GitHub issues"></a> <a href="https://raw.githubusercontent.com/larsvanbraam/vue-transition/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="GitHub license"></a></p>
+				<p><a href="https://travis-ci.org/larsvanbraam/vue-transition-component"><img src="https://img.shields.io/travis/larsvanbraam/vue-transition-component.svg?maxAge=2592000" alt="Travis"></a>
+					<a href="https://www.npmjs.com/package/seng-event"><img src="https://img.shields.io/npm/v/vue-transition-component.svg?maxAge=2592000" alt="npm"></a>
+				<a href="https://github.com/larsvanbraam/vue-transition/issues"><img src="https://img.shields.io/github/issues/larsvanbraam/vue-transition.svg?style=flat-square" alt="GitHub issues"></a></p>
 				<h1 id="vue-transition-component">vue-transition-component</h1>
 				<p>Provides transition functionality to vue.js components.</p>
 				<h2 id="table-of-contents">Table of contents</h2>
@@ -138,6 +140,7 @@
 					<li><code>transitionOut</code></li>
 					<li><code>checkComponentsReady</code></li>
 					<li><code>componentReady</code></li>
+					<li><code>getChildComponent</code></li>
 				</ol>
 				<h4 id="dummycomponenttransitioncontroller-ts">DummyComponentTransitionController.ts</h4>
 				<p>This file will contain all the transitions for your page, you can add tweens to the <a href="https://greensock.com/docs/#/HTML5/GSAP/TimelineLite/">provided greensock timelines</a>. </p>
@@ -223,20 +226,20 @@ protected setupTransitionOutTimeline(): <span class="hljs-keyword">void</span> {
 ];
 </code></pre>
 				<h3 id="access-a-child-component">Access a child component</h3>
-				<p>To acces get a child component reference you can call the method <code>getChildComponent</code> providing the component id you provided while registering the component</p>
+				<p>Sometimes you want to manually trigger a transitionIn/transitionOut on a component without adding it to the main timeline. To do this you need a reference to the child component. To get a child component reference you can call the method <code>getChildComponent</code> providing the component id you provided while registering the component</p>
 				<pre><code class="lang-js">...
 this.dummyComponent = <span class="hljs-keyword">this</span>.getChildComponent(<span class="hljs-string">'DummyComponent'</span>);
 ...
 </code></pre>
 				<h2 id="documentation">Documentation</h2>
-				<p>View the <a href="http://larsvanbraam.github.io/vue-transition/">generated documentation</a>.</p>
+				<p>View the <a href="http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/">generated documentation</a>.</p>
 				<h2 id="building">Building</h2>
 				<p>In order to build vue-transition-component, ensure that you have <a href="http://git-scm.com/downloads">Git</a> and <a href="http://nodejs.org/">Node.js</a> installed.</p>
 				<p>Clone a copy of the repo:</p>
-				<pre><code class="lang-sh">git <span class="hljs-built_in">clone</span> https://github.com/larsvanbraam/vue-transition.git
+				<pre><code class="lang-sh">git <span class="hljs-built_in">clone</span> https://github.com/larsvanbraam/vue-transition-component.git
 </code></pre>
 				<p>Change to the vue-transition directory:</p>
-				<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> vue-transition
+				<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> vue-transition-component
 </code></pre>
 				<p>Install dev dependencies:</p>
 				<pre><code class="lang-sh">yarn
@@ -315,9 +318,6 @@ yarn doc             <span class="hljs-comment"># generate typedoc documentation
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_lib_util_abstracttransitioncontroller_.html">"lib/util/<wbr>Abstract<wbr>Transition<wbr>Controller"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_lib_util_dummyutil_.html">"lib/util/<wbr>Dummy<wbr>Util"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_lib_util_flowmanager_.html">"lib/util/<wbr>Flow<wbr>Manager"</a>

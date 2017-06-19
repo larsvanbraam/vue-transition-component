@@ -1,8 +1,10 @@
-![dependencies](https://img.shields.io/david/larsvanbraam/vue-transition.svg?style=flat-square) [![GitHub issues](https://img.shields.io/github/issues/larsvanbraam/vue-transition.svg?style=flat-square)](https://github.com/larsvanbraam/vue-transition/issues) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/larsvanbraam/vue-transition/master/LICENSE)
-# vue-transition-component 
+[![Travis](https://img.shields.io/travis/larsvanbraam/vue-transition-component.svg?maxAge=2592000)](https://travis-ci.org/larsvanbraam/vue-transition-component)
+[![npm](https://img.shields.io/npm/v/vue-transition-component.svg?maxAge=2592000)](https://www.npmjs.com/package/seng-event)
+[![GitHub issues](https://img.shields.io/github/issues/larsvanbraam/vue-transition.svg?style=flat-square)](https://github.com/larsvanbraam/vue-transition/issues)
+
+# vue-transition-component
 
 Provides transition functionality to vue.js components.
-
 
 ## Table of contents
 
@@ -12,15 +14,22 @@ Provides transition functionality to vue.js components.
 2. [Installation](#installation)
 3. [Usage](#usage)
 	1. [Creating a TransitionComponent](#creating-a-transitionComponent)
+		1. [DummyComponent.vue](#dummyComponent.vue) 
+		2. [DummyComponent.js](#dummyComponent.js)
+		3. [DummyComponentTransitionController.ts](#dummyComponentTransitionController)
+		4. [Seng-generator](#seng-generator) 
 	2. [Rendering the component](#rendering-the-component)
 	3. [Nesting timelines](#nesting-timelines)
 	4. [Page transitions](#page-transitions)
+		1. [App.vue](#app.vue)
+		2. [App.js](#app.js)
+		3. [Routes.js](#routes.js)
 	5. [Access a child component](#access-a-child-component)
 4. [Documentation](#documentation)
 5. [Building](#building)
 5. [Authors](#authors)
 6. [Contribute](#contribute)
-7. [License](#license)
+7. [License](#license):	
 
 ## Features
 ### Provided mixins
@@ -46,10 +55,10 @@ npm i -S vue-transition-component
 ```
 
 ## Usage
-All examples below are based on the [vue-skeleton](https://github.com/hjeti/vue-skeleton) by [hjeti](https://github.com/hjeti/)
+All examples below are based on the [vue-skeleton](https://github.com/hjeti/vue-skeleton) by [hjeti](https://github.com/hjeti/) 
 
 ### 1. Creating a TransitionComponent
-For demonstration purpose we will create a new component called DummyComponent. Check out the [seng-generator](https://github.com/mediamonks/seng-generator) generating components automatically!
+For demonstration purpose we will create a new component called DummyComponent.
 
 #### DummyComponent.vue
 The *.vue file does not require any modification.
@@ -82,6 +91,7 @@ export default {
 4. `transitionOut`
 5. `checkComponentsReady`
 6. `componentReady`
+7. `getChildComponent`
 
 #### DummyComponentTransitionController.ts
 This file will contain all the transitions for your page, you can add tweens to the [provided greensock timelines](https://greensock.com/docs/#/HTML5/GSAP/TimelineLite/). 
@@ -131,6 +141,10 @@ protected setupTransitionOutTimeline(): void {
 }
 ...
 ```
+
+#### Seng-generator
+Check out the [seng-generator](https://github.com/mediamonks/seng-generator) generating components automatically! I've added template files for automatically generating components with the seng-generator. If you use the vue-skeleton you can download [these folders](templates) and paste them in your template folder!
+
 
 ### Rendering the component
 Using transition components is the same as using any other component in Vue.js exept for the fact that you have to provide two extra props. The componentReady listener is the callback for when the component is ready and the componentId is the unique id of the component.
@@ -190,7 +204,7 @@ export default [
 ```
 
 ### Access a child component
-To acces get a child component reference you can call the method `getChildComponent` providing the component id you provided while registering the component
+Sometimes you want to manually trigger a transitionIn/transitionOut on a component without adding it to the main timeline. To do this you need a reference to the child component. To get a child component reference you can call the method `getChildComponent` providing the component id you provided while registering the component
 
 ```js
 ...

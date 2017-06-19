@@ -1,5 +1,3 @@
-import 'ts-helpers';
-
 export { default as FlowManager } from './lib/util/FlowManager';
 export { default as FlowTypes } from './lib/enum/FlowTypes';
 export { default as AbstractTransitionController } from './lib/util/AbstractTransitionController';

@@ -1,6 +1,5 @@
 import { TimelineLite, TweenLite, Tween, Animation } from 'gsap';
 import { Promise } from 'es6-promise';
-import find from 'array-find';
 import EventDispatcher from 'seng-event';
 import IAbstractTransitionComponent from '../interface/IAbstractTransitionComponent';
 import TransitionEvent from '../event/TransitionEvent';
@@ -13,8 +12,8 @@ import TransitionEvent from '../event/TransitionEvent';
  * will reverse the transition in timeline when transition out is triggered.
  */
 abstract class AbstractTransitionController extends EventDispatcher {
-	protected static IN: string = 'AbstractTransitionController.IN';
-	protected static OUT: string = 'AbstractTransitionController.OUT';
+	public static IN: string = 'AbstractTransitionController.IN';
+	public static OUT: string = 'AbstractTransitionController.OUT';
 	protected static FORWARD: string = 'AbstractTransitionController.FORWARD';
 	protected static REVERSED: string = 'AbstractTransitionController.REVERSED';
 
@@ -80,9 +79,17 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	private _transitionInPromise: Promise<void> = null;
 	private _transitionOutPromise: Promise<void> = null;
 
-	constructor(viewModel: IAbstractTransitionComponent) {
+	/**
+	 * @private
+	 * @description When set to true it will show logs!
+	 * @type {boolean}
+	 */
+	private _debug:boolean = false;
+
+	constructor(viewModel: IAbstractTransitionComponent, debug:boolean = false) {
 		super();
 		this.viewModel = viewModel;
+		this._debug = debug;
 		this.init();
 	}
 
@@ -110,8 +117,10 @@ abstract class AbstractTransitionController extends EventDispatcher {
 		if (this._transitionInPromise === null && this._isHidden) {
 			this._transitionInPromise = new Promise<void>((resolve: () => void) => {
 				if (this.transitionInTimeline.duration() === 0) {
-					console.info('[AbstractTransitionController] This block does not have transition, so resolve' +
-						' right away');
+					if(this._debug) {
+						console.info('[AbstractTransitionController] This block does not have transition, so resolve' +
+							' right away');
+					}
 					resolve();
 				} else {
 					this._transitionInResolveMethod = resolve;
@@ -121,8 +130,11 @@ abstract class AbstractTransitionController extends EventDispatcher {
 		}
 
 		if (this._transitionInPromise === null) {
-			throw new Error('[AbstractTransitionController] Transition in was triggered when the it\'s already' +
-				' visible');
+			if (this._debug) {
+				console.error('[AbstractTransitionController] Transition in was triggered when the it\'s already' +
+					' visible');
+			}
+			return Promise.resolve();
 		}
 
 		return this._transitionInPromise;
@@ -166,26 +178,15 @@ abstract class AbstractTransitionController extends EventDispatcher {
 		}
 
 		if (!this._transitionOutPromise) {
-			if (this._transitionInPromise === null) {
-				throw new Error('[AbstractTransitionController] Transition out was triggered when the it\'s already' +
-					' hidden');
+			if (this._debug) {
+				console.error('[AbstractTransitionController] Transition out was triggered when the it\'s already hidden');
 			}
+
+			// Already hidden, so resolve it right away
+			return Promise.resolve();
 		}
 
 		return this._transitionOutPromise;
-	}
-
-	/**
-	 * @public
-	 * @method getChildComponent
-	 * @param id
-	 * @returns {IAbstractTransitionComponent}
-	 */
-	public getChildComponent(id: string): IAbstractTransitionComponent {
-		const children = <Array<IAbstractTransitionComponent>>this.viewModel.$children;
-		const childComponent = find(children, child => child.componentId === id);
-
-		return childComponent;
 	}
 
 	/**
@@ -198,7 +199,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @returns { Animation }
 	 */
 	public getSubTimeline(id: string, direction: string = AbstractTransitionController.IN): Animation {
-		const childComponent = this.getChildComponent(id);
+		const childComponent = <IAbstractTransitionComponent>this.viewModel.getChildComponent(id);
 
 		if (!childComponent) {
 			throw new Error('No child component for id: [' + id + ']');
@@ -238,7 +239,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @returns {Animation}
 	 */
 	public getSubTimelineDuration(id: string, direction: string = AbstractTransitionController.IN): number {
-		const childComponent = this.getChildComponent(id);
+		const childComponent = <IAbstractTransitionComponent>this.viewModel.getChildComponent(id);
 		const transitionInTimeline = childComponent.transitionController.transitionInTimeline;
 		const transitionOutTimeline = childComponent.transitionController.transitionOutTimeline;
 
@@ -280,16 +281,13 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @method setupTransitionOutTimeline
 	 * @description overwrite this method in the parent class
 	 */
-	protected setupTransitionOutTimeline(): void {
-	}
-
+	protected abstract setupTransitionOutTimeline(): void
 	/**
 	 * @public
 	 * @method setupTransitionInTimeline
 	 * @description overwrite this method in the parent class
 	 * */
-	protected setupTransitionInTimeline(): void {
-	}
+	protected abstract setupTransitionInTimeline(): void
 
 	/**
 	 * @protected
@@ -340,9 +338,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_OUT_COMPLETE));
 				break;
 			}
-			default: {
-				throw new Error('[AbstractTransitionController] Unsupported transition type' + type);
-			}
+
 		}
 	}
 
@@ -380,7 +376,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 */
 	public dispose(): void {
 		if (this._transitionOutPromise && this._transitionOutResolveMethod) {
-			this._transitionOutPromise.then(() => this.clean());
+			this._transitionOutPromise.then(this.clean.bind(this));
 		} else {
 			this.clean();
 		}

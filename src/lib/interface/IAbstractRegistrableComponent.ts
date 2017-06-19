@@ -39,6 +39,12 @@ interface IAbstractRegistrableComponent extends Vue {
 	isReady(): void;
 	/**
 	 * @public
+	 * @method getChildComponent
+	 * @description If you want to get a child component based on it's componentId
+	 */
+	getChildComponent(componentId:string):IAbstractRegistrableComponent;
+	/**
+	 * @public
 	 * @method checkComponentsReady
 	 * @description Method thats triggered to check if all components are ready
 	 */

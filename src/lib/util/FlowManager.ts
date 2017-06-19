@@ -36,7 +36,6 @@ export class FlowManager extends Disposable {
 			release();
 		} else {
 			this._previousComponentId = pageInstance[COMPONENT_ID];
-
 			switch (pageInstance.flow) {
 				case FlowTypes.NORMAL: {
 					this._transitionOut = pageInstance.transitionOut();
