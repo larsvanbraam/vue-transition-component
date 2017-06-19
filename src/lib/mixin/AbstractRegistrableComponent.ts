@@ -26,7 +26,7 @@ export default {
 		 * @returns {void}
 		 */
 		isReady() {
-			if(this.$parent) this.$parent['componentReady'](this);
+			if (this.$parent) this.$parent['componentReady'](this);
 		},
 		/**
 		 * @public

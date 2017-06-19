@@ -117,7 +117,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 		if (this._transitionInPromise === null && this._isHidden) {
 			this._transitionInPromise = new Promise<void>((resolve: () => void) => {
 				if (this.transitionInTimeline.duration() === 0) {
-					if(this._debug) {
+					if (this._debug) {
 						console.info('[AbstractTransitionController] This block does not have transition, so resolve' +
 							' right away');
 					}
@@ -281,13 +281,13 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @method setupTransitionOutTimeline
 	 * @description overwrite this method in the parent class
 	 */
-	protected abstract setupTransitionOutTimeline(): void
+	protected abstract setupTransitionOutTimeline(): void;
 	/**
 	 * @public
 	 * @method setupTransitionInTimeline
 	 * @description overwrite this method in the parent class
 	 * */
-	protected abstract setupTransitionInTimeline(): void
+	protected abstract setupTransitionInTimeline(): void;
 
 	/**
 	 * @protected
