@@ -3,6 +3,8 @@ import { Promise } from 'es6-promise';
 import EventDispatcher from 'seng-event';
 import IAbstractTransitionComponent from '../interface/IAbstractTransitionComponent';
 import TransitionEvent from '../event/TransitionEvent';
+import ComponentType from '../enum/ComponentType';
+import { COMPONENT_ID } from '../mixin/AbstractRegistrableComponent';
 
 /**
  * @class AbstractTransitionController
@@ -30,7 +32,11 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 */
 	protected transitionInTimeline: TimelineLite = new TimelineLite({
 		paused: true,
+		onUpdate: this.checkDirection.bind(this),
 		onStart: () => {
+			// Notify about the transition in start
+			this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_START));
+			// Element is no longer visible
 			this._isHidden = false;
 		},
 		onComplete: this.handleTransitionComplete.bind(
@@ -47,6 +53,9 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	protected transitionOutTimeline: TimelineLite = new TimelineLite({
 		paused: true,
 		onStart: () => {
+			// Notify about the transition out start
+			this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_OUT_START));
+			// Element is no longer hidden
 			this._isHidden = true;
 		},
 		onComplete: this.handleTransitionComplete.bind(
@@ -84,9 +93,12 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @description When set to true it will show logs!
 	 * @type {boolean}
 	 */
-	private _debug:boolean = false;
+	private _debug: boolean = false;
 
-	constructor(viewModel: IAbstractTransitionComponent, debug:boolean = false) {
+	private _lastTime: number = 0;
+	private _forward: boolean = true;
+
+	constructor(viewModel: IAbstractTransitionComponent, debug: boolean = false) {
 		super();
 		this.viewModel = viewModel;
 		this._debug = debug;
@@ -99,15 +111,9 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @returns { Promise<any> }
 	 */
 	public transitionIn(): Promise<void> {
-		// Notify about the transition in start
-		this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_START));
-
 		// Kill the transitionOut Promise
 		this._transitionOutPromise = null;
 		this._transitionOutResolveMethod = null;
-
-		// Remove the paused state from transitionIn Timeline
-		this.transitionInTimeline.paused(false);
 
 		// Make sure the transitionOut is paused in case we clicked the transitionIn while
 		// the transitionOut was not finished yet.
@@ -118,11 +124,20 @@ abstract class AbstractTransitionController extends EventDispatcher {
 			this._transitionInPromise = new Promise<void>((resolve: () => void) => {
 				if (this.transitionInTimeline.duration() === 0) {
 					if (this._debug) {
-						console.info('[AbstractTransitionController] This block does not have transition, so resolve' +
-							' right away');
+						console.info(this.viewModel[COMPONENT_ID] + ': This block has no transition in timeline');
 					}
+
+					// Dispatch the events even though there is no time line
+					this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_START));
+					this._isHidden = false;
+					this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_COMPLETE));
+
 					resolve();
-				} else {
+				}
+				else {
+					// Remove the paused state from transitionIn Timeline
+					this.transitionInTimeline.paused(false);
+
 					this._transitionInResolveMethod = resolve;
 					this.transitionInTimeline.restart();
 				}
@@ -146,32 +161,31 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @returns {Promise<any>}
 	 */
 	public transitionOut(): Promise<void> {
-		// Notify about the transition out start
-		this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_OUT_START));
-
 		// Kill the _transitionInPromise
 		this._transitionInPromise = null;
 		this._transitionInResolveMethod = null;
-
-		// If we do have a transitionOut make sure the transitionIn is paused in case we clicked the
-		// transitionOut while the transitionIn was not finished yet.
-		if (this.transitionOutTimeline.getChildren().length > 0) {
-			this.transitionOutTimeline.paused(false);
-			this.transitionInTimeline.paused(true);
-		} else {
-			// We don't have a transitionOutTimeline, so we are reversing it, therefore removing the paused state.
-			this.transitionInTimeline.paused(false);
-		}
 
 		// Only allow the transition out if the element is not hidden
 		if (this._transitionOutPromise === null && !this._isHidden) {
 			this._isHidden = true;
 
+			// If we do have a transitionOut make sure the transitionIn is paused in case we clicked the
+			// transitionOut while the transitionIn was not finished yet.
+			if (this.transitionOutTimeline.getChildren().length > 0) {
+				this.transitionOutTimeline.paused(false);
+				this.transitionInTimeline.paused(true);
+			}
+			else {
+				// We don't have a transitionOutTimeline, so we are reversing it, therefore removing the paused state.
+				this.transitionInTimeline.paused(false);
+			}
+
 			this._transitionOutPromise = new Promise<void>((resolve: () => void) => {
 				this._transitionOutResolveMethod = resolve;
 				if (this.transitionOutTimeline.getChildren().length > 0) {
 					this.transitionOutTimeline.restart();
-				} else {
+				}
+				else {
 					this.transitionInTimeline.reverse();
 				}
 			});
@@ -199,7 +213,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @returns { Animation }
 	 */
 	public getSubTimeline(id: string, direction: string = AbstractTransitionController.IN): Animation {
-		const childComponent = <IAbstractTransitionComponent>this.viewModel.getChildComponent(id);
+		const childComponent = <IAbstractTransitionComponent>this.viewModel.getChild(id, ComponentType.TRANSITION_COMPONENT);
 
 		if (!childComponent) {
 			throw new Error('No child component for id: [' + id + ']');
@@ -239,7 +253,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @returns {Animation}
 	 */
 	public getSubTimelineDuration(id: string, direction: string = AbstractTransitionController.IN): number {
-		const childComponent = <IAbstractTransitionComponent>this.viewModel.getChildComponent(id);
+		const childComponent = <IAbstractTransitionComponent>this.viewModel.getChild(id, ComponentType.TRANSITION_COMPONENT);
 		const transitionInTimeline = childComponent.transitionController.transitionInTimeline;
 		const transitionOutTimeline = childComponent.transitionController.transitionOutTimeline;
 
@@ -282,6 +296,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @description overwrite this method in the parent class
 	 */
 	protected abstract setupTransitionOutTimeline(): void;
+
 	/**
 	 * @public
 	 * @method setupTransitionInTimeline
@@ -308,7 +323,8 @@ abstract class AbstractTransitionController extends EventDispatcher {
 		timeline.getChildren().forEach((target) => {
 			if ((<Tween>target).target) {
 				TweenLite.set((<Tween>target).target, { clearProps: 'all' });
-			} else {
+			}
+			else {
 				this.clearTimeline(<TimelineLite>target);
 			}
 		});
@@ -369,6 +385,27 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	}
 
 	/**
+	 * @private
+	 * @method checkDirection
+	 * @description GreenSock does not support onReverseStart on a timeline therefore we have this little method
+	 * chat checks for the direction and if ti's changed we handle it as if it's a reverse start§
+	 * @returns {void}
+	 */
+	private checkDirection(): void {
+		const newTime = this.transitionInTimeline.time();
+		if ((this._forward && newTime < this._lastTime) || (!this._forward && newTime > this._lastTime)) {
+			this._forward = !this._forward;
+			if (!this._forward) {
+				// Notify about the transition in start
+				this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_OUT_START));
+				// Element is no longer visible
+				this._isHidden = true;
+			}
+		}
+		this._lastTime = newTime;
+	}
+
+	/**
 	 * @public
 	 * @method destruct
 	 * @description Because Vue destructs the VM instance before it removes the DOM node we want to finish the
@@ -377,7 +414,8 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	public dispose(): void {
 		if (this._transitionOutPromise && this._transitionOutResolveMethod) {
 			this._transitionOutPromise.then(this.clean.bind(this));
-		} else {
+		}
+		else {
 			this.clean();
 		}
 		super.dispose();

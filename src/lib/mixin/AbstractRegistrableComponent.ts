@@ -1,5 +1,6 @@
 import { Promise } from 'es6-promise';
 import * as find from 'array.prototype.find';
+import ComponentType from '../enum/ComponentType';
 
 export const COMPONENT_ID = 'componentId';
 
@@ -12,6 +13,7 @@ export default {
 		},
 	},
 	beforeCreate() {
+		this.componentType = ComponentType.REGISTRABLE_COMPONENT
 		this.registeredComponents = [];
 		this.allComponentsReady = new Promise((resolve) => {
 			this.allComponentsReadyResolveMethod = resolve;
@@ -26,16 +28,34 @@ export default {
 		 * @returns {void}
 		 */
 		isReady() {
-			if (this.$parent) this.$parent['componentReady'](this);
+			if (this.$parent) {
+				this.$parent['componentReady'](this);
+			}
 		},
 		/**
 		 * @public
-		 * @method getChildComponent
-		 * @param componentId
+		 * @method getChild
 		 * @description Get a child component reference
+		 * @param {string} componentId
+		 * @param { ComponentType } componentType
+		 * @returns {AbstractRegistrableComponent} childComponent
 		 */
-		getChildComponent(componentId) {
-			return find(this.$children, child => child[COMPONENT_ID] === componentId);
+		getChild(componentId, componentType) {
+			// Find the child component based on the componentId
+			const child = find(this.$children, child => child[COMPONENT_ID] === componentId);
+
+			if (componentType !== void 0) {
+				if (child.componentType === componentType) {
+					return child;
+				} else {
+					throw new Error('Requested component is not of type: ' + ComponentType[componentType])
+				}
+			} else if (child.componentType !== void 0) {
+				return child;
+			} else {
+				throw new Error('Requested component is not of type: ' + ComponentType[ComponentType.REGISTRABLE_COMPONENT])
+			}
+
 		},
 		/**
 		 * @public
@@ -71,13 +91,15 @@ export default {
 		 * triggered. This is usually the point where the transition controller is setup.
 		 * @returns {void}
 		 */
-		handleAllComponentsReady() {
-		},
+		handleAllComponentsReady() {},
 	},
 	mounted() {
 		// We wait for the next tick otherwise the $children might not be set when you use a v-for loop
 		this.$nextTick(() => {
-			this.allComponentsReady.then(this.handleAllComponentsReady.bind(this));
+			// Add a set timeout to break out of the promise chain and allow errors to be thrown!
+			this.allComponentsReady
+				.then(setTimeout(this.handleAllComponentsReady.bind(this)));
+			// Check for components initially, there might be none!
 			this.checkComponentsReady();
 		});
 	},

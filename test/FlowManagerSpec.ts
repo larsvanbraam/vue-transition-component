@@ -5,7 +5,8 @@ import { FlowManager } from '../src/lib/util/FlowManager';
 import IAbstractPageTransitionComponent from '../src/lib/interface/IAbstractPageTransitionComponent';
 import AbstractPageTransitionComponent from '../src/lib/mixin/AbstractPageTransitionComponent'
 import DummyTransitionController from './util/DummyTransitionController';
-import FlowTypes from '../src/lib/enum/FlowTypes';
+import FlowType from '../src/lib/enum/FlowType';
+import ComponentType from '../src/lib/enum/ComponentType';
 
 describe('FlowManager', () => {
 	let flowManager: FlowManager;
@@ -18,7 +19,7 @@ describe('FlowManager', () => {
 	 * @description Wrapper method to create a vue transition page
 	 * @returns {Promise}
 	 */
-	const createPage = (id: string, flowType: FlowTypes) => {
+	const createPage = (id: string, flowType: FlowType) => {
 		return new Promise((resolve: (page: IAbstractPageTransitionComponent) => void) => {
 			const transitionComponent = new Vue({
 				name: id,
@@ -26,6 +27,7 @@ describe('FlowManager', () => {
 				extends: AbstractPageTransitionComponent,
 				beforeCreate() {
 					const self = <any>this;
+					self.componentType = ComponentType.TRANSITION_COMPONENT
 					self.componentId = id;
 					self.flow = flowType;
 				},
@@ -49,19 +51,19 @@ describe('FlowManager', () => {
 	});
 
 	it('start a NORMAL flow', (done) => {
-		createPage('DummyPage', FlowTypes.NORMAL).then((page) => {
+		createPage('DummyPage', FlowType.NORMAL).then((page) => {
 			flowManager.start(page, () => done());
 		})
 	});
 
 	it('start a NORMAL flow with the same component id', (done) => {
-		createPage('DummyPage', FlowTypes.NORMAL).then((page) => {
+		createPage('DummyPage', FlowType.NORMAL).then((page) => {
 			flowManager.start(page, () => flowManager.start(page, () => done()));
 		})
 	});
 
 	it('start a CROSS flow', (done) => {
-		createPage('DummyPage', FlowTypes.CROSS).then((page) => {
+		createPage('DummyPage', FlowType.CROSS).then((page) => {
 			flowManager.start(page, () => done());
 		})
 	})

@@ -1,7 +1,7 @@
 /**
  * Enum that determines the page flow
  */
-const enum FlowTypes {
+enum FlowType {
 	/**
 	 * The flow will go normal, transition out --> transition in
 	 */
@@ -12,4 +12,4 @@ const enum FlowTypes {
 	CROSS = 1,
 }
 
-export default FlowTypes;
+export default FlowType;

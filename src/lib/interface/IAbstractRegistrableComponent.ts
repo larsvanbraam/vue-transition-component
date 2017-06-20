@@ -1,4 +1,7 @@
 import { Vue } from 'vue/types/vue';
+import IAbstractTransitionComponent from './IAbstractTransitionComponent';
+import IAbstractPageTransitionComponent from './IAbstractPageTransitionComponent';
+import ComponentType from '../enum/ComponentType';
 
 interface IAbstractRegistrableComponent extends Vue {
 	/**
@@ -16,6 +19,11 @@ interface IAbstractRegistrableComponent extends Vue {
 	 * @description All components ready resolve method
 	 */
 	allComponentsReadyResolveMethod: () => void;
+	/**
+	 * @property componentType
+	 * @description The type of the component
+	 */
+	componentType: ComponentType;
 	/**
 	 * @property componentId
 	 * @description The unique id of the rendered component, this is used for fetching the reference if the same
@@ -39,22 +47,24 @@ interface IAbstractRegistrableComponent extends Vue {
 	isReady(): void;
 	/**
 	 * @public
-	 * @method getChildComponent
+	 * @method getChild
 	 * @description If you want to get a child component based on it's componentId
+	 * @param {string} componentId
+	 * @param {ComponentTypes} componentType
+	 * @returns { IAbstractPageTransitionComponent | IAbstractTransitionComponent | IAbstractRegistrableComponent }
 	 */
-	getChildComponent(componentId:string):IAbstractRegistrableComponent;
+	getChild(componentId: string, componentType?:ComponentType): IAbstractPageTransitionComponent | IAbstractTransitionComponent | IAbstractRegistrableComponent;
 	/**
 	 * @public
 	 * @method checkComponentsReady
-	 * @description Method thats triggered to check if all components are ready
+	 * @description Method that is triggered to check if all components are ready
 	 */
 	checkComponentsReady(): void;
 	/**
 	 * @public
 	 * @method componentReady
 	 * @description This method is a callback for when the child component is ready, it should be added
-	 * to the .vue template (<ComponentA @componentReady='componentReady'/>)
-	 * @param component
+	 * to the .vue template (<ComponentA @componentReady='componentReady'/>)z
 	 * @returns { void }
 	 */
 	componentReady(component: IAbstractRegistrableComponent): void;
@@ -62,6 +72,7 @@ interface IAbstractRegistrableComponent extends Vue {
 	 * @public
 	 * @method handleAllComponentsReady
 	 * @description This method is triggered once when all the components are ready.
+	 * @returns { void }
 	 */
 	handleAllComponentsReady(): void;
 }

@@ -1,14 +1,16 @@
 import { expect } from 'chai';
-import DummyTransitionController from './util/DummyTransitionController';
+import ComponentType from '../src/lib/enum/ComponentType';
 import * as Vue from 'vue';
 import IAbstractTransitionComponent from '../src/lib/interface/IAbstractTransitionComponent';
 import AbstractTransitionComponent from '../src/lib/mixin/AbstractTransitionComponent';
 import AbstractTransitionController from '../src/lib/util/AbstractTransitionController';
+import DummyChildTransitionController from './util/DummyChildTransitionController';
+import DummyTransitionController from './util/DummyTransitionController';
 
 describe('AbstractTransitionControllerSpec', () => {
 	let dummyTransitionController: DummyTransitionController;
 	let dummyChildComponent: any;
-	let dummyChildTransitionController: DummyTransitionController;
+	let dummyChildTransitionController: DummyChildTransitionController;
 
 	beforeEach(function () {
 		dummyChildComponent = new Vue({
@@ -18,10 +20,11 @@ describe('AbstractTransitionControllerSpec', () => {
 			beforeCreate() {
 				const self = <any>this;
 				self.componentId = 'ChildComponent'
+				self.componentType = ComponentType.TRANSITION_COMPONENT
 				self.transitionController = dummyChildTransitionController;
 			},
 		})
-		dummyChildTransitionController = new DummyTransitionController(<IAbstractTransitionComponent>dummyChildComponent)
+		dummyChildTransitionController = new DummyChildTransitionController(<IAbstractTransitionComponent>dummyChildComponent)
 		dummyTransitionController = new DummyTransitionController(<IAbstractTransitionComponent>new Vue({
 			name: 'DummyComponent',
 			el: document.createElement('div'),
@@ -64,11 +67,30 @@ describe('AbstractTransitionControllerSpec', () => {
 		});
 	});
 
+	describe('getSubTimelineDuration', () => {
+		it('should try to get a transition in sub-timeline duration', () => {
+			expect(dummyTransitionController.getSubTimelineDuration('ChildComponent', AbstractTransitionController.IN))
+				.to.equal(0.5);
+		});
+
+		it('should try to get a transition in sub-timeline duration', () => {
+			expect(dummyTransitionController.getSubTimelineDuration('ChildComponent', AbstractTransitionController.OUT))
+				.to.equal(1);
+		});
+
+	});
+
 	describe('dispose', () => {
 		it('should dispose the transition controller and mark it as disposed', () => {
 			// Dispose the transition controller
 			dummyTransitionController.dispose()
 			expect(dummyTransitionController.isDisposed()).to.equal(true);
+		});
+
+		it('should dispose the child transition controller and mark it as disposed', () => {
+			// Dispose the transition controller
+			dummyChildTransitionController.dispose()
+			expect(dummyChildTransitionController.isDisposed()).to.equal(true);
 		});
 
 		it('when it\'s still transitioning out should return a promise and dispose it when it\'s done', (done) => {

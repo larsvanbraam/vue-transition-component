@@ -1,5 +1,6 @@
 import AbstractTransitionComponent from './AbstractTransitionComponent';
-import FlowTypes from '../enum/FlowTypes';
+import ComponentType from '../enum/ComponentType';
+import FlowType from '../enum/FlowType';
 import FlowManager from '../util/FlowManager';
 import findIndex from 'array-find-index';
 
@@ -7,7 +8,8 @@ export default {
 	name: 'AbstractPageTransitionComponent',
 	extends: AbstractTransitionComponent,
 	beforeCreate() {
-		this.flow = FlowTypes.NORMAL;
+		this.componentType = ComponentType.PAGE_COMPONENT
+		this.flow = FlowType.NORMAL;
 	},
 	/**
 	 * @description Before the route is entered we trigger the transition in

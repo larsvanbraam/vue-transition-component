@@ -1,5 +1,5 @@
 import Disposable from 'seng-disposable';
-import FlowTypes from '../enum/FlowTypes';
+import FlowType from '../enum/FlowType';
 import IAbstractPageTransitionComponent from '../interface/IAbstractPageTransitionComponent';
 import { COMPONENT_ID } from '../mixin/AbstractRegistrableComponent';
 
@@ -37,12 +37,12 @@ export class FlowManager extends Disposable {
 		} else {
 			this._previousComponentId = pageInstance[COMPONENT_ID];
 			switch (pageInstance.flow) {
-				case FlowTypes.NORMAL: {
+				case FlowType.NORMAL: {
 					this._transitionOut = pageInstance.transitionOut();
 					this._transitionOut.then(release);
 					break;
 				}
-				case FlowTypes.CROSS: {
+				case FlowType.CROSS: {
 					this._transitionOut = pageInstance.transitionOut();
 					release();
 					break;

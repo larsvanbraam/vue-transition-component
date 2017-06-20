@@ -1,7 +1,7 @@
 import AbstractTransitionController from '../../src/lib/util/AbstractTransitionController';
 import { TimelineLite } from 'gsap';
 
-class DummyTransitionController extends AbstractTransitionController {
+class DummyChildTransitionController extends AbstractTransitionController {
 	/**
 	 * @public
 	 * @method setupTransitionInTimeline
@@ -17,7 +17,7 @@ class DummyTransitionController extends AbstractTransitionController {
 	 * @description overwrite this method in the parent class
 	 * */
 	protected setupTransitionOutTimeline(): void {
-		const timeline = new TimelineLite()
+		const timeline = new TimelineLite();
 		timeline.to(document.createElement('div'), 0.5, { autoAlpha: 0 });
 
 		this.transitionOutTimeline.to(this.viewModel.$el, 0.5, { autoAlpha: 0 });
@@ -25,4 +25,4 @@ class DummyTransitionController extends AbstractTransitionController {
 	}
 }
 
-export default DummyTransitionController;
+export default DummyChildTransitionController;

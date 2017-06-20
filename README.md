@@ -14,22 +14,24 @@ Provides transition functionality to vue.js components.
 2. [Installation](#installation)
 3. [Usage](#usage)
 	1. [Creating a TransitionComponent](#creating-a-transitionComponent)
-		1. [DummyComponent.vue](#dummyComponent.vue) 
-		2. [DummyComponent.js](#dummyComponent.js)
-		3. [DummyComponentTransitionController.ts](#dummyComponentTransitionController)
-		4. [Seng-generator](#seng-generator) 
+		1. [DummyComponent.vue](#dummyComponent-vue) 
+		2. [DummyComponent.js](#dummyComponent-js)
+		3. [DummyComponentTransitionController-ts](#dummyComponentTransitionController)
+		4. [index.js](#index-js) 
+		5. [Seng-generator](#seng-generator) 
 	2. [Rendering the component](#rendering-the-component)
 	3. [Nesting timelines](#nesting-timelines)
 	4. [Page transitions](#page-transitions)
-		1. [App.vue](#app.vue)
-		2. [App.js](#app.js)
-		3. [Routes.js](#routes.js)
+		1. [App.vue](#app-vue)
+		2. [App.js](#app-js)
+		3. [Routes.js](#routes-js)
 	5. [Access a child component](#access-a-child-component)
+	6. [Events](#transition-events) 
 4. [Documentation](#documentation)
 5. [Building](#building)
 5. [Authors](#authors)
 6. [Contribute](#contribute)
-7. [License](#license):	
+7. [License](#license)
 
 ## Features
 ### Provided mixins
@@ -55,9 +57,19 @@ npm i -S vue-transition-component
 ```
 
 ## Usage
-All examples below are based on the [vue-skeleton](https://github.com/hjeti/vue-skeleton) by [hjeti](https://github.com/hjeti/) 
+All examples below are based on the [vue-skeleton](https://github.com/hjeti/vue-skeleton) by [hjeti](https://github.com/hjeti/). 
 
-### 1. Creating a TransitionComponent
+#### Folder structure
+    /components
+    ├── [ComponentName]/
+    │   └── index.js
+    │   └── [ComponentName].vue    
+    │   └── [ComponentName].js
+    │   └── [ComponentName].scss
+    │   └── [ComponentName]TransitionController.ts        
+    └── ...
+    
+### Creating a TransitionComponent
 For demonstration purpose we will create a new component called DummyComponent.
 
 #### DummyComponent.vue
@@ -97,7 +109,7 @@ export default {
 This file will contain all the transitions for your page, you can add tweens to the [provided greensock timelines](https://greensock.com/docs/#/HTML5/GSAP/TimelineLite/). 
 
 ```js
-import AbstractTransitionController from 'vue-transition';
+import AbstractTransitionController from 'vue-transition-component';
 
 class DummyComponentTransition extends AbstractTransitionController
 {
@@ -141,6 +153,16 @@ protected setupTransitionOutTimeline(): void {
 }
 ...
 ```
+
+#### index.js
+The index.js file just imports the main javascript file so you can easily import it!
+
+```js
+import DummyComponent from './DummyComponent';
+
+export default DummyComponent;
+```
+
 
 #### Seng-generator
 Check out the [seng-generator](https://github.com/mediamonks/seng-generator) generating components automatically!
@@ -206,13 +228,74 @@ export default [
 ```
 
 ### Access a child component
-Sometimes you want to manually trigger a transitionIn/transitionOut on a component without adding it to the main timeline. To do this you need a reference to the child component. To get a child component reference you can call the method `getChildComponent` providing the component id you provided while registering the component
+Sometimes you want to manually trigger a transitionIn/transitionOut on a component without adding it to the main timeline. To do this you need a reference to the child component. To get a child component reference you can call the method `getChild` providing the `componentId`. You should also provide the type of component you are requesting, since not all components have the same functionality. For example when you would like to request a TransitionComponent:
 
 ```js
 ...
-this.dummyComponent = this.getChildComponent('DummyComponent');
+import { ComponentType } from 'vue-transition-component';
+...
+...
+this.dummyComponent = this.getChild('DummyComponent', ComponentType.TRANSITION_COMPONENT);
+this.dummyComponent.transitionIn();
 ...
 
+```
+
+There following component types are available: 
+
+```js
+...
+import { ComponentType } from 'vue-transition-component';
+...
+...
+this.dummyComponent1 = this.getChild('DummyComponent', ComponentType.REGISTRABLE_COMPONENT);
+this.dummyComponent2 = this.getChild('DummyComponent', ComponentType.TRANSITION_COMPONENT);
+this.dummyComponent3 = this.getChild('DummyComponent', ComponentType.PAGE_COMPONENT);
+...
+
+```
+
+**Note:** Providing the component type is not mandatory. So for example when you only use transition components in your project you could leave it out, this is at your own risk and could cause issues if you start mixing TransitionComponents and RegistrableComponents.
+
+```js
+...
+this.dummyComponent = this.getChild('DummyComponent');
+...
+
+```
+
+### Events
+The transition controller uses the [seng-event](https://www.npmjs.com/package/seng-event) module to dispatch events. The following events are dispatched:
+
+- `TransitionInStart `
+- `TransitionInComplete`
+- `TransitionOutStart`
+- `TransitionOutComplete`
+
+You can listen to the by adding an event listener to the transitionController:
+
+```js
+...
+import { TransitionEvent } from 'vue-transition-component';
+...
+...
+handleAllComponentsReady() {
+	this.transitionController = new DummyComponentTransition(this);
+	this.transitionController.addEventListner(TransitionEvent.TRANSITION_IN_START, () => {
+		console.log('transition in start');
+	});
+	this.transitionController.addEventListner(TransitionEvent.TRANSITION_IN_COMPLETE, () => {
+		console.log('transition in complete');
+	});
+	this.transitionController.addEventListner(TransitionEvent.TRANSITION_OUT_START, () => {
+		console.log('transition out start');
+	});
+	this.transitionController.addEventListner(TransitionEvent.TRANSITION_OUT_COMPLETE, () => {
+		console.log('transition out complete');
+	});
+	this.isReady();
+},
+...
 ```
 
 ## Documentation
@@ -242,7 +325,6 @@ Use one of the following main scripts:
 yarn build           # build this project
 yarn dev             # run dev-watch mode, serving example/index.html in the browser
 yarn generate        # generate all artifacts (compiles ts, webpack, docs and coverage)
-yarn typings         # install .d.ts dependencies (done on install)
 yarn test:unit       # run the unit tests
 yarn validate        # runs validation scripts, including test, lint and coverage check
 yarn lint            # run tslint on this project
