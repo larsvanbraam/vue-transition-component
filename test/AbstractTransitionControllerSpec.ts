@@ -40,6 +40,22 @@ describe('AbstractTransitionControllerSpec', () => {
 			return dummyTransitionController.transitionIn()
 		});
 
+		it('should try and interrupt a transition in but wait for it to be completed', (done) => {
+			dummyTransitionController.transitionIn();
+			setTimeout(() => {
+				dummyTransitionController.transitionOut()
+					.then(() => done());
+			}, 10);
+		});
+
+		it('should try and interrupt a transition in but not wait for it to be completed', (done) => {
+			dummyTransitionController.transitionIn();
+			setTimeout(() => {
+				dummyTransitionController.transitionOut(true)
+					.then(() => done());
+			}, 10);
+		});
+
 		it('should not transition out since it\'s already transitioned out', () => {
 			return dummyTransitionController.transitionOut()
 		});
@@ -47,6 +63,36 @@ describe('AbstractTransitionControllerSpec', () => {
 		it('should transition out the component', () => {
 			return dummyTransitionController.transitionIn()
 				.then(() => dummyTransitionController.transitionOut())
+		});
+
+		it('should try and interrupt a transition out but wait for it to be completed', (done) => {
+			dummyTransitionController.transitionIn()
+				.then(() => {
+					dummyTransitionController.transitionOut()
+					setTimeout(() => {
+						dummyTransitionController.transitionIn()
+							.then(() => done());
+					}, 10);
+				})
+		});
+
+		it('should try and interrupt a transition out but not wait for it to be completed', (done) => {
+			dummyTransitionController.transitionIn()
+				.then(() => {
+					dummyTransitionController.transitionOut()
+					setTimeout(() => {
+						dummyTransitionController.transitionIn(true)
+							.then(() => done());
+					}, 10);
+				})
+		});
+
+		it('should try and interrupt a transition in but not wait for it to be completed', (done) => {
+			dummyTransitionController.transitionIn();
+			setTimeout(() => {
+				dummyTransitionController.transitionOut(true)
+					.then(() => done());
+			}, 10);
 		});
 	});
 

@@ -18,7 +18,6 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	public static OUT: string = 'AbstractTransitionController.OUT';
 	protected static FORWARD: string = 'AbstractTransitionController.FORWARD';
 	protected static REVERSED: string = 'AbstractTransitionController.REVERSED';
-
 	/**
 	 * @type { IAbstractTransitionComponent }
 	 * @protected
@@ -26,9 +25,9 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 */
 	protected viewModel: IAbstractTransitionComponent;
 	/**
-	 * @type { TimelineLite }
+	 * @property transitionInTimeline { TimelineLite }
 	 * @protected
-	 * @description The transition timelines are used for creating the transition in and transition out timelines
+	 * @description The timeline that is used for transition in animations.
 	 */
 	protected transitionInTimeline: TimelineLite = new TimelineLite({
 		paused: true,
@@ -50,6 +49,12 @@ abstract class AbstractTransitionController extends EventDispatcher {
 			AbstractTransitionController.REVERSED,
 		),
 	});
+	/**
+	 * @property transitionOutTimeline { TimelineLite }
+	 * @protected
+	 * @description The timeline that is used for transition out animations. If no animations are added it will
+	 * automatically use the reversed version of the transition in timeline for the out animations
+	 */
 	protected transitionOutTimeline: TimelineLite = new TimelineLite({
 		paused: true,
 		onStart: () => {
@@ -64,7 +69,6 @@ abstract class AbstractTransitionController extends EventDispatcher {
 			AbstractTransitionController.FORWARD,
 		),
 	});
-
 	/**
 	 * @type {boolean}
 	 * @private
@@ -73,29 +77,54 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 */
 	public _isHidden: boolean = true;
 	/**
-	 * @type { ()=>void }
 	 * @private
-	 * @description Resolve methods are used for resolving the transitionIn/transitionOut promises
+	 * @property _transitionInResolveMethod
+	 * @type { ()=>void }
+	 * @description The resolve method used for resolving the transition in promise.
 	 */
 	private _transitionInResolveMethod: () => void;
+	/**
+	 * @private
+	 * @property _transitionOutResolveMethod
+	 * @type { ()=>void }
+	 * @description The resolve method used for resolving the transition out promise.
+	 */
 	private _transitionOutResolveMethod: () => void;
 	/**
-	 * @type { Promise<void> }
 	 * @private
-	 * @description Transition promises are there so you can wait for the transitionIn/transitionOut to be completed
-	 * before you do other stuff.
+	 * @property _transitionInPromise
+	 * @type { Promise<void> }
+	 * @description The transition promise is used so we can wait for the transition in to be completed.
 	 */
 	private _transitionInPromise: Promise<void> = null;
+	/**
+	 * @private
+	 * @property _transitionOutPromise
+	 * @type { Promise<void> }
+	 * @description The transition promise is used so we can wait for the transition out to be completed.
+	 */
 	private _transitionOutPromise: Promise<void> = null;
-
 	/**
 	 * @private
 	 * @description When set to true it will show logs!
 	 * @type {boolean}
 	 */
 	private _debug: boolean = false;
-
+	/**
+	 * @private
+	 * @property _lastTime
+	 * @type {number}
+	 * @description Since GreenSock does not trigger a on reverse start event we use this to figure out that the
+	 * timeline has been reversed
+	 */
 	private _lastTime: number = 0;
+	/**
+	 * @private
+	 * @property _forward
+	 * @type { boolean }
+	 * @description Since GreenSock does not trigger a on reverse start event we use this to figure out that the
+	 * timeline has been reversed
+	 */
 	private _forward: boolean = true;
 
 	constructor(viewModel: IAbstractTransitionComponent, debug: boolean = false) {
@@ -108,97 +137,140 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	/**
 	 * @public
 	 * @method transitionIn
+	 * @param { boolean } forceTransition
 	 * @returns { Promise<any> }
 	 */
-	public transitionIn(): Promise<void> {
-		// Kill the transitionOut Promise
-		this._transitionOutPromise = null;
-		this._transitionOutResolveMethod = null;
+	public transitionIn(forceTransition:boolean = false): Promise<void> {
+		let oldTransitionPromise = Promise.resolve();
 
-		// Make sure the transitionOut is paused in case we clicked the transitionIn while
-		// the transitionOut was not finished yet.
-		this.transitionOutTimeline.paused(true);
-
-		// Only allow the transition in if the element is hidden
-		if (this._transitionInPromise === null && this._isHidden) {
-			this._transitionInPromise = new Promise<void>((resolve: () => void) => {
-				if (this.transitionInTimeline.duration() === 0) {
-					if (this._debug) {
-						console.info(this.viewModel[COMPONENT_ID] + ': This block has no transition in timeline');
-					}
-
-					// Dispatch the events even though there is no time line
-					this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_START));
-					this._isHidden = false;
-					this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_COMPLETE));
-
-					resolve();
-				} else {
-					// Remove the paused state from transitionIn Timeline
-					this.transitionInTimeline.paused(false);
-
-					this._transitionInResolveMethod = resolve;
-					this.transitionInTimeline.restart();
+		/**
+		 * Check if we already have a transition out going on, if so we finish it right away! and trigger a
+		 * transition complete.
+		 */
+		if (this._transitionOutPromise) {
+			if (forceTransition) {
+				if(this.transitionOutTimeline.getChildren().length > 0) {
+					this.transitionOutTimeline.kill();
+				}else {
+					this.transitionInTimeline.kill();
 				}
-			});
-		}
+				this.handleTransitionComplete(AbstractTransitionController.OUT);
 
-		if (this._transitionInPromise === null) {
-			if (this._debug) {
-				console.warn('[AbstractTransitionController] Transition in was triggered when the it\'s already' +
-					' visible');
+				if (this._debug) {
+					console.info(this.viewModel[COMPONENT_ID] + ': Interrupted the transition out!');
+				}
 			}
-			return Promise.resolve();
+			else {
+				oldTransitionPromise = this._transitionOutPromise;
+			}
 		}
 
-		return this._transitionInPromise;
+		return oldTransitionPromise.then(() => {
+
+			// Make sure the transitionOut is paused in case we clicked the transitionIn while
+			// the transitionOut was not finished yet.
+			this.transitionOutTimeline.paused(true);
+
+			// Only allow the transition in if the element is hidden
+			if (this._transitionInPromise === null && this._isHidden) {
+				this._transitionInPromise = new Promise<void>((resolve: () => void) => {
+					if (this.transitionInTimeline.getChildren().length === 0) {
+						if (this._debug) {
+							console.info(this.viewModel[COMPONENT_ID] + ': This block has no transition in timeline');
+						}
+
+						// Dispatch the events even though there is no time line
+						this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_START));
+						this._isHidden = false;
+						this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_COMPLETE));
+
+						resolve();
+					} else {
+						// Remove the paused state from transitionIn Timeline
+						this.transitionInTimeline.paused(false);
+
+						this._transitionInResolveMethod = resolve;
+						this.transitionInTimeline.restart();
+					}
+				});
+			}
+
+			if (this._transitionInPromise === null) {
+				if (this._debug) {
+					console.warn('[AbstractTransitionController] Transition in was triggered when the it\'s already' +
+						' visible');
+				}
+				return Promise.resolve();
+			}
+
+			return this._transitionInPromise;
+		});
 	}
 
 	/**
 	 * @public
 	 * @method transitionOut
+	 * @oaran { boolean } forceTransition
 	 * @returns {Promise<any>}
 	 */
-	public transitionOut(): Promise<void> {
-		// Kill the _transitionInPromise
-		this._transitionInPromise = null;
-		this._transitionInResolveMethod = null;
+	public transitionOut(forceTransition:boolean = false): Promise<void> {
+		let oldTransitionPromise = Promise.resolve();
 
-		// Only allow the transition out if the element is not hidden
-		if (this._transitionOutPromise === null && !this._isHidden) {
-			this._isHidden = true;
+		/**
+		 * Check if we already have a transition out going on, if so we finish it right away! and trigger a
+		 * transition complete.
+		 */
+		if (this._transitionInPromise) {
+			if (forceTransition) {
+				this.transitionInTimeline.kill();
+				this.handleTransitionComplete(AbstractTransitionController.IN);
 
-			// If we do have a transitionOut make sure the transitionIn is paused in case we clicked the
-			// transitionOut while the transitionIn was not finished yet.
-			if (this.transitionOutTimeline.getChildren().length > 0) {
-				this.transitionOutTimeline.paused(false);
-				this.transitionInTimeline.paused(true);
-			} else {
-				// We don't have a transitionOutTimeline, so we are reversing it, therefore removing the paused state.
-				this.transitionInTimeline.paused(false);
-			}
-
-			this._transitionOutPromise = new Promise<void>((resolve: () => void) => {
-				this._transitionOutResolveMethod = resolve;
-				if (this.transitionOutTimeline.getChildren().length > 0) {
-					this.transitionOutTimeline.restart();
-				} else {
-					this.transitionInTimeline.reverse();
+				if (this._debug) {
+					console.warn(this.viewModel[COMPONENT_ID] + ': Interrupted the transition in!');
 				}
-			});
+			}
+			else {
+				oldTransitionPromise = this._transitionInPromise;
+			}
 		}
 
-		if (!this._transitionOutPromise) {
-			if (this._debug) {
-				console.warn('[AbstractTransitionController] Transition out was triggered when the it\'s already' +
-					' hidden');
+		return oldTransitionPromise.then(() => {
+			// Only allow the transition out if the element is not hidden
+			if (this._transitionOutPromise === null && !this._isHidden) {
+				this._isHidden = true;
+
+				// If we do have a transitionOut make sure the transitionIn is paused in case we clicked the
+				// transitionOut while the transitionIn was not finished yet.
+				if (this.transitionOutTimeline.getChildren().length > 0) {
+					this.transitionOutTimeline.paused(false);
+					this.transitionInTimeline.paused(true);
+				} else {
+					// We don't have a transitionOutTimeline, so we are reversing it, therefore removing the paused state.
+					this.transitionInTimeline.paused(false);
+				}
+
+				this._transitionOutPromise = new Promise<void>((resolve: () => void) => {
+					this._transitionOutResolveMethod = resolve;
+					if (this.transitionOutTimeline.getChildren().length > 0) {
+						this.transitionOutTimeline.restart();
+					} else {
+						this.transitionInTimeline.reverse();
+					}
+				});
 			}
 
-			// Already hidden, so resolve it right away
-			return Promise.resolve();
-		}
+			if (!this._transitionOutPromise) {
+				if (this._debug) {
+					console.warn('[AbstractTransitionController] Transition out was triggered when the it\'s already' +
+						' hidden');
+				}
 
-		return this._transitionOutPromise;
+				// Already hidden, so resolve it right away
+				return Promise.resolve();
+			}
+
+			return this._transitionOutPromise;
+		});
 	}
 
 	/**
@@ -331,8 +403,10 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	/**
 	 * @private
 	 * @method handleTransitionComplete
+	 * @param { string } type
+	 * @param { string } direction
 	 */
-	private handleTransitionComplete(type: string, direction: string): void {
+	private handleTransitionComplete(type: string, direction?: string): void {
 		switch (type) {
 			case AbstractTransitionController.IN:
 				this._transitionInPromise = null;

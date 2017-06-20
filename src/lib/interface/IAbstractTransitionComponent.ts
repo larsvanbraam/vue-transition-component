@@ -12,16 +12,18 @@ interface IAbstractTransitionComponent extends IAbstractRegistrableComponent {
 	 * @public
 	 * @method transitionIn
 	 * @description The main transitionIn method for the component
+	 * @param { boolean } forceTransition
 	 * @returns { Promise<any> }
 	 */
-	transitionIn: () => Promise<any>;
+	transitionIn: (forceTransition?: boolean) => Promise<any>;
 	/**
 	 * @public
 	 * @method transitionOut
 	 * @description The main transitionOut method for the component
+	 * @param { boolean } forceTransition
 	 * @returns { Promise<any> }
 	 */
-	transitionOut: () => Promise<any>;
+	transitionOut: (forceTransition?: boolean) => Promise<any>;
 }
 
 export default IAbstractTransitionComponent;

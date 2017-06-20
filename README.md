@@ -103,7 +103,7 @@ export default {
 4. `transitionOut`
 5. `checkComponentsReady`
 6. `componentReady`
-7. `getChildComponent`
+7. `getChild`
 
 #### DummyComponentTransitionController.ts
 This file will contain all the transitions for your page, you can add tweens to the [provided greensock timelines](https://greensock.com/docs/#/HTML5/GSAP/TimelineLite/). 
