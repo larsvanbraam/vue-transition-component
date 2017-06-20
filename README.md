@@ -1,7 +1,6 @@
 [![Travis](https://img.shields.io/travis/larsvanbraam/vue-transition-component.svg?maxAge=2592000)](https://travis-ci.org/larsvanbraam/vue-transition-component)
 [![npm](https://img.shields.io/npm/v/vue-transition-component.svg?maxAge=2592000)](https://www.npmjs.com/package/vue-transition-component)
-[![GitHub issues](https://img.shields.io/github/issues/larsvanbraam/vue-transition-component.svg?style=flat-square)]
-(https://github.com/larsvanbraam/vue-transition-component/issues)
+[![GitHub issues](https://img.shields.io/github/issues/larsvanbraam/vue-transition-component.svg?style=flat-square)](https://github.com/larsvanbraam/vue-transition-component/issues)
 
 # vue-transition-component
 
