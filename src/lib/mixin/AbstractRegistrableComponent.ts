@@ -54,7 +54,7 @@ export default {
 				return child;
 			} else {
 				throw new Error(
-					'Requested component is not of type: ' + ComponentType[ComponentType.REGISTRABLE_COMPONENT]
+					'Requested component is not of type: ' + ComponentType[ComponentType.REGISTRABLE_COMPONENT],
 				);
 			}
 		},
