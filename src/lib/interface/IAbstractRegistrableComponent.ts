@@ -53,7 +53,8 @@ interface IAbstractRegistrableComponent extends Vue {
 	 * @param {ComponentTypes} componentType
 	 * @returns { IAbstractPageTransitionComponent | IAbstractTransitionComponent | IAbstractRegistrableComponent }
 	 */
-	getChild(componentId: string, componentType?:ComponentType): IAbstractPageTransitionComponent | IAbstractTransitionComponent | IAbstractRegistrableComponent;
+	getChild(componentId: string, componentType?:ComponentType)
+		: IAbstractPageTransitionComponent | IAbstractTransitionComponent | IAbstractRegistrableComponent;
 	/**
 	 * @public
 	 * @method checkComponentsReady

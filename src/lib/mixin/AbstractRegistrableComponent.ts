@@ -13,7 +13,7 @@ export default {
 		},
 	},
 	beforeCreate() {
-		this.componentType = ComponentType.REGISTRABLE_COMPONENT
+		this.componentType = ComponentType.REGISTRABLE_COMPONENT;
 		this.registeredComponents = [];
 		this.allComponentsReady = new Promise((resolve) => {
 			this.allComponentsReadyResolveMethod = resolve;
@@ -48,14 +48,15 @@ export default {
 				if (child.componentType === componentType) {
 					return child;
 				} else {
-					throw new Error('Requested component is not of type: ' + ComponentType[componentType])
+					throw new Error('Requested component is not of type: ' + ComponentType[componentType]);
 				}
 			} else if (child.componentType !== void 0) {
 				return child;
 			} else {
-				throw new Error('Requested component is not of type: ' + ComponentType[ComponentType.REGISTRABLE_COMPONENT])
+				throw new Error(
+					'Requested component is not of type: ' + ComponentType[ComponentType.REGISTRABLE_COMPONENT]
+				);
 			}
-
 		},
 		/**
 		 * @public

@@ -8,7 +8,7 @@ export default {
 	name: 'AbstractPageTransitionComponent',
 	extends: AbstractTransitionComponent,
 	beforeCreate() {
-		this.componentType = ComponentType.PAGE_COMPONENT
+		this.componentType = ComponentType.PAGE_COMPONENT;
 		this.flow = FlowType.NORMAL;
 	},
 	/**
