@@ -57,7 +57,7 @@ export default {
 	},
 	beforeDestroy() {
 		if (this.transitionController) {
-			this.transitionController.destruct();
+			this.transitionController.dispose();
 			this.transitionController = null;
 		}
 	},
