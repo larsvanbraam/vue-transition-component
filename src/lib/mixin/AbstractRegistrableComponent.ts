@@ -56,7 +56,7 @@ export default {
 				}
 			}
 
-			throw new Error(`Requested component [${componentId}] is not found`)
+			throw new Error(`Requested component [${componentId}] is not found`);
 		},
 		/**
 		 * @public
