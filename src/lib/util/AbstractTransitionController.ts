@@ -145,7 +145,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 
 		if (this._transitionInPromise === null) {
 			if (this._debug) {
-				console.error('[AbstractTransitionController] Transition in was triggered when the it\'s already' +
+				console.warn('[AbstractTransitionController] Transition in was triggered when the it\'s already' +
 					' visible');
 			}
 			return Promise.resolve();
@@ -190,7 +190,8 @@ abstract class AbstractTransitionController extends EventDispatcher {
 
 		if (!this._transitionOutPromise) {
 			if (this._debug) {
-				console.error('[AbstractTransitionController] Transition out was triggered when the it\'s already hidden');
+				console.warn('[AbstractTransitionController] Transition out was triggered when the it\'s already' +
+					' hidden');
 			}
 
 			// Already hidden, so resolve it right away

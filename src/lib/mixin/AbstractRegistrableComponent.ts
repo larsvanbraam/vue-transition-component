@@ -44,19 +44,19 @@ export default {
 			// Find the child component based on the componentId
 			const child = find(this.$children, child => child[COMPONENT_ID] === componentId);
 
-			if (componentType !== void 0) {
-				if (child.componentType === componentType) {
+			if (child) {
+				if (componentType !== void 0) {
+					if (child.componentType === componentType) {
+						return child;
+					} else {
+						throw new Error('Requested component is not of type: ' + ComponentType[componentType]);
+					}
+				} else if (child.componentType !== void 0) {
 					return child;
-				} else {
-					throw new Error('Requested component is not of type: ' + ComponentType[componentType]);
 				}
-			} else if (child.componentType !== void 0) {
-				return child;
-			} else {
-				throw new Error(
-					'Requested component is not of type: ' + ComponentType[ComponentType.REGISTRABLE_COMPONENT],
-				);
 			}
+
+			throw new Error(`Requested component [${componentId}] is not found`)
 		},
 		/**
 		 * @public
