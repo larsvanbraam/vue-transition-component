@@ -6,7 +6,7 @@ export default {
 	extends: AbstractTransitionComponent,
 	methods: {
 		handleAllComponentsReady() {
-			this.transitionController = new {{name_pc}}TransitionController(this.$el, this);
+			this.transitionController = new {{name_pc}}TransitionController(this);
 			this.isReady();
 		},
 	},
