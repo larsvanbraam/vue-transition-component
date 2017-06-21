@@ -70,7 +70,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="tsd-signature-type">Disposable</span>
+						<span class="tsd-signature-type">EventDispatcher</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">FlowManager</span>
@@ -83,17 +83,25 @@
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
 					<li><span class="tsd-signature-type">IDisposable</span></li>
+					<li><span class="tsd-signature-type">IEventDispatcher</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+						<section class="tsd-index-section tsd-is-inherited">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="flowmanager.html#_previouscomponentid" class="tsd-kind-icon">_previous<wbr>Component<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="flowmanager.html#_transitionout" class="tsd-kind-icon">_transition<wbr>Out</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#parent" class="tsd-kind-icon">parent</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -105,15 +113,71 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#dispatchevent" class="tsd-kind-icon">dispatch<wbr>Event</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="flowmanager.html#dispose" class="tsd-kind-icon">dispose</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#haseventlistener" class="tsd-kind-icon">has<wbr>Event<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#isdisposed" class="tsd-kind-icon">is<wbr>Disposed</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#removealleventlisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Event<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="flowmanager.html#start" class="tsd-kind-icon">start</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#willtrigger" class="tsd-kind-icon">will<wbr>Trigger</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Flow<wbr>Manager<span class="tsd-signature-symbol">(</span>parent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">EventDispatcher</span>, target<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">IEventDispatcher</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="flowmanager.html" class="tsd-signature-type">FlowManager</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventDispatcher.__constructor</p>
+								<ul>
+									<li>Defined in /Users/lars/Projects/_private/vue-transition/node_modules/seng-event/lib/EventDispatcher.d.ts:30</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates an EventDispatcher instance.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> parent: <span class="tsd-signature-type">EventDispatcher</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>If set, registers the given EventDispatcher instance as parent. This
+												child-parent relationship is used in the event chain during the capture phase of
+												events and the bubbling phase of bubbling events. For more information on event
+											bubbling and capturing, see <a href="flowmanager.html#dispatchevent">dispatchEvent</a></p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> target: <span class="tsd-signature-type">IEventDispatcher</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>If set, will set the [[IEvent.target|target]] attribute of all events
+												dispatched by this EventDispatcher to the given object. If not set, will use this instance
+											as a target for dispatched events.</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="flowmanager.html" class="tsd-signature-type">FlowManager</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_previouscomponentid" class="tsd-anchor"></a>
@@ -121,7 +185,7 @@
 					<div class="tsd-signature tsd-kind-icon">_previous<wbr>Component<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition/blob/ca4d5aeb/src/lib/util/FlowManager.ts#L16">lib/util/FlowManager.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/f6b588b7/src/lib/util/FlowManager.ts#L17">lib/util/FlowManager.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -141,7 +205,7 @@
 					<div class="tsd-signature tsd-kind-icon">_transition<wbr>Out<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition/blob/ca4d5aeb/src/lib/util/FlowManager.ts#L11">lib/util/FlowManager.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/f6b588b7/src/lib/util/FlowManager.ts#L12">lib/util/FlowManager.ts:12</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -151,6 +215,28 @@
 							</dd>
 							<dt>type</dt>
 							<dd><p>Promise<void></p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="parent" class="tsd-anchor"></a>
+					<h3>parent</h3>
+					<div class="tsd-signature tsd-kind-icon">parent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventDispatcher</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from EventDispatcher.parent</p>
+						<ul>
+							<li>Defined in /Users/lars/Projects/_private/vue-transition/node_modules/seng-event/lib/EventDispatcher.d.ts:19</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The parent EventDispatcher instance. If this instance has no parent, this value will be
+							set to <em>null</em>. The parent is used in the bubbling and capturing phases of events.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>see</dt>
+							<dd><p><a href="flowmanager.html#dispatchevent">dispatchEvent</a> for more information on the bubbling and capturing chain</p>
 							</dd>
 						</dl>
 					</div>
@@ -168,7 +254,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition/blob/ca4d5aeb/src/lib/util/FlowManager.ts#L22">lib/util/FlowManager.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/f6b588b7/src/lib/util/FlowManager.ts#L23">lib/util/FlowManager.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -185,6 +271,136 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="addeventlistener" class="tsd-anchor"></a>
+					<h3>add<wbr>Event<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>eventType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventHandler</span>, useCapture<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, priority<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventListenerData</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventDispatcher.addEventListener</p>
+								<ul>
+									<li>Defined in /Users/lars/Projects/_private/vue-transition/node_modules/seng-event/lib/EventDispatcher.d.ts:97</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a new event listener. The given handler function will be called in the following cases:</p>
+									<ul>
+										<li>An event with a [[IEvent.type|type]] that is equal to the given <em>eventType</em> is dispatched
+										on this EventDispatcher instance.</li>
+										<li>An event with a [[IEvent.type|type]] that is equal to the given <em>eventType</em> is dispatched
+										on a child EventDispatcher, and the <em>useCapture</em> parameter is set to <em>true</em></li>
+										<li>An event with [[IEvent.bubbles|bubbles]] set to <em>true</em> and a [[IEvent.type|type]] that
+											is equal to the given <em>eventType</em> is dispatched on a child EventDispatcher, and the
+										<em>useCapture</em> parameter is set to <em>false</em></li>
+									</ul>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="flowmanager.html#dispatchevent">dispatchEvent</a> for more info on the which event listeners are called during
+										capturing and bubbling</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventType: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The eventType to listen for</p>
+									</div>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">EventHandler</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The handler function that will be called when a matching event is dispatched.
+										This function will retrieve the dispatched [[IEvent|event]] as a parameter</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> useCapture: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Indicates if this handler should be called during the capturing phase
+											of an event chain. If and only if this is set to <em>false</em> will this handler be called
+										during the bubbling phase of an event chain.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> priority: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A number that indicates the priority of this event listener relative
+											to other event listeners of the same type on this EventDispatcher instance. A higher number
+										indicates that this listener will be called earlier.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">EventListenerData</span></h4>
+							<p>An object describing the listener that has a [[EventListenerData.dispose|dispose()]]
+							method to remove the listener.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="dispatchevent" class="tsd-anchor"></a>
+					<h3>dispatch<wbr>Event</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">dispatch<wbr>Event<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventDispatcher.dispatchEvent</p>
+								<ul>
+									<li>Defined in /Users/lars/Projects/_private/vue-transition/node_modules/seng-event/lib/EventDispatcher.d.ts:72</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Dispatches the given event. The dispatch consists of three phases:</p>
+									<ol>
+										<li>The capture phase. We walk through all ancestors of this EventDispatcher, with the
+											top-most instance first and the direct parent of this EventDispatcher last. On each
+											ancestor, we call all event handlers that are added with the <em>useCapture</em> argument
+											set to <em>true</em> and the <em>eventType</em> set to the same [[IEvent.type|type]] as
+											the given event.
+										If this EventDispatcher has no parent, this phase will be skipped.</li>
+										<li>The target phase. In this phase we call all event handlers on this EventDispatcher
+										instance that listen for the same [[IEvent.type|type]] as the given event.</li>
+										<li>The bubbling phase. This phase will only be executed if the given event has the
+											[[IEvent.bubbles|bubbles]] property set to <em>true</em>. If so, we will again walk through
+											all ancestors of this EventDispatcher, but in the reverse order: the direct parent
+											of this instance first and the top-most parent last. On every ancestor, we will call
+											all event handlers that are added with the <em>useCapture</em> argument set to <em>false</em> and the
+										<em>eventType</em> set to the same [[IEvent.type|type]] as the given event.</li>
+									</ol>
+								</div>
+								<p>If any of the event handlers call [[IEvent.stopPropagation|stopPropagation()]], we will
+									skip all event handlers that occur on a target later in the event chain. If an event handler
+									calls [[IEvent.stopImmediatePropagation|stopImmediatePropagation()]], we will also skip
+								any event handlers on the same target in the event chain.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">IEvent</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The event to dispatch</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>If one of the handlers that have been called during this dispatch
+								called [[IEvent.preventDefault|event.preventDefault()]], this method will return <em>false</em>.
+								If no handlers have been called or none of the handlers have called
+							[[IEvent.preventDefault|event.preventDefault()]], this method will return <em>true</em>.</p>
+							<p><em>Please note: [[IEvent.preventDefault|preventDefault()]] can only be called on
+							events that have their [[IEvent.cancelable|cancelable]] property set to true</em></p>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="dispose" class="tsd-anchor"></a>
 					<h3>dispose</h3>
@@ -194,9 +410,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides Disposable.dispose</p>
+								<p>Overrides EventDispatcher.dispose</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition/blob/ca4d5aeb/src/lib/util/FlowManager.ts#L61">lib/util/FlowManager.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/f6b588b7/src/lib/util/FlowManager.ts#L63">lib/util/FlowManager.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -207,6 +423,54 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="haseventlistener" class="tsd-anchor"></a>
+					<h3>has<wbr>Event<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">has<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>eventType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">EventHandler</span>, useCapture<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventDispatcher.hasEventListener</p>
+								<ul>
+									<li>Defined in /Users/lars/Projects/_private/vue-transition/node_modules/seng-event/lib/EventDispatcher.d.ts:108</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks if an event listener matching the given parameters exists on this EventDispatcher
+									instance.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventType: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Will only look for event listeners with this <em>eventType</em></p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">EventHandler</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>If set, will only match event listeners that have the same handler function</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> useCapture: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>If set, will only match event listeners that have the same <em>useCapture</em>
+											argument. <em>Please note: if no useCapture argument was provided to <a href="flowmanager.html#addeventlistener">addEventListener</a>, it
+										is set to false by default</em></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if one or more event listeners exist</p>
 						</li>
 					</ul>
 				</section>
@@ -234,6 +498,92 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="removealleventlisteners" class="tsd-anchor"></a>
+					<h3>remove<wbr>All<wbr>Event<wbr>Listeners</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>All<wbr>Event<wbr>Listeners<span class="tsd-signature-symbol">(</span>eventType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventDispatcher.removeAllEventListeners</p>
+								<ul>
+									<li>Defined in /Users/lars/Projects/_private/vue-transition/node_modules/seng-event/lib/EventDispatcher.d.ts:139</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes all event listeners that have a [[IEvent.type|type]] of the given <em>eventType</em>
+										from this EventDispatcher instance, regardless of their [[EventListenerData.handler|handler]] or
+									[[EventListenerData.useCapture|useCapture]] property.</p>
+								</div>
+								<p><em>Please note: if you remove an event listener during the dispatch of an event it will
+								not be called anymore, even if it was supposed to be called in the same event chain</em></p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> eventType: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The [[IEvent.type|type]] of event to remove. If not provided, all event listeners
+										will be removed regardless of their type.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="removeeventlistener" class="tsd-anchor"></a>
+					<h3>remove<wbr>Event<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>eventType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventHandler</span>, useCapture<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventDispatcher.removeEventListener</p>
+								<ul>
+									<li>Defined in /Users/lars/Projects/_private/vue-transition/node_modules/seng-event/lib/EventDispatcher.d.ts:128</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes all event listeners that match the given parameters from this EventDispatcher
+									instance.</p>
+								</div>
+								<p><em>Please note: if you remove an event listener during the dispatch of an event it will
+								not be called anymore, even if it was supposed to be called in the same event chain</em></p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventType: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Only event listeners of that have this <em>eventType</em> are removed</p>
+									</div>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">EventHandler</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Only event listeners that have this handler function will be removed</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> useCapture: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Only event listeners that have been added with the same <em>useCapture</em>
+											parameter will be removed. <em>Please note: if no useCapture argument is provided, only
+										event listeners that have useCapture set to false will be removed.</em></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="start" class="tsd-anchor"></a>
 					<h3>start</h3>
@@ -244,7 +594,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition/blob/ca4d5aeb/src/lib/util/FlowManager.ts#L34">lib/util/FlowManager.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/f6b588b7/src/lib/util/FlowManager.ts#L35">lib/util/FlowManager.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -283,6 +633,40 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="willtrigger" class="tsd-anchor"></a>
+					<h3>will<wbr>Trigger</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">will<wbr>Trigger<span class="tsd-signature-symbol">(</span>eventType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventDispatcher.willTrigger</p>
+								<ul>
+									<li>Defined in /Users/lars/Projects/_private/vue-transition/node_modules/seng-event/lib/EventDispatcher.d.ts:115</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks if an event listener with a [[EventListenerData.type|type]] of the given <em>eventType</em> exists
+									on this EventDispatcher or any ancestor EventDispatcher instance.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventType: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The event type to check for</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><em>true</em> if a matching listener is found</p>
+						</li>
+					</ul>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -304,28 +688,55 @@
 					<li class=" tsd-kind-class">
 						<a href="abstracttransitioncontroller.html" class="tsd-kind-icon">Abstract<wbr>Transition<wbr>Controller</a>
 					</li>
+					<li class=" tsd-kind-class">
+						<a href="flowevent.html" class="tsd-kind-icon">Flow<wbr>Event</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
 						<a href="flowmanager.html" class="tsd-kind-icon">Flow<wbr>Manager</a>
 						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+								<a href="flowmanager.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="flowmanager.html#_previouscomponentid" class="tsd-kind-icon">_previous<wbr>Component<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="flowmanager.html#_transitionout" class="tsd-kind-icon">_transition<wbr>Out</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="flowmanager.html#parent" class="tsd-kind-icon">parent</a>
+							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="flowmanager.html#transitionout" class="tsd-kind-icon">transition<wbr>Out</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="flowmanager.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="flowmanager.html#dispatchevent" class="tsd-kind-icon">dispatch<wbr>Event</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="flowmanager.html#dispose" class="tsd-kind-icon">dispose</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="flowmanager.html#haseventlistener" class="tsd-kind-icon">has<wbr>Event<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="flowmanager.html#isdisposed" class="tsd-kind-icon">is<wbr>Disposed</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="flowmanager.html#removealleventlisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Event<wbr>Listeners</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="flowmanager.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="flowmanager.html#start" class="tsd-kind-icon">start</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="flowmanager.html#willtrigger" class="tsd-kind-icon">will<wbr>Trigger</a>
 							</li>
 						</ul>
 					</li>

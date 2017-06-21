@@ -1,8 +1,6 @@
 [![Travis](https://img.shields.io/travis/larsvanbraam/vue-transition-component.svg?maxAge=2592000)](https://travis-ci.org/larsvanbraam/vue-transition-component)
-[![Code Climate](https://img.shields.io/codeclimate/github/larsvanbraam/vue-transition-component.svg?maxAge=2592000)](https://codeclimate.com/github/larsvanbraam/vue-transition-component)
 [![npm](https://img.shields.io/npm/v/vue-transition-component.svg?maxAge=2592000)](https://www.npmjs.com/package/vue-transition-component)
-[![npm](https://img.shields.io/npm/dm/vue-transition-component.svg?maxAge=2592000)](https://www.npmjs.com/package/vue-transition-component)
-
+[![GitHub issues](https://img.shields.io/github/issues/larsvanbraam/vue-transition-component.svg?style=flat-square)](https://github.com/larsvanbraam/vue-transition-component/issues)
 
 # vue-transition-component
 
@@ -51,7 +49,7 @@ The extra functionality is provided through three mixins.
 This is the core component that contains all of the logic for registring components and handling when they are 'ready'.
 
 #### Methods
-After extending this mixin a couple of methods are added to your component, you can see all of them in the [generated documentation](https://larsvanbraam.github.io/vue-transition-component/). See below for the most common ones!
+After extending this mixin a couple of methods are added to your component, you can see all of them in the [generated documentation](http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/). See below for the most common ones!
 
 ##### getChild
 - Description: *This method retrieves a child component within your component based on the componentId that's provided when registring it.*
@@ -70,7 +68,7 @@ After extending this mixin a couple of methods are added to your component, you 
 This component extends the AbstractRegistrableCompponent and is the component that allows you to trigger transition in methods on your component. It also contains the TransitionController that contains the GreenSock timelines.
 
 #### Methods
-After extending this mixin a couple of methods are added to your component, you can see all of them in the [generated documentation](https://larsvanbraam.github.io/vue-transition-component/). See below for the most common ones!
+After extending this mixin a couple of methods are added to your component, you can see all of them in the [generated documentation](http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/). See below for the most common ones!
 
 ##### transitionIn
 - Description: This method allows you to trigger a transitionIn on your component.
@@ -100,7 +98,7 @@ This component extends the AbstractTransitionComponent and is the component that
 The AbstractTransitionController is the base for all your transitions, It contains the timelines for transitioning in and out
 
 #### Methods
-Extending this class wil add a lot of functionality to your transitionController, you can see all of it in the [generated documentation](https://larsvanbraam.github.io/vue-transition-component/). See below for the most common ones!
+Extending this class wil add a lot of functionality to your transitionController, you can see all of it in the [generated documentation](http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/). See below for the most common ones!
 
 ##### getSubTimeline
 - Description: This method retrieves a sub timeline from a child component. This is used for when you want to nest a timeline within another timeline. 
@@ -133,7 +131,7 @@ Extending this class wil add a lot of functionality to your transitionController
 ### FlowManager
 The FlowManager allows you to control the flow between two pages. See the example about [page transitions](#page-transitions) for more information about this!
 
-**For more detailed documentation please check the [generated documentation](https://larsvanbraam.github.io/vue-transition-component/)!**
+**For more detailed documentation please check the [generated documentation](http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/)!**
 
 ## Examples
 All examples below are based on the [vue-skeleton](https://github.com/hjeti/vue-skeleton) by [hjeti](https://github.com/hjeti/). 
@@ -243,9 +241,26 @@ export default DummyComponent;
 ```
 
 #### Seng-generator
-Check out the [seng-generator](https://github.com/mediamonks/seng-generator) generating components automatically!
-I've added template files for automatically generating components with the seng-generator. If you use the
-vue-skeleton you can download [these folders](https://github.com/larsvanbraam/vue-transition-component/tree/master/seng-generator-templates) and paste them in your template folder!
+Check out the latest version of the [seng-generator](https://github.com/mediamonks/seng-generator), it will generate components for you! I've added custom template files for the transition components. You can easily add the new template path to the .senggenerator file by first removing it from the root of your project and then run the following command: 
+
+```sh
+ sg init
+
+```
+
+**Template path:**
+
+```
+./template,./node_modules/vue-transition-component/template
+
+```
+
+**Destination path:**
+
+```
+.
+
+```
 
 ### Rendering the component
 Using transition components is the same as using any other component in Vue.js exept for the fact that you have to provide two extra props. The componentReady listener is the callback for when the component is ready and the componentId is the unique id of the component.
