@@ -152,8 +152,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 			if (forceTransition) {
 				if (this.transitionOutTimeline.getChildren().length > 0) {
 					this.transitionOutTimeline.kill();
-				}
-				else {
+				} else {
 					this.transitionInTimeline.kill();
 				}
 				this.handleTransitionComplete(AbstractTransitionController.OUT);
@@ -161,8 +160,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				if (this._debug) {
 					console.info(this.viewModel[COMPONENT_ID] + ': Interrupted the transition out!');
 				}
-			}
-			else {
+			} else {
 				oldTransitionPromise = this._transitionOutPromise;
 			}
 		}
@@ -187,8 +185,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 						this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_COMPLETE));
 
 						resolve();
-					}
-					else {
+					} else {
 						// Remove the paused state from transitionIn Timeline
 						this.transitionInTimeline.paused(false);
 
@@ -231,8 +228,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				if (this._debug) {
 					console.warn(this.viewModel[COMPONENT_ID] + ': Interrupted the transition in!');
 				}
-			}
-			else {
+			} else {
 				oldTransitionPromise = this._transitionInPromise;
 			}
 		}
@@ -247,8 +243,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				if (this.transitionOutTimeline.getChildren().length > 0) {
 					this.transitionOutTimeline.paused(false);
 					this.transitionInTimeline.paused(true);
-				}
-				else {
+				} else {
 					// We don't have a transitionOutTimeline, so we are reversing it, therefore removing the paused state.
 					this.transitionInTimeline.paused(false);
 				}
@@ -257,8 +252,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 					this._transitionOutResolveMethod = resolve;
 					if (this.transitionOutTimeline.getChildren().length > 0) {
 						this.transitionOutTimeline.restart();
-					}
-					else {
+					} else {
 						this.transitionInTimeline.reverse();
 					}
 				});
@@ -345,8 +339,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 		timeline.getChildren().forEach((target) => {
 			if ((<Tween>target).target) {
 				TweenLite.set((<Tween>target).target, { clearProps: 'all' });
-			}
-			else {
+			} else {
 				this.clearTimeline(<TimelineLite>target);
 			}
 		});
@@ -479,8 +472,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	public dispose(): void {
 		if (this._transitionOutPromise && this._transitionOutResolveMethod) {
 			this._transitionOutPromise.then(this.clean.bind(this));
-		}
-		else {
+		} else {
 			this.clean();
 		}
 		super.dispose();
