@@ -1,9 +1,10 @@
-import Disposable from 'seng-disposable';
+import EventDispatcher from 'seng-event';
 import FlowType from '../enum/FlowType';
 import IAbstractPageTransitionComponent from '../interface/IAbstractPageTransitionComponent';
 import { COMPONENT_ID } from '../mixin/AbstractRegistrableComponent';
+import FlowEvent from '../event/FlowEvent';
 
-export class FlowManager extends Disposable {
+export class FlowManager extends EventDispatcher {
 	/**
 	 * @property _transitionOut
 	 * @type Promise<void>
@@ -36,6 +37,7 @@ export class FlowManager extends Disposable {
 			release();
 		} else {
 			this._previousComponentId = pageInstance[COMPONENT_ID];
+			this.dispatchEvent(new FlowEvent(FlowEvent.START));
 			switch (pageInstance.flow) {
 				case FlowType.NORMAL: {
 					this._transitionOut = pageInstance.transitionOut();

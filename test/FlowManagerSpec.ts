@@ -11,7 +11,7 @@ import ComponentType from '../src/lib/enum/ComponentType';
 describe('FlowManager', () => {
 	let flowManager: FlowManager;
 
-	beforeEach(function () {
+	beforeEach(() => {
 		flowManager = new FlowManager();
 	});
 
@@ -27,7 +27,7 @@ describe('FlowManager', () => {
 				extends: AbstractPageTransitionComponent,
 				beforeCreate() {
 					const self = <any>this;
-					self.componentType = ComponentType.TRANSITION_COMPONENT
+					self.componentType = ComponentType.TRANSITION_COMPONENT;
 					self.componentId = id;
 					self.flow = flowType;
 				},
@@ -40,10 +40,10 @@ describe('FlowManager', () => {
 
 						resolve(<IAbstractPageTransitionComponent>transitionComponent);
 					},
-				}
+				},
 			});
-		})
-	}
+		});
+	};
 
 	it('should return the transition out promise', () => {
 		const transitionOutPromise = flowManager.transitionOut;
@@ -53,26 +53,26 @@ describe('FlowManager', () => {
 	it('start a NORMAL flow', (done) => {
 		createPage('DummyPage', FlowType.NORMAL).then((page) => {
 			flowManager.start(page, () => done());
-		})
+		});
 	});
 
 	it('start a NORMAL flow with the same component id', (done) => {
 		createPage('DummyPage', FlowType.NORMAL).then((page) => {
 			flowManager.start(page, () => flowManager.start(page, () => done()));
-		})
+		});
 	});
 
 	it('start a CROSS flow', (done) => {
 		createPage('DummyPage', FlowType.CROSS).then((page) => {
 			flowManager.start(page, () => done());
-		})
-	})
+		});
+	});
 
 	it('should throw an error', (done) => {
 		createPage('DummyPage', null).then((page) => {
 			expect(() => flowManager.start(page, () => {})).to.throw(Error);
-			done()
-		})
+			done();
+		});
 	});
 
 	it('should dispose the FlowManager and mark it as disposed', () => {
