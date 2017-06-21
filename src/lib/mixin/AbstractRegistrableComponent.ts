@@ -28,7 +28,7 @@ export default {
 		 * @returns {void}
 		 */
 		isReady() {
-			if (this.$parent) {
+			if (this.$parent && this.$parent['componentReady']) {
 				this.$parent['componentReady'](this);
 			}
 		},
