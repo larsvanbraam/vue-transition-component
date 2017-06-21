@@ -6,7 +6,7 @@ export default {
 	extends: AbstractPageTransitionComponent,
 	methods: {
 		handleAllComponentsReady() {
-			this.transitionController = new {{name_pc}}TransitionController(this, this);
+			this.transitionController = new {{name_pc}}TransitionController(this);
 			this.isReady();
 		},
 	},
