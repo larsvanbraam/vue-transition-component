@@ -4,7 +4,7 @@ import IAbstractRegistrableComponent from './IAbstractRegistrableComponent';
 interface IAbstractTransitionComponent extends IAbstractRegistrableComponent {
 	/**
 	 * @public
-	 * @property
+	 * @property transitionController
 	 * @description The transition controller for the component
 	 */
 	transitionController: AbstractTransitionController;
@@ -12,18 +12,18 @@ interface IAbstractTransitionComponent extends IAbstractRegistrableComponent {
 	 * @public
 	 * @method transitionIn
 	 * @description The main transitionIn method for the component
-	 * @param { boolean } forceTransition
-	 * @returns { Promise<any> }
+	 * @param forceTransition Add this flag if you want to overwrite any active transitions
+	 * @returns A promise that will be resolved when the transition in timeline is completed
 	 */
-	transitionIn: (forceTransition?: boolean) => Promise<any>;
+	transitionIn(forceTransition?: boolean):Promise<void>;
 	/**
 	 * @public
 	 * @method transitionOut
 	 * @description The main transitionOut method for the component
-	 * @param { boolean } forceTransition
-	 * @returns { Promise<any> }
+	 * @param forceTransition Add this flag if you want to overwrite any active transitions
+	 * @returns A promise that will be resolved when the transition in timeline is completed
 	 */
-	transitionOut: (forceTransition?: boolean) => Promise<any>;
+	transitionOut(forceTransition?: boolean):Promise<void>;
 }
 
 export default IAbstractTransitionComponent;

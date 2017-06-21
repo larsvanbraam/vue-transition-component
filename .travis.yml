@@ -12,12 +12,14 @@ sudo: false
 before_install:
   - if [[ `npm -v` != 5* ]]; then npm i -g npm@5; fi
   - npm install -g typings
+  - npm install -g codeclimate-test-reporter
 
 script:
   - npm run build
   - npm run validate
 
 after_script:
+  - codeclimate-test-reporter < coverage/lcov.info
   - node_modules/.bin/coveralls < coverage/lcov.info
 
 before_deploy:
@@ -32,3 +34,8 @@ deploy:
     tags: true
     node: 'stable'
   skip_cleanup: true
+
+addons:
+  code_climate:
+    repo_token:
+      secure: 'ONHyuZ4TqJq07CDYNtF2RU7vM0nBIGd1fPk8MvDbWWOeXvJ5B8bnhmHejW8yxodKZLkKnnDHCWw0GPPYlVwC+NbZLGFPz3vpifcUWlPS0jyL60DiNaMxKQc7bYLFpcoQaKZ2x/QLqIxa25pGH2ivXMaK/P9r2/e17Z9IxDhLu9WPcky6FeRyD5jKYtTQqWQ/COWj0gkMjdJdoDe/9lfWVea+sJUVu57ABx53sgDtNmNvkQPfhfllF2x6ly87G0xjIqItCR6Al4DAAzHf87HRi7EnMdf3rTLga/flrkDXzcZDOoaHqN6l5pQAZQGuzq5ZdudDXDx6+uy6J6WqHG8IXCQEu7NoSQ/OI6LN5gwVgegsK/d/JZk2Kru+0lnTjDmRhCP19Qkgu2++3tEO6CPOXG7WgIULYqsXn3zvit0kSKsYekNnjRYpCyQthivz3gWGX8GS3i6TtamdL83YcOP91QoKie+S4eVmamwuttxFEIaQAz97J1bBtHgMvYgAGoT6YOr0OBKKZ2q+sak2+8KmRIP4PGWrziXMuJoJYZGf6ip7LYkRcy0vNC+piXw7wgNMU+NxytkWvNjo7UoIHlyDh3vxgpP5f940nNsGp4fF0eGdEXd8xgVKVh6QXpWS3dE+KAqKj4Kcog7Z0pIPiJk9Ed49CLwTa3df6bOqGsOqH8A='

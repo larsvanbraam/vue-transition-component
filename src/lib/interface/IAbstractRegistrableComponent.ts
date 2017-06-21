@@ -34,24 +34,22 @@ interface IAbstractRegistrableComponent extends Vue {
 	 * @property allComponentsReady
 	 * @description When all the transition components within this component are loaded this method will be
 	 * triggered. This is usually the point where the transition controller is setup.
-	 * @returns { void }
 	 */
-	allComponentsReady: Promise<any>;
+	allComponentsReady: Promise<void>;
 	/**
 	 * @public
 	 * @method isReady
 	 * @description The isReady method should be called when the component is fully ready,
 	 * this is usually when it's children are ready but it could require more async data
-	 * @returns { void }
 	 */
 	isReady(): void;
 	/**
 	 * @public
 	 * @method getChild
 	 * @description If you want to get a child component based on it's componentId
-	 * @param {string} componentId
-	 * @param {ComponentTypes} componentType
-	 * @returns { IAbstractPageTransitionComponent | IAbstractTransitionComponent | IAbstractRegistrableComponent }
+	 * @param componentId The id of the desired child component
+	 * @param componentType The type of the desired component
+	 * @returns A child component based on the componentId
 	 */
 	getChild(
 		componentId: string,
@@ -66,16 +64,14 @@ interface IAbstractRegistrableComponent extends Vue {
 	/**
 	 * @public
 	 * @method componentReady
-	 * @description This method is a callback for when the child component is ready, it should be added
-	 * to the .vue template (<ComponentA @componentReady='componentReady'/>)z
-	 * @returns { void }
+	 * @description This method is a callback for when the child component is ready.
+	 * @param component The component reference that is marked as ready.
 	 */
 	componentReady(component: IAbstractRegistrableComponent): void;
 	/**
 	 * @public
 	 * @method handleAllComponentsReady
 	 * @description This method is triggered once when all the components are ready.
-	 * @returns { void }
 	 */
 	handleAllComponentsReady(): void;
 }
