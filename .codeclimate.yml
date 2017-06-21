@@ -13,7 +13,7 @@ ratings:
   paths:
   - src/**
 exclude_paths:
-- doc/**/*
+- docs/**/*
 - dist/**/*
 - test/**/*
 - vendor/**/*
