@@ -1,6 +1,5 @@
 [![Travis](https://img.shields.io/travis/larsvanbraam/vue-transition-component.svg?maxAge=2592000)](https://travis-ci.org/larsvanbraam/vue-transition-component)
 [![Code Climate](https://img.shields.io/codeclimate/github/larsvanbraam/vue-transition-component.svg?maxAge=2592000)](https://codeclimate.com/github/larsvanbraam/vue-transition-component)
-[![Coveralls](https://img.shields.io/coveralls/larsvanbraam/vue-transition-component.svg?maxAge=2592000)](https://coveralls.io/github/larsvanbraam/vue-transition-component?branch=master)
 [![npm](https://img.shields.io/npm/v/vue-transition-component.svg?maxAge=2592000)](https://www.npmjs.com/package/vue-transition-component)
 [![npm](https://img.shields.io/npm/dm/vue-transition-component.svg?maxAge=2592000)](https://www.npmjs.com/package/vue-transition-component)
 
