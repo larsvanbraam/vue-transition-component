@@ -58,7 +58,7 @@
 		"validate"
 	],
 	"author": "Lars van Braam <larsvanbraam@gmail.com> (https://github.com/larsvanbraam)",
-	"homepage": "https://www.larsvanbraam.nl",
+	"homepage": "https://github.com/larsvanbraam/vue-transition-component",
 	"license": "MIT",
 	"keywords": [
 		"seng",
