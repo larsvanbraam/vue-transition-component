@@ -4,21 +4,20 @@
 
 # vue-transition-component
 
-Provides transition functionality to vue.js components.
+Provides GreenSock transition functionality to vue.js components.
 
 ## Table of contents
 
-1. [Features](#features)
-	1. [Provided mixins](#provided-mixins)
-	2. [Provided utils ](#provided-utils)
-2. [Installation](#installation)
-3. [Usage](#usage)
+1. [Installation](#installation)
+2. [Provided mixins](#provided-mixins)
+	1. [AbstractRegistrableComponent](#abstractregistrablecomponent)
+	2. [AbstractTransitionComponent](#abstracttransitioncomponent)
+	3. [AbstractPageComopnent](#abstractpagecomponent)
+3. [Provided utils ](#provided-utils)
+	1. [AbstractTransitionController](#abstracttransitioncontroller)
+	2. [FlowManager](#flowmanager)
+4. [Examples](#examples)
 	1. [Creating a TransitionComponent](#creating-a-transitionComponent)
-		1. [DummyComponent.vue](#dummyComponent-vue) 
-		2. [DummyComponent.js](#dummyComponent-js)
-		3. [DummyComponentTransitionController-ts](#dummyComponentTransitionController)
-		4. [index.js](#index-js) 
-		5. [Seng-generator](#seng-generator) 
 	2. [Rendering the component](#rendering-the-component)
 	3. [Nesting timelines](#nesting-timelines)
 	4. [Page transitions](#page-transitions)
@@ -26,24 +25,11 @@ Provides transition functionality to vue.js components.
 		2. [App.js](#app-js)
 		3. [Routes.js](#routes-js)
 	5. [Access a child component](#access-a-child-component)
-	6. [Events](#transition-events) 
-4. [Documentation](#documentation)
+	6. [Listen to transition events](#listen-to-transition-events) 
 5. [Building](#building)
-5. [Authors](#authors)
-6. [Contribute](#contribute)
-7. [License](#license)
-
-## Features
-### Provided mixins
-The functionality is provided through 3 types of mixins. These mixins give you an easy way of transitioning components.
-
-- **AbstractRegistrableComponent**
-- **AbstractTransitionComponent**
-- **AbstractPageTransitionComponent**
-
-### Provided utils
-- **AbstractTransitionController** - is the base for all your transitions, It contains the timelines for transitioning in and out
-- **FlowManager** - allows you to control the flow between two pages 
+6. [Authors](#authors)
+7. [Contribute](#contribute)
+8. [License](#license)
 
 ## Installation
 ### yarn / npm
@@ -56,7 +42,98 @@ yarn add vue-transition-component
 npm i -S vue-transition-component
 ```
 
-## Usage
+## Provided mixins
+The extra functionality is provided through three mixins. 
+
+### AbstractRegistrableComponent
+This is the core component that contains all of the logic for registring components and handling when they are 'ready'.
+
+#### Methods
+After extending this mixin a couple of methods are added to your component, you can see all of them in the [generated documentation](http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/). See below for the most common ones!
+
+##### getChild
+- Description: *This method retrieves a child component within your component based on the componentId that's provided when registring it.*
+- Parameters
+	- `componentId` 
+		- type: `string` 
+		- required: *true* 
+	- `componentType`
+		- type: `ComponentType`
+		- required: *false* 
+		- description: *To avoid issues you should provide the type of component you are requesting*
+- Returns 
+	- `IAbstractRegistrableComponent | IAbstractTransitionComponent | IAbstractPageComponent`
+
+### AbstractTransitionComponent
+This component extends the AbstractRegistrableCompponent and is the component that allows you to trigger transition in methods on your component. It also contains the TransitionController that contains the GreenSock timelines.
+
+#### Methods
+After extending this mixin a couple of methods are added to your component, you can see all of them in the [generated documentation](http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/). See below for the most common ones!
+
+##### transitionIn
+- Description: This method allows you to trigger a transitionIn on your component.
+- Parameters
+	- `forceTransition`
+		- type: `boolean` 
+		- required: *false*
+		- description: *If you trigger a transitionIn when the transitionOut is still running by default it will wait for the transitionOut to be complete, if you provide this flag it will force your new transiton.*
+- Returns
+	- `Promise<void>`
+
+##### transitionOut
+- Description: This method allows you to trigger a transitionOut on your component.
+- Parameters
+	- `forceTransition`
+		- type: `boolean` 
+		- required: *false* 
+		- description: *If you trigger a transitionOut when the transitionIn is still running by default it will wait for the transitionIn to be complete, if you provide this flag it will force your new transiton.*
+- Returns
+	- `Promise<void>`
+
+### AbstractPageComponent
+This component extends the AbstractTransitionComponent and is the component that changes a default component into a page transition component. It contains information about the flow of the page. becides that it does not add extra functionality to your component!
+
+## Provided utils
+### AbstractTransitionController
+The AbstractTransitionController is the base for all your transitions, It contains the timelines for transitioning in and out
+
+#### Methods
+Extending this class wil add a lot of functionality to your transitionController, you can see all of it in the [generated documentation](http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/). See below for the most common ones!
+
+##### getSubTimeline
+- Description: This method retrieves a sub timeline from a child component. This is used for when you want to nest a timeline within another timeline. 
+- Parameters
+	- `componentId`
+		- type: `string` 
+		- required: *true*
+		- description: *This is the id of the component that you used while registring it.*
+	- `direction`
+		- type: `string` 
+		- required: *false*
+		- description: *Components can have multiple timelines for in/out animations here you can specify what timeline you would like to get* 
+- Returns
+	- `Animation`
+	
+##### getSubTimelineDuration
+- Description: This method retrieves the duration of a sub timeline.
+- Parameters
+	- `componentId`
+		- type: `string` 
+		- required: *true*
+		- description: *This is the id of the component that you used while registring it.*
+	- `direction`
+		- type: `string` 
+		- required: *false*
+		- description: *Components can have multiple timelines for in/out animations here you can specify what timeline you would like to get* 
+- Returns
+	- `number`	
+
+### FlowManager
+The FlowManager allows you to control the flow between two pages. See the example about [page transitions](#page-transitions) for more information about this!
+
+**For more detailed documentation please check the [generated documentation](http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/)!**
+
+## Examples
 All examples below are based on the [vue-skeleton](https://github.com/hjeti/vue-skeleton) by [hjeti](https://github.com/hjeti/). 
 
 #### Folder structure
@@ -134,7 +211,7 @@ export default DummyComponentTransition;
 
 ```
 
-To setup the transitionIn you can do the following example:
+To setup the transitionIn you could do the following:
 
 ```js
 ...
@@ -163,12 +240,10 @@ import DummyComponent from './DummyComponent';
 export default DummyComponent;
 ```
 
-
 #### Seng-generator
 Check out the [seng-generator](https://github.com/mediamonks/seng-generator) generating components automatically!
 I've added template files for automatically generating components with the seng-generator. If you use the
 vue-skeleton you can download [these folders](https://github.com/larsvanbraam/vue-transition-component/tree/master/seng-generator-templates) and paste them in your template folder!
-
 
 ### Rendering the component
 Using transition components is the same as using any other component in Vue.js exept for the fact that you have to provide two extra props. The componentReady listener is the callback for when the component is ready and the componentId is the unique id of the component.
@@ -186,6 +261,78 @@ protected setupTransitionOutTimeline(): void {
 }
 ```
 **Note:** When you inject a timeline into another timeline you can no longer use the transitionIn/transitionOut outside of this timeline. For example when you want to transitionOut a component by triggering the transitionOut method but the timeline is also part of the parent component timeline this will not work.
+
+
+### Access a child component
+Sometimes you want to manually trigger a transitionIn/transitionOut on a component without adding it to the main timeline. To do this you need a reference to the child component. To get a child component reference you can call the method `getChild` providing the `componentId`. You should also provide the type of component you are requesting, since not all components have the same functionality. For example when you would like to request a TransitionComponent:
+
+```js
+...
+import { ComponentType } from 'vue-transition-component';
+...
+...
+this.dummyComponent = this.getChild('DummyComponent', ComponentType.TRANSITION_COMPONENT);
+this.dummyComponent.transitionIn();
+...
+
+```
+
+There following component types are available: 
+
+```js
+...
+import { ComponentType } from 'vue-transition-component';
+...
+...
+this.dummyComponent1 = this.getChild('DummyComponent', ComponentType.REGISTRABLE_COMPONENT);
+this.dummyComponent2 = this.getChild('DummyComponent', ComponentType.TRANSITION_COMPONENT);
+this.dummyComponent3 = this.getChild('DummyComponent', ComponentType.PAGE_COMPONENT);
+...
+
+```
+
+**Note:** Providing the component type is not mandatory. So for example when you only use transition components in your project you could leave it out, this is at your own risk and could cause issues if you start mixing TransitionComponents and RegistrableComponents.
+
+```js
+...
+this.dummyComponent = this.getChild('DummyComponent');
+...
+
+```
+
+### Listen to transition events
+The transition controller uses the [seng-event](https://www.npmjs.com/package/seng-event) module to dispatch events. The following events are dispatched:
+
+- `TransitionInStart `
+- `TransitionInComplete`
+- `TransitionOutStart`
+- `TransitionOutComplete`
+
+You can listen to the by adding an event listener to the transitionController:
+
+```js
+...
+import { TransitionEvent } from 'vue-transition-component';
+...
+...
+handleAllComponentsReady() {
+	this.transitionController = new DummyComponentTransition(this);
+	this.transitionController.addEventListner(TransitionEvent.TRANSITION_IN_START, () => {
+		console.log('transition in start');
+	});
+	this.transitionController.addEventListner(TransitionEvent.TRANSITION_IN_COMPLETE, () => {
+		console.log('transition in complete');
+	});
+	this.transitionController.addEventListner(TransitionEvent.TRANSITION_OUT_START, () => {
+		console.log('transition out start');
+	});
+	this.transitionController.addEventListner(TransitionEvent.TRANSITION_OUT_COMPLETE, () => {
+		console.log('transition out complete');
+	});
+	this.isReady();
+},
+...
+```
 
 ### Page transitions
 Since pages are components as well we can also use this transition functionality to apply fancy animations on pages. To make this possible we have the FlowManager. The FlowManager handles the flow between two pages. The code uses the [javascript hook of the transition component](https://vuejs.org/v2/guide/transitions.html#JavaScript-Hooks). Make sure to update the `App.vue` and the `App.js` file to use the FlowManager. After you've done that make sure you set the componentId on the route object, you can find this file in the `routes.js`
@@ -227,79 +374,6 @@ export default [
 ];
 ```
 
-### Access a child component
-Sometimes you want to manually trigger a transitionIn/transitionOut on a component without adding it to the main timeline. To do this you need a reference to the child component. To get a child component reference you can call the method `getChild` providing the `componentId`. You should also provide the type of component you are requesting, since not all components have the same functionality. For example when you would like to request a TransitionComponent:
-
-```js
-...
-import { ComponentType } from 'vue-transition-component';
-...
-...
-this.dummyComponent = this.getChild('DummyComponent', ComponentType.TRANSITION_COMPONENT);
-this.dummyComponent.transitionIn();
-...
-
-```
-
-There following component types are available: 
-
-```js
-...
-import { ComponentType } from 'vue-transition-component';
-...
-...
-this.dummyComponent1 = this.getChild('DummyComponent', ComponentType.REGISTRABLE_COMPONENT);
-this.dummyComponent2 = this.getChild('DummyComponent', ComponentType.TRANSITION_COMPONENT);
-this.dummyComponent3 = this.getChild('DummyComponent', ComponentType.PAGE_COMPONENT);
-...
-
-```
-
-**Note:** Providing the component type is not mandatory. So for example when you only use transition components in your project you could leave it out, this is at your own risk and could cause issues if you start mixing TransitionComponents and RegistrableComponents.
-
-```js
-...
-this.dummyComponent = this.getChild('DummyComponent');
-...
-
-```
-
-### Events
-The transition controller uses the [seng-event](https://www.npmjs.com/package/seng-event) module to dispatch events. The following events are dispatched:
-
-- `TransitionInStart `
-- `TransitionInComplete`
-- `TransitionOutStart`
-- `TransitionOutComplete`
-
-You can listen to the by adding an event listener to the transitionController:
-
-```js
-...
-import { TransitionEvent } from 'vue-transition-component';
-...
-...
-handleAllComponentsReady() {
-	this.transitionController = new DummyComponentTransition(this);
-	this.transitionController.addEventListner(TransitionEvent.TRANSITION_IN_START, () => {
-		console.log('transition in start');
-	});
-	this.transitionController.addEventListner(TransitionEvent.TRANSITION_IN_COMPLETE, () => {
-		console.log('transition in complete');
-	});
-	this.transitionController.addEventListner(TransitionEvent.TRANSITION_OUT_START, () => {
-		console.log('transition out start');
-	});
-	this.transitionController.addEventListner(TransitionEvent.TRANSITION_OUT_COMPLETE, () => {
-		console.log('transition out complete');
-	});
-	this.isReady();
-},
-...
-```
-
-## Documentation
-View the [generated documentation](http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/).
 
 ## Building
 

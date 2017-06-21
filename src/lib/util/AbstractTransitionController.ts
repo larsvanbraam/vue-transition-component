@@ -21,7 +21,8 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	/**
 	 * @type { IAbstractTransitionComponent }
 	 * @protected
-	 * @description The viewModel is typed as 'any' because we modify the original Vue instance
+	 * @description The viewModel is the reference to the wrapping Vue.js component, you can use this to find
+	 * references and other methods on the component.
 	 */
 	protected viewModel: IAbstractTransitionComponent;
 	/**
@@ -75,7 +76,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @description Check if the component is currently in the transitionedOut state, this is to avoid calling the
 	 * transition out method when it's already transitioned out.
 	 */
-	public _isHidden: boolean = true;
+	private _isHidden: boolean = true;
 	/**
 	 * @private
 	 * @property _transitionInResolveMethod
@@ -140,7 +141,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @param { boolean } forceTransition
 	 * @returns { Promise<any> }
 	 */
-	public transitionIn(forceTransition:boolean = false): Promise<void> {
+	public transitionIn(forceTransition: boolean = false): Promise<void> {
 		let oldTransitionPromise = Promise.resolve();
 
 		/**
@@ -149,9 +150,10 @@ abstract class AbstractTransitionController extends EventDispatcher {
 		 */
 		if (this._transitionOutPromise) {
 			if (forceTransition) {
-				if(this.transitionOutTimeline.getChildren().length > 0) {
+				if (this.transitionOutTimeline.getChildren().length > 0) {
 					this.transitionOutTimeline.kill();
-				}else {
+				}
+				else {
 					this.transitionInTimeline.kill();
 				}
 				this.handleTransitionComplete(AbstractTransitionController.OUT);
@@ -185,7 +187,8 @@ abstract class AbstractTransitionController extends EventDispatcher {
 						this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_COMPLETE));
 
 						resolve();
-					} else {
+					}
+					else {
 						// Remove the paused state from transitionIn Timeline
 						this.transitionInTimeline.paused(false);
 
@@ -213,7 +216,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @oaran { boolean } forceTransition
 	 * @returns {Promise<any>}
 	 */
-	public transitionOut(forceTransition:boolean = false): Promise<void> {
+	public transitionOut(forceTransition: boolean = false): Promise<void> {
 		let oldTransitionPromise = Promise.resolve();
 
 		/**
@@ -244,7 +247,8 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				if (this.transitionOutTimeline.getChildren().length > 0) {
 					this.transitionOutTimeline.paused(false);
 					this.transitionInTimeline.paused(true);
-				} else {
+				}
+				else {
 					// We don't have a transitionOutTimeline, so we are reversing it, therefore removing the paused state.
 					this.transitionInTimeline.paused(false);
 				}
@@ -253,7 +257,8 @@ abstract class AbstractTransitionController extends EventDispatcher {
 					this._transitionOutResolveMethod = resolve;
 					if (this.transitionOutTimeline.getChildren().length > 0) {
 						this.transitionOutTimeline.restart();
-					} else {
+					}
+					else {
 						this.transitionInTimeline.reverse();
 					}
 				});
@@ -278,76 +283,23 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @method getSubTimeline
 	 * @description When nesting transition components you might want to nest the timelines as well, this makes it
 	 * easier to time all the component transitions
-	 * @param id
-	 * @param direction
+	 * @param {string} componentId
+	 * @param {string} direction
 	 * @returns { Animation }
 	 */
-	public getSubTimeline(id: string, direction: string = AbstractTransitionController.IN): Animation {
-		const childComponent = <IAbstractTransitionComponent>this.viewModel.getChild(id, ComponentType.TRANSITION_COMPONENT);
-
-		if (!childComponent) {
-			throw new Error('No child component for id: [' + id + ']');
-		}
-
-		if (!childComponent.transitionController) {
-			throw new Error('Child component does not have a transition controller: [' + id + ']');
-		}
-
-		const transitionInTimeline = childComponent.transitionController.transitionInTimeline;
-		const transitionOutTimeline = childComponent.transitionController.transitionOutTimeline;
-
-		switch (direction) {
-			case AbstractTransitionController.IN: {
-				return transitionInTimeline.restart();
-			}
-			case AbstractTransitionController.OUT: {
-				if (transitionOutTimeline.getChildren().length > 0) {
-					return transitionOutTimeline.restart();
-				}
-
-				throw new Error('[AbstractTransitionController.ts] No transition out timeline was created, unable to ' +
-					'add the transition in timeline to the transition out timeline. To fix this define a custom ' +
-					'transition out timeline for this component');
-			}
-			default: {
-				throw new Error('[AbstractTransitionController] Unsupported direction' + direction);
-			}
-		}
+	public getSubTimeline(componentId: string, direction: string = AbstractTransitionController.IN): Animation {
+		return this.getSubTimelineByComponentId(componentId, direction).restart();
 	}
 
 	/**
 	 * @public
 	 * @method getSubTimelineDuration
-	 * @param id
-	 * @param direction
+	 * @param {string} componentId
+	 * @param {string} direction
 	 * @returns {Animation}
 	 */
-	public getSubTimelineDuration(id: string, direction: string = AbstractTransitionController.IN): number {
-		const childComponent = <IAbstractTransitionComponent>this.viewModel.getChild(id, ComponentType.TRANSITION_COMPONENT);
-		const transitionInTimeline = childComponent.transitionController.transitionInTimeline;
-		const transitionOutTimeline = childComponent.transitionController.transitionOutTimeline;
-
-		if (!childComponent) {
-			throw new Error('No child component for id: [' + id + ']');
-		}
-
-		switch (direction) {
-			case AbstractTransitionController.IN: {
-				return transitionInTimeline.duration();
-			}
-			case AbstractTransitionController.OUT: {
-				if (transitionOutTimeline.getChildren().length > 0) {
-					return transitionOutTimeline.duration();
-				}
-
-				throw new Error('[AbstractTransitionController.ts] No transition out timeline was created, unable to ' +
-					'add the transition in timeline to the transition out timeline. To fix this define a custom ' +
-					'transition out timeline for this component');
-			}
-			default: {
-				throw new Error('[AbstractTransitionController] Unsupported direction' + direction);
-			}
-		}
+	public getSubTimelineDuration(componentId: string, direction: string = AbstractTransitionController.IN): number {
+		return this.getSubTimelineByComponentId(componentId, direction).duration();
 	}
 
 	/**
@@ -393,11 +345,53 @@ abstract class AbstractTransitionController extends EventDispatcher {
 		timeline.getChildren().forEach((target) => {
 			if ((<Tween>target).target) {
 				TweenLite.set((<Tween>target).target, { clearProps: 'all' });
-			} else {
+			}
+			else {
 				this.clearTimeline(<TimelineLite>target);
 			}
 		});
 		timeline.clear();
+	}
+
+	/**
+	 * @private
+	 * @method getSubTimelineByComponentId
+	 * @param {string} componentId
+	 * @param {string} direction
+	 * @returns {TimelineLite}
+	 */
+	private getSubTimelineByComponentId(componentId: string, direction: string): TimelineLite {
+		const childComponent = <IAbstractTransitionComponent>this.viewModel.getChild(
+			componentId, ComponentType.TRANSITION_COMPONENT);
+
+		if (!childComponent) {
+			throw new Error('No child component for id: [' + componentId + ']');
+		}
+
+		if (!childComponent.transitionController) {
+			throw new Error('Child component does not have a transition controller: [' + componentId + ']');
+		}
+
+		const transitionInTimeline = childComponent.transitionController.transitionInTimeline;
+		const transitionOutTimeline = childComponent.transitionController.transitionOutTimeline;
+
+		switch (direction) {
+			case AbstractTransitionController.IN: {
+				return transitionInTimeline;
+			}
+			case AbstractTransitionController.OUT: {
+				if (transitionOutTimeline.getChildren().length > 0) {
+					return transitionOutTimeline;
+				}
+
+				throw new Error('[AbstractTransitionController.ts] No transition out timeline was created, unable to ' +
+					'add the transition in timeline to the transition out timeline. To fix this define a custom ' +
+					'transition out timeline for this component');
+			}
+			default: {
+				throw new Error('[AbstractTransitionController] Unsupported direction' + direction);
+			}
+		}
 	}
 
 	/**
@@ -485,7 +479,8 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	public dispose(): void {
 		if (this._transitionOutPromise && this._transitionOutResolveMethod) {
 			this._transitionOutPromise.then(this.clean.bind(this));
-		} else {
+		}
+		else {
 			this.clean();
 		}
 		super.dispose();

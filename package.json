@@ -22,7 +22,7 @@
 		"compile:dist:typescript:es6": "tsc -p ./ -t es6 -m es6 --outDir ./dist/es6/",
 		"compile:dist:webpack": "node script/webpack.js",
 		"doc": "npm-run-all -p doc:*",
-		"doc:typedoc": "typedoc --out docs/ src/",
+		"doc:typedoc": "typedoc --out docs/ src/ --mode file src/",
 		"generate": "npm-run-all clean compile test:unit doc",
 		"build": "npm-run-all clean compile",
 		"dev": "node script/webpack-dev.js",

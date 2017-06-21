@@ -65,27 +65,26 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<p><a href="https://travis-ci.org/larsvanbraam/vue-transition-component"><img src="https://img.shields.io/travis/larsvanbraam/vue-transition-component.svg?maxAge=2592000" alt="Travis"></a>
-					<a href="https://www.npmjs.com/package/seng-event"><img src="https://img.shields.io/npm/v/vue-transition-component.svg?maxAge=2592000" alt="npm"></a>
-				<a href="https://github.com/larsvanbraam/vue-transition/issues"><img src="https://img.shields.io/github/issues/larsvanbraam/vue-transition.svg?style=flat-square" alt="GitHub issues"></a></p>
+					<a href="https://www.npmjs.com/package/vue-transition-component"><img src="https://img.shields.io/npm/v/vue-transition-component.svg?maxAge=2592000" alt="npm"></a>
+				<a href="https://github.com/larsvanbraam/vue-transition-component/issues"><img src="https://img.shields.io/github/issues/larsvanbraam/vue-transition-component.svg?style=flat-square" alt="GitHub issues"></a></p>
 				<h1 id="vue-transition-component">vue-transition-component</h1>
-				<p>Provides transition functionality to vue.js components.</p>
+				<p>Provides GreenSock transition functionality to vue.js components.</p>
 				<h2 id="table-of-contents">Table of contents</h2>
 				<ol>
-					<li><a href="#features">Features</a><ol>
-							<li><a href="#provided-mixins">Provided mixins</a></li>
-							<li><a href="#provided-utils">Provided utils </a></li>
+					<li><a href="#installation">Installation</a></li>
+					<li><a href="#provided-mixins">Provided mixins</a><ol>
+							<li><a href="#abstractregistrablecomponent">AbstractRegistrableComponent</a></li>
+							<li><a href="#abstracttransitioncomponent">AbstractTransitionComponent</a></li>
+							<li><a href="#abstractpagecomponent">AbstractPageComopnent</a></li>
 						</ol>
 					</li>
-					<li><a href="#installation">Installation</a></li>
-					<li><a href="#usage">Usage</a><ol>
-							<li><a href="#creating-a-transitionComponent">Creating a TransitionComponent</a><ol>
-									<li><a href="#dummyComponent-vue">DummyComponent.vue</a> </li>
-									<li><a href="#dummyComponent-js">DummyComponent.js</a></li>
-									<li><a href="#dummyComponentTransitionController">DummyComponentTransitionController-ts</a></li>
-									<li><a href="#index-js">index.js</a> </li>
-									<li><a href="#seng-generator">Seng-generator</a> </li>
-								</ol>
-							</li>
+					<li><a href="#provided-utils">Provided utils </a><ol>
+							<li><a href="#abstracttransitioncontroller">AbstractTransitionController</a></li>
+							<li><a href="#flowmanager">FlowManager</a></li>
+						</ol>
+					</li>
+					<li><a href="#examples">Examples</a><ol>
+							<li><a href="#creating-a-transitionComponent">Creating a TransitionComponent</a></li>
 							<li><a href="#rendering-the-component">Rendering the component</a></li>
 							<li><a href="#nesting-timelines">Nesting timelines</a></li>
 							<li><a href="#page-transitions">Page transitions</a><ol>
@@ -95,35 +94,143 @@
 								</ol>
 							</li>
 							<li><a href="#access-a-child-component">Access a child component</a></li>
-							<li><a href="#transition-events">Events</a> </li>
+							<li><a href="#listen-to-transition-events">Listen to transition events</a> </li>
 						</ol>
 					</li>
-					<li><a href="#documentation">Documentation</a></li>
 					<li><a href="#building">Building</a></li>
 					<li><a href="#authors">Authors</a></li>
 					<li><a href="#contribute">Contribute</a></li>
 					<li><a href="#license">License</a></li>
 				</ol>
-				<h2 id="features">Features</h2>
-				<h3 id="provided-mixins">Provided mixins</h3>
-				<p>The functionality is provided through 3 types of mixins. These mixins give you an easy way of transitioning components.</p>
-				<ul>
-					<li><strong>AbstractRegistrableComponent</strong></li>
-					<li><strong>AbstractTransitionComponent</strong></li>
-					<li><strong>AbstractPageTransitionComponent</strong></li>
-				</ul>
-				<h3 id="provided-utils">Provided utils</h3>
-				<ul>
-					<li><strong>AbstractTransitionController</strong> - is the base for all your transitions, It contains the timelines for transitioning in and out</li>
-					<li><strong>FlowManager</strong> - allows you to control the flow between two pages </li>
-				</ul>
 				<h2 id="installation">Installation</h2>
 				<h3 id="yarn-npm">yarn / npm</h3>
 				<pre><code class="lang-sh">yarn add vue-transition-component
 </code></pre>
 				<pre><code class="lang-sh">npm i -S vue-transition-component
 </code></pre>
-				<h2 id="usage">Usage</h2>
+				<h2 id="provided-mixins">Provided mixins</h2>
+				<p>The extra functionality is provided through three mixins. </p>
+				<h3 id="abstractregistrablecomponent">AbstractRegistrableComponent</h3>
+				<p>This is the core component that contains all of the logic for registring components and handling when they are &#39;ready&#39;.</p>
+				<h4 id="methods">Methods</h4>
+				<p>After extending this mixin a couple of methods are added to your component, you can see all of them in the <a href="http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/">generated documentation</a>. See below for the most common ones!</p>
+				<h5 id="getchild">getChild</h5>
+				<ul>
+					<li>Description: <em>This method retrieves a child component within your component based on the componentId that&#39;s provided when registring it.</em></li>
+					<li>Parameters<ul>
+							<li><code>componentId</code> <ul>
+									<li>type: <code>string</code> </li>
+									<li>required: <em>true</em> </li>
+								</ul>
+							</li>
+							<li><code>componentType</code><ul>
+									<li>type: <code>ComponentType</code></li>
+									<li>required: <em>false</em> </li>
+									<li>description: <em>To avoid issues you should provide the type of component you are requesting</em></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>Returns <ul>
+							<li><code>IAbstractRegistrableComponent | IAbstractTransitionComponent | IAbstractPageComponent</code></li>
+						</ul>
+					</li>
+				</ul>
+				<h3 id="abstracttransitioncomponent">AbstractTransitionComponent</h3>
+				<p>This component extends the AbstractRegistrableCompponent and is the component that allows you to trigger transition in methods on your component. It also contains the TransitionController that contains the GreenSock timelines.</p>
+				<h4 id="methods">Methods</h4>
+				<p>After extending this mixin a couple of methods are added to your component, you can see all of them in the <a href="http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/">generated documentation</a>. See below for the most common ones!</p>
+				<h5 id="transitionin">transitionIn</h5>
+				<ul>
+					<li>Description: This method allows you to trigger a transitionIn on your component.</li>
+					<li>Parameters<ul>
+							<li><code>forceTransition</code><ul>
+									<li>type: <code>boolean</code> </li>
+									<li>required: <em>false</em></li>
+									<li>description: <em>If you trigger a transitionIn when the transitionOut is still running by default it will wait for the transitionOut to be complete, if you provide this flag it will force your new transiton.</em></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>Returns<ul>
+							<li><code>Promise&lt;void&gt;</code></li>
+						</ul>
+					</li>
+				</ul>
+				<h5 id="transitionout">transitionOut</h5>
+				<ul>
+					<li>Description: This method allows you to trigger a transitionOut on your component.</li>
+					<li>Parameters<ul>
+							<li><code>forceTransition</code><ul>
+									<li>type: <code>boolean</code> </li>
+									<li>required: <em>false</em> </li>
+									<li>description: <em>If you trigger a transitionOut when the transitionIn is still running by default it will wait for the transitionIn to be complete, if you provide this flag it will force your new transiton.</em></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>Returns<ul>
+							<li><code>Promise&lt;void&gt;</code></li>
+						</ul>
+					</li>
+				</ul>
+				<h3 id="abstractpagecomponent">AbstractPageComponent</h3>
+				<p>This component extends the AbstractTransitionComponent and is the component that changes a default component into a page transition component. It contains information about the flow of the page. becides that it does not add extra functionality to your component!</p>
+				<h2 id="provided-utils">Provided utils</h2>
+				<h3 id="abstracttransitioncontroller">AbstractTransitionController</h3>
+				<p>The AbstractTransitionController is the base for all your transitions, It contains the timelines for transitioning in and out</p>
+				<h4 id="methods">Methods</h4>
+				<p>Extending this class wil add a lot of functionality to your transitionController, you can see all of it in the <a href="http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/">generated documentation</a>. See below for the most common ones!</p>
+				<h5 id="getsubtimeline">getSubTimeline</h5>
+				<ul>
+					<li>Description: This method retrieves a sub timeline from a child component. This is used for when you want to nest a timeline within another timeline. </li>
+					<li>Parameters<ul>
+							<li><code>componentId</code><ul>
+									<li>type: <code>string</code> </li>
+									<li>required: <em>true</em></li>
+									<li>description: <em>This is the id of the component that you used while registring it.</em></li>
+								</ul>
+							</li>
+							<li><code>direction</code><ul>
+									<li>type: <code>string</code> </li>
+									<li>required: <em>false</em></li>
+									<li>description: <em>Components can have multiple timelines for in/out animations here you can specify what timeline you would like to get</em> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>Returns<ul>
+							<li><code>Animation</code></li>
+						</ul>
+					</li>
+				</ul>
+				<h5 id="getsubtimelineduration">getSubTimelineDuration</h5>
+				<ul>
+					<li>Description: This method retrieves the duration of a sub timeline.</li>
+					<li>Parameters<ul>
+							<li><code>componentId</code><ul>
+									<li>type: <code>string</code> </li>
+									<li>required: <em>true</em></li>
+									<li>description: <em>This is the id of the component that you used while registring it.</em></li>
+								</ul>
+							</li>
+							<li><code>direction</code><ul>
+									<li>type: <code>string</code> </li>
+									<li>required: <em>false</em></li>
+									<li>description: <em>Components can have multiple timelines for in/out animations here you can specify what timeline you would like to get</em> </li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>Returns<ul>
+							<li><code>number</code>    </li>
+						</ul>
+					</li>
+				</ul>
+				<h3 id="flowmanager">FlowManager</h3>
+				<p>The FlowManager allows you to control the flow between two pages. See the example about <a href="#page-transitions">page transitions</a> for more information about this!</p>
+				<p><strong>For more detailed documentation please check the <a href="http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/">generated documentation</a>!</strong></p>
+				<h2 id="examples">Examples</h2>
 				<p>All examples below are based on the <a href="https://github.com/hjeti/vue-skeleton">vue-skeleton</a> by <a href="https://github.com/hjeti/">hjeti</a>. </p>
 				<h4 id="folder-structure">Folder structure</h4>
 				<pre><code>/components
@@ -162,7 +269,7 @@
 					<li><code>transitionOut</code></li>
 					<li><code>checkComponentsReady</code></li>
 					<li><code>componentReady</code></li>
-					<li><code>getChildComponent</code></li>
+					<li><code>getChild</code></li>
 				</ol>
 				<h4 id="dummycomponenttransitioncontroller-ts">DummyComponentTransitionController.ts</h4>
 				<p>This file will contain all the transitions for your page, you can add tweens to the <a href="https://greensock.com/docs/#/HTML5/GSAP/TimelineLite/">provided greensock timelines</a>. </p>
@@ -189,7 +296,7 @@
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> DummyComponentTransition;
 </code></pre>
-				<p>To setup the transitionIn you can do the following example:</p>
+				<p>To setup the transitionIn you could do the following:</p>
 				<pre><code class="lang-js">...
 protected setupTransitionInTimeline(): <span class="hljs-keyword">void</span> {
     <span class="hljs-keyword">this</span>.transitionInTimeline.fromTo(<span class="hljs-keyword">this</span>.viewModel.$el, <span class="hljs-number">1</span>, {<span class="hljs-attr">autoAlpha</span>: <span class="hljs-number">0</span>}, {<span class="hljs-attr">autoAlpha</span>: <span class="hljs-number">1</span>});
@@ -224,6 +331,62 @@ protected setupTransitionOutTimeline(): <span class="hljs-keyword">void</span> {
 }
 </code></pre>
 				<p><strong>Note:</strong> When you inject a timeline into another timeline you can no longer use the transitionIn/transitionOut outside of this timeline. For example when you want to transitionOut a component by triggering the transitionOut method but the timeline is also part of the parent component timeline this will not work.</p>
+				<h3 id="access-a-child-component">Access a child component</h3>
+				<p>Sometimes you want to manually trigger a transitionIn/transitionOut on a component without adding it to the main timeline. To do this you need a reference to the child component. To get a child component reference you can call the method <code>getChild</code> providing the <code>componentId</code>. You should also provide the type of component you are requesting, since not all components have the same functionality. For example when you would like to request a TransitionComponent:</p>
+				<pre><code class="lang-js">...
+import { ComponentType } <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-transition-component'</span>;
+...
+...
+this.dummyComponent = <span class="hljs-keyword">this</span>.getChild(<span class="hljs-string">'DummyComponent'</span>, ComponentType.TRANSITION_COMPONENT);
+<span class="hljs-keyword">this</span>.dummyComponent.transitionIn();
+...
+</code></pre>
+				<p>There following component types are available: </p>
+				<pre><code class="lang-js">...
+import { ComponentType } <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-transition-component'</span>;
+...
+...
+this.dummyComponent1 = <span class="hljs-keyword">this</span>.getChild(<span class="hljs-string">'DummyComponent'</span>, ComponentType.REGISTRABLE_COMPONENT);
+<span class="hljs-keyword">this</span>.dummyComponent2 = <span class="hljs-keyword">this</span>.getChild(<span class="hljs-string">'DummyComponent'</span>, ComponentType.TRANSITION_COMPONENT);
+<span class="hljs-keyword">this</span>.dummyComponent3 = <span class="hljs-keyword">this</span>.getChild(<span class="hljs-string">'DummyComponent'</span>, ComponentType.PAGE_COMPONENT);
+...
+</code></pre>
+				<p><strong>Note:</strong> Providing the component type is not mandatory. So for example when you only use transition components in your project you could leave it out, this is at your own risk and could cause issues if you start mixing TransitionComponents and RegistrableComponents.</p>
+				<pre><code class="lang-js">...
+this.dummyComponent = <span class="hljs-keyword">this</span>.getChild(<span class="hljs-string">'DummyComponent'</span>);
+...
+</code></pre>
+				<h3 id="listen-to-transition-events">Listen to transition events</h3>
+				<p>The transition controller uses the <a href="https://www.npmjs.com/package/seng-event">seng-event</a> module to dispatch events. The following events are dispatched:</p>
+				<ul>
+					<li><code>TransitionInStart</code></li>
+					<li><code>TransitionInComplete</code></li>
+					<li><code>TransitionOutStart</code></li>
+					<li><code>TransitionOutComplete</code></li>
+				</ul>
+				<p>You can listen to the by adding an event listener to the transitionController:</p>
+				<pre><code class="lang-js">...
+import { TransitionEvent } <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-transition-component'</span>;
+...
+...
+handleAllComponentsReady() {
+    <span class="hljs-keyword">this</span>.transitionController = <span class="hljs-keyword">new</span> DummyComponentTransition(<span class="hljs-keyword">this</span>);
+    <span class="hljs-keyword">this</span>.transitionController.addEventListner(TransitionEvent.TRANSITION_IN_START, () =&gt; {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'transition in start'</span>);
+    });
+    <span class="hljs-keyword">this</span>.transitionController.addEventListner(TransitionEvent.TRANSITION_IN_COMPLETE, () =&gt; {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'transition in complete'</span>);
+    });
+    <span class="hljs-keyword">this</span>.transitionController.addEventListner(TransitionEvent.TRANSITION_OUT_START, () =&gt; {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'transition out start'</span>);
+    });
+    <span class="hljs-keyword">this</span>.transitionController.addEventListner(TransitionEvent.TRANSITION_OUT_COMPLETE, () =&gt; {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'transition out complete'</span>);
+    });
+    <span class="hljs-keyword">this</span>.isReady();
+},
+...
+</code></pre>
 				<h3 id="page-transitions">Page transitions</h3>
 				<p>Since pages are components as well we can also use this transition functionality to apply fancy animations on pages. To make this possible we have the FlowManager. The FlowManager handles the flow between two pages. The code uses the <a href="https://vuejs.org/v2/guide/transitions.html#JavaScript-Hooks">javascript hook of the transition component</a>. Make sure to update the <code>App.vue</code> and the <code>App.js</code> file to use the FlowManager. After you&#39;ve done that make sure you set the componentId on the route object, you can find this file in the <code>routes.js</code></p>
 				<h4 id="app-vue">App.vue</h4>
@@ -257,64 +420,6 @@ protected setupTransitionOutTimeline(): <span class="hljs-keyword">void</span> {
     },
 ];
 </code></pre>
-				<h3 id="access-a-child-component">Access a child component</h3>
-				<p>Sometimes you want to manually trigger a transitionIn/transitionOut on a component without adding it to the main timeline. To do this you need a reference to the child component. To get a child component reference you can call the method <code>getChild</code> providing the <code>componentId</code>. You should also provide the type of component you are requesting, since not all components have the same functionality. For example when you would like to request a TransitionComponent:</p>
-				<pre><code class="lang-js">...
-import { ComponentType } <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-transition-component'</span>;
-...
-...
-this.dummyComponent = <span class="hljs-keyword">this</span>.getChild(<span class="hljs-string">'DummyComponent'</span>, ComponentType.TRANSITION_COMPONENT);
-<span class="hljs-keyword">this</span>.dummyComponent.transitionIn();
-...
-</code></pre>
-				<p>There following component types are available: </p>
-				<pre><code class="lang-js">...
-import { ComponentType } <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-transition-component'</span>;
-...
-...
-this.dummyComponent1 = <span class="hljs-keyword">this</span>.getChild(<span class="hljs-string">'DummyComponent'</span>, ComponentType.REGISTRABLE_COMPONENT);
-<span class="hljs-keyword">this</span>.dummyComponent2 = <span class="hljs-keyword">this</span>.getChild(<span class="hljs-string">'DummyComponent'</span>, ComponentType.TRANSITION_COMPONENT);
-<span class="hljs-keyword">this</span>.dummyComponent3 = <span class="hljs-keyword">this</span>.getChild(<span class="hljs-string">'DummyComponent'</span>, ComponentType.PAGE_COMPONENT);
-...
-</code></pre>
-				<p><strong>Note:</strong> Providing the component type is not mandatory. So for example when you only use transition components in your project you could leave it out, this is at your own risk and could cause issues if you start mixing TransitionComponents and RegistrableComponents.</p>
-				<pre><code class="lang-js">...
-this.dummyComponent = <span class="hljs-keyword">this</span>.getChild(<span class="hljs-string">'DummyComponent'</span>);
-...
-</code></pre>
-				<h3 id="events">Events</h3>
-				<p>The transition controller uses the <a href="https://www.npmjs.com/package/seng-event">seng-event</a> module to dispatch events. The following events are dispatched:</p>
-				<ul>
-					<li><code>TransitionInStart</code></li>
-					<li><code>TransitionInComplete</code></li>
-					<li><code>TransitionOutStart</code></li>
-					<li><code>TransitionOutComplete</code></li>
-				</ul>
-				<p>You can listen to the by adding an event listener to the transitionController:</p>
-				<pre><code class="lang-js">...
-import { TransitionEvent } <span class="hljs-keyword">from</span> <span class="hljs-string">'vue-transition-component'</span>;
-...
-...
-handleAllComponentsReady() {
-    <span class="hljs-keyword">this</span>.transitionController = <span class="hljs-keyword">new</span> DummyComponentTransition(<span class="hljs-keyword">this</span>);
-    <span class="hljs-keyword">this</span>.transitionController.addEventListner(TransitionEvent.TRANSITION_IN_START, () =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'transition in start'</span>);
-    });
-    <span class="hljs-keyword">this</span>.transitionController.addEventListner(TransitionEvent.TRANSITION_IN_COMPLETE, () =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'transition in complete'</span>);
-    });
-    <span class="hljs-keyword">this</span>.transitionController.addEventListner(TransitionEvent.TRANSITION_OUT_START, () =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'transition out start'</span>);
-    });
-    <span class="hljs-keyword">this</span>.transitionController.addEventListner(TransitionEvent.TRANSITION_OUT_COMPLETE, () =&gt; {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'transition out complete'</span>);
-    });
-    <span class="hljs-keyword">this</span>.isReady();
-},
-...
-</code></pre>
-				<h2 id="documentation">Documentation</h2>
-				<p>View the <a href="http://rawgit.com/larsvanbraam/vue-transition-component/master/docs/">generated documentation</a>.</p>
 				<h2 id="building">Building</h2>
 				<p>In order to build vue-transition-component, ensure that you have <a href="http://git-scm.com/downloads">Git</a> and <a href="http://nodejs.org/">Node.js</a> installed.</p>
 				<p>Clone a copy of the repo:</p>
@@ -370,46 +475,40 @@ yarn doc             <span class="hljs-comment"># generate typedoc documentation
 					<li class="globals  ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_index_.html">"index"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_lib_enum_componenttype_.html">"lib/enum/<wbr>Component<wbr>Type"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_lib_enum_flowtype_.html">"lib/enum/<wbr>Flow<wbr>Type"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_lib_event_transitionevent_.html">"lib/event/<wbr>Transition<wbr>Event"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_lib_interface_iabstractpagetransitioncomponent_.html">"lib/interface/IAbstract<wbr>Page<wbr>Transition<wbr>Component"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_lib_interface_iabstractregistrablecomponent_.html">"lib/interface/IAbstract<wbr>Registrable<wbr>Component"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_lib_interface_iabstracttransitioncomponent_.html">"lib/interface/IAbstract<wbr>Transition<wbr>Component"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_lib_mixin_abstractpagetransitioncomponent_.html">"lib/mixin/<wbr>Abstract<wbr>Page<wbr>Transition<wbr>Component"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_lib_mixin_abstractregistrablecomponent_.html">"lib/mixin/<wbr>Abstract<wbr>Registrable<wbr>Component"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_lib_mixin_abstracttransitioncomponent_.html">"lib/mixin/<wbr>Abstract<wbr>Transition<wbr>Component"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_lib_util_abstracttransitioncontroller_.html">"lib/util/<wbr>Abstract<wbr>Transition<wbr>Controller"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="modules/_lib_util_flowmanager_.html">"lib/util/<wbr>Flow<wbr>Manager"</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/componenttype.html" class="tsd-kind-icon">Component<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/flowtype.html" class="tsd-kind-icon">Flow<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/abstracttransitioncontroller.html" class="tsd-kind-icon">Abstract<wbr>Transition<wbr>Controller</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/flowmanager.html" class="tsd-kind-icon">Flow<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/transitionevent.html" class="tsd-kind-icon">Transition<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iabstractpagetransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Page<wbr>Transition<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iabstractregistrablecomponent.html" class="tsd-kind-icon">IAbstract<wbr>Registrable<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iabstracttransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#component_id" class="tsd-kind-icon">COMPONENT_<wbr>ID</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
