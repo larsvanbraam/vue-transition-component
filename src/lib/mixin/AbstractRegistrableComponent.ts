@@ -56,7 +56,7 @@ export default {
 				}
 			}
 
-			throw new Error(`Requested component [${componentId}] is not found`);
+			throw new Error(`Requested component [${componentId}] is not found within [${this.componentId}]`);
 		},
 		/**
 		 * @public
@@ -105,6 +105,7 @@ export default {
 		});
 	},
 	beforeDestroy() {
+		this.componentType = null;
 		if (this.registeredComponents) {
 			this.registeredComponents.length = 0;
 			this.registeredComponents = null;
