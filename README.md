@@ -65,6 +65,19 @@ After extending this mixin a couple of methods are added to your component, you 
 - Returns 
 	- `IAbstractRegistrableComponent | IAbstractTransitionComponent | IAbstractPageComponent`
 
+##### hasChild
+- Description: *This method checks if a child component exists*
+- Parameters
+	- `componentId`
+		- type: `string`
+		- required: *true*
+	- `componentType`
+		- type: `ComponentType`
+		- required: *false*
+		- description: *To avoid issues you should provide the type of component you are requesting*
+- Returns
+	- `boolean`
+
 ### AbstractTransitionComponent
 This component extends the AbstractRegistrableCompponent and is the component that allows you to trigger transition in methods on your component. It also contains the TransitionController that contains the GreenSock timelines.
 
@@ -182,6 +195,7 @@ export default {
 5. `checkComponentsReady`
 6. `componentReady`
 7. `getChild`
+8. `hasChild`
 
 #### DummyComponentTransitionController.ts
 This file will contain all the transitions for your page, you can add tweens to the [provided greensock timelines](https://greensock.com/docs/#/HTML5/GSAP/TimelineLite/). 

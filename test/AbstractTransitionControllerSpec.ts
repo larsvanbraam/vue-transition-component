@@ -19,25 +19,25 @@ describe('AbstractTransitionControllerSpec', () => {
 			extends: AbstractTransitionComponent,
 			beforeCreate() {
 				const self = <any>this;
-				self.componentId = 'ChildComponent'
-				self.componentType = ComponentType.TRANSITION_COMPONENT
+				self.componentId = 'ChildComponent';
+				self.componentType = ComponentType.TRANSITION_COMPONENT;
 				self.transitionController = dummyChildTransitionController;
 			},
-		})
+		});
 		dummyChildTransitionController = new DummyChildTransitionController(<IAbstractTransitionComponent>dummyChildComponent)
 		dummyTransitionController = new DummyTransitionController(<IAbstractTransitionComponent>new Vue({
 			name: 'DummyComponent',
 			el: document.createElement('div'),
 			extends: AbstractTransitionComponent,
 			created() {
-				this.$children.push(dummyChildComponent)
-			}
+				this.$children.push(dummyChildComponent);
+			},
 		}));
 	});
 
 	describe('transitioning', () => {
 		it('should transitionIn the component', () => {
-			return dummyTransitionController.transitionIn()
+			return dummyTransitionController.transitionIn();
 		});
 
 		it('should try and interrupt a transition in but wait for it to be completed', (done) => {
@@ -57,34 +57,34 @@ describe('AbstractTransitionControllerSpec', () => {
 		});
 
 		it('should not transition out since it\'s already transitioned out', () => {
-			return dummyTransitionController.transitionOut()
+			return dummyTransitionController.transitionOut();
 		});
 
 		it('should transition out the component', () => {
 			return dummyTransitionController.transitionIn()
-				.then(() => dummyTransitionController.transitionOut())
+				.then(() => dummyTransitionController.transitionOut());
 		});
 
 		it('should try and interrupt a transition out but wait for it to be completed', (done) => {
 			dummyTransitionController.transitionIn()
 				.then(() => {
-					dummyTransitionController.transitionOut()
+					dummyTransitionController.transitionOut();
 					setTimeout(() => {
 						dummyTransitionController.transitionIn()
 							.then(() => done());
 					}, 10);
-				})
+				});
 		});
 
 		it('should try and interrupt a transition out but not wait for it to be completed', (done) => {
 			dummyTransitionController.transitionIn()
 				.then(() => {
-					dummyTransitionController.transitionOut()
+					dummyTransitionController.transitionOut();
 					setTimeout(() => {
 						dummyTransitionController.transitionIn(true)
 							.then(() => done());
 					}, 10);
-				})
+				});
 		});
 
 		it('should try and interrupt a transition in but not wait for it to be completed', (done) => {
@@ -129,13 +129,13 @@ describe('AbstractTransitionControllerSpec', () => {
 	describe('dispose', () => {
 		it('should dispose the transition controller and mark it as disposed', () => {
 			// Dispose the transition controller
-			dummyTransitionController.dispose()
+			dummyTransitionController.dispose();
 			expect(dummyTransitionController.isDisposed()).to.equal(true);
 		});
 
 		it('should dispose the child transition controller and mark it as disposed', () => {
 			// Dispose the transition controller
-			dummyChildTransitionController.dispose()
+			dummyChildTransitionController.dispose();
 			expect(dummyChildTransitionController.isDisposed()).to.equal(true);
 		});
 

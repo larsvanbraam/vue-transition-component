@@ -34,6 +34,19 @@ export default {
 		},
 		/**
 		 * @public
+		 * @method hasChild
+		 * @param componentId,
+		 * @param componentType
+		 * @returns boolean
+		 */
+		hasChild(componentId, componentType) {
+			// Find the child component based on the componentId
+			const child = find(this.$children, child => child[COMPONENT_ID] === componentId);
+			// Check if if the child exists and/or if the type is correct
+			return child !== void 0 && (componentType === void 0 || child.componentType === componentType);
+		},
+		/**
+		 * @public
 		 * @method getChild
 		 * @description Get a child component reference
 		 * @param {string} componentId

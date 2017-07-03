@@ -45,6 +45,15 @@ interface IAbstractRegistrableComponent extends Vue {
 	isReady(): void;
 	/**
 	 * @public
+	 * @method hasChild
+	 * @description Check to see if a component with a certain Id exists
+	 * @param componentId The id of the desired child component
+	 * @param componentType The type of the desired component
+	 * @returns a boolean to check if a child exists
+	 */
+	hasChild(componentId: string, componentType?:ComponentType): boolean;
+	/**
+	 * @public
 	 * @method getChild
 	 * @description If you want to get a child component based on it's componentId
 	 * @param componentId The id of the desired child component
