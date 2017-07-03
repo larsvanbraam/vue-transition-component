@@ -18,7 +18,13 @@ export default {
 	 * @param next
 	 */
 	beforeRouteEnter(to, from, next) {
-		next(vm => vm.transitionIn());
+		next((vm) => {
+			if (vm.$parent && vm.$parent.allComponentsReady) {
+				vm.$parent.allComponentsReady.then(() => vm.transitionIn());
+			} else {
+				vm.transitionIn();
+			}
+		});
 	},
 	/**
 	 * @description This method is triggered when we navigate to a sub-page of the current existing page
