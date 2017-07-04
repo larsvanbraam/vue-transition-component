@@ -108,14 +108,15 @@ export default {
 		handleAllComponentsReady() {},
 	},
 	mounted() {
+		this.allComponentsReady
+			.then(() => this.handleAllComponentsReady())
+			.catch(result => setTimeout(() => {
+				// Add a timeout to allow error throwing in the promise chain!
+				throw result;
+			}));
+
 		// We wait for the next tick otherwise the $children might not be set when you use a v-for loop
-		this.$nextTick(() => {
-			// Add a set timeout to break out of the promise chain and allow errors to be thrown!
-			this.allComponentsReady
-				.then(setTimeout(this.handleAllComponentsReady.bind(this)));
-			// Check for components initially, there might be none!
-			this.checkComponentsReady();
-		});
+		this.$nextTick(this.checkComponentsReady.bind(this));
 	},
 	beforeDestroy() {
 		this.componentType = null;

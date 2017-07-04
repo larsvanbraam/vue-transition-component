@@ -93,6 +93,20 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	private _transitionOutResolveMethod: () => void;
 	/**
 	 * @private
+	 * @property _transitionInRejectMethod
+	 * @type { ()=>void }
+	 * @description The reject method used for rejecting the transition in promise.
+	 */
+	private _transitionInRejectMethod: () => void;
+	/**
+	 * @private
+	 * @property _transitionOutRejectMethod
+	 * @type { ()=>void }
+	 * @description The resolve method used for rejecting the transition out promise.
+	 */
+	private _transitionOutRejectMethod: () => void;
+	/**
+	 * @private
 	 * @property _transitionInPromise
 	 * @type { Promise<void> }
 	 * @description The transition promise is used so we can wait for the transition in to be completed.
@@ -166,6 +180,17 @@ abstract class AbstractTransitionController extends EventDispatcher {
 		}
 
 		return oldTransitionPromise.then(() => {
+			// Component is already transitioning out
+			if (this._transitionInPromise !== null && forceTransition) {
+				if (this._debug) {
+					console.warn('[TransitionController][' + this.viewModel[COMPONENT_ID] + '] Already transitioning' +
+						' in, so rejecting the original transitionIn promise to clear any queued animations. We' +
+						' finish the current animation and return a resolved promise right away');
+				}
+				// TODO: should the forced out wait for the original animation to be completed??
+				this._transitionInRejectMethod();
+				this._transitionInPromise = null;
+			}
 
 			// Make sure the transitionOut is paused in case we clicked the transitionIn while
 			// the transitionOut was not finished yet.
@@ -173,7 +198,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 
 			// Only allow the transition in if the element is hidden
 			if (this._transitionInPromise === null && this._isHidden) {
-				this._transitionInPromise = new Promise<void>((resolve: () => void) => {
+				this._transitionInPromise = new Promise<void>((resolve: () => void, reject: () => void) => {
 					if (this.transitionInTimeline.getChildren().length === 0) {
 						if (this._debug) {
 							console.info(this.viewModel[COMPONENT_ID] + ': This block has no transition in timeline');
@@ -190,6 +215,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 						this.transitionInTimeline.paused(false);
 
 						this._transitionInResolveMethod = resolve;
+						this._transitionInRejectMethod = resolve;
 						this.transitionInTimeline.restart();
 					}
 				});
@@ -197,8 +223,8 @@ abstract class AbstractTransitionController extends EventDispatcher {
 
 			if (this._transitionInPromise === null) {
 				if (this._debug) {
-					console.warn('[AbstractTransitionController] Transition in was triggered when the it\'s already' +
-						' visible');
+					console.warn('[TransitionController][' + this.viewModel[COMPONENT_ID] + '] Transition in triggered' +
+						' when it\'s already visible, so we will do nothing and return a resolved promise!');
 				}
 				return Promise.resolve();
 			}
@@ -234,6 +260,17 @@ abstract class AbstractTransitionController extends EventDispatcher {
 		}
 
 		return oldTransitionPromise.then(() => {
+			// Component is already transitioning out
+			if (this._transitionOutPromise !== null && forceTransition) {
+				if (this._debug) {
+					console.warn('[TransitionController][' + this.viewModel[COMPONENT_ID] + '] Already transitioning' +
+						' out, so rejecting the original transitionOut promise to clear any queued animations. We' +
+						' finish the current animation and return a resolved promise right away');
+				}
+				// TODO: should the forced out wait for the original animation to be completed??
+				this._transitionOutRejectMethod();
+				this._transitionOutPromise = null;
+			}
 			// Only allow the transition out if the element is not hidden
 			if (this._transitionOutPromise === null && !this._isHidden) {
 				this._isHidden = true;
@@ -248,8 +285,9 @@ abstract class AbstractTransitionController extends EventDispatcher {
 					this.transitionInTimeline.paused(false);
 				}
 
-				this._transitionOutPromise = new Promise<void>((resolve: () => void) => {
+				this._transitionOutPromise = new Promise<void>((resolve: () => void, reject: () => void) => {
 					this._transitionOutResolveMethod = resolve;
+					this._transitionOutRejectMethod = reject;
 					if (this.transitionOutTimeline.getChildren().length > 0) {
 						this.transitionOutTimeline.restart();
 					} else {
@@ -260,8 +298,8 @@ abstract class AbstractTransitionController extends EventDispatcher {
 
 			if (!this._transitionOutPromise) {
 				if (this._debug) {
-					console.warn('[AbstractTransitionController] Transition out was triggered when the it\'s already' +
-						' hidden');
+					console.warn('[TransitionController][' + this.viewModel.componentId + '] Transition out triggered' +
+						' when it\'s already hidden, so we will do nothing and return a resolved promise!');
 				}
 
 				// Already hidden, so resolve it right away
@@ -282,7 +320,8 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @returns { Animation }
 	 */
 	public getSubTimeline(componentId: string, direction: string = AbstractTransitionController.IN): Animation {
-		return this.getSubTimelineByComponentId(componentId, direction).restart();
+		const subTimeline = this.getSubTimelineByComponentId(componentId, direction);
+		return this.cloneTimeline(subTimeline).restart();
 	}
 
 	/**
@@ -385,6 +424,49 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				throw new Error('[AbstractTransitionController] Unsupported direction' + direction);
 			}
 		}
+	}
+
+	/**
+	 * @private
+	 * @method cloneTimeline
+	 */
+	private cloneTimeline(source: TimelineLite): TimelineLite {
+		const children = source.getChildren(false);
+		const timeline = new TimelineLite(source.vars);
+
+		const parseChild = (child, timeline) => {
+			if (child.getChildren) {
+				const children = child.getChildren(false);
+				const subTimeline = new TimelineLite(child.vars);
+				// Parse the child animations
+				children.forEach(child => parseChild(child, subTimeline));
+				// Add the timeline to the parent timeline
+				timeline.add(subTimeline.restart());
+			} else {
+				if (child.vars.startAt) {
+					const from = JSON.parse(JSON.stringify(child.vars.startAt));
+					// Clone the vars
+					const to = child.vars;
+					// Create the fromTo tween
+					timeline.fromTo(child.target, child._duration, from, to, child._startTime);
+				} else {
+					if (child.vars.runBackwards) {
+						// When nesting timelines and the user defines a root timeline with a from the clone will
+						// have incorrect styling because the base styling is off!
+						// timeline.from(child.target, child._duration, child.vars, child._startTime);
+						throw new Error(
+							'[AbstractTransitionController.ts][' + this.viewModel.componentId + '] Do not use from' +
+							' while nesting timelines, use fromTo instead!');
+					} else {
+						timeline.to(child.target, child._duration, child.vars, child._startTime);
+					}
+				}
+			}
+		};
+
+		children.forEach(child => parseChild(child, timeline));
+
+		return timeline;
 	}
 
 	/**

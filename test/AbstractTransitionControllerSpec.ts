@@ -24,7 +24,8 @@ describe('AbstractTransitionControllerSpec', () => {
 				self.transitionController = dummyChildTransitionController;
 			},
 		});
-		dummyChildTransitionController = new DummyChildTransitionController(<IAbstractTransitionComponent>dummyChildComponent)
+		dummyChildTransitionController = new DummyChildTransitionController(
+			<IAbstractTransitionComponent>dummyChildComponent);
 		dummyTransitionController = new DummyTransitionController(<IAbstractTransitionComponent>new Vue({
 			name: 'DummyComponent',
 			el: document.createElement('div'),

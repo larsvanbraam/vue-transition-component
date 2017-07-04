@@ -7,7 +7,7 @@ class DummyTransitionController extends AbstractTransitionController {
 	 * @description overwrite this method in the parent class
 	 */
 	protected setupTransitionInTimeline(): void {
-		this.transitionInTimeline.from(this.viewModel.$el, 0.5, { autoAlpha: 0 });
+		this.transitionInTimeline.fromTo(this.viewModel.$el, 0.5, { autoAlpha: 0 }, { autoAlpha: 1 });
 	}
 
 	/**
