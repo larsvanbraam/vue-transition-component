@@ -52,13 +52,25 @@ describe('FlowManager', () => {
 
 	it('start a NORMAL flow', (done) => {
 		createPage('DummyPage', FlowType.NORMAL).then((page) => {
-			flowManager.start(page, () => done());
+			flowManager.start(page, () => {
+				flowManager.done();
+				done();
+			});
+		});
+	});
+
+	it('start a NORMAL flow and try to run it twice', (done) => {
+		createPage('DummyPage', FlowType.NORMAL).then((page) => {
+			flowManager.start(page, () => flowManager.start(page, () => done()));
 		});
 	});
 
 	it('start a NORMAL flow with the same component id', (done) => {
 		createPage('DummyPage', FlowType.NORMAL).then((page) => {
-			flowManager.start(page, () => flowManager.start(page, () => done()));
+			flowManager.start(page, () => {
+				flowManager.done();
+				flowManager.start(page, () => done());
+			});
 		});
 	});
 
@@ -70,7 +82,8 @@ describe('FlowManager', () => {
 
 	it('should throw an error', (done) => {
 		createPage('DummyPage', null).then((page) => {
-			expect(() => flowManager.start(page, () => {})).to.throw(Error);
+			expect(() => flowManager.start(page, () => {
+			})).to.throw(Error);
 			done();
 		});
 	});

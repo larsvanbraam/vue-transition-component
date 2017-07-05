@@ -429,7 +429,9 @@ handleAllComponentsReady() {
     <span class="hljs-attr">name</span>: <span class="hljs-string">'App'</span>,
     <span class="hljs-attr">methods</span>: {
         onLeave(element, done) {
-            FlowManager.transitionOut.then(done);
+            FlowManager.transitionOut
+                .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> FlowManager.done())
+                .then(done);
         },
     },
 };

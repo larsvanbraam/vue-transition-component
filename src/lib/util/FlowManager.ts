@@ -15,6 +15,7 @@ export class FlowManager extends EventDispatcher {
 	 * @type string
 	 */
 	private _previousComponentId: string;
+
 	/**
 	 * @public
 	 * @method get transitionOut
@@ -23,36 +24,52 @@ export class FlowManager extends EventDispatcher {
 	public get transitionOut(): Promise<void> {
 		return this._transitionOut;
 	}
+
+	/**
+	 * @public
+	 * @method done
+	 * @description Trigger this method when the flow is fully done, it resets the promise and allows for further
+	 * navigation
+	 */
+	public done(): void {
+		this._transitionOut = null;
+	}
+
 	/**
 	 * @public
 	 * @method start
 	 * @param pageInstance
 	 * @param flow
+	 * @param debug
 	 * @description The vue router triggers the onLeave method twice, so we need to store the current componentId to
 	 * avoid weird page transition issues. If it's triggered on the same page we release the hijack right away.
 	 * @returns {void}
 	 */
-	public start(pageInstance: IAbstractPageTransitionComponent, release: () => void): void {
-		if (this._previousComponentId === pageInstance[COMPONENT_ID]) {
-			release();
-		} else {
-			this._previousComponentId = pageInstance[COMPONENT_ID];
-			this.dispatchEvent(new FlowEvent(FlowEvent.START));
-			switch (pageInstance.flow) {
-				case FlowType.NORMAL: {
-					this._transitionOut = pageInstance.transitionOut();
-					this._transitionOut.then(release);
-					break;
-				}
-				case FlowType.CROSS: {
-					this._transitionOut = pageInstance.transitionOut();
-					release();
-					break;
-				}
-				default: {
-					throw new Error('[FlowManager] Unknown flow: [' + pageInstance.flow + ']');
+	public start(pageInstance: IAbstractPageTransitionComponent, release: (param?: string | boolean) => void): void {
+		if (!this._transitionOut) {
+			if (this._previousComponentId === pageInstance[COMPONENT_ID]) {
+				release();
+			} else {
+				this._previousComponentId = pageInstance[COMPONENT_ID];
+				this.dispatchEvent(new FlowEvent(FlowEvent.START));
+				switch (pageInstance.flow) {
+					case FlowType.NORMAL: {
+						this._transitionOut = pageInstance.transitionOut(true);
+						this._transitionOut.then(() => release());
+						break;
+					}
+					case FlowType.CROSS: {
+						this._transitionOut = pageInstance.transitionOut(true);
+						release();
+						break;
+					}
+					default: {
+						throw new Error('[FlowManager] Unknown flow: [' + pageInstance.flow + ']');
+					}
 				}
 			}
+		} else {
+			release(false); // Already transitioning out, so do nothing
 		}
 	}
 
@@ -60,7 +77,7 @@ export class FlowManager extends EventDispatcher {
 	 * @public
 	 * @description Dispose the flow manager
 	 */
-	public dispose():void {
+	public dispose(): void {
 		this._transitionOut = null;
 		this._previousComponentId = null;
 
