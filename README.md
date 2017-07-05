@@ -385,8 +385,8 @@ export default {
 	methods: {
 		onLeave(element, done) {
 			FlowManager.transitionOut
-                .then(() => FlowManager.done())
-                .then(done);
+				.then(() => FlowManager.done())
+				.then(done);
 		},
 	},
 };
