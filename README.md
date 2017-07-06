@@ -26,7 +26,7 @@ Provides GreenSock transition functionality to vue.js components.
 		2. [App.js](#app-js)
 		3. [Routes.js](#routes-js)
 	5. [Access a child component](#access-a-child-component)
-	6. [Listen to transition events](#listen-to-transition-events) 
+	6. [Listen to transition events](#listen-to-transition-events)
 5. [Building](#building)
 6. [Authors](#authors)
 7. [Contribute](#contribute)
@@ -296,6 +296,7 @@ protected setupTransitionOutTimeline(): void {
 
 
 ### Access a child component
+#### Method 1
 Sometimes you want to manually trigger a transitionIn/transitionOut on a component without adding it to the main timeline. To do this you need a reference to the child component. To get a child component reference you can call the method `getChild` providing the `componentId`. You should also provide the type of component you are requesting, since not all components have the same functionality. For example when you would like to request a TransitionComponent:
 
 ```js
@@ -328,6 +329,24 @@ this.dummyComponent3 = this.getChild('DummyComponent', ComponentType.PAGE_COMPON
 ```js
 ...
 this.dummyComponent = this.getChild('DummyComponent');
+...
+
+```
+
+#### Method 2
+An alternative way of getting the child component reference as soon as it's ready is to add a event listener
+(**@isReady**) to your component. Keep in mind that this event does not mean that all the components are ready. There
+ is also no strict check to make sure you get the expected component. So use with caution!
+```html
+<DummyComponent componentId="DummyComponent" @isReady="handleIsReady" />
+```
+```js
+...
+methods: {
+	handleIsReady: (component) => {
+		// Do stuff with your component reference
+	},
+},
 ...
 
 ```
@@ -447,7 +466,7 @@ If you want to create the distribution files yourself, you can run the
 `dist` folder:
 
 - **/dist/vue-transition-component.js**: bundled with webpack, can be loaded from
-	a script tag, available as `window.SengBoilerplate`
+	a script tag, available as `window.SengScrollTracker`
 - **/dist/vue-transition-component.min.js**: same as above, but minified
 - **/dist/vue-transition-component-amd.js**: bundled with webpack, can be used
 	with e.g. requirejs

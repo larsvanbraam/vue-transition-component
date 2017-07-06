@@ -2,11 +2,17 @@ import { Promise } from 'es6-promise';
 import * as find from 'array.prototype.find';
 import ComponentType from '../enum/ComponentType';
 
+const IS_READY = 'isReady';
 export const COMPONENT_ID = 'componentId';
 
 export default {
 	name: 'AbstractRegistrableComponent',
-	props: [COMPONENT_ID],
+	props: {
+		[COMPONENT_ID]: {
+			type: String,
+			required: true,
+		},
+	},
 	computed: {
 		components() {
 			return this.$children.filter(childComponent => childComponent[COMPONENT_ID] !== undefined);
@@ -28,6 +34,8 @@ export default {
 		 * @returns {void}
 		 */
 		isReady() {
+			this.$emit(IS_READY, this); // If you want to you can listen to the isReady event
+
 			if (this.$parent && this.$parent['componentReady']) {
 				this.$parent['componentReady'](this);
 			}
