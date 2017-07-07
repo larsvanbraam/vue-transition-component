@@ -2,7 +2,7 @@ import AbstractTransitionComponent from './AbstractTransitionComponent';
 import ComponentType from '../enum/ComponentType';
 import FlowType from '../enum/FlowType';
 import FlowManager from '../util/FlowManager';
-import findIndex = require('array-find-index');
+import * as findIndex from 'array.prototype.findindex';
 
 export default {
 	name: 'AbstractPageTransitionComponent',
