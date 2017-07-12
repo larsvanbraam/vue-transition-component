@@ -292,8 +292,6 @@ protected setupTransitionOutTimeline(): void {
 	this.transitionOutTimeline.add(this.getSubTimeline('DummyComponent'));
 }
 ```
-**Note:** When you inject a timeline into another timeline you can no longer use the transitionIn/transitionOut outside of this timeline. For example when you want to transitionOut a component by triggering the transitionOut method but the timeline is also part of the parent component timeline this will not work.
-
 
 ### Access a child component
 #### Method 1
