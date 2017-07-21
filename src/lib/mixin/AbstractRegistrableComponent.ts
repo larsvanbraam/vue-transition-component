@@ -1,5 +1,5 @@
 import { Promise } from 'es6-promise';
-import * as find from 'array.prototype.find';
+import { find } from 'lodash';
 import ComponentType from '../enum/ComponentType';
 
 const IS_READY = 'isReady';
@@ -49,7 +49,9 @@ export default {
 		 */
 		hasChild(componentId, componentType) {
 			// Find the child component based on the componentId
-			const child = find(this.$children, child => child[COMPONENT_ID] === componentId);
+			const child = <any>find(
+				this.$children, child => child[COMPONENT_ID] === componentId,
+			);
 			// Check if if the child exists and/or if the type is correct
 			return child !== void 0 && (componentType === void 0 || child.componentType === componentType);
 		},
@@ -63,7 +65,9 @@ export default {
 		 */
 		getChild(componentId, componentType) {
 			// Find the child component based on the componentId
-			const child = find(this.$children, child => child[COMPONENT_ID] === componentId);
+			const child = <any>find(
+				this.$children, child => child[COMPONENT_ID] === componentId,
+			);
 
 			if (child) {
 				if (componentType !== void 0) {

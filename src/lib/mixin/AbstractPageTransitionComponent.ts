@@ -2,7 +2,8 @@ import AbstractTransitionComponent from './AbstractTransitionComponent';
 import ComponentType from '../enum/ComponentType';
 import FlowType from '../enum/FlowType';
 import FlowManager from '../util/FlowManager';
-import * as findIndex from 'array.prototype.findindex';
+import { findIndex } from 'lodash';
+import { COMPONENT_ID } from '../mixin/AbstractRegistrableComponent';
 
 export default {
 	name: 'AbstractPageTransitionComponent',
@@ -35,7 +36,7 @@ export default {
 	beforeRouteUpdate(to, from, next) {
 		// Find the old reference and remove it
 		if (to.name === this.componentId) {
-			const index = findIndex(this.registeredComponents, component => component.componentId === from.name);
+			const index = findIndex(this.registeredComponents, component => component[COMPONENT_ID] === from.name);
 			if (index > -1) {
 				this.registeredComponents.splice(index);
 			}
