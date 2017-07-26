@@ -1,4 +1,4 @@
-import { AbstractPageTransitionComponent }from 'vue-transition-component';
+import { AbstractPageTransitionComponent } from 'vue-transition-component';
 import {{name_pc}}TransitionController from './{{name_pc}}TransitionController';
 
 export default {
