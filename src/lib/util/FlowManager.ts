@@ -15,6 +15,12 @@ export class FlowManager extends EventDispatcher {
 	 * @type string
 	 */
 	private _previousComponentId: string;
+	/**
+	 * @property
+	 * @type string
+	 * @description the path of the new page
+	 */
+	private _path: string;
 
 	/**
 	 * @public
@@ -33,23 +39,28 @@ export class FlowManager extends EventDispatcher {
 	 */
 	public done(): void {
 		this._transitionOut = null;
+		this._path = null;
 	}
 
 	/**
 	 * @public
 	 * @method start
 	 * @param pageInstance
-	 * @param flow
-	 * @param debug
+	 * @param release
+	 * @param path
 	 * @description The vue router triggers the onLeave method twice, so we need to store the current componentId to
 	 * avoid weird page transition issues. If it's triggered on the same page we release the hijack right away.
 	 * @returns {void}
 	 */
-	public start(pageInstance: IAbstractPageTransitionComponent, release: (param?: string | boolean) => void): void {
+	public start(
+				pageInstance: IAbstractPageTransitionComponent,
+				release: (param?: string | boolean) => void,
+				path: string): void {
 		if (!this._transitionOut) {
 			if (this._previousComponentId === pageInstance[COMPONENT_ID]) {
 				release();
 			} else {
+				this._path = path;
 				this._previousComponentId = pageInstance[COMPONENT_ID];
 				this.dispatchEvent(new FlowEvent(FlowEvent.START));
 				switch (pageInstance.flow) {
@@ -69,7 +80,7 @@ export class FlowManager extends EventDispatcher {
 				}
 			}
 		} else {
-			release(false); // Already transitioning out, so do nothing
+			release(this._path === path); // Already transitioning out, so do nothing if we try to open a new path
 		}
 	}
 

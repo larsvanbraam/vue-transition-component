@@ -51,6 +51,6 @@ export default {
 	 * @param next
 	 */
 	beforeRouteLeave(to, from, next) {
-		FlowManager.start(this, next);
+		FlowManager.start(this, next, to.path);
 	},
 };
