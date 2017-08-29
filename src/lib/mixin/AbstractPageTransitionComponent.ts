@@ -12,15 +12,13 @@ export default {
 	beforeCreate() {
 		this.componentType = ComponentType.PAGE_COMPONENT;
 		this.flow = FlowType.NORMAL;
-		this.flowHijacked = Promise.resolve();
+		this.transitionInHijack = Promise.resolve();
 	},
 	methods: {
-		hijack: () => {
-			let resolveMethod: () => void;
-			this.flowHijacked = new Promise<void>((resolve: () => void) => {
-				resolveMethod = resolve;
+		hijackTransitionIn() {
+			return new Promise((resolve) => {
+				this.transitionInHijack = new Promise(release => resolve(release));
 			});
-			return resolveMethod;
 		},
 	},
 	/**
@@ -33,7 +31,7 @@ export default {
 		next((vm) => {
 			Promise.all([
 				FlowManager.flowHijacked,
-				vm.flowHijacked,
+				vm.transitionInHijack,
 			]).then(() => {
 				if (vm.$parent && vm.$parent.allComponentsReady) {
 					vm.$parent.allComponentsReady.then(() => vm.transitionIn());

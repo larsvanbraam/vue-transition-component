@@ -28,18 +28,18 @@ export class FlowManager extends EventDispatcher {
 	 * @description Promise that contains the hijacked state of the flow
 	 */
 	public flowHijacked: Promise<void> = Promise.resolve();
+
 	/**
 	 * @public
-	 * @method hijack
-	 * @returns {()=>void}
+	 * @method hijackFlow
+	 * @returns {Promise<()=>void>}
 	 */
-	public hijack(): () => void {
-		let resolveMethod: () => void;
-		this.flowHijacked = new Promise<void>((resolve: () => void) => {
-			resolveMethod = resolve;
+	public hijackFlow(): Promise<() => void> {
+		return new Promise<() => void>((resolve: (release) => void) => {
+			this.flowHijacked = new Promise<void>(release => resolve(release));
 		});
-		return resolveMethod;
 	}
+
 	/**
 	 * @public
 	 * @method get transitionOut
