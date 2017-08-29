@@ -428,7 +428,7 @@ export default [
 ];
 ```
 
-### Page transitions
+### Hijacking flows
 When you are working with page transitions you might want to hijack a flow before the transitionIn is executed, this could be usefull for when you want to create a global preloader or a page specific preloader. 
 
 ### App level hijacking
