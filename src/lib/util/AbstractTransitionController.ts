@@ -491,6 +491,9 @@ abstract class AbstractTransitionController extends EventDispatcher {
 					this._transitionOutResolveMethod();
 					this._transitionOutResolveMethod = null;
 				}
+				// When the transition out is completed we have to reset the last time otherwise the transition will
+				// no longer work.
+				this._lastTime = 0;
 				this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_OUT_COMPLETE));
 				break;
 			}
