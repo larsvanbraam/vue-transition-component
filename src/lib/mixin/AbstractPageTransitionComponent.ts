@@ -4,6 +4,7 @@ import FlowType from '../enum/FlowType';
 import FlowManager from '../util/FlowManager';
 import { findIndex } from 'lodash';
 import { COMPONENT_ID } from '../mixin/AbstractRegistrableComponent';
+import { Promise } from 'es6-promise';
 
 export default {
 	name: 'AbstractPageTransitionComponent',
@@ -11,6 +12,14 @@ export default {
 	beforeCreate() {
 		this.componentType = ComponentType.PAGE_COMPONENT;
 		this.flow = FlowType.NORMAL;
+		this.transitionInHijack = Promise.resolve();
+	},
+	methods: {
+		hijackTransitionIn() {
+			return new Promise((resolve) => {
+				this.transitionInHijack = new Promise(release => resolve(release));
+			});
+		},
 	},
 	/**
 	 * @description Before the route is entered we trigger the transition in
@@ -20,11 +29,16 @@ export default {
 	 */
 	beforeRouteEnter(to, from, next) {
 		next((vm) => {
-			if (vm.$parent && vm.$parent.allComponentsReady) {
-				vm.$parent.allComponentsReady.then(() => vm.transitionIn());
-			} else {
-				vm.transitionIn();
-			}
+			Promise.all([
+				FlowManager.flowHijacked,
+				vm.transitionInHijack,
+			]).then(() => {
+				if (vm.$parent && vm.$parent.allComponentsReady) {
+					vm.$parent.allComponentsReady.then(() => vm.transitionIn());
+				} else {
+					vm.transitionIn();
+				}
+			});
 		});
 	},
 	/**

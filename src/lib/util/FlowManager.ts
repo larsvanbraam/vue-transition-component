@@ -3,6 +3,7 @@ import FlowType from '../enum/FlowType';
 import IAbstractPageTransitionComponent from '../interface/IAbstractPageTransitionComponent';
 import { COMPONENT_ID } from '../mixin/AbstractRegistrableComponent';
 import FlowEvent from '../event/FlowEvent';
+import { Promise } from 'es6-promise';
 
 export class FlowManager extends EventDispatcher {
 	/**
@@ -21,6 +22,23 @@ export class FlowManager extends EventDispatcher {
 	 * @description the path of the new page
 	 */
 	private _path: string;
+	/**
+	 * @public
+	 * @type {Promise<void>}
+	 * @description Promise that contains the hijacked state of the flow
+	 */
+	public flowHijacked: Promise<void> = Promise.resolve();
+
+	/**
+	 * @public
+	 * @method hijackFlow
+	 * @returns {Promise<()=>void>}
+	 */
+	public hijackFlow(): Promise<() => void> {
+		return new Promise<() => void>((resolve: (release) => void) => {
+			this.flowHijacked = new Promise<void>(release => resolve(release));
+		});
+	}
 
 	/**
 	 * @public
@@ -53,9 +71,10 @@ export class FlowManager extends EventDispatcher {
 	 * @returns {void}
 	 */
 	public start(
-				pageInstance: IAbstractPageTransitionComponent,
-				release: (param?: string | boolean) => void,
-				path: string): void {
+		pageInstance: IAbstractPageTransitionComponent,
+		release: (param?: string | boolean) => void,
+		path: string,
+	): void {
 		if (!this._transitionOut) {
 			if (this._previousComponentId === pageInstance[COMPONENT_ID]) {
 				release();

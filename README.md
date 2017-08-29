@@ -21,12 +21,15 @@ Provides GreenSock transition functionality to vue.js components.
 	1. [Creating a TransitionComponent](#creating-a-transitionComponent)
 	2. [Rendering the component](#rendering-the-component)
 	3. [Nesting timelines](#nesting-timelines)
-	4. [Page transitions](#page-transitions)
+	4. [Access a child component](#access-a-child-component)
+	5. [Listen to transition events](#listen-to-transition-events)
+	6. [Page transitions](#page-transitions)
 		1. [App.vue](#app-vue)
 		2. [App.js](#app-js)
 		3. [Routes.js](#routes-js)
-	5. [Access a child component](#access-a-child-component)
-	6. [Listen to transition events](#listen-to-transition-events)
+	7. [Hijacking flows](#hijacking-flows)
+		1. [App level hijacking](#app-level-hijacking)
+		2. [Page level hijacking](#page-level-hijacking)
 5. [Building](#building)
 6. [Authors](#authors)
 7. [Contribute](#contribute)
@@ -425,6 +428,36 @@ export default [
 ];
 ```
 
+### Page transitions
+When you are working with page transitions you might want to hijack a flow before the transitionIn is executed, this could be usefull for when you want to create a global preloader or a page specific preloader. 
+
+### App level hijacking
+To hijack the entire site on `App.js` level you can use the hijack method from the FlowManager to hijack all page navigation. It will return a promise with one parameter that can be triggered to release the hijack.
+
+```typescript
+created() {
+	FlowManager.hijackFlow()
+		.then(release => {
+			// Your awesome code which is triggered before the flow is released
+			release();
+		});
+},
+```
+
+### Page level hijacking
+To hijack a page transition on page level you can call the hijackTransitionIn method, this method will also return a promise with one parameter that can be triggered to release the hijack.
+
+```typescript
+...
+created() {
+	this.hijackTransitionIn()
+		.then((release) => {
+			// Add your awesome which is triggered before the transition in is called
+			release();
+		});
+},
+...	
+```
 
 ## Building
 
