@@ -18,7 +18,7 @@ Provides GreenSock transition functionality to vue.js components.
 	1. [AbstractTransitionController](#abstracttransitioncontroller)
 	2. [FlowManager](#flowmanager)
 4. [Examples](#examples)
-	1. [Creating a TransitionComponent](#creating-a-transitionComponent)
+	1. [Creating a TransitionComponent](#creating-a-transitioncomponent)
 	2. [Rendering the component](#rendering-the-component)
 	3. [Nesting timelines](#nesting-timelines)
 	4. [Access a child component](#access-a-child-component)
