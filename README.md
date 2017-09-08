@@ -291,8 +291,8 @@ Using transition components is the same as using any other component in Vue.js e
 The best part about components is that you can re-use them. This also applies to the timelines that you created for a component. When creating a transition component that contains another transition component you can add the subTimeline to your main timeline. You do this by refering to the `componentId`
 
 ```js
-protected setupTransitionOutTimeline(): void {
-	this.transitionOutTimeline.add(this.getSubTimeline('DummyComponent'));
+protected setupTransitionInTimeline(): void {
+	this.transitionInTimeline.add(this.getSubTimeline('DummyComponent'));
 }
 ```
 
