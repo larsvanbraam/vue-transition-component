@@ -85,17 +85,22 @@
 						</ol>
 					</li>
 					<li><a href="#examples">Examples</a><ol>
-							<li><a href="#creating-a-transitionComponent">Creating a TransitionComponent</a></li>
+							<li><a href="#creating-a-transitioncomponent">Creating a TransitionComponent</a></li>
 							<li><a href="#rendering-the-component">Rendering the component</a></li>
 							<li><a href="#nesting-timelines">Nesting timelines</a></li>
+							<li><a href="#access-a-child-component">Access a child component</a></li>
+							<li><a href="#listen-to-transition-events">Listen to transition events</a></li>
 							<li><a href="#page-transitions">Page transitions</a><ol>
 									<li><a href="#app-vue">App.vue</a></li>
 									<li><a href="#app-js">App.js</a></li>
 									<li><a href="#routes-js">Routes.js</a></li>
 								</ol>
 							</li>
-							<li><a href="#access-a-child-component">Access a child component</a></li>
-							<li><a href="#listen-to-transition-events">Listen to transition events</a></li>
+							<li><a href="#hijacking-flows">Hijacking flows</a><ol>
+									<li><a href="#app-level-hijacking">App level hijacking</a></li>
+									<li><a href="#page-level-hijacking">Page level hijacking</a></li>
+								</ol>
+							</li>
 						</ol>
 					</li>
 					<li><a href="#building">Building</a></li>
@@ -354,11 +359,10 @@ protected setupTransitionOutTimeline(): <span class="hljs-keyword">void</span> {
 </code></pre>
 				<h3 id="nesting-timelines">Nesting timelines</h3>
 				<p>The best part about components is that you can re-use them. This also applies to the timelines that you created for a component. When creating a transition component that contains another transition component you can add the subTimeline to your main timeline. You do this by refering to the <code>componentId</code></p>
-				<pre><code class="lang-js">protected setupTransitionOutTimeline(): <span class="hljs-keyword">void</span> {
-    <span class="hljs-keyword">this</span>.transitionOutTimeline.add(<span class="hljs-keyword">this</span>.getSubTimeline(<span class="hljs-string">'DummyComponent'</span>));
+				<pre><code class="lang-js">protected setupTransitionInTimeline(): <span class="hljs-keyword">void</span> {
+    <span class="hljs-keyword">this</span>.transitionInTimeline.add(<span class="hljs-keyword">this</span>.getSubTimeline(<span class="hljs-string">'DummyComponent'</span>));
 }
 </code></pre>
-				<p><strong>Note:</strong> When you inject a timeline into another timeline you can no longer use the transitionIn/transitionOut outside of this timeline. For example when you want to transitionOut a component by triggering the transitionOut method but the timeline is also part of the parent component timeline this will not work.</p>
 				<h3 id="access-a-child-component">Access a child component</h3>
 				<h4 id="method-1">Method 1</h4>
 				<p>Sometimes you want to manually trigger a transitionIn/transitionOut on a component without adding it to the main timeline. To do this you need a reference to the child component. To get a child component reference you can call the method <code>getChild</code> providing the <code>componentId</code>. You should also provide the type of component you are requesting, since not all components have the same functionality. For example when you would like to request a TransitionComponent:</p>
@@ -414,16 +418,16 @@ import { TransitionEvent } <span class="hljs-keyword">from</span> <span class="h
 ...
 handleAllComponentsReady() {
     <span class="hljs-keyword">this</span>.transitionController = <span class="hljs-keyword">new</span> DummyComponentTransition(<span class="hljs-keyword">this</span>);
-    <span class="hljs-keyword">this</span>.transitionController.addEventListner(TransitionEvent.TRANSITION_IN_START, () =&gt; {
+    <span class="hljs-keyword">this</span>.transitionController.addEventListener(TransitionEvent.TRANSITION_IN_START, () =&gt; {
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'transition in start'</span>);
     });
-    <span class="hljs-keyword">this</span>.transitionController.addEventListner(TransitionEvent.TRANSITION_IN_COMPLETE, () =&gt; {
+    <span class="hljs-keyword">this</span>.transitionController.addEventListener(TransitionEvent.TRANSITION_IN_COMPLETE, () =&gt; {
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'transition in complete'</span>);
     });
-    <span class="hljs-keyword">this</span>.transitionController.addEventListner(TransitionEvent.TRANSITION_OUT_START, () =&gt; {
+    <span class="hljs-keyword">this</span>.transitionController.addEventListener(TransitionEvent.TRANSITION_OUT_START, () =&gt; {
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'transition out start'</span>);
     });
-    <span class="hljs-keyword">this</span>.transitionController.addEventListner(TransitionEvent.TRANSITION_OUT_COMPLETE, () =&gt; {
+    <span class="hljs-keyword">this</span>.transitionController.addEventListener(TransitionEvent.TRANSITION_OUT_COMPLETE, () =&gt; {
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'transition out complete'</span>);
     });
     <span class="hljs-keyword">this</span>.isReady();
@@ -464,6 +468,30 @@ handleAllComponentsReady() {
         <span class="hljs-attr">props</span>: { <span class="hljs-attr">componentId</span>: PageNames.HOME },
     },
 ];
+</code></pre>
+				<h3 id="hijacking-flows">Hijacking flows</h3>
+				<p>When you are working with page transitions you might want to hijack a flow before the transitionIn is executed, this could be usefull for when you want to create a global preloader or a page specific preloader. </p>
+				<h3 id="app-level-hijacking">App level hijacking</h3>
+				<p>To hijack the entire site on <code>App.js</code> level you can use the hijack method from the FlowManager to hijack all page navigation. It will return a promise with one parameter that can be triggered to release the hijack.</p>
+				<pre><code class="lang-typescript">created() {
+    FlowManager.hijackFlow()
+        .then(<span class="hljs-function"><span class="hljs-params">release</span> =&gt;</span> {
+            <span class="hljs-comment">// Your awesome code which is triggered before the flow is released</span>
+            release();
+        });
+},
+</code></pre>
+				<h3 id="page-level-hijacking">Page level hijacking</h3>
+				<p>To hijack a page transition on page level you can call the hijackTransitionIn method, this method will also return a promise with one parameter that can be triggered to release the hijack.</p>
+				<pre><code class="lang-typescript">...
+created() {
+    <span class="hljs-keyword">this</span>.hijackTransitionIn()
+        .then(<span class="hljs-function">(<span class="hljs-params">release</span>) =&gt;</span> {
+            <span class="hljs-comment">// Add your awesome which is triggered before the transition in is called</span>
+            release();
+        });
+},
+...
 </code></pre>
 				<h2 id="building">Building</h2>
 				<p>In order to build vue-transition-component, ensure that you have <a href="http://git-scm.com/downloads">Git</a> and <a href="http://nodejs.org/">Node.js</a> installed.</p>

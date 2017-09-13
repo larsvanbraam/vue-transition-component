@@ -321,7 +321,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 */
 	public getSubTimeline(componentId: string, direction: string = AbstractTransitionController.IN): Animation {
 		const subTimeline = this.getSubTimelineByComponentId(componentId, direction);
-		return this.cloneTimeline(subTimeline).restart();
+		return this.cloneTimeline(subTimeline, direction).restart();
 	}
 
 	/**
@@ -397,11 +397,11 @@ abstract class AbstractTransitionController extends EventDispatcher {
 			componentId, ComponentType.TRANSITION_COMPONENT);
 
 		if (!childComponent) {
-			throw new Error('No child component for id: [' + componentId + ']');
+			throw this.error(`No child component for id: ${componentId}.`);
 		}
 
 		if (!childComponent.transitionController) {
-			throw new Error('Child component does not have a transition controller: [' + componentId + ']');
+			throw this.error(`Child component does not have a transition controller: ${componentId}.`);
 		}
 
 		const transitionInTimeline = childComponent.transitionController.transitionInTimeline;
@@ -416,12 +416,12 @@ abstract class AbstractTransitionController extends EventDispatcher {
 					return transitionOutTimeline;
 				}
 
-				throw new Error('[AbstractTransitionController.ts] No transition out timeline was created, unable to ' +
+				throw this.error('No transition out timeline was created, unable to ' +
 					'add the transition in timeline to the transition out timeline. To fix this define a custom ' +
-					'transition out timeline for this component');
+					'transition out timeline for this component.');
 			}
 			default: {
-				throw new Error('[AbstractTransitionController] Unsupported direction' + direction);
+				throw this.error(`Unsupported direction: ${direction}`);
 			}
 		}
 	}
@@ -430,7 +430,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @private
 	 * @method cloneTimeline
 	 */
-	private cloneTimeline(source: TimelineLite): TimelineLite {
+	private cloneTimeline(source: TimelineLite, direction: string): TimelineLite {
 		const children = source.getChildren(false);
 		const timeline = new TimelineLite(source.vars);
 
@@ -444,6 +444,9 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				timeline.add(subTimeline.restart());
 			} else {
 				if (child.vars.startAt) {
+					if (direction === AbstractTransitionController.OUT) {
+						throw this.error('Do not use fromTo when nesting transitionOutTimelines, use to instead!');
+					}
 					const from = JSON.parse(JSON.stringify(child.vars.startAt));
 					// Clone the vars
 					const to = child.vars;
@@ -454,9 +457,8 @@ abstract class AbstractTransitionController extends EventDispatcher {
 						// When nesting timelines and the user defines a root timeline with a from the clone will
 						// have incorrect styling because the base styling is off!
 						// timeline.from(child.target, child._duration, child.vars, child._startTime);
-						throw new Error(
-							'[AbstractTransitionController.ts][' + this.viewModel.componentId + '] Do not use from' +
-							' while nesting timelines, use fromTo instead!');
+						throw this.error('Do not use from while nesting transitionInTimelines, use fromTo' +
+							' instead!');
 					} else {
 						timeline.to(child.target, child._duration, child.vars, child._startTime);
 					}
@@ -546,6 +548,19 @@ abstract class AbstractTransitionController extends EventDispatcher {
 			}
 		}
 		this._lastTime = newTime;
+	}
+
+	/**
+	 * @private
+	 * @Method error
+	 * @description Create an error instance, with some extra information!
+	 * @param message
+	 */
+	private error(message: string): Error {
+		// Prefix all errors with a location
+		const location = `[AbstractTransitionController][${this.viewModel.componentId}]`;
+		// Create the error message
+		return new Error(`${location} - ${message}`);
 	}
 
 	/**
