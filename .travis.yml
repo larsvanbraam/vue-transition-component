@@ -9,6 +9,8 @@ node_js:
 
 sudo: false
 
+dist: precise
+
 before_install:
   - if [[ `npm -v` != 5* ]]; then npm i -g npm@5; fi
   - npm install -g typings
