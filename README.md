@@ -30,10 +30,12 @@ Provides GreenSock transition functionality to vue.js components.
 	7. [Hijacking flows](#hijacking-flows)
 		1. [App level hijacking](#app-level-hijacking)
 		2. [Page level hijacking](#page-level-hijacking)
-5. [Building](#building)
-6. [Authors](#authors)
-7. [Contribute](#contribute)
-8. [License](#license)
+5. [Webstorm configuration](https://github.com/larsvanbraam/vue-transition-component/wiki/Webstorm-configuration)
+	1. [Live templates](https://github.com/larsvanbraam/vue-transition-component/wiki/Webstorm-configuration#live-templates)
+6. [Building](#building)
+7. [Authors](#authors)
+8. [Contribute](#contribute)
+9. [License](#license)
 
 ## Installation
 ### yarn / npm
