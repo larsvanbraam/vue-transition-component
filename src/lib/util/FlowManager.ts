@@ -58,6 +58,8 @@ export class FlowManager extends EventDispatcher {
 	public done(): void {
 		this._transitionOut = null;
 		this._path = null;
+		// Reset the previous component id when the flow is done to allow re-opening of the same page after closing it
+		this._previousComponentId = null;
 	}
 
 	/**
