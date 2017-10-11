@@ -1,10 +1,12 @@
-import { TimelineLite, TweenLite, Tween, Animation } from 'gsap';
+import { TimelineLite, TimelineMax, TweenLite, Tween, Animation } from 'gsap';
 import { Promise } from 'es6-promise';
 import EventDispatcher from 'seng-event';
+import { assign } from 'lodash';
 import IAbstractTransitionComponent from '../interface/IAbstractTransitionComponent';
 import TransitionEvent from '../event/TransitionEvent';
 import ComponentType from '../enum/ComponentType';
 import { COMPONENT_ID } from '../mixin/AbstractRegistrableComponent';
+import IAbstractTransitionControllerOptions from '../interface/IAbstractTransitionControllerOptions';
 
 /**
  * @class AbstractTransitionController
@@ -30,46 +32,14 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @protected
 	 * @description The timeline that is used for transition in animations.
 	 */
-	protected transitionInTimeline: TimelineLite = new TimelineLite({
-		paused: true,
-		onUpdate: this.checkDirection.bind(this),
-		onStart: () => {
-			// Notify about the transition in start
-			this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_START));
-			// Element is no longer visible
-			this._isHidden = false;
-		},
-		onComplete: this.handleTransitionComplete.bind(
-			this,
-			AbstractTransitionController.IN,
-			AbstractTransitionController.FORWARD,
-		),
-		onReverseComplete: this.handleTransitionComplete.bind(
-			this,
-			AbstractTransitionController.OUT,
-			AbstractTransitionController.REVERSED,
-		),
-	});
+	protected transitionInTimeline: TimelineLite | TimelineMax;
 	/**
 	 * @property transitionOutTimeline { TimelineLite }
 	 * @protected
 	 * @description The timeline that is used for transition out animations. If no animations are added it will
 	 * automatically use the reversed version of the transition in timeline for the out animations
 	 */
-	protected transitionOutTimeline: TimelineLite = new TimelineLite({
-		paused: true,
-		onStart: () => {
-			// Notify about the transition out start
-			this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_OUT_START));
-			// Element is no longer hidden
-			this._isHidden = true;
-		},
-		onComplete: this.handleTransitionComplete.bind(
-			this,
-			AbstractTransitionController.OUT,
-			AbstractTransitionController.FORWARD,
-		),
-	});
+	protected transitionOutTimeline: TimelineLite|TimelineMax;
 	/**
 	 * @type {boolean}
 	 * @private
@@ -121,12 +91,6 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	private _transitionOutPromise: Promise<void> = null;
 	/**
 	 * @private
-	 * @description When set to true it will show logs!
-	 * @type {boolean}
-	 */
-	private _debug: boolean = false;
-	/**
-	 * @private
 	 * @property _lastTime
 	 * @type {number}
 	 * @description Since GreenSock does not trigger a on reverse start event we use this to figure out that the
@@ -141,11 +105,33 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * timeline has been reversed
 	 */
 	private _forward: boolean = true;
+	/**
+	 * @private
+	 * @property _options
+	 * @description the options for the controller
+	 * @type {{}}
+	 * @private
+	 */
+	private _options: IAbstractTransitionControllerOptions = {
+		/**
+		 * @description When set to true it will show logs!
+		 */
+		debug: false,
+		/**
+		 * @description Use TimelineMax instead of TimelineLite
+		 */
+		useTimelineMax: false,
+	};
 
-	constructor(viewModel: IAbstractTransitionComponent, debug: boolean = false) {
+	constructor(viewModel: IAbstractTransitionComponent, options: IAbstractTransitionControllerOptions = {}) {
 		super();
+		// Store the viewModel reference
 		this.viewModel = viewModel;
-		this._debug = debug;
+		// Merge the options
+		assign(this._options, options);
+		// Create the timelines
+		this.createTransitionTimelines();
+		// Initialize the transition controller
 		this.init();
 	}
 
@@ -171,7 +157,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				}
 				this.handleTransitionComplete(AbstractTransitionController.OUT);
 
-				if (this._debug) {
+				if (this._options.debug) {
 					console.info(this.viewModel[COMPONENT_ID] + ': Interrupted the transition out!');
 				}
 			} else {
@@ -182,7 +168,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 		return oldTransitionPromise.then(() => {
 			// Component is already transitioning out
 			if (this._transitionInPromise !== null && forceTransition) {
-				if (this._debug) {
+				if (this._options.debug) {
 					console.warn('[TransitionController][' + this.viewModel[COMPONENT_ID] + '] Already transitioning' +
 						' in, so rejecting the original transitionIn promise to clear any queued animations. We' +
 						' finish the current animation and return a resolved promise right away');
@@ -200,7 +186,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 			if (this._transitionInPromise === null && this._isHidden) {
 				this._transitionInPromise = new Promise<void>((resolve: () => void, reject: () => void) => {
 					if (this.transitionInTimeline.getChildren().length === 0) {
-						if (this._debug) {
+						if (this._options.debug) {
 							console.info(this.viewModel[COMPONENT_ID] + ': This block has no transition in timeline');
 						}
 
@@ -222,7 +208,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 			}
 
 			if (this._transitionInPromise === null) {
-				if (this._debug) {
+				if (this._options.debug) {
 					console.warn('[TransitionController][' + this.viewModel[COMPONENT_ID] + '] Transition in triggered' +
 						' when it\'s already visible, so we will do nothing and return a resolved promise!');
 				}
@@ -251,7 +237,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				this.transitionInTimeline.kill();
 				this.handleTransitionComplete(AbstractTransitionController.IN);
 
-				if (this._debug) {
+				if (this._options.debug) {
 					console.warn(this.viewModel[COMPONENT_ID] + ': Interrupted the transition in!');
 				}
 			} else {
@@ -262,7 +248,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 		return oldTransitionPromise.then(() => {
 			// Component is already transitioning out
 			if (this._transitionOutPromise !== null && forceTransition) {
-				if (this._debug) {
+				if (this._options.debug) {
 					console.warn('[TransitionController][' + this.viewModel[COMPONENT_ID] + '] Already transitioning' +
 						' out, so rejecting the original transitionOut promise to clear any queued animations. We' +
 						' finish the current animation and return a resolved promise right away');
@@ -297,7 +283,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 			}
 
 			if (!this._transitionOutPromise) {
-				if (this._debug) {
+				if (this._options.debug) {
 					console.warn('[TransitionController][' + this.viewModel.componentId + '] Transition out triggered' +
 						' when it\'s already hidden, so we will do nothing and return a resolved promise!');
 				}
@@ -364,7 +350,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @method killAndClearTimeline
 	 * @param timeline
 	 */
-	protected killAndClearTimeline(timeline: TimelineLite): void {
+	protected killAndClearTimeline(timeline: TimelineLite | TimelineMax): void {
 		this.clearTimeline(timeline);
 		timeline.kill();
 	}
@@ -374,12 +360,12 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @method clearTimeline
 	 * @param timeline
 	 */
-	protected clearTimeline(timeline: TimelineLite): void {
+	protected clearTimeline(timeline: TimelineLite | TimelineMax): void {
 		timeline.getChildren().forEach((target) => {
 			if ((<Tween>target).target) {
 				TweenLite.set((<Tween>target).target, { clearProps: 'all' });
 			} else {
-				this.clearTimeline(<TimelineLite>target);
+				this.clearTimeline(<TimelineLite | TimelineMax>target);
 			}
 		});
 		timeline.clear();
@@ -387,12 +373,55 @@ abstract class AbstractTransitionController extends EventDispatcher {
 
 	/**
 	 * @private
+	 * @method createTransitionTimelines
+	 * @description Setup the transition timelines
+	 */
+	private createTransitionTimelines(): void {
+		this.transitionInTimeline = new (this._options.useTimelineMax ? TimelineMax : TimelineLite)({
+			paused: true,
+			onUpdate: this.checkDirection.bind(this),
+			onStart: () => {
+				// Notify about the transition in start
+				this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_START));
+				// Element is no longer visible
+				this._isHidden = false;
+			},
+			onComplete: this.handleTransitionComplete.bind(
+				this,
+				AbstractTransitionController.IN,
+				AbstractTransitionController.FORWARD,
+			),
+			onReverseComplete: this.handleTransitionComplete.bind(
+				this,
+				AbstractTransitionController.OUT,
+				AbstractTransitionController.REVERSED,
+			),
+		});
+
+		this.transitionOutTimeline = new (this._options.useTimelineMax ? TimelineMax : TimelineLite)({
+			paused: true,
+			onStart: () => {
+				// Notify about the transition out start
+				this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_OUT_START));
+				// Element is no longer hidden
+				this._isHidden = true;
+			},
+			onComplete: this.handleTransitionComplete.bind(
+				this,
+				AbstractTransitionController.OUT,
+				AbstractTransitionController.FORWARD,
+			),
+		});
+	}
+
+	/**
+	 * @private
 	 * @method getSubTimelineByComponentId
 	 * @param {string} componentId
 	 * @param {string} direction
-	 * @returns {TimelineLite}
+	 * @returns {TimelineLite | TimelineMax}
 	 */
-	private getSubTimelineByComponentId(componentId: string, direction: string): TimelineLite {
+	private getSubTimelineByComponentId(componentId: string, direction: string): TimelineLite | TimelineMax {
 		const childComponent = <IAbstractTransitionComponent>this.viewModel.getChild(
 			componentId, ComponentType.TRANSITION_COMPONENT);
 
@@ -430,14 +459,14 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @private
 	 * @method cloneTimeline
 	 */
-	private cloneTimeline(source: TimelineLite, direction: string): TimelineLite {
+	private cloneTimeline(source: TimelineLite | TimelineMax, direction: string): TimelineLite | TimelineMax {
 		const children = source.getChildren(false);
-		const timeline = new TimelineLite(source.vars);
+		const timeline = new (this._options.useTimelineMax ? TimelineMax : TimelineLite)(source.vars);
 
 		const parseChild = (child, timeline) => {
 			if (child.getChildren) {
 				const children = child.getChildren(false);
-				const subTimeline = new TimelineLite(child.vars);
+				const subTimeline = new (this._options.useTimelineMax ? TimelineMax : TimelineLite)(child.vars);
 				// Parse the child animations
 				children.forEach(child => parseChild(child, subTimeline));
 				// Add the timeline to the parent timeline

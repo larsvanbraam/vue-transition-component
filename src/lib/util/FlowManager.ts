@@ -101,7 +101,13 @@ export class FlowManager extends EventDispatcher {
 				}
 			}
 		} else {
-			release(this._path === path); // Already transitioning out, so do nothing if we try to open a new path
+			if (this._path !== path || this.transitionOut === null) {
+				// There is already a page transitioning out, so wait for it and then release the flow!
+				this.transitionOut.then(() => release(true));
+			} else {
+				// Already transitioning out the current page so we do nothing!
+				release(true);
+			}
 		}
 	}
 
