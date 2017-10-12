@@ -1,11 +1,11 @@
 import AbstractEvent from 'seng-event/lib/AbstractEvent';
-import { generateEventTypes } from 'seng-event/lib/util/eventTypeUtils';
+import { generateEventTypes, EVENT_TYPE_PLACEHOLDER } from 'seng-event/lib/util/eventTypeUtils';
 
 class TransitionEvent extends AbstractEvent {
-	public static TRANSITION_IN_START: string = 'TransitionEvent.TRANSITION_IN_START';
-	public static TRANSITION_IN_COMPLETE: string = 'TransitionEvent.TRANSITION_IN_COMPLETE';
-	public static TRANSITION_OUT_START: string = 'TransitionEvent.TRANSITION_OUT_START';
-	public static TRANSITION_OUT_COMPLETE: string = 'TransitionEvent.TRANSITION_OUT_COMPLETE';
+	public static TRANSITION_IN_START: string = EVENT_TYPE_PLACEHOLDER;
+	public static TRANSITION_IN_COMPLETE: string = EVENT_TYPE_PLACEHOLDER;
+	public static TRANSITION_OUT_START: string = EVENT_TYPE_PLACEHOLDER;
+	public static TRANSITION_OUT_COMPLETE: string = EVENT_TYPE_PLACEHOLDER;
 
 	public clone(): TransitionEvent {
 		return new TransitionEvent(this.type, this.bubbles, this.cancelable);
