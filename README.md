@@ -13,7 +13,7 @@ Provides GreenSock transition functionality to vue.js components.
 2. [Provided mixins](#provided-mixins)
 	1. [AbstractRegistrableComponent](#abstractregistrablecomponent)
 	2. [AbstractTransitionComponent](#abstracttransitioncomponent)
-	3. [AbstractPageComopnent](#abstractpagecomponent)
+	3. [AbstractPageComponent](#abstractpagecomponent)
 3. [Provided utils ](#provided-utils)
 	1. [AbstractTransitionController](#abstracttransitioncontroller)
 	2. [FlowManager](#flowmanager)
