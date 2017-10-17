@@ -139,7 +139,7 @@ export class FlowManager extends EventDispatcher {
 	 * @description Disable pointer events during page switches
 	 */
 	private disablePointerEvents(): void {
-		if (bowser.msie && bowser.version < 10) {
+		if (bowser.msie && bowser.version <= 10) {
 			this._pointerDiv.style.display = 'block';
 		} else {
 			document.body.style.pointerEvents = 'none';
@@ -152,7 +152,7 @@ export class FlowManager extends EventDispatcher {
 	 * @description Enable pointer events and allow flow navigation
 	 */
 	private enablePointerEvents(): void {
-		if (bowser.msie && bowser.version < 10) {
+		if (bowser.msie && bowser.version <= 10) {
 			this._pointerDiv.style.display = 'none';
 		} else {
 			document.body.style.pointerEvents = 'all';
