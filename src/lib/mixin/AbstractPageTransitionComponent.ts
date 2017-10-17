@@ -65,6 +65,18 @@ export default {
 	 * @param next
 	 */
 	beforeRouteLeave(to, from, next) {
-		FlowManager.start(this, next, to.path);
+		to.matched.forEach((routeObject, index) => {
+			if (index === 0 && routeObject.beforeEnter) {
+				routeObject.beforeEnter(to, from, (guardResolveValue) => {
+					if (guardResolveValue === from.path) {
+						next(false);
+					} else {
+						FlowManager.start(this, next, to.path);
+					}
+				});
+			} else {
+				FlowManager.start(this, next, to.path);
+			}
+		});
 	},
 };
