@@ -1,9 +1,8 @@
-import { getApplication, getChildComponent, getTransitionController } from './util/app/App';
+import { getApplication, getTransitionController } from './util/app/App';
 import { expect } from 'chai';
 import {} from 'mocha';
 import { Promise } from 'es6-promise';
 import AbstractTransitionController from '../src/lib/util/AbstractTransitionController';
-import IAbstractTransitionComponent from '../src/lib/interface/IAbstractTransitionComponent';
 
 describe('AbstractTransitionControllerSpec', () => {
 	let app: any;

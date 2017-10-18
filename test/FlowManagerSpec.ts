@@ -75,7 +75,7 @@ describe('FlowManager', () => {
 	});
 
 	it('should throw an error', () => {
-		return getChildComponent(app, 'PageComponentA')
+		return getChildComponent<IAbstractPageTransitionComponent>(app, 'PageComponentA')
 			.then((page) => {
 				const pageComponent = page;
 				// Strip out the flow to make it fail
