@@ -90,16 +90,17 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="flowmanager.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="flowmanager.html#_path" class="tsd-kind-icon">_path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="flowmanager.html#_pointerdiv" class="tsd-kind-icon">_pointer<wbr>Div</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="flowmanager.html#_previouscomponentid" class="tsd-kind-icon">_previous<wbr>Component<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="flowmanager.html#_transitionout" class="tsd-kind-icon">_transition<wbr>Out</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowmanager.html#flowhijacked" class="tsd-kind-icon">flow<wbr>Hijacked</a></li>
@@ -116,9 +117,11 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="flowmanager.html#disablepointerevents" class="tsd-kind-icon">disable<wbr>Pointer<wbr>Events</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#dispatchevent" class="tsd-kind-icon">dispatch<wbr>Event</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="flowmanager.html#dispose" class="tsd-kind-icon">dispose</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="flowmanager.html#done" class="tsd-kind-icon">done</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="flowmanager.html#enablepointerevents" class="tsd-kind-icon">enable<wbr>Pointer<wbr>Events</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#haseventlistener" class="tsd-kind-icon">has<wbr>Event<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="flowmanager.html#hijackflow" class="tsd-kind-icon">hijack<wbr>Flow</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#isdisposed" class="tsd-kind-icon">is<wbr>Disposed</a></li>
@@ -131,51 +134,22 @@
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Flow<wbr>Manager<span class="tsd-signature-symbol">(</span>parent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">EventDispatcher</span>, target<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">IEventDispatcher</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="flowmanager.html" class="tsd-signature-type">FlowManager</a></li>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Flow<wbr>Manager<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="flowmanager.html" class="tsd-signature-type">FlowManager</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from EventDispatcher.__constructor</p>
+								<p>Overrides EventDispatcher.__constructor</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/EventDispatcher.d.ts:30</li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/aa524f11/src/lib/util/FlowManager.ts#L37">lib/util/FlowManager.ts:37</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates an EventDispatcher instance.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> parent: <span class="tsd-signature-type">EventDispatcher</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>If set, registers the given EventDispatcher instance as parent. This
-												child-parent relationship is used in the event chain during the capture phase of
-												events and the bubbling phase of bubbling events. For more information on event
-											bubbling and capturing, see <a href="flowmanager.html#dispatchevent">dispatchEvent</a></p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> target: <span class="tsd-signature-type">IEventDispatcher</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>If set, will set the [[IEvent.target|target]] attribute of all events
-												dispatched by this EventDispatcher to the given object. If not set, will use this instance
-											as a target for dispatched events.</p>
-										</div>
-									</div>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="flowmanager.html" class="tsd-signature-type">FlowManager</a></h4>
 						</li>
 					</ul>
@@ -189,7 +163,7 @@
 					<div class="tsd-signature tsd-kind-icon">_path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/util/FlowManager.ts#L24">lib/util/FlowManager.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/aa524f11/src/lib/util/FlowManager.ts#L26">lib/util/FlowManager.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -206,12 +180,31 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_pointerdiv" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _pointer<wbr>Div</h3>
+					<div class="tsd-signature tsd-kind-icon">_pointer<wbr>Div<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLElement</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/aa524f11/src/lib/util/FlowManager.ts#L31">lib/util/FlowManager.ts:31</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>property</dt>
+							<dd></dd>
+							<dt>description</dt>
+							<dd><p>Div used when pointer events none is not supported</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_previouscomponentid" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _previous<wbr>Component<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">_previous<wbr>Component<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/util/FlowManager.ts#L18">lib/util/FlowManager.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/aa524f11/src/lib/util/FlowManager.ts#L20">lib/util/FlowManager.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -231,7 +224,7 @@
 					<div class="tsd-signature tsd-kind-icon">_transition<wbr>Out<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/util/FlowManager.ts#L13">lib/util/FlowManager.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/aa524f11/src/lib/util/FlowManager.ts#L15">lib/util/FlowManager.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -251,7 +244,7 @@
 					<div class="tsd-signature tsd-kind-icon">flow<wbr>Hijacked<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;Promise.resolve()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/util/FlowManager.ts#L30">lib/util/FlowManager.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/aa524f11/src/lib/util/FlowManager.ts#L37">lib/util/FlowManager.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -300,7 +293,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/util/FlowManager.ts#L48">lib/util/FlowManager.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/aa524f11/src/lib/util/FlowManager.ts#L77">lib/util/FlowManager.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -389,6 +382,33 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="disablepointerevents" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> disable<wbr>Pointer<wbr>Events</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">disable<wbr>Pointer<wbr>Events<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/aa524f11/src/lib/util/FlowManager.ts#L141">lib/util/FlowManager.ts:141</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>disablePointerEvents</p>
+									</dd>
+									<dt>description</dt>
+									<dd><p>Disable pointer events during page switches</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="dispatchevent" class="tsd-anchor"></a>
 					<h3>dispatch<wbr>Event</h3>
@@ -458,7 +478,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides EventDispatcher.dispose</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/util/FlowManager.ts#L110">lib/util/FlowManager.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/aa524f11/src/lib/util/FlowManager.ts#L166">lib/util/FlowManager.ts:166</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -482,7 +502,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/util/FlowManager.ts#L58">lib/util/FlowManager.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/aa524f11/src/lib/util/FlowManager.ts#L87">lib/util/FlowManager.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -493,6 +513,33 @@
 									<dt>description</dt>
 									<dd><p>Trigger this method when the flow is fully done, it resets the promise and allows for further
 										navigation</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="enablepointerevents" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> enable<wbr>Pointer<wbr>Events</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">enable<wbr>Pointer<wbr>Events<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/aa524f11/src/lib/util/FlowManager.ts#L154">lib/util/FlowManager.ts:154</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>enablePointerEvents</p>
+									</dd>
+									<dt>description</dt>
+									<dd><p>Enable pointer events and allow flow navigation</p>
 									</dd>
 								</dl>
 							</div>
@@ -558,7 +605,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/util/FlowManager.ts#L37">lib/util/FlowManager.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/aa524f11/src/lib/util/FlowManager.ts#L66">lib/util/FlowManager.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -692,7 +739,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/util/FlowManager.ts#L73">lib/util/FlowManager.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/aa524f11/src/lib/util/FlowManager.ts#L106">lib/util/FlowManager.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -803,11 +850,14 @@
 					<li class="current tsd-kind-class">
 						<a href="flowmanager.html" class="tsd-kind-icon">Flow<wbr>Manager</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="flowmanager.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="flowmanager.html#_path" class="tsd-kind-icon">_path</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="flowmanager.html#_pointerdiv" class="tsd-kind-icon">_pointer<wbr>Div</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="flowmanager.html#_previouscomponentid" class="tsd-kind-icon">_previous<wbr>Component<wbr>Id</a>
@@ -827,6 +877,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="flowmanager.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="flowmanager.html#disablepointerevents" class="tsd-kind-icon">disable<wbr>Pointer<wbr>Events</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="flowmanager.html#dispatchevent" class="tsd-kind-icon">dispatch<wbr>Event</a>
 							</li>
@@ -835,6 +888,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="flowmanager.html#done" class="tsd-kind-icon">done</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="flowmanager.html#enablepointerevents" class="tsd-kind-icon">enable<wbr>Pointer<wbr>Events</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="flowmanager.html#haseventlistener" class="tsd-kind-icon">has<wbr>Event<wbr>Listener</a>
@@ -872,6 +928,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/iabstracttransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/iabstracttransitioncontrolleroptions.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Controller<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#component_id" class="tsd-kind-icon">COMPONENT_<wbr>ID</a>
