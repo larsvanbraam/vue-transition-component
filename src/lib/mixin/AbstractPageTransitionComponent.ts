@@ -29,10 +29,13 @@ export default {
 	 */
 	beforeRouteEnter(to, from, next) {
 		next((vm) => {
-			Promise.all([
-				FlowManager.flowHijacked,
-				vm.transitionInHijack,
-			]).then(() => {
+			Promise.all(
+				[
+					FlowManager.flowHijacked,
+					vm.transitionInHijack,
+				],
+			)
+			.then(() => {
 				if (vm.$parent && vm.$parent.allComponentsReady) {
 					vm.$parent.allComponentsReady.then(() => vm.transitionIn());
 				} else {

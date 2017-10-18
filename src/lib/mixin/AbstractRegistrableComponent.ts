@@ -103,6 +103,7 @@ export default {
 		 * @returns {void}
 		 */
 		componentReady(component) {
+			// console.log('componentReady', this.registeredComponents);
 			// Store the reference
 			this.registeredComponents.push(component);
 			// Check if we reached the total amount of transition components

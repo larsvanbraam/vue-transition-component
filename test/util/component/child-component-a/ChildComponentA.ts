@@ -1,6 +1,6 @@
-import ChildComponentB from '../child-component-b/ChildComponentB';
 import AbstractTransitionComponent from '../../../../src/lib/mixin/AbstractTransitionComponent';
 import ChildComponentATransitionController from './ChildComponentATransitionController';
+import ChildComponentB from '../child-component-b/ChildComponentB';
 
 export default {
 	name: 'ChildComponentA',
@@ -9,7 +9,7 @@ export default {
 		ChildComponentB,
 	},
 	template: `<div>
-		<ChildComponentB componentId="ChildComponentB" />
+		<ChildComponentB componentId="ChildComponentB"/>
 	</div>`,
 	methods: {
 		handleAllComponentsReady() {
