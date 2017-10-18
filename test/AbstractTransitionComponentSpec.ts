@@ -1,7 +1,7 @@
-import { getMountedComponent } from './util/app/App';
 import { expect } from 'chai';
-import IAbstractTransitionComponent from '../src/lib/interface/IAbstractTransitionComponent';
 import {} from 'mocha';
+import IAbstractTransitionComponent from '../src/lib/interface/IAbstractTransitionComponent';
+import { getMountedComponent } from './util/app/App';
 import ChildComponentA from './util/component/child-component-a/ChildComponentA';
 
 describe('AbstractTransitionComponentSpec', () => {

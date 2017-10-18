@@ -1,9 +1,9 @@
 import { expect } from 'chai';
 import { Promise } from 'es6-promise';
-import { getApplication, getChildComponent } from './util/app/App';
 import { FlowManager } from '../src/lib/util/FlowManager';
 import FlowType from '../src/lib/enum/FlowType';
 import IAbstractPageTransitionComponent from '../src/lib/interface/IAbstractPageTransitionComponent';
+import { getApplication, getChildComponent } from './util/app/App';
 
 describe('FlowManager', () => {
 	let flowManager: FlowManager;

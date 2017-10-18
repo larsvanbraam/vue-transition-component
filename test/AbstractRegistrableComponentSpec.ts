@@ -1,7 +1,7 @@
-import { getMountedComponent } from './util/app/App';
-import ComponentType from '../lib/enum/ComponentType';
 import { expect } from 'chai';
 import {} from 'mocha';
+import ComponentType from '../src/lib/enum/ComponentType';
+import { getMountedComponent } from './util/app/App';
 import ChildComponentA from './util/component/child-component-a/ChildComponentA';
 import ChildComponentB from './util/component/child-component-b/ChildComponentB';
 
