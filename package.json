@@ -1,7 +1,7 @@
 {
   "name": "vue-transition-component",
   "version": "1.0.0",
-  "description": "Boilerplate and example project for all Seng projects",
+  "description": "Javascript transitions for Vue.js components",
   "main": "index.js",
   "scripts": {
     "prepublish": "npm run build:npm",
