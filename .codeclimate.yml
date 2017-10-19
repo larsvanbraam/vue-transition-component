@@ -18,3 +18,4 @@ exclude_paths:
 - dist/**/*
 - test/**/*
 - vendor/**/*
+- template/**/*
