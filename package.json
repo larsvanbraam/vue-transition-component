@@ -1,6 +1,6 @@
 {
   "name": "vue-transition-component",
-  "version": "0.10.5",
+  "version": "0.11.0",
   "description": "Javascript transitions for Vue.js components",
   "main": "index.js",
   "scripts": {
