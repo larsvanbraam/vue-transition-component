@@ -1,13 +1,13 @@
-import AbstractTransitionController from '../../src/lib/util/AbstractTransitionController';
+import AbstractTransitionController from '../../../../src/lib/util/AbstractTransitionController';
 
-class DummyTransitionController extends AbstractTransitionController {
+class ChildComponentATransitionController extends AbstractTransitionController {
 	/**
 	 * @public
 	 * @method setupTransitionInTimeline
 	 * @description overwrite this method in the parent class
 	 */
 	protected setupTransitionInTimeline(): void {
-		this.transitionInTimeline.fromTo(this.viewModel.$el, 0.5, { autoAlpha: 0 }, { autoAlpha: 1 });
+		this.transitionInTimeline.fromTo(this.viewModel.$el, 0.1, { autoAlpha: 0 }, { autoAlpha: 1 });
 	}
 
 	/**
@@ -20,4 +20,4 @@ class DummyTransitionController extends AbstractTransitionController {
 	}
 }
 
-export default DummyTransitionController;
+export default ChildComponentATransitionController;

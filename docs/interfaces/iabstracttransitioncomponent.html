@@ -97,12 +97,14 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_attrs" class="tsd-kind-icon">$attrs</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_children" class="tsd-kind-icon">$children</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_createelement" class="tsd-kind-icon">$create<wbr>Element</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_data" class="tsd-kind-icon">$data</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_delete" class="tsd-kind-icon">$delete</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_el" class="tsd-kind-icon">$el</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_isserver" class="tsd-kind-icon">$is<wbr>Server</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_listeners" class="tsd-kind-icon">$listeners</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_options" class="tsd-kind-icon">$options</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_parent" class="tsd-kind-icon">$parent</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_props" class="tsd-kind-icon">$props</a></li>
@@ -111,6 +113,8 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_scopedslots" class="tsd-kind-icon">$scoped<wbr>Slots</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_set" class="tsd-kind-icon">$set</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_slots" class="tsd-kind-icon">$slots</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_ssrcontext" class="tsd-kind-icon">$ssr<wbr>Context</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#_vnode" class="tsd-kind-icon">$vnode</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#allcomponentsready" class="tsd-kind-icon">all<wbr>Components<wbr>Ready</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#allcomponentsreadyresolvemethod" class="tsd-kind-icon">all<wbr>Components<wbr>Ready<wbr>Resolve<wbr>Method</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstracttransitioncomponent.html#componentid" class="tsd-kind-icon">component<wbr>Id</a></li>
@@ -186,6 +190,25 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="_attrs" class="tsd-anchor"></a>
+					<h3>$attrs</h3>
+					<div class="tsd-signature tsd-kind-icon">$attrs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Vue.$attrs</p>
+						<ul>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:48</li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="_children" class="tsd-anchor"></a>
 					<h3>$children</h3>
 					<div class="tsd-signature tsd-kind-icon">$children<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Vue</span><span class="tsd-signature-symbol">[]</span></div>
@@ -203,7 +226,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Vue.$createElement</p>
 						<ul>
-							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:68</li>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:72</li>
 						</ul>
 					</aside>
 				</section>
@@ -225,7 +248,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Vue.$delete</p>
 						<ul>
-							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:51</li>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:55</li>
 						</ul>
 					</aside>
 				</section>
@@ -250,6 +273,25 @@
 							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:44</li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="_listeners" class="tsd-anchor"></a>
+					<h3>$listeners</h3>
+					<div class="tsd-signature tsd-kind-icon">$listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Vue.$listeners</p>
+						<ul>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:49</li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="_options" class="tsd-anchor"></a>
@@ -280,7 +322,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Vue.$props</p>
 						<ul>
-							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:45</li>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:46</li>
 						</ul>
 					</aside>
 				</section>
@@ -340,7 +382,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Vue.$set</p>
 						<ul>
-							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:50</li>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:54</li>
 						</ul>
 					</aside>
 				</section>
@@ -364,13 +406,35 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="_ssrcontext" class="tsd-anchor"></a>
+					<h3>$ssr<wbr>Context</h3>
+					<div class="tsd-signature tsd-kind-icon">$ssr<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Vue.$ssrContext</p>
+						<ul>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:45</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="_vnode" class="tsd-anchor"></a>
+					<h3>$vnode</h3>
+					<div class="tsd-signature tsd-kind-icon">$vnode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">VNode</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Vue.$vnode</p>
+						<ul>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:47</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="allcomponentsready" class="tsd-anchor"></a>
 					<h3>all<wbr>Components<wbr>Ready</h3>
 					<div class="tsd-signature tsd-kind-icon">all<wbr>Components<wbr>Ready<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#allcomponentsready">allComponentsReady</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/interface/IAbstractRegistrableComponent.ts#L38">lib/interface/IAbstractRegistrableComponent.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/interface/IAbstractRegistrableComponent.ts#L38">lib/interface/IAbstractRegistrableComponent.ts:38</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -392,7 +456,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#allcomponentsreadyresolvemethod">allComponentsReadyResolveMethod</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/interface/IAbstractRegistrableComponent.ts#L21">lib/interface/IAbstractRegistrableComponent.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/interface/IAbstractRegistrableComponent.ts#L21">lib/interface/IAbstractRegistrableComponent.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -428,7 +492,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#componentid">componentId</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/interface/IAbstractRegistrableComponent.ts#L32">lib/interface/IAbstractRegistrableComponent.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/interface/IAbstractRegistrableComponent.ts#L32">lib/interface/IAbstractRegistrableComponent.ts:32</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -450,7 +514,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#componenttype">componentType</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/interface/IAbstractRegistrableComponent.ts#L26">lib/interface/IAbstractRegistrableComponent.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/interface/IAbstractRegistrableComponent.ts#L26">lib/interface/IAbstractRegistrableComponent.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -471,7 +535,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#components">components</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/interface/IAbstractRegistrableComponent.ts#L11">lib/interface/IAbstractRegistrableComponent.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/interface/IAbstractRegistrableComponent.ts#L11">lib/interface/IAbstractRegistrableComponent.ts:11</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -492,7 +556,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#registeredcomponents">registeredComponents</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/interface/IAbstractRegistrableComponent.ts#L16">lib/interface/IAbstractRegistrableComponent.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/interface/IAbstractRegistrableComponent.ts#L16">lib/interface/IAbstractRegistrableComponent.ts:16</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -512,7 +576,7 @@
 					<div class="tsd-signature tsd-kind-icon">transition<wbr>Controller<span class="tsd-signature-symbol">:</span> <a href="../classes/abstracttransitioncontroller.html" class="tsd-signature-type">AbstractTransitionController</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/interface/IAbstractTransitionComponent.ts#L10">lib/interface/IAbstractTransitionComponent.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/interface/IAbstractTransitionComponent.ts#L10">lib/interface/IAbstractTransitionComponent.ts:10</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -533,7 +597,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Vue.config</p>
 						<ul>
-							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:70</li>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:74</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -574,7 +638,7 @@
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:76</li>
+												<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:80</li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -587,6 +651,33 @@
 											</li>
 											<li>
 												<h5>info: <span class="tsd-signature-type">string</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+							</ul>        </li>
+							<li class="tsd-parameter">
+								<h5>warn<wbr>Handler<span class="tsd-signature-symbol">: </span>function</h5>
+								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal">
+									<li class="tsd-signature tsd-kind-icon">warn<wbr>Handler<span class="tsd-signature-symbol">(</span>msg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, vm<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Vue</span>, trace<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<aside class="tsd-sources">
+											<ul>
+												<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:81</li>
+											</ul>
+										</aside>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>msg: <span class="tsd-signature-type">string</span></h5>
+											</li>
+											<li>
+												<h5>vm: <span class="tsd-signature-type">Vue</span></h5>
+											</li>
+											<li>
+												<h5>trace: <span class="tsd-signature-type">string</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -609,7 +700,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.$destroy</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:49</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:53</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -627,7 +718,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.$emit</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:65</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:69</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -654,7 +745,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.$forceUpdate</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:48</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:52</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -672,7 +763,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.$mount</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:47</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:51</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -700,7 +791,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.$nextTick</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:66</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:70</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -733,7 +824,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.$nextTick</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:67</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:71</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -751,7 +842,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.$off</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:64</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:68</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -778,7 +869,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.$on</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:62</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:66</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -805,7 +896,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.$once</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:63</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:67</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -833,7 +924,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.$watch</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:52</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:56</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -866,7 +957,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.$watch</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:57</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:61</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -932,7 +1023,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#checkcomponentsready">checkComponentsReady</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/interface/IAbstractRegistrableComponent.ts#L72">lib/interface/IAbstractRegistrableComponent.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/interface/IAbstractRegistrableComponent.ts#L72">lib/interface/IAbstractRegistrableComponent.ts:72</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -960,7 +1051,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#componentready">componentReady</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/interface/IAbstractRegistrableComponent.ts#L79">lib/interface/IAbstractRegistrableComponent.ts:79</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/interface/IAbstractRegistrableComponent.ts#L79">lib/interface/IAbstractRegistrableComponent.ts:79</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -997,7 +1088,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#getchild">getChild</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/interface/IAbstractRegistrableComponent.ts#L63">lib/interface/IAbstractRegistrableComponent.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/interface/IAbstractRegistrableComponent.ts#L63">lib/interface/IAbstractRegistrableComponent.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1046,7 +1137,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#handleallcomponentsready">handleAllComponentsReady</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/interface/IAbstractRegistrableComponent.ts#L85">lib/interface/IAbstractRegistrableComponent.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/interface/IAbstractRegistrableComponent.ts#L85">lib/interface/IAbstractRegistrableComponent.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1074,7 +1165,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#haschild">hasChild</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/interface/IAbstractRegistrableComponent.ts#L54">lib/interface/IAbstractRegistrableComponent.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/interface/IAbstractRegistrableComponent.ts#L54">lib/interface/IAbstractRegistrableComponent.ts:54</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1118,7 +1209,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#isready">isReady</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/interface/IAbstractRegistrableComponent.ts#L45">lib/interface/IAbstractRegistrableComponent.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/interface/IAbstractRegistrableComponent.ts#L45">lib/interface/IAbstractRegistrableComponent.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1146,7 +1237,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/interface/IAbstractTransitionComponent.ts#L18">lib/interface/IAbstractTransitionComponent.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/interface/IAbstractTransitionComponent.ts#L18">lib/interface/IAbstractTransitionComponent.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1183,7 +1274,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/6c9f335f/src/lib/interface/IAbstractTransitionComponent.ts#L26">lib/interface/IAbstractTransitionComponent.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/interface/IAbstractTransitionComponent.ts#L26">lib/interface/IAbstractTransitionComponent.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1221,7 +1312,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.compile</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:98</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:104</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1244,7 +1335,7 @@
 										<li class="tsd-description">
 											<aside class="tsd-sources">
 												<ul>
-													<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:99</li>
+													<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:105</li>
 												</ul>
 											</aside>
 											<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1370,7 +1461,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.component</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:94</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:99</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1398,7 +1489,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.delete</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:86</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:91</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1416,7 +1507,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.delete</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:87</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:92</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1449,7 +1540,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.directive</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:89</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:94</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1476,7 +1567,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.extend</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:81</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:86</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1500,7 +1591,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.filter</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:93</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:98</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1527,7 +1618,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.mixin</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:97</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:103</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1552,7 +1643,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.nextTick</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:82</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:87</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1582,7 +1673,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.nextTick</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:83</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:88</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1601,7 +1692,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.set</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:84</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:89</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1628,7 +1719,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.set</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:85</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:90</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1658,13 +1749,14 @@
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> use</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited tsd-is-static">
 						<li class="tsd-signature tsd-kind-icon">use&lt;T&gt;<span class="tsd-signature-symbol">(</span>plugin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PluginObject</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">PluginFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">use<span class="tsd-signature-symbol">(</span>plugin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PluginObject</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">PluginFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, <span class="tsd-signature-symbol">...</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from Vue.use</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:96</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:101</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1680,6 +1772,24 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">T</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Vue.use</p>
+								<ul>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:102</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>plugin: <span class="tsd-signature-type">PluginObject</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">PluginFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>options: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1731,6 +1841,9 @@
 								<a href="iabstracttransitioncomponent.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="iabstracttransitioncomponent.html#_attrs" class="tsd-kind-icon">$attrs</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="iabstracttransitioncomponent.html#_children" class="tsd-kind-icon">$children</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
@@ -1747,6 +1860,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="iabstracttransitioncomponent.html#_isserver" class="tsd-kind-icon">$is<wbr>Server</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="iabstracttransitioncomponent.html#_listeners" class="tsd-kind-icon">$listeners</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="iabstracttransitioncomponent.html#_options" class="tsd-kind-icon">$options</a>
@@ -1771,6 +1887,12 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="iabstracttransitioncomponent.html#_slots" class="tsd-kind-icon">$slots</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="iabstracttransitioncomponent.html#_ssrcontext" class="tsd-kind-icon">$ssr<wbr>Context</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="iabstracttransitioncomponent.html#_vnode" class="tsd-kind-icon">$vnode</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="iabstracttransitioncomponent.html#allcomponentsready" class="tsd-kind-icon">all<wbr>Components<wbr>Ready</a>
@@ -1881,6 +2003,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="iabstracttransitioncontrolleroptions.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Controller<wbr>Options</a>
+					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#component_id" class="tsd-kind-icon">COMPONENT_<wbr>ID</a>
 					</li>

@@ -76,7 +76,7 @@ export default {
 					} else {
 						throw new Error('Requested component is not of type: ' + ComponentType[componentType]);
 					}
-				} else if (child.componentType !== void 0) {
+				} else {
 					return child;
 				}
 			}
@@ -103,6 +103,7 @@ export default {
 		 * @returns {void}
 		 */
 		componentReady(component) {
+			// console.log('componentReady', this.registeredComponents);
 			// Store the reference
 			this.registeredComponents.push(component);
 			// Check if we reached the total amount of transition components
@@ -117,7 +118,8 @@ export default {
 		 * triggered. This is usually the point where the transition controller is setup.
 		 * @returns {void}
 		 */
-		handleAllComponentsReady() {},
+		handleAllComponentsReady() {
+		},
 	},
 	mounted() {
 		this.allComponentsReady

@@ -17,3 +17,4 @@ export { default as IAbstractRegistrableComponent } from './lib/interface/IAbstr
 export { default as IAbstractTransitionComponent } from './lib/interface/IAbstractTransitionComponent';
 export { default as IAbstractPageTransitionComponent } from './lib/interface/IAbstractPageTransitionComponent';
 export { COMPONENT_ID } from './lib/mixin/AbstractRegistrableComponent';
+

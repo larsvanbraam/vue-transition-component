@@ -1,6 +1,6 @@
-import FlowEvent from '../src/lib/event/FlowEvent';
 import { expect } from 'chai';
 import {} from 'mocha';
+import FlowEvent from '../src/lib/event/FlowEvent';
 
 describe('#FlowEvent', () => {
 	it('should clone itself', () => {

@@ -11,7 +11,7 @@ npm-debug.log
 /seng-*.zip
 /seng-*.tar.gz
 /test/*.js
-!/test/index.js
+!/test/index.vue
 
 # .npmignore
 .editorconfig

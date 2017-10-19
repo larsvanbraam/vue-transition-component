@@ -1,19 +1,14 @@
 language: node_js
 
-cache:
-  directories:
-  - node_modules
-
 node_js:
   - 'stable'
+  - '4'
+  - '5'
 
 sudo: false
 
-dist: precise
-
 before_install:
-  - if [[ `npm -v` != 5* ]]; then npm i -g npm@5; fi
-  - npm install -g typings
+  - if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
   - npm install -g codeclimate-test-reporter
 
 script:

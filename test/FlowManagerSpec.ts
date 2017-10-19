@@ -1,49 +1,23 @@
-import * as Vue from 'vue';
 import { expect } from 'chai';
 import { Promise } from 'es6-promise';
 import { FlowManager } from '../src/lib/util/FlowManager';
-import IAbstractPageTransitionComponent from '../src/lib/interface/IAbstractPageTransitionComponent';
-import AbstractPageTransitionComponent from '../src/lib/mixin/AbstractPageTransitionComponent';
-import DummyTransitionController from './util/DummyTransitionController';
 import FlowType from '../src/lib/enum/FlowType';
-import ComponentType from '../src/lib/enum/ComponentType';
+import IAbstractPageTransitionComponent from '../src/lib/interface/IAbstractPageTransitionComponent';
+import { getApplication, getChildComponent } from './util/app/App';
 
 describe('FlowManager', () => {
 	let flowManager: FlowManager;
+	let app: any;
+
+	const getPageComponent = (): Promise<IAbstractPageTransitionComponent> => {
+		return app.allComponentsReady
+		.then(() => app.getChild('PageComponentA'));
+	};
 
 	beforeEach(() => {
+		app = getApplication();
 		flowManager = new FlowManager();
 	});
-
-	/**
-	 * @description Wrapper method to create a vue transition page
-	 * @returns {Promise}
-	 */
-	const createPage = (id: string, flowType: FlowType) => {
-		return new Promise((resolve: (page: IAbstractPageTransitionComponent) => void) => {
-			const transitionComponent = new Vue({
-				name: id,
-				el: document.createElement('div'),
-				extends: AbstractPageTransitionComponent,
-				beforeCreate() {
-					const self = <any>this;
-					self.componentType = ComponentType.TRANSITION_COMPONENT;
-					self.componentId = id;
-					self.flow = flowType;
-				},
-				methods: {
-					handleAllComponentsReady() {
-						// Force casting!
-						const self = <any>this;
-						self.transitionController = new DummyTransitionController(self);
-						self.isReady();
-
-						resolve(<IAbstractPageTransitionComponent>transitionComponent);
-					},
-				},
-			});
-		});
-	};
 
 	it('should return the transition out promise', () => {
 		const transitionOutPromise = flowManager.transitionOut;
@@ -51,49 +25,73 @@ describe('FlowManager', () => {
 	});
 
 	it('start a NORMAL flow', (done) => {
-		createPage('DummyPage', FlowType.NORMAL).then((page) => {
+		getChildComponent<IAbstractPageTransitionComponent>(app, 'PageComponentA')
+		.then((page) => {
 			flowManager.start(
-				page, () => {
+				page,
+				() => {
 					flowManager.done();
 					done();
 				},
-				'/dummy-page');
+				'/dummy-page',
+			);
 		});
 	});
 
 	it('start a NORMAL flow and try to run it twice', (done) => {
-		createPage('DummyPage', FlowType.NORMAL).then((page) => {
+		getPageComponent()
+		.then((page) => {
 			flowManager.start(page, () => flowManager.start(page, () => done(), '/dummy-page'), '/dummy-page');
 		});
 	});
 
 	it('start a NORMAL flow with the same component id', (done) => {
-		createPage('DummyPage', FlowType.NORMAL).then((page) => {
+		getPageComponent()
+		.then((page) => {
 			flowManager.start(
 				page,
 				() => {
 					flowManager.done();
 					flowManager.start(page, () => done(), '/dummy-page');
 				},
-				'/dummy-page');
+				'/dummy-page',
+			);
 		});
 	});
 
 	it('start a CROSS flow', (done) => {
-		createPage('DummyPage', FlowType.CROSS).then((page) => {
-			flowManager.start(page, () => done(), '/dummy-page');
+		getPageComponent()
+		.then((page) => {
+			// Change the flow to Cross!
+			page.flow = FlowType.CROSS;
+
+			flowManager.start(
+				page, () => {
+					flowManager.done();
+					done();
+				},
+				'/dummy-page',
+			);
 		});
 	});
 
-	it('should throw an error', (done) => {
-		createPage('DummyPage', null).then((page) => {
-			expect(() => flowManager.start(page, () => {}, '/dummy-page')).to.throw(Error);
-			done();
+	it('should throw an error', () => {
+		return getChildComponent<IAbstractPageTransitionComponent>(app, 'PageComponentA')
+		.then((page) => {
+			const pageComponent = page;
+			// Strip out the flow to make it fail
+			pageComponent.flow = null;
+			// Expect it to fail
+			expect(() => flowManager.start(pageComponent, () => {}, '/dummy-page')).to.throw(Error);
 		});
 	});
 
 	it('should dispose the FlowManager and mark it as disposed', () => {
 		flowManager.dispose();
 		expect(flowManager.isDisposed()).to.equal(true);
+	});
+
+	it('should hijack the flow by returning a promise', () => {
+		return flowManager.hijackFlow().then(release => release());
 	});
 });
