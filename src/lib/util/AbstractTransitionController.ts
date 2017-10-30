@@ -363,7 +363,10 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	protected clearTimeline(timeline: TimelineLite | TimelineMax): void {
 		timeline.getChildren().forEach((target) => {
 			if ((<Tween>target).target) {
-				TweenLite.set((<Tween>target).target, { clearProps: Object.keys(target.vars).join(',') });
+				const vars = <any>target.vars;
+				const clearProps = vars.css ? Object.keys(vars.css).join(',') : '';
+				// Clear the css properties
+				TweenLite.set((<Tween>target).target, { clearProps });
 			} else {
 				this.clearTimeline(<TimelineLite | TimelineMax>target);
 			}
