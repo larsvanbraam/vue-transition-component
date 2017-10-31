@@ -74,11 +74,11 @@ export default {
 					if (guardResolveValue === from.path) {
 						next(false);
 					} else {
-						FlowManager.start(this, next, to.path);
+						FlowManager.start(this, next, to);
 					}
 				});
 			} else {
-				FlowManager.start(this, next, to.path);
+				FlowManager.start(this, next, to);
 			}
 		});
 	},

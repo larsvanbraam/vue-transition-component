@@ -6,6 +6,7 @@ import * as bowser from 'bowser';
 import FlowEvent from '../event/FlowEvent';
 import { Promise } from 'es6-promise';
 import { TweenLite } from 'gsap';
+import { Route } from 'vue-router';
 
 export class FlowManager extends EventDispatcher {
 	/**
@@ -106,15 +107,15 @@ export class FlowManager extends EventDispatcher {
 	public start(
 				pageInstance: IAbstractPageTransitionComponent,
 				release: (param?: string | boolean) => void,
-				path: string): void {
+				to: Route): void {
 		this.disablePointerEvents();
 
 		if (this._previousComponentId === pageInstance[COMPONENT_ID]) {
 			release();
 		} else {
-			this._path = path;
+			this._path = to.path;
 			this._previousComponentId = pageInstance[COMPONENT_ID];
-			this.dispatchEvent(new FlowEvent(FlowEvent.START));
+			this.dispatchEvent(new FlowEvent(FlowEvent.START, { to }));
 			switch (pageInstance.flow) {
 				case FlowType.NORMAL: {
 					this._transitionOut = pageInstance.transitionOut(true);
