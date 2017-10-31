@@ -1,8 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// allows us to specify --noEmitHelpers within our tsconfig.json
-// this skips emitting helpers in every file, we just load them once here
-require("ts-helpers");
 var FlowManager_1 = require("./lib/util/FlowManager");
 exports.FlowManager = FlowManager_1.default;
 var FlowType_1 = require("./lib/enum/FlowType");
