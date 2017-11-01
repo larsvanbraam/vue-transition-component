@@ -39,7 +39,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @description The timeline that is used for transition out animations. If no animations are added it will
 	 * automatically use the reversed version of the transition in timeline for the out animations
 	 */
-	protected transitionOutTimeline: TimelineLite|TimelineMax;
+	protected transitionOutTimeline: TimelineLite | TimelineMax;
 	/**
 	 * @type {boolean}
 	 * @private
@@ -191,9 +191,14 @@ abstract class AbstractTransitionController extends EventDispatcher {
 						}
 
 						// Dispatch the events even though there is no time line
-						this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_START));
+						if (!this.isDisposed()) {
+							this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_START));
+						}
 						this._isHidden = false;
-						this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_COMPLETE));
+
+						if (!this.isDisposed()) {
+							this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_COMPLETE));
+						}
 
 						resolve();
 					} else {
@@ -385,7 +390,9 @@ abstract class AbstractTransitionController extends EventDispatcher {
 			onUpdate: this.checkDirection.bind(this),
 			onStart: () => {
 				// Notify about the transition in start
-				this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_START));
+				if (!this.isDisposed()) {
+					this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_START));
+				}
 				// Element is no longer visible
 				this._isHidden = false;
 			},
@@ -405,7 +412,9 @@ abstract class AbstractTransitionController extends EventDispatcher {
 			paused: true,
 			onStart: () => {
 				// Notify about the transition out start
-				this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_OUT_START));
+				if (!this.isDisposed()) {
+					this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_OUT_START));
+				}
 				// Element is no longer hidden
 				this._isHidden = true;
 			},
@@ -517,7 +526,9 @@ abstract class AbstractTransitionController extends EventDispatcher {
 					this._transitionInResolveMethod();
 					this._transitionInResolveMethod = null;
 				}
-				this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_COMPLETE));
+				if (!this.isDisposed()) {
+					this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_IN_COMPLETE));
+				}
 				break;
 			case AbstractTransitionController.OUT: {
 				this._transitionOutPromise = null;
@@ -528,7 +539,9 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				// When the transition out is completed we have to reset the last time otherwise the transition will
 				// no longer work.
 				this._lastTime = 0;
-				this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_OUT_COMPLETE));
+				if (!this.isDisposed()) {
+					this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_OUT_COMPLETE));
+				}
 				break;
 			}
 
@@ -574,7 +587,9 @@ abstract class AbstractTransitionController extends EventDispatcher {
 			this._forward = !this._forward;
 			if (!this._forward) {
 				// Notify about the transition in start
-				this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_OUT_START));
+				if (!this.isDisposed()) {
+					this.dispatchEvent(new TransitionEvent(TransitionEvent.TRANSITION_OUT_START));
+				}
 				// Element is no longer visible
 				this._isHidden = true;
 			}

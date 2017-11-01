@@ -27,6 +27,7 @@ export default {
 	 * @param from
 	 * @param next
 	 */
+
 	beforeRouteEnter(to, from, next) {
 		next((vm) => {
 			Promise.all(
