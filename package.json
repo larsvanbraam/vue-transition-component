@@ -67,11 +67,11 @@
     "vue"
   ],
   "bugs": {
-    "url": "https://github.com/mediamonks/vue-transition-component/issues"
+    "url": "https://github.com/larsvanbraam/vue-transition-component/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mediamonks/vue-transition-component.git"
+    "url": "https://github.com/larsvanbraam/vue-transition-component.git"
   },
   "devDependencies": {
     "@types/chai": "^3.4.34",
