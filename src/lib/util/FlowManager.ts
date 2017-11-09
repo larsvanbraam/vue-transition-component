@@ -119,7 +119,15 @@ export class FlowManager extends EventDispatcher {
 			switch (pageInstance.flow) {
 				case FlowType.NORMAL: {
 					this._transitionOut = pageInstance.transitionOut(true);
-					this._transitionOut.then(() => release());
+					this._transitionOut.then(() => {
+						// Release the flow
+						release();
+						// When the new path uses the same target component the onLeave will never be triggered on
+						// the router view, therefore we mark it as done as soon as transition out is completed
+						if (!this.isNewPageComponent(pageInstance, to)) {
+							this.done();
+						}
+					});
 					break;
 				}
 				case FlowType.CROSS: {
@@ -158,6 +166,19 @@ export class FlowManager extends EventDispatcher {
 		} else {
 			document.body.style.pointerEvents = 'all';
 		}
+	}
+
+	/**
+	 * @private
+	 * @method isNewPageComponent
+	 * @param pageInstance
+	 * @param to
+	 * @returns {boolean}
+	 */
+	private isNewPageComponent(pageInstance:IAbstractPageTransitionComponent, to:Route):boolean {
+		// Check if the current component shares the same component name, this means it's not a new component and
+		// the current one will never leave the DOM
+		return pageInstance.$options.name !== to.matched[0].components.default['name'];
 	}
 
 	/**
