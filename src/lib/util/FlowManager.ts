@@ -1,12 +1,12 @@
-import EventDispatcher from 'seng-event';
-import FlowType from '../enum/FlowType';
-import IAbstractPageTransitionComponent from '../interface/IAbstractPageTransitionComponent';
-import { COMPONENT_ID } from '../mixin/AbstractRegistrableComponent';
 import * as bowser from 'bowser';
-import FlowEvent from '../event/FlowEvent';
 import { Promise } from 'es6-promise';
 import { TweenLite } from 'gsap';
-import { Route } from 'vue-router';
+import EventDispatcher from 'seng-event';
+import IRoute from '../../lib/interface/IRoute';
+import FlowType from '../enum/FlowType';
+import FlowEvent from '../event/FlowEvent';
+import IAbstractPageTransitionComponent from '../interface/IAbstractPageTransitionComponent';
+import { COMPONENT_ID } from '../mixin/AbstractRegistrableComponent';
 
 export class FlowManager extends EventDispatcher {
 	/**
@@ -107,7 +107,7 @@ export class FlowManager extends EventDispatcher {
 	public start(
 				pageInstance: IAbstractPageTransitionComponent,
 				release: (param?: string | boolean) => void,
-				to: Route): void {
+				to: IRoute): void {
 		this.disablePointerEvents();
 
 		if (this._previousComponentId === pageInstance[COMPONENT_ID]) {
@@ -175,7 +175,7 @@ export class FlowManager extends EventDispatcher {
 	 * @param to
 	 * @returns {boolean}
 	 */
-	private isNewPageComponent(pageInstance:IAbstractPageTransitionComponent, to:Route):boolean {
+	private isNewPageComponent(pageInstance:IAbstractPageTransitionComponent, to:IRoute):boolean {
 		// Check if the current component shares the same component name, this means it's not a new component and
 		// the current one will never leave the DOM
 		return pageInstance.$options.name !== to.matched[0].components.default['name'];
