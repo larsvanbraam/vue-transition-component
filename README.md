@@ -3,7 +3,9 @@
 [![npm](https://img.shields.io/npm/dm/vue-transition-component.svg?maxAge=2592000)](https://www.npmjs.com/package/vue-transition-component)
 [![GitHub issues](https://img.shields.io/github/issues/larsvanbraam/vue-transition-component.svg?style=flat-square)](https://github.com/larsvanbraam/vue-transition-component/issues)
 
-# vue-transition-component
+<p align="center">
+    <img src="vue-transition-component.larsvanbraam.nl/vue-transition-component-1024.png" alt="vue-transition-component" width="512"/>
+</p>
 
 Provides GreenSock transition functionality to vue.js components.
 
