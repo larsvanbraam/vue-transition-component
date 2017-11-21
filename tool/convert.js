@@ -1,4 +1,4 @@
-const fs = require('fs-extra');
+const fs = require('fs');
 const path = require('path');
 const rimraf = require('rimraf');
 const nrc = require('node-run-cmd');
