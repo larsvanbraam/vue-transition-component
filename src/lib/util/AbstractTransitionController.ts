@@ -1,7 +1,7 @@
 import { TimelineLite, TimelineMax, TweenLite, Tween, Animation } from 'gsap';
 import { Promise } from 'es6-promise';
 import EventDispatcher from 'seng-event';
-import { assign } from 'lodash';
+import { assign, isElement, isString, find } from 'lodash';
 import IAbstractTransitionComponent from '../interface/IAbstractTransitionComponent';
 import TransitionEvent from '../event/TransitionEvent';
 import ComponentType from '../enum/ComponentType';
@@ -306,24 +306,30 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @method getSubTimeline
 	 * @description When nesting transition components you might want to nest the timelines as well, this makes it
 	 * easier to time all the component transitions
-	 * @param {string} componentId
+	 * @param {string | HTMLElement | IAbstractTransitionComponent} component
 	 * @param {string} direction
 	 * @returns { Animation }
 	 */
-	public getSubTimeline(componentId: string, direction: string = AbstractTransitionController.IN): Animation {
-		const subTimeline = this.getSubTimelineByComponentId(componentId, direction);
+	public getSubTimeline(
+		component: string | HTMLElement | IAbstractTransitionComponent,
+		direction: string = AbstractTransitionController.IN,
+	): Animation {
+		const subTimeline = this.getSubTimelineByComponentId(component, direction);
 		return this.cloneTimeline(subTimeline, direction).restart();
 	}
 
 	/**
 	 * @public
 	 * @method getSubTimelineDuration
-	 * @param {string} componentId
+	 * @param {string | HTMLElement | IAbstractTransitionComponent} component
 	 * @param {string} direction
 	 * @returns {Animation}
 	 */
-	public getSubTimelineDuration(componentId: string, direction: string = AbstractTransitionController.IN): number {
-		return this.getSubTimelineByComponentId(componentId, direction).duration();
+	public getSubTimelineDuration(
+		component: string | HTMLElement | IAbstractTransitionComponent,
+		direction: string = AbstractTransitionController.IN,
+	): number {
+		return this.getSubTimelineByComponentId(component, direction).duration();
 	}
 
 	/**
@@ -433,16 +439,29 @@ abstract class AbstractTransitionController extends EventDispatcher {
 	 * @param {string} direction
 	 * @returns {TimelineLite | TimelineMax}
 	 */
-	private getSubTimelineByComponentId(componentId: string, direction: string): TimelineLite | TimelineMax {
-		const childComponent = <IAbstractTransitionComponent>this.viewModel.getChild(
-			componentId, ComponentType.TRANSITION_COMPONENT);
+	private getSubTimelineByComponentId(
+		component: string | HTMLElement | IAbstractTransitionComponent,
+		direction: string,
+	): TimelineLite | TimelineMax {
+		let childComponent;
+
+		if (isString(component)) {
+			childComponent = <IAbstractTransitionComponent>this.viewModel.getChild(
+				component,
+				ComponentType.TRANSITION_COMPONENT,
+			);
+		} else if (isElement(component)) {
+			childComponent = find(this.viewModel.$children, child => child.$el === component);
+		} else {
+			childComponent = component;
+		}
 
 		if (!childComponent) {
-			throw this.error(`No child component for id: ${componentId}.`);
+			throw this.error(`No child component for id: ${component}.`);
 		}
 
 		if (!childComponent.transitionController) {
-			throw this.error(`Child component does not have a transition controller: ${componentId}.`);
+			throw this.error(`Child component does not have a transition controller: ${childComponent[COMPONENT_ID]}.`);
 		}
 
 		const transitionInTimeline = childComponent.transitionController.transitionInTimeline;

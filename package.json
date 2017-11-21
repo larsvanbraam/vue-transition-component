@@ -108,7 +108,6 @@
     "tsutils": "^2.1.0",
     "typedoc": "^0.7.1",
     "typescript": "^2.3.3",
-    "vue": "^2.4.4",
     "webpack": "^1.12.12",
     "webpack-dev-server": "^1.16.2",
     "webpack-system-register": "^1.3.2",
@@ -122,6 +121,7 @@
     "lodash": "^4.17.4",
     "seng-disposable": "^1.1.3",
     "seng-event": "^1.2.3",
-    "tslib": "^1.2.0"
+    "tslib": "^1.2.0",
+    "vue": "^2.4.4"
   }
 }
