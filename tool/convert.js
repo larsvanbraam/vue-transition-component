@@ -36,6 +36,11 @@ const actions = [
 		target: 'src/router/routes.js',
 	},
 	{
+		type: actionType.REPLACE,
+		source: 'template/bootstrap.js',
+		target: 'src/bootstrap.js',
+	},
+	{
 		type: actionType.REMOVE,
 		target: 'src/page/HomePage',
 	},
