@@ -22,23 +22,8 @@ const actions = [
 	},
 	{
 		type: actionType.REPLACE,
-		source: 'template/App.js',
-		target: 'src/App/App.js',
-	},
-	{
-		type: actionType.REPLACE,
-		source: 'template/App.vue',
-		target: 'src/App/App.vue',
-	},
-	{
-		type: actionType.REPLACE,
-		source: 'template/routes.js',
-		target: 'src/router/routes.js',
-	},
-	{
-		type: actionType.REPLACE,
-		source: 'template/bootstrap.js',
-		target: 'src/bootstrap.js',
+		source: 'template',
+		target: './',
 	},
 	{
 		type: actionType.REMOVE,
