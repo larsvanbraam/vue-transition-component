@@ -13,12 +13,10 @@ Provides GreenSock transition functionality to vue.js components.
 
 1. [Installation](#installation)
 2. [Usage](#usage)
-3. [Webstorm configuration](https://github.com/larsvanbraam/vue-transition-component/wiki/Webstorm-configuration)
-	1. [Live templates](https://github.com/larsvanbraam/vue-transition-component/wiki/Webstorm-configuration#live-templates)
-4. [Building](#building)
-5. [Authors](#authors)
-6. [Contribute](#contribute)
-7. [License](#license)
+3. [Building](#building)
+4. [Authors](#authors)
+5. [Contribute](#contribute)
+6. [License](#license)
 
 ## Installation
 ### yarn / npm
