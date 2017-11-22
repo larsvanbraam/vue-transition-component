@@ -12,11 +12,12 @@ Provides GreenSock transition functionality to vue.js components.
 ## Table of contents
 
 1. [Installation](#installation)
-2. [Usage](#usage)
-3. [Building](#building)
-4. [Authors](#authors)
-5. [Contribute](#contribute)
-6. [License](#license)
+2. [Demo](#demo)
+3. [Usage](#usage)
+4. [Building](#building)
+5. [Authors](#authors)
+6. [Contribute](#contribute)
+7. [License](#license)
 
 ## Installation
 ### yarn / npm
@@ -28,6 +29,14 @@ yarn add vue-transition-component
 ```sh
 npm i -S vue-transition-component
 ```
+
+## Demo
+I've created a demo repository that contains the setup for the latest vue-skeleton (v0.8.1) with the 
+vue-transition-component (v1.1.17) installed. You can inspect the code there or if you just want to preview the block 
+system you can visit the demo online!
+
+### [Demo repository](https://github.com/larsvanbraam/vue-transition-component-demo)
+### [Online demo](http://vue-transition-component.larsvanbraam.nl)
 
 ## Usage
 Detailed documentation and examples are located in the wiki!
