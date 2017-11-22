@@ -501,7 +501,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 				// Parse the child animations
 				children.forEach(child => parseChild(child, subTimeline));
 				// Add the timeline to the parent timeline
-				timeline.add(subTimeline.restart());
+				timeline.add(subTimeline.restart(), child._startTime);
 			} else {
 				if (child.vars.startAt) {
 					if (direction === AbstractTransitionController.OUT) {
