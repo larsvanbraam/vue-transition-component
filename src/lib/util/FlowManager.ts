@@ -132,7 +132,7 @@ export class FlowManager extends EventDispatcher {
 				}
 				case FlowType.CROSS: {
 					this._transitionOut = pageInstance.transitionOut(true);
-					setTimeout(() => release, 0);
+					setTimeout(() => release(), 0);
 					break;
 				}
 				default: {
