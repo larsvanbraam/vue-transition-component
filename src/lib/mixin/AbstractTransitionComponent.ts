@@ -17,23 +17,7 @@ export default {
 		 * @returns {void}
 		 */
 		checkComponentsReady() {
-			if (this.components.length === 0 && !this.transitionController) {
-				this.allComponentsReadyResolveMethod();
-			}
-		},
-		/**
-		 * @public
-		 * @method componentReady
-		 * @description This method is a callback for when the child component is ready, it should be added
-		 * to the .vue template (<ComponentA @componentReady="componentReady"/>)
-		 * @param component
-		 * @returns {void}
-		 */
-		componentReady(component) {
-			// Store the reference
-			this.registeredComponents.push(component);
-			// Check if we reached the total amount of transition components
-			if (this.components.length === this.registeredComponents.length && !this.transitionController) {
+			if (this.registrableComponents.length === 0 && !this.transitionController) {
 				this.allComponentsReadyResolveMethod();
 			}
 		},

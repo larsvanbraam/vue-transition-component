@@ -21,12 +21,6 @@ export class FlowManager extends EventDispatcher {
 	private _previousComponentId: string;
 	/**
 	 * @property
-	 * @type string
-	 * @description the path of the new page
-	 */
-	private _path: string;
-	/**
-	 * @property
 	 * @description Div used when pointer events none is not supported
 	 */
 	private _pointerDiv: HTMLElement;
@@ -87,7 +81,6 @@ export class FlowManager extends EventDispatcher {
 	 */
 	public done(): void {
 		this._transitionOut = null;
-		this._path = null;
 		// Reset the previous component id when the flow is done to allow re-opening of the same page after closing it
 		this._previousComponentId = null;
 		// Enable the pointer events and allow the flow
@@ -113,7 +106,6 @@ export class FlowManager extends EventDispatcher {
 		if (this._previousComponentId === pageInstance[COMPONENT_ID]) {
 			release();
 		} else {
-			this._path = to.path;
 			this._previousComponentId = pageInstance[COMPONENT_ID];
 			this.dispatchEvent(new FlowEvent(FlowEvent.START, { to }));
 			switch (pageInstance.flow) {

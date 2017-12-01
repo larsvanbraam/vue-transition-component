@@ -7,7 +7,7 @@ import ChildComponentA from './util/component/child-component-a/ChildComponentA'
 describe('AbstractTransitionComponentSpec', () => {
 	describe('destroy', () => {
 		it('should destroy the component and dispose the timeline', () => {
-			const component = getMountedComponent<IAbstractTransitionComponent>(ChildComponentA, {
+			const component = <IAbstractTransitionComponent>getMountedComponent(ChildComponentA, {
 				componentId: 'ChildComponentA',
 			});
 			// Destroy the component

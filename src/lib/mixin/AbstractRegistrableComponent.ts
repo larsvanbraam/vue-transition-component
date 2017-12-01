@@ -13,14 +13,15 @@ export default {
 			required: true,
 		},
 	},
-	computed: {
-		components() {
-			return this.$children.filter(childComponent => childComponent[COMPONENT_ID] !== undefined);
-		},
+	data() {
+		return {
+			registrableComponents: [],
+		};
 	},
 	beforeCreate() {
 		this.componentType = ComponentType.REGISTRABLE_COMPONENT;
 		this.registeredComponents = [];
+		this.newRegisteredComponents = [];
 		this.allComponentsReady = new Promise((resolve) => {
 			this.allComponentsReadyResolveMethod = resolve;
 		});
@@ -73,9 +74,8 @@ export default {
 				if (componentType !== void 0) {
 					if (child.componentType === componentType) {
 						return child;
-					} else {
-						throw new Error('Requested component is not of type: ' + ComponentType[componentType]);
 					}
+					throw new Error('Requested component is not of type: ' + ComponentType[componentType]);
 				} else {
 					return child;
 				}
@@ -85,30 +85,24 @@ export default {
 		},
 		/**
 		 * @public
-		 * @method checkComponentsReady
-		 * @description This method checks if all components are loaded on init, overwrite if you need multiple checks!
-		 * @param component
-		 * @returns {void}
-		 */
-		checkComponentsReady() {
-			if (this.components.length === 0) {
-				this.allComponentsReadyResolveMethod();
-			}
-		},
-		/**
-		 * @public
 		 * @method componentReady
 		 * @description This method is called by the child component so we can keep track of components that are loaded.
 		 * @param component
 		 * @returns {void}
 		 */
 		componentReady(component) {
-			// console.log('componentReady', this.registeredComponents);
-			// Store the reference
-			this.registeredComponents.push(component);
+			// Store the component id, so we can check if all are loaded
+			this.registeredComponents.push(component._uid);
 			// Check if we reached the total amount of transition components
-			if (this.components.length === this.registeredComponents.length) {
-				this.allComponentsReadyResolveMethod();
+			if (
+				this.registrableComponents.length === this.registeredComponents.length &&
+				this.allComponentsReadyResolveMethod
+			) {
+				this.allComponentsReadyResolveMethod(
+					this.$children.filter(child => this.newRegisteredComponents.indexOf(child._uid) > -1),
+				);
+				this.newRegisteredComponents = [];
+				this.allComponentsReadyResolveMethod = null;
 			}
 		},
 		/**
@@ -120,17 +114,83 @@ export default {
 		 */
 		handleAllComponentsReady() {
 		},
+		/**
+		 * @public
+		 * @method watchAsyncComponentChange
+		 * @description Method that watches for async component changes, this means it will create a new promise
+		 * that will be resolved when the "new" children are ready
+		 * @returns
+		 */
+		watchAsyncComponentsChange() {
+			// Store the components before change
+			const beforeChange = this.registrableComponents.map(child => child._uid);
+			// Reset the array
+			this.registeredComponents = [];
+			// Create a new promise for notify'ing about the change
+			this.asyncComponentsReady = new Promise((resolve) => {
+				this.allComponentsReadyResolveMethod = resolve;
+			});
+
+			// Return a new method that will mark the DOM as "modified"
+			return () => {
+				// Wait for the next tick
+				this.$nextTick(() => {
+					// Update the list of registrable components
+					this.$_updateRegistrableComponents();
+					// Find the new components after the change
+					const afterChange = this.registrableComponents.map(child => child._uid);
+					// Store the id's of the new components
+					this.newRegisteredComponents = afterChange.filter(child => beforeChange.indexOf(child) === -1);
+					// Restore the components that were not modified
+					this.registeredComponents = afterChange.filter(child => beforeChange.indexOf(child) > -1);
+					// There might be no change so trigger the resolve method right away!
+					if (
+						beforeChange === afterChange ||
+						(this.newRegisteredComponents.length === 0 && afterChange.length < beforeChange.length)
+					) {
+						this.allComponentsReadyResolveMethod(this.newRegisteredComponents);
+					}
+				});
+
+				// Return the promise
+				return this.asyncComponentsReady;
+			};
+		},
+		/**
+		 * @private
+		 * @method checkComponentsReady
+		 * @description This method checks if all components are loaded on init, overwrite if you need multiple checks!
+		 * @param component
+		 * @returns {void}
+		 */
+		$_checkComponentsReady() {
+			if (this.registrableComponents.length === 0) {
+				this.allComponentsReadyResolveMethod();
+			}
+		},
+		/**
+		 * @private
+		 * @method update RegistrableComponents
+		 * @description Update the array of registrableComponents
+		 */
+		$_updateRegistrableComponents() {
+			this.registrableComponents = this.$children.filter(childComponent => childComponent[COMPONENT_ID] !== undefined);
+		},
 	},
 	mounted() {
+		this.$_updateRegistrableComponents();
+		// On init everything is new
+		this.newRegisteredComponents = this.registrableComponents.map(child => child._uid);
+
 		this.allComponentsReady
-			.then(() => this.handleAllComponentsReady())
-			.catch(result => setTimeout(() => {
-				// Add a timeout to allow error throwing in the promise chain!
-				throw result;
-			}));
+		.then(() => this.handleAllComponentsReady())
+		.catch(result => setTimeout(() => {
+			// Add a timeout to allow error throwing in the promise chain!
+			throw result;
+		}));
 
 		// We wait for the next tick otherwise the $children might not be set when you use a v-for loop
-		this.$nextTick(this.checkComponentsReady.bind(this));
+		this.$nextTick(() => this.$_checkComponentsReady());
 	},
 	beforeDestroy() {
 		this.componentType = null;
