@@ -30,15 +30,15 @@ export default {
 		/**
 		 * @public
 		 * @method isReady
-		 * @description The init method should be called when the component is full y ready,
+		 * @description The init method should be called when the component is fully ready,
 		 * this is usually when it's mounted but it could require more async data
 		 * @returns {void}
 		 */
 		isReady() {
 			this.$emit(IS_READY, this); // If you want to you can listen to the isReady event
 
-			if (this.$parent && this.$parent['componentReady']) {
-				this.$parent['componentReady'](this);
+			if (this.$parent && this.$parent['$_componentReady']) {
+				this.$parent['$_componentReady'](this);
 			}
 		},
 		/**
@@ -85,28 +85,6 @@ export default {
 		},
 		/**
 		 * @public
-		 * @method componentReady
-		 * @description This method is called by the child component so we can keep track of components that are loaded.
-		 * @param component
-		 * @returns {void}
-		 */
-		componentReady(component) {
-			// Store the component id, so we can check if all are loaded
-			this.registeredComponents.push(component._uid);
-			// Check if we reached the total amount of transition components
-			if (
-				this.registrableComponents.length === this.registeredComponents.length &&
-				this.allComponentsReadyResolveMethod
-			) {
-				this.allComponentsReadyResolveMethod(
-					this.$children.filter(child => this.newRegisteredComponents.indexOf(child._uid) > -1),
-				);
-				this.newRegisteredComponents = [];
-				this.allComponentsReadyResolveMethod = null;
-			}
-		},
-		/**
-		 * @public
 		 * @method handleAllComponentsReady
 		 * @description When all the transition components within this component are loaded this method will be
 		 * triggered. This is usually the point where the transition controller is setup.
@@ -116,12 +94,12 @@ export default {
 		},
 		/**
 		 * @public
-		 * @method watchAsyncComponentChange
+		 * @method updateRegistrableComponents
 		 * @description Method that watches for async component changes, this means it will create a new promise
 		 * that will be resolved when the "new" children are ready
 		 * @returns
 		 */
-		watchAsyncComponentsChange() {
+		updateRegistrableComponents(callback:(release:() => void) => void) {
 			// Store the components before change
 			const beforeChange = this.registrableComponents.map(child => child._uid);
 			// Reset the array
@@ -130,9 +108,9 @@ export default {
 			this.asyncComponentsReady = new Promise((resolve) => {
 				this.allComponentsReadyResolveMethod = resolve;
 			});
-
-			// Return a new method that will mark the DOM as "modified"
-			return () => {
+			// Promised is used for doing async code in the component
+			new Promise(resolve => callback(resolve))
+			.then(() => {
 				// Wait for the next tick
 				this.$nextTick(() => {
 					// Update the list of registrable components
@@ -151,10 +129,32 @@ export default {
 						this.allComponentsReadyResolveMethod(this.newRegisteredComponents);
 					}
 				});
+			});
 
-				// Return the promise
-				return this.asyncComponentsReady;
-			};
+			// Return the promise
+			return this.asyncComponentsReady;
+		},
+		/**
+		 * @private
+		 * @method componentReady
+		 * @description This method is called by the child component so we can keep track of components that are loaded.
+		 * @param component
+		 * @returns {void}
+		 */
+		$_componentReady(component) {
+			// Store the component id, so we can check if all are loaded
+			this.registeredComponents.push(component._uid);
+			// Check if we reached the total amount of transition components
+			if (
+				this.registrableComponents.length === this.registeredComponents.length &&
+				this.allComponentsReadyResolveMethod
+			) {
+				this.allComponentsReadyResolveMethod(
+					this.$children.filter(child => this.newRegisteredComponents.indexOf(child._uid) > -1),
+				);
+				this.newRegisteredComponents = [];
+				this.allComponentsReadyResolveMethod = null;
+			}
 		},
 		/**
 		 * @private
