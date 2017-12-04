@@ -4,7 +4,7 @@ import ComponentType from '../src/lib/enum/ComponentType';
 import { getMountedComponent } from './util/app/App';
 import ChildComponentA from './util/component/child-component-a/ChildComponentA';
 import ChildComponentB from './util/component/child-component-b/ChildComponentB';
-import IAbstractTransitionComponent from '../lib/interface/IAbstractTransitionComponent';
+import IAbstractTransitionComponent from '../src/lib/interface/IAbstractTransitionComponent';
 
 describe('AbstractRegistrableComponentSpec', () => {
 	describe('hasChild', () => {
@@ -99,9 +99,25 @@ describe('AbstractRegistrableComponentSpec', () => {
 					componentId: 'ChildComponentB',
 				},
 			);
-			expect(component.checkComponentsReady()).to.be.undefined;
+			expect(component.$_checkComponentsReady()).to.be.undefined;
 		});
 	});
+
+	describe('updateRegistrableComponents', () => {
+		it('should do an async action and wait for the new components to be ready', () => {
+			const component = <IAbstractTransitionComponent>getMountedComponent(
+				ChildComponentB,
+				{
+					componentId: 'ChildComponentA',
+				},
+			);
+
+			component.allComponentsReady
+			.then(() => component.updateRegistrableComponents(release => setTimeout(() => release(), 1)))
+			.then(result => expect(result).to.equal([]));
+		});
+	});
+
 
 	// describe('componentReady', () => {
 	// 	it('should register a new component', () => {

@@ -1,5 +1,5 @@
 import { Promise } from 'es6-promise';
-import { find } from 'lodash';
+import { find, isEqual } from 'lodash';
 import ComponentType from '../enum/ComponentType';
 
 const IS_READY = 'isReady';
@@ -35,8 +35,9 @@ export default {
 		 * @returns {void}
 		 */
 		isReady() {
-			this.$emit(IS_READY, this); // If you want to you can listen to the isReady event
-
+			// If you want to you can listen to the isReady event
+			this.$emit(IS_READY, this);
+			// Notify the parent about being ready
 			if (this.$parent && this.$parent['$_componentReady']) {
 				this.$parent['$_componentReady'](this);
 			}
@@ -123,7 +124,7 @@ export default {
 					this.registeredComponents = afterChange.filter(child => beforeChange.indexOf(child) > -1);
 					// There might be no change so trigger the resolve method right away!
 					if (
-						beforeChange === afterChange ||
+						isEqual(beforeChange, afterChange) ||
 						(this.newRegisteredComponents.length === 0 && afterChange.length < beforeChange.length)
 					) {
 						this.allComponentsReadyResolveMethod(this.newRegisteredComponents);
@@ -178,17 +179,16 @@ export default {
 		},
 	},
 	mounted() {
+		// Update the array of registrable components
 		this.$_updateRegistrableComponents();
 		// On init everything is new
 		this.newRegisteredComponents = this.registrableComponents.map(child => child._uid);
-
-		this.allComponentsReady
-		.then(() => this.handleAllComponentsReady())
+		// Wait for all components to be ready
+		this.allComponentsReady.then(() => this.handleAllComponentsReady())
+		// Add a timeout to allow error throwing in the promise chain!
 		.catch(result => setTimeout(() => {
-			// Add a timeout to allow error throwing in the promise chain!
 			throw result;
 		}));
-
 		// We wait for the next tick otherwise the $children might not be set when you use a v-for loop
 		this.$nextTick(() => this.$_checkComponentsReady());
 	},
@@ -198,5 +198,10 @@ export default {
 			this.registeredComponents.length = 0;
 			this.registeredComponents = null;
 		}
+		if (this.newRegisteredComponents) {
+			this.newRegisteredComponents.length = 0;
+			this.newRegisteredComponents = null;
+		}
+
 	},
 };

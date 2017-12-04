@@ -11,18 +11,6 @@ export default {
 	methods: {
 		/**
 		 * @public
-		 * @method checkComponentsReady
-		 * @description This method checks if all components are loaded on init, overwrite if you need multiple checks!
-		 * @param component
-		 * @returns {void}
-		 */
-		checkComponentsReady() {
-			if (this.registrableComponents.length === 0 && !this.transitionController) {
-				this.allComponentsReadyResolveMethod();
-			}
-		},
-		/**
-		 * @public
 		 * @method transitionIn
 		 * @description The main transitionIn method for the component
 		 * @param { boolean } forceTransition
