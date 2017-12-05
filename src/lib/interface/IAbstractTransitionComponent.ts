@@ -1,3 +1,4 @@
+import { Promise } from 'es6-promise';
 import AbstractTransitionController from '../util/AbstractTransitionController';
 import IAbstractRegistrableComponent from './IAbstractRegistrableComponent';
 

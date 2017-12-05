@@ -11,6 +11,7 @@
     "sourceMap": false,
     "inlineSourceMap": false,
     "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "strictNullChecks": false,
     "noImplicitReturns": true,

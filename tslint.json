@@ -15,6 +15,12 @@
       }
     ],
     "max-line-length": [true, 120],
-    "import-name": false
+    "import-name": false,
+    "function-name": [
+      true,
+      {
+        "method-regex": "^(\\$_|[a-z])[\\w\\d]+$"
+      }
+    ]
   }
 }

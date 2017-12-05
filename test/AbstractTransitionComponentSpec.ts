@@ -5,15 +5,38 @@ import { getMountedComponent } from './util/app/App';
 import ChildComponentA from './util/component/child-component-a/ChildComponentA';
 
 describe('AbstractTransitionComponentSpec', () => {
-	describe('destroy', () => {
-		it('should destroy the component and dispose the timeline', () => {
-			const component = getMountedComponent<IAbstractTransitionComponent>(ChildComponentA, {
+	describe('transitionIn', () => {
+		it('should transition in the component', (done) => {
+			const component = <IAbstractTransitionComponent>getMountedComponent(ChildComponentA, {
 				componentId: 'ChildComponentA',
 			});
-			// Destroy the component
-			component.$destroy();
-			// Check if it's null
-			expect(component.transitionController).to.equal(null);
+
+			component.transitionIn().then(() => done());
+		});
+	});
+	describe('transitionOut', () => {
+		it('should transition out the component', (done) => {
+			const component = <IAbstractTransitionComponent>getMountedComponent(ChildComponentA, {
+				componentId: 'ChildComponentA',
+			});
+
+			component.transitionIn()
+			.then(() => component.transitionOut())
+			.then(() => done());
+		});
+	});
+	describe('destroy', () => {
+		it('should destroy the component and dispose the timeline', () => {
+			const component = <IAbstractTransitionComponent>getMountedComponent(ChildComponentA, {
+				componentId: 'ChildComponentA',
+			});
+			// Wait for all components to be ready
+			component.allComponentsReady.then(() => {
+				// Destroy the component
+				component.$destroy();
+				// Check if it's null
+				expect(component.transitionController).to.equal(null);
+			});
 		});
 	});
 });

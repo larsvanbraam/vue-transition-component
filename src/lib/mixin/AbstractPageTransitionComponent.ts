@@ -27,8 +27,8 @@ export default {
 	 * @param from
 	 * @param next
 	 */
-
 	beforeRouteEnter(to, from, next) {
+		/* istanbul ignore next */
 		next((vm) => {
 			Promise.all(
 				[
@@ -53,6 +53,7 @@ export default {
 	 */
 	beforeRouteUpdate(to, from, next) {
 		// Find the old reference and remove it
+		/* istanbul ignore next */
 		if (to.name === this.componentId) {
 			const index = findIndex(this.registeredComponents, component => component[COMPONENT_ID] === from.name);
 			if (index > -1) {
@@ -69,6 +70,7 @@ export default {
 	 * @param next
 	 */
 	beforeRouteLeave(to, from, next) {
+		/* istanbul ignore next */
 		to.matched.forEach((routeObject, index) => {
 			if (index === 0 && routeObject.beforeEnter) {
 				routeObject.beforeEnter(to, from, (guardResolveValue) => {

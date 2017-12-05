@@ -11,7 +11,7 @@ describe('FlowManager', () => {
 
 	const getPageComponent = (): Promise<IAbstractPageTransitionComponent> => {
 		return app.allComponentsReady
-			.then(() => app.getChild('PageComponentA'));
+		.then(() => app.getChild('PageComponentA'));
 	};
 
 	beforeEach(() => {
@@ -25,124 +25,125 @@ describe('FlowManager', () => {
 	});
 
 	it('start a NORMAL flow', (done) => {
-		getChildComponent<IAbstractPageTransitionComponent>(app, 'PageComponentA')
-			.then((page) => {
-				flowManager.start(
-					page,
-					() => {
-						flowManager.done();
-						done();
-					},
-					{
-						path: '/dummy-page',
-						hash: '',
-						query: {},
-						params: {},
-						fullPath: '',
-						matched: [],
-					},
-				);
-			});
+		getChildComponent(app, 'PageComponentA')
+		.then((page:IAbstractPageTransitionComponent) => {
+			flowManager.start(
+				page,
+				() => {
+					flowManager.done();
+					done();
+				},
+				{
+					path: '/dummy-page',
+					hash: '',
+					query: {},
+					params: {},
+					fullPath: '',
+					matched: [],
+				},
+			);
+		});
 	});
 
 	it('start a NORMAL flow and try to run it twice', (done) => {
 		getPageComponent()
-			.then((page) => {
-				flowManager.start(
-					page,
-					() => {
-						flowManager.done();
-						flowManager.start(page, () => done(), {
-							path: '/dummy-page',
-							hash: '',
-							query: {},
-							params: {},
-							fullPath: '',
-							matched: [],
-						});
-					},
-					{
+		.then((page) => {
+			flowManager.start(
+				page,
+				() => {
+					flowManager.done();
+					flowManager.start(page, () => done(), {
 						path: '/dummy-page',
 						hash: '',
 						query: {},
 						params: {},
 						fullPath: '',
 						matched: [],
-					},
-				);
-			});
+					});
+				},
+				{
+					path: '/dummy-page',
+					hash: '',
+					query: {},
+					params: {},
+					fullPath: '',
+					matched: [],
+				},
+			);
+		});
 	});
 
 	it('start a NORMAL flow with the same component id', (done) => {
 		getPageComponent()
-			.then((page) => {
-				flowManager.start(
-					page,
-					() => {
-						flowManager.done();
-						flowManager.start(page, () => done(), {
-							path: '/dummy-page',
-							hash: '',
-							query: {},
-							params: {},
-							fullPath: '',
-							matched: [],
-						});
-					},
-					{
+		.then((page:IAbstractPageTransitionComponent) => {
+			flowManager.start(
+				page,
+				() => {
+					flowManager.done();
+					flowManager.start(page, () => done(), {
 						path: '/dummy-page',
 						hash: '',
 						query: {},
 						params: {},
 						fullPath: '',
 						matched: [],
-					},
-				);
-			});
+					});
+				},
+				{
+					path: '/dummy-page',
+					hash: '',
+					query: {},
+					params: {},
+					fullPath: '',
+					matched: [],
+				},
+			);
+		});
 	});
 
 	it('start a CROSS flow', (done) => {
 		getPageComponent()
-			.then((page) => {
-				// Change the flow to Cross!
-				page.flow = FlowType.CROSS;
+		.then((page:IAbstractPageTransitionComponent) => {
+			// Change the flow to Cross!
+			page.flow = FlowType.CROSS;
 
-				flowManager.start(
-					page, () => {
-						flowManager.done();
-						done();
-					},
-					{
-						path: '/dummy-page',
-						hash: '',
-						query: {},
-						params: {},
-						fullPath: '',
-						matched: [],
-					},
-				);
-			});
+			flowManager.start(
+				page, () => {
+					flowManager.done();
+					done();
+				},
+				{
+					path: '/dummy-page',
+					hash: '',
+					query: {},
+					params: {},
+					fullPath: '',
+					matched: [],
+				},
+			);
+		});
 	});
 
 	it('should throw an error', () => {
-		return getChildComponent<IAbstractPageTransitionComponent>(app, 'PageComponentA')
-			.then((page) => {
-				const pageComponent = page;
-				// Strip out the flow to make it fail
-				pageComponent.flow = null;
-				// Expect it to fail
-				expect(() => flowManager.start(
-					pageComponent,
-					() => {},
-					{
-						path: '/dummy-page',
-						hash: '',
-						query: {},
-						params: {},
-						fullPath: '',
-						matched: [],
-					})).to.throw(Error);
-			});
+		return getChildComponent(app, 'PageComponentA')
+		.then((page:IAbstractPageTransitionComponent) => {
+			const pageComponent = page;
+			// Strip out the flow to make it fail
+			pageComponent.flow = null;
+			// Expect it to fail
+			expect(() => flowManager.start(
+				pageComponent,
+				() => {},
+				{
+					path: '/dummy-page',
+					hash: '',
+					query: {},
+					params: {},
+					fullPath: '',
+					matched: [],
+				},
+			)).to.throw(Error);
+		});
 	});
 
 	it('should dispose the FlowManager and mark it as disposed', () => {

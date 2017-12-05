@@ -1,4 +1,5 @@
 import { Vue } from 'vue/types/vue';
+import { Promise } from 'es6-promise';
 import IAbstractTransitionComponent from './IAbstractTransitionComponent';
 import IAbstractPageTransitionComponent from './IAbstractPageTransitionComponent';
 import ComponentType from '../enum/ComponentType';
@@ -66,23 +67,36 @@ interface IAbstractRegistrableComponent extends Vue {
 	): IAbstractPageTransitionComponent | IAbstractTransitionComponent | IAbstractRegistrableComponent;
 	/**
 	 * @public
-	 * @method checkComponentsReady
-	 * @description Method that is triggered to check if all components are ready
-	 */
-	checkComponentsReady(): void;
-	/**
-	 * @public
-	 * @method componentReady
-	 * @description This method is a callback for when the child component is ready.
-	 * @param component The component reference that is marked as ready.
-	 */
-	componentReady(component: IAbstractRegistrableComponent): void;
-	/**
-	 * @public
 	 * @method handleAllComponentsReady
 	 * @description This method is triggered once when all the components are ready.
 	 */
 	handleAllComponentsReady(): void;
+	/**
+	 * @public
+	 * @method updateRegistrableComponents
+	 * @description Call this method when you want to load more components async and have a callback when they are ready
+	 * @returns {Promise<Array<IAbstractRegistrableComponent>>}
+	 */
+	updateRegistrableComponents(callback:(release:() => void) => void):Promise<Array<IAbstractRegistrableComponent>>;
+	/**
+	 * @public
+	 * @method $_componentReady
+	 * @description This method is a callback for when the child component is ready.
+	 * @param component The component reference that is marked as ready.
+	 */
+	$_componentReady(component: IAbstractRegistrableComponent): void;
+	/**
+	 * @private
+	 * @method $_checkComponentsReady
+	 * @description Method that is triggered to check if all components are ready
+	 */
+	$_checkComponentsReady(): void;
+	/**
+	 * @private
+	 * @method $_updateRegistrableComponents
+	 * @description Method that is triggered to check if all components are ready
+	 */
+	$_updateRegistrableComponents(): void;
 }
 
 export default IAbstractRegistrableComponent;
