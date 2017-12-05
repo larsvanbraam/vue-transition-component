@@ -7,12 +7,12 @@ import PageComponentA from './util/page/page-component-a/PageComponentA';
 describe('AbstractPageTransitionSpec', () => {
 	describe('HijackTransitionIn', () => {
 		it('should hijack the transition in', () => {
-			const component = getMountedComponent<IAbstractPageTransitionComponent>(PageComponentA, {
+			const component = <IAbstractPageTransitionComponent>getMountedComponent(PageComponentA, {
 				componentId: 'PageComponentA',
 			});
-
-			return component.hijackTransitionIn()
-			.then((release: () => void) => release());
+			component.allComponentsReady
+			.then(() => component.hijackTransitionIn())
+			.then((release: () => void) => setTimeout(() => release(), 1));
 		});
 	});
 });

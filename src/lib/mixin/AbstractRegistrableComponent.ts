@@ -186,9 +186,12 @@ export default {
 		// Wait for all components to be ready
 		this.allComponentsReady.then(() => this.handleAllComponentsReady())
 		// Add a timeout to allow error throwing in the promise chain!
-		.catch(result => setTimeout(() => {
-			throw result;
-		}));
+		.catch((result) => {
+			/* istanbul ignore next */
+			setTimeout(() => {
+				throw result;
+			});
+		});
 		// We wait for the next tick otherwise the $children might not be set when you use a v-for loop
 		this.$nextTick(() => this.$_checkComponentsReady());
 	},

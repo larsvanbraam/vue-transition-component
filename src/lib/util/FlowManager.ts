@@ -35,6 +35,7 @@ export class FlowManager extends EventDispatcher {
 		super();
 
 		// Fallback for IE10
+		/* istanbul ignore if  */
 		if (bowser.msie && bowser.version <= 10) {
 			this._pointerDiv = document.createElement('div');
 
@@ -140,6 +141,7 @@ export class FlowManager extends EventDispatcher {
 	 * @description Disable pointer events during page switches
 	 */
 	private disablePointerEvents(): void {
+		/* istanbul ignore if  */
 		if (bowser.msie && bowser.version <= 10) {
 			this._pointerDiv.style.display = 'block';
 		} else {
@@ -153,6 +155,7 @@ export class FlowManager extends EventDispatcher {
 	 * @description Enable pointer events and allow flow navigation
 	 */
 	private enablePointerEvents(): void {
+		/* istanbul ignore if  */
 		if (bowser.msie && bowser.version <= 10) {
 			this._pointerDiv.style.display = 'none';
 		} else {
@@ -180,6 +183,7 @@ export class FlowManager extends EventDispatcher {
 	public dispose(): void {
 		this._transitionOut = null;
 		this._previousComponentId = null;
+		/* istanbul ignore if  */
 		if (this._pointerDiv) {
 			document.body.removeChild(this._pointerDiv);
 			this._pointerDiv = null;
