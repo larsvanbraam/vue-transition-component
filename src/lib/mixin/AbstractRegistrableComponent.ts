@@ -1,8 +1,11 @@
 import { Promise } from 'es6-promise';
-import { find, isEqual } from 'lodash';
 import ComponentType from '../enum/ComponentType';
-
 const IS_READY = 'isReady';
+
+// Tree not working with current webpack setup!
+const isEqual = require('lodash/isEqual');
+const find = require('lodash/find');
+
 export const COMPONENT_ID = 'componentId';
 
 export default {

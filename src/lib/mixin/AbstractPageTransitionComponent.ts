@@ -2,9 +2,11 @@ import AbstractTransitionComponent from './AbstractTransitionComponent';
 import ComponentType from '../enum/ComponentType';
 import FlowType from '../enum/FlowType';
 import FlowManager from '../util/FlowManager';
-import { findIndex } from 'lodash';
 import { COMPONENT_ID } from '../mixin/AbstractRegistrableComponent';
 import { Promise } from 'es6-promise';
+
+// Tree not working with current webpack setup!
+const findIndex = require('lodash/findIndex');
 
 export default {
 	name: 'AbstractPageTransitionComponent',

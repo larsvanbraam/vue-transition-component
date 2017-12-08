@@ -1,12 +1,17 @@
 import { TimelineLite, TimelineMax, TweenLite, Tween, Animation } from 'gsap';
 import { Promise } from 'es6-promise';
 import EventDispatcher from 'seng-event';
-import { assign, isElement, isString, find } from 'lodash';
 import IAbstractTransitionComponent from '../interface/IAbstractTransitionComponent';
 import TransitionEvent from '../event/TransitionEvent';
 import ComponentType from '../enum/ComponentType';
 import { COMPONENT_ID } from '../mixin/AbstractRegistrableComponent';
 import IAbstractTransitionControllerOptions from '../interface/IAbstractTransitionControllerOptions';
+
+// Tree not working with current webpack setup!
+const assign = require('lodash/assign');
+const isElement = require('lodash/isElement');
+const isString = require('lodash/isString');
+const find = require('lodash/find');
 
 /**
  * @class AbstractTransitionController
@@ -447,7 +452,7 @@ abstract class AbstractTransitionController extends EventDispatcher {
 
 		if (isString(component)) {
 			childComponent = <IAbstractTransitionComponent>this.viewModel.getChild(
-				component,
+				<string>component,
 				ComponentType.TRANSITION_COMPONENT,
 			);
 		} else if (isElement(component)) {
