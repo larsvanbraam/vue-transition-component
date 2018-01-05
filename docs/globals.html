@@ -90,6 +90,7 @@
 								<li class="tsd-kind-interface"><a href="interfaces/iabstractregistrablecomponent.html" class="tsd-kind-icon">IAbstract<wbr>Registrable<wbr>Component</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/iabstracttransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Component</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/iabstracttransitioncontrolleroptions.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Controller<wbr>Options</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/iroute.html" class="tsd-kind-icon">IRoute</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -97,7 +98,13 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-variable"><a href="globals.html#component_id" class="tsd-kind-icon">COMPONENT_<wbr>ID</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#is_ready" class="tsd-kind-icon">IS_<wbr>READY</a></li>
+								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#assign" class="tsd-kind-icon">assign</a></li>
+								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#find" class="tsd-kind-icon">find</a></li>
+								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#findindex" class="tsd-kind-icon">find<wbr>Index</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a></li>
+								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#iselement" class="tsd-kind-icon">is<wbr>Element</a></li>
+								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#isequal" class="tsd-kind-icon">is<wbr>Equal</a></li>
+								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#isstring" class="tsd-kind-icon">is<wbr>String</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,7 +118,7 @@
 					<div class="tsd-signature tsd-kind-icon">COMPONENT_<wbr>ID<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"componentId"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;componentId&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/mixin/AbstractRegistrableComponent.ts#L6">lib/mixin/AbstractRegistrableComponent.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/mixin/AbstractRegistrableComponent.ts#L9">lib/mixin/AbstractRegistrableComponent.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -121,7 +128,38 @@
 					<div class="tsd-signature tsd-kind-icon">IS_<wbr>READY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"isReady"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;isReady&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/mixin/AbstractRegistrableComponent.ts#L5">lib/mixin/AbstractRegistrableComponent.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/mixin/AbstractRegistrableComponent.ts#L3">lib/mixin/AbstractRegistrableComponent.ts:3</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
+					<a name="assign" class="tsd-anchor"></a>
+					<h3>assign</h3>
+					<div class="tsd-signature tsd-kind-icon">assign<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;require(&#x27;lodash/assign&#x27;)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/AbstractTransitionController.ts#L11">lib/util/AbstractTransitionController.ts:11</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
+					<a name="find" class="tsd-anchor"></a>
+					<h3>find</h3>
+					<div class="tsd-signature tsd-kind-icon">find<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;require(&#x27;lodash/find&#x27;)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/mixin/AbstractRegistrableComponent.ts#L7">lib/mixin/AbstractRegistrableComponent.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/AbstractTransitionController.ts#L14">lib/util/AbstractTransitionController.ts:14</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
+					<a name="findindex" class="tsd-anchor"></a>
+					<h3>find<wbr>Index</h3>
+					<div class="tsd-signature tsd-kind-icon">find<wbr>Index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;require(&#x27;lodash/findIndex&#x27;)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/mixin/AbstractPageTransitionComponent.ts#L9">lib/mixin/AbstractPageTransitionComponent.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -131,7 +169,37 @@
 					<div class="tsd-signature tsd-kind-icon">flow<wbr>Manager<span class="tsd-signature-symbol">:</span> <a href="classes/flowmanager.html" class="tsd-signature-type">FlowManager</a><span class="tsd-signature-symbol"> =&nbsp;new FlowManager()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e652704b/src/lib/util/FlowManager.ts#L178">lib/util/FlowManager.ts:178</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/FlowManager.ts#L196">lib/util/FlowManager.ts:196</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
+					<a name="iselement" class="tsd-anchor"></a>
+					<h3>is<wbr>Element</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Element<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;require(&#x27;lodash/isElement&#x27;)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/AbstractTransitionController.ts#L12">lib/util/AbstractTransitionController.ts:12</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
+					<a name="isequal" class="tsd-anchor"></a>
+					<h3>is<wbr>Equal</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Equal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;require(&#x27;lodash/isEqual&#x27;)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/mixin/AbstractRegistrableComponent.ts#L6">lib/mixin/AbstractRegistrableComponent.ts:6</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
+					<a name="isstring" class="tsd-anchor"></a>
+					<h3>is<wbr>String</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>String<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;require(&#x27;lodash/isString&#x27;)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/AbstractTransitionController.ts#L13">lib/util/AbstractTransitionController.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -177,14 +245,35 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iabstracttransitioncontrolleroptions.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Controller<wbr>Options</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iroute.html" class="tsd-kind-icon">IRoute</a>
+					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#component_id" class="tsd-kind-icon">COMPONENT_<wbr>ID</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#is_ready" class="tsd-kind-icon">IS_<wbr>READY</a>
 					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#assign" class="tsd-kind-icon">assign</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#find" class="tsd-kind-icon">find</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#findindex" class="tsd-kind-icon">find<wbr>Index</a>
+					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#iselement" class="tsd-kind-icon">is<wbr>Element</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#isequal" class="tsd-kind-icon">is<wbr>Equal</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#isstring" class="tsd-kind-icon">is<wbr>String</a>
 					</li>
 				</ul>
 			</nav>

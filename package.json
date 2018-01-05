@@ -96,7 +96,7 @@
     "karma-source-map-support": "^1.1.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.7.0",
-    "marked": "^0.3.5",
+    "marked": "^0.3.9",
     "mocha": "^2.5.3",
     "npm-run-all": "^2.2.0",
     "phantomjs-prebuilt": "^2.1.3",
