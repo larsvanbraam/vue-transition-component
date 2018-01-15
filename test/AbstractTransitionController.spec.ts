@@ -1,6 +1,5 @@
 import { expect } from 'chai';
 import {} from 'mocha';
-import { Promise } from 'es6-promise';
 import { getApplication, getTransitionController } from './util/app/App';
 import AbstractTransitionController from '../src/lib/util/AbstractTransitionController';
 
@@ -73,7 +72,8 @@ describe('AbstractTransitionControllerSpec', () => {
 		it('should not transition out since it\'s already transitioned out', () => {
 			getTransitionController(app, 'ChildComponentA')
 			.then(controller => controller.transitionOut())
-			.then(result => expect(result).to.be.undefined);
+			.then(result => expect(result).to.be.undefined)
+      .catch(() => {});
 		});
 
 		it('should transition out the component', () => {

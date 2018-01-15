@@ -1,6 +1,6 @@
-import * as Vue from 'vue';
-import { Promise } from 'es6-promise';
-import AbstractRegistrableComponent, { COMPONENT_ID } from '../../../src/lib/mixin/AbstractRegistrableComponent';
+import Vue from 'vue/dist/vue.js';
+import AbstractRegistrableComponent from '../../../src/lib/mixin/AbstractRegistrableComponent.js';
+import { COMPONENT_ID } from '../../../src/lib/enum/Functions';
 import IAbstractRegistrableComponent from '../../../src/lib/interface/IAbstractRegistrableComponent';
 import IAbstractTransitionComponent from '../../../src/lib/interface/IAbstractTransitionComponent';
 import IAbstractPageTransitionComponent from '../../../src/lib/interface/IAbstractPageTransitionComponent';
@@ -9,29 +9,33 @@ import ChildComponentA from '../component/child-component-a/ChildComponentA';
 import ChildComponentB from '../component/child-component-b/ChildComponentB';
 import PageComponentA from '../page/page-component-a/PageComponentA';
 
+// Disable development logging
+Vue.config.productionTip = false;
+
 /**
  * @description Return a test application with two dummy components
  * @returns {Vue}
  */
 export const getApplication = () => {
-	return new (<any>Vue)(
-		{
-			extends: AbstractRegistrableComponent,
-			components: {
-				ChildComponentA,
-				ChildComponentB,
-				PageComponentA,
-			},
-			propsData: {
-				[COMPONENT_ID]: 'App',
-			},
-			template: `<div>
+  return new Vue(
+    {
+      name: 'App',
+      extends: AbstractRegistrableComponent,
+      components: {
+        ChildComponentA,
+        ChildComponentB,
+        PageComponentA,
+      },
+      propsData: {
+        [COMPONENT_ID]: 'App',
+      },
+      template: `<div>
 				<ChildComponentA componentId="ChildComponentA" />
 				<ChildComponentB componentId="ChildComponentB" />
 				<PageComponentA componentId="PageComponentA" />
 			</div>`,
-		},
-	).$mount();
+    },
+  ).$mount();
 };
 
 /**
@@ -41,12 +45,12 @@ export const getApplication = () => {
  * @returns {IAbstractPageTransitionComponent|IAbstractTransitionComponent|IAbstractRegistrableComponent}
  */
 export const getMountedComponent = (
-	component,
-	propsData,
+  component,
+  propsData,
 ): IAbstractPageTransitionComponent | IAbstractTransitionComponent | IAbstractRegistrableComponent => {
-	const constructor = (<any>Vue).extend(component);
-	return <IAbstractPageTransitionComponent | IAbstractTransitionComponent | IAbstractRegistrableComponent>
-		new constructor({ propsData }).$mount();
+  const constructor = (<any>Vue).extend(component);
+  return <IAbstractPageTransitionComponent | IAbstractTransitionComponent | IAbstractRegistrableComponent>
+    new constructor({ propsData }).$mount();
 };
 
 /**
@@ -56,12 +60,16 @@ export const getMountedComponent = (
  * @returns {Promise<IAbstractPageTransitionComponent|IAbstractTransitionComponent|IAbstractRegistrableComponent>}
  */
 export const getChildComponent = (
-	app: IAbstractRegistrableComponent,
-	componentId: string,
+  app: IAbstractRegistrableComponent,
+  componentId: string,
 ): Promise<IAbstractPageTransitionComponent | IAbstractTransitionComponent | IAbstractRegistrableComponent> => {
-	return new Promise((resolve) => {
-		app.allComponentsReady.then(() => resolve(app.getChild(componentId)));
-	});
+  return new Promise((resolve) => {
+    app.allComponentsReady.then(() => {
+      // console.log('all child components ready', app);
+      // console.log(app.getChild(componentId));
+      resolve(app.getChild(componentId));
+    });
+  });
 };
 
 /**
@@ -71,11 +79,11 @@ export const getChildComponent = (
  * @returns {Promise<AbstractTransitionController>}
  */
 export const getTransitionController = (
-	app: IAbstractRegistrableComponent,
-	componentId: string,
+  app: IAbstractRegistrableComponent,
+  componentId: string,
 ): Promise<AbstractTransitionController> => {
-	return new Promise((resolve) => {
-		getChildComponent(app, componentId)
-		.then((component:IAbstractTransitionComponent) => resolve(component.transitionController));
-	});
+  return new Promise((resolve) => {
+    getChildComponent(app, componentId)
+    .then((component: IAbstractTransitionComponent) => resolve(component.transitionController));
+  });
 };

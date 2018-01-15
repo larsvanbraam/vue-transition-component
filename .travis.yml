@@ -1,26 +1,23 @@
 language: node_js
 
+cache: yarn
+
 node_js:
+  - 'stable'
   - '6'
-  - '4'
-  - '5'
+  - '8'
 
 sudo: false
 
 before_install:
-  - if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
-  - npm install -g codeclimate-test-reporter
+  - yarn global add codeclimate-test-reporter
 
 script:
-  - npm run build
-  - npm run validate
+  - yarn test
 
 after_script:
   - codeclimate-test-reporter < coverage/lcov.info
   - node_modules/.bin/coveralls < coverage/lcov.info
-
-before_deploy:
-  - npm run build:dist && node ./script/package-dist.js
 
 deploy:
   provider: npm
@@ -29,7 +26,7 @@ deploy:
     secure: 'KiY/8L7O51BgFd+W5FCV57wCNKSmJGSwOOkEdSGYS+t66UtpB6Eido6vQF1OdXcEX4TETFtuINL150onEF0z3QGaVx0X0O5pPdxU3z64qTbwiAmHjbBc3MMXkWdN1zrm26x10E+fgLFjt44pEC0v49pihcd+mYSrJgZfc9wr1ITifxxpwwiv5wusJgiIJDGqPhp8QE8k6hRXITeufynuw1wAFROaasLxajHxKn6neJbpw4m0SSNxjVPwvDOuO/wHw437b57GFoZhupn7cjaS2k3y9F4drIC/aCJ/7pol26ybkXeyXKYbx54vq2tZl28BtgnpUaGq09UxSDZ+tA1PELi4oBwpeVtnkRkKWj9JbbJv3ERY0zGO6+myG0IIa3nndtkWdvsDvnX+pXHDLruOrL0hTmjKhSn+apUdFAUgOP8YmaJYlQ/NiVUt7KeaAP7MO9GCH7cPO1Fv5XNY+FIFHNS1a1alef2OD5Kz6RrSiilW1X1aCD0OS9eAFMZ25C7W0AMC/AwqnMWjqGYaqEMDKUGfrhFBPt0+gIWCQ/ppKNskyp5tWI5Dzhuz4OnA8nO9eHi2oEwxHmLfvEE+rMJkUrNXeRTIHPLzLfdG3wKN7Py+SnaUHZVahgfJZecW2Vzc7hVxvm1XWaqV1cQKKxhtpapmJYSgRYk2gQr4ae49ygY='
   on:
     tags: true
-    node: '6'
+    node: '8'
   skip_cleanup: true
 
 addons:

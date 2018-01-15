@@ -10,8 +10,8 @@ describe('AbstractTransitionComponentSpec', () => {
 			const component = <IAbstractTransitionComponent>getMountedComponent(ChildComponentA, {
 				componentId: 'ChildComponentA',
 			});
-
-			component.transitionIn().then(() => done());
+			component.transitionIn()
+      .then(() => done())
 		});
 	});
 	describe('transitionOut', () => {
@@ -22,7 +22,8 @@ describe('AbstractTransitionComponentSpec', () => {
 
 			component.transitionIn()
 			.then(() => component.transitionOut())
-			.then(() => done());
+			.then(() => done())
+      .catch(reason => console.log('reason', reason));
 		});
 	});
 	describe('destroy', () => {

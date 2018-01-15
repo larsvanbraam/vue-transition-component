@@ -3,15 +3,15 @@
  * a separate interface for the route
  */
 interface IRoute {
-	path: string;
-	name?: string;
-	hash: string;
-	query: { [key: string]: string };
-	params: { [key: string]: string };
-	fullPath: string;
-	matched: Array<any>;
-	redirectedFrom?: string;
-	meta?: any;
+  path: string;
+  name?: string;
+  hash: string;
+  query: { [key: string]: string };
+  params: { [key: string]: string };
+  fullPath: string;
+  matched: Array<any>;
+  redirectedFrom?: string;
+  meta?: any;
 }
 
 export default IRoute;

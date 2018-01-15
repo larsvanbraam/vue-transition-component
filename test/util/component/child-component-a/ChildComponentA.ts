@@ -1,4 +1,4 @@
-import AbstractTransitionComponent from '../../../../src/lib/mixin/AbstractTransitionComponent';
+import AbstractTransitionComponent from '../../../../src/lib/mixin/AbstractTransitionComponent.js';
 import ChildComponentATransitionController from './ChildComponentATransitionController';
 import ChildComponentB from '../child-component-b/ChildComponentB';
 

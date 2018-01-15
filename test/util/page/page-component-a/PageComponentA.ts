@@ -1,4 +1,4 @@
-import AbstractPageTransitionComponent from '../../../../src/lib/mixin/AbstractPageTransitionComponent';
+import AbstractPageTransitionComponent from '../../../../src/lib/mixin/AbstractPageTransitionComponent.js';
 import PageComponentATransitionController from './PageComponentATransitionController';
 
 export default {

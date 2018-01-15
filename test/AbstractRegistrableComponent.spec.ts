@@ -112,9 +112,9 @@ describe('AbstractRegistrableComponentSpec', () => {
 				},
 			);
 
-			component.allComponentsReady
+			return component.allComponentsReady
 			.then(() => component.updateRegistrableComponents(release => setTimeout(() => release(), 1)))
-			.then(result => expect(result).to.equal([]));
+			.then(result => expect(result).to.be.empty);
 		});
 	});
 

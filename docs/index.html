@@ -71,11 +71,13 @@
 				<p align="center">
 					<img src="http://vue-transition-component.larsvanbraam.nl/vue-transition-component-1024.png?v=2" alt="vue-transition-component" width="512"/>
 				</p>
+				<p>TODO: Remove es6-promises module, remove all lodash es6 polyfils and update the readme to inform users on what project specific polyfils are required!</p>
 				<p>Provides GreenSock transition functionality to vue.js components.</p>
 				<h2 id="table-of-contents">Table of contents</h2>
 				<ol>
 					<li><a href="#installation">Installation</a></li>
 					<li><a href="#demo">Demo</a></li>
+					<li><a href="#required-polyfills">Required polyfills</a></li>
 					<li><a href="#usage">Usage</a></li>
 					<li><a href="#building">Building</a></li>
 					<li><a href="#authors">Authors</a></li>
@@ -83,7 +85,6 @@
 					<li><a href="#license">License</a></li>
 				</ol>
 				<h2 id="installation">Installation</h2>
-				<h3 id="yarn-npm">yarn / npm</h3>
 				<pre><code class="lang-sh">yarn add vue-transition-component
 </code></pre>
 				<pre><code class="lang-sh">npm i -S vue-transition-component
@@ -94,6 +95,14 @@
 				system you can visit the demo online!</p>
 				<h3 id="-demo-repository-https-github-com-larsvanbraam-vue-transition-component-demo-"><a href="https://github.com/larsvanbraam/vue-transition-component-demo">Demo repository</a></h3>
 				<h3 id="-online-demo-http-vue-transition-component-larsvanbraam-nl-"><a href="http://vue-transition-component.larsvanbraam.nl">Online demo</a></h3>
+				<h2 id="required-polyfills">Required polyfills</h2>
+				<p>To make sure the module works as expected, you will need to make sure your project has support for the following:</p>
+				<ul>
+					<li>Promises</li>
+					<li>Array.findIndex</li>
+					<li>Array.find</li>
+					<li>Object.assign</li>
+				</ul>
 				<h2 id="usage">Usage</h2>
 				<p>Detailed documentation and examples are located in the wiki!</p>
 				<h3 id="-check-the-wiki-https-github-com-larsvanbraam-vue-transition-component-wiki-"><a href="https://github.com/larsvanbraam/vue-transition-component/wiki">Check the wiki!</a></h3>
@@ -109,35 +118,15 @@
 				<pre><code class="lang-sh">yarn
 </code></pre>
 				<p>Use one of the following main scripts:</p>
-				<pre><code class="lang-sh">yarn build           <span class="hljs-comment"># build this project</span>
-yarn dev             <span class="hljs-comment"># run dev-watch mode, serving example/index.html in the browser</span>
-yarn generate        <span class="hljs-comment"># generate all artifacts (compiles ts, webpack, docs and coverage)</span>
-yarn <span class="hljs-built_in">test</span>:unit       <span class="hljs-comment"># run the unit tests</span>
-yarn validate        <span class="hljs-comment"># runs validation scripts, including test, lint and coverage check</span>
-yarn lint            <span class="hljs-comment"># run tslint on this project</span>
-yarn doc             <span class="hljs-comment"># generate typedoc documentation</span>
+				<pre><code class="lang-sh">yarn build            <span class="hljs-comment"># build this project</span>
+yarn dev              <span class="hljs-comment"># run compilers in watch mode, both for babel and typescript</span>
+yarn <span class="hljs-built_in">test</span>             <span class="hljs-comment"># run the unit tests incl coverage</span>
+yarn <span class="hljs-built_in">test</span>:dev         <span class="hljs-comment"># run the unit tests in watch mode</span>
+yarn lint             <span class="hljs-comment"># run eslint and tslint on this project</span>
+yarn doc              <span class="hljs-comment"># generate typedoc documentation</span>
 </code></pre>
-				<p>When installing this module, it adds a pre-push hook, that runs the <code>validate</code>
-				script before committing, so you can be sure that everything checks out.</p>
-				<p>If you want to create the distribution files yourself, you can run the
-					<code>build-dist</code> script, and the following files will get generated in the
-				<code>dist</code> folder:</p>
-				<ul>
-					<li><strong>/dist/vue-transition-component.js</strong>: bundled with webpack, can be loaded from
-					a script tag, available as <code>window.SengScrollTracker</code></li>
-					<li><strong>/dist/vue-transition-component.min.js</strong>: same as above, but minified</li>
-					<li><strong>/dist/vue-transition-component-amd.js</strong>: bundled with webpack, can be used
-					with e.g. requirejs</li>
-					<li><strong>/dist/vue-transition-component-commonjs.js</strong>: bundled with webpack, can be
-					used in systems that support commonjs, but you should just use npm</li>
-					<li><strong>/dist/vue-transition-component-umd.js</strong>: bundled with webpack, works in the
-					browser, with requirejs, and in a commonjs system</li>
-					<li><strong>/dist/vue-transition-component-umd.min.js</strong>: same as above, but minified</li>
-					<li><strong>/dist/vue-transition-component-system.js</strong>: bundled with typescript, can be
-					used in systems    that support systemjs</li>
-					<li><strong>/dist/vue-transition-component-es6.zip</strong>: transpiled with typescript, only
-					types are removed from the source files</li>
-				</ul>
+				<p>When installing this module, it adds a pre-commit hook, that runs lint and prettier commands
+				before committing, so you can be sure that everything checks out.</p>
 				<h2 id="authors">Authors</h2>
 				<p>View <a href="./AUTHORS.md">AUTHORS.md</a></p>
 				<h2 id="contribute">Contribute</h2>
@@ -192,26 +181,14 @@ yarn doc             <span class="hljs-comment"># generate typedoc documentation
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#component_id" class="tsd-kind-icon">COMPONENT_<wbr>ID</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
+					<li class=" tsd-kind-variable">
 						<a href="globals.html#is_ready" class="tsd-kind-icon">IS_<wbr>READY</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#assign" class="tsd-kind-icon">assign</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#find" class="tsd-kind-icon">find</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#findindex" class="tsd-kind-icon">find<wbr>Index</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#iselement" class="tsd-kind-icon">is<wbr>Element</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="globals.html#isequal" class="tsd-kind-icon">is<wbr>Equal</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#isstring" class="tsd-kind-icon">is<wbr>String</a>

@@ -1,5 +1,4 @@
 import { expect } from 'chai';
-import { Promise } from 'es6-promise';
 import { FlowManager } from '../src/lib/util/FlowManager';
 import FlowType from '../src/lib/enum/FlowType';
 import IAbstractPageTransitionComponent from '../src/lib/interface/IAbstractPageTransitionComponent';
@@ -39,10 +38,18 @@ describe('FlowManager', () => {
 					query: {},
 					params: {},
 					fullPath: '',
-					matched: [],
+					matched: [
+            {
+              components: {
+                default: {
+                  name: 'some-other-component',
+                }
+              }
+            }
+          ],
 				},
 			);
-		});
+		}).catch(reason => console.log('reason', reason));
 	});
 
 	it('start a NORMAL flow and try to run it twice', (done) => {
@@ -58,7 +65,15 @@ describe('FlowManager', () => {
 						query: {},
 						params: {},
 						fullPath: '',
-						matched: [],
+						matched: [
+              {
+                components: {
+                  default: {
+                    name: 'some-other-component',
+                  }
+                }
+              }
+            ],
 					});
 				},
 				{
@@ -67,7 +82,15 @@ describe('FlowManager', () => {
 					query: {},
 					params: {},
 					fullPath: '',
-					matched: [],
+					matched: [
+            {
+              components: {
+                default: {
+                  name: 'some-other-component',
+                }
+              }
+            }
+          ],
 				},
 			);
 		});
@@ -86,7 +109,15 @@ describe('FlowManager', () => {
 						query: {},
 						params: {},
 						fullPath: '',
-						matched: [],
+						matched: [
+              {
+                components: {
+                  default: {
+                    name: 'PageComponentA',
+                  }
+                }
+              }
+            ],
 					});
 				},
 				{
@@ -95,7 +126,15 @@ describe('FlowManager', () => {
 					query: {},
 					params: {},
 					fullPath: '',
-					matched: [],
+          matched: [
+            {
+              components: {
+                default: {
+                  name: 'PageComponentA',
+                }
+              }
+            }
+          ],
 				},
 			);
 		});
