@@ -55,28 +55,28 @@ abstract class AbstractTransitionController extends EventDispatcher {
    * @type { ()=>void }
    * @description The resolve method used for resolving the transition in promise.
    */
-  private _transitionInResolveMethod: () => void;
+  private _transitionInResolveMethod: () => void = null;
   /**
    * @private
    * @property _transitionOutResolveMethod
    * @type { ()=>void }
    * @description The resolve method used for resolving the transition out promise.
    */
-  private _transitionOutResolveMethod: () => void;
+  private _transitionOutResolveMethod: () => void = null;
   /**
    * @private
    * @property _transitionInRejectMethod
    * @type { ()=>void }
    * @description The reject method used for rejecting the transition in promise.
    */
-  private _transitionInRejectMethod: () => void;
+  private _transitionInRejectMethod: () => void = null;
   /**
    * @private
    * @property _transitionOutRejectMethod
    * @type { ()=>void }
    * @description The resolve method used for rejecting the transition out promise.
    */
-  private _transitionOutRejectMethod: () => void;
+  private _transitionOutRejectMethod: () => void = null;
   /**
    * @private
    * @property _transitionInPromise

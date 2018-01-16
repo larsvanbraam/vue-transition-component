@@ -157,7 +157,15 @@ describe('FlowManager', () => {
 					query: {},
 					params: {},
 					fullPath: '',
-					matched: [],
+					matched: [
+            {
+              components: {
+                default: {
+                  name: 'PageComponentA',
+                }
+              }
+            }
+          ],
 				},
 			);
 		});
@@ -179,7 +187,15 @@ describe('FlowManager', () => {
 					query: {},
 					params: {},
 					fullPath: '',
-					matched: [],
+					matched: [
+            {
+              components: {
+                default: {
+                  name: 'PageComponentA',
+                }
+              }
+            }
+          ],
 				},
 			)).to.throw(Error);
 		});
