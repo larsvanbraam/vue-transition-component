@@ -74,16 +74,18 @@ export default {
 	beforeRouteLeave(to, from, next) {
 		/* istanbul ignore next */
 		to.matched.forEach((routeObject, index) => {
-			if (index === 0 && routeObject.beforeEnter) {
-				routeObject.beforeEnter(to, from, (guardResolveValue) => {
-					if (guardResolveValue === from.path) {
-						next(false);
-					} else {
-						FlowManager.start(this, next, to);
-					}
-				});
-			} else {
-				FlowManager.start(this, next, to);
+			if (index === to.matched.length - 1) {
+				if (routeObject.beforeEnter) {
+					routeObject.beforeEnter(to, from, (guardResolveValue) => {
+						if (guardResolveValue === from.path) {
+							next(false);
+						} else {
+							FlowManager.start(this, next, to);
+						}
+					});
+				} else {
+					FlowManager.start(this, next, to);
+				}
 			}
 		});
 	},
