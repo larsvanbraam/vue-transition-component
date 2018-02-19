@@ -1,119 +1,87 @@
 import { Vue } from 'vue/types/vue';
-import IAbstractTransitionComponent from './IAbstractTransitionComponent';
-import IAbstractPageTransitionComponent from './IAbstractPageTransitionComponent';
-import ComponentType from '../enum/ComponentType';
 
 interface IAbstractRegistrableComponent extends Vue {
   /**
-   * @property components
-   * @description All components inside this component
+   * @public
+   * @property $_isRegistrable
+   * @description Flag used to determine if a component is registrable
    */
-  components?: Array<IAbstractRegistrableComponent>;
+  $_isRegistrable: boolean;
   /**
-   * @property registrableComponents
-   * @description Array of registrable components
+   * @public
+   * @property $_registeredComponents
+   * @description Array containing all the registered components
    */
-  registrableComponents: Array<IAbstractRegistrableComponent>;
+  $_registeredComponents: Array<IAbstractRegistrableComponent>;
   /**
-   * @property registeredComponents
-   * @description Array of registered components
+   * @public
+   * @property $_newRegisteredComponents
+   * @description Array of new components that are registered
    */
-  registeredComponents: Array<string>;
+  $_newRegisteredComponents: Array<IAbstractRegistrableComponent>;
   /**
-   * @property newRegisteredComponents
-   * @description Array of new components
+   * @public
+   * @property $_allComponentsReady
+   * @description The promise that is used to figure out if all components are ready
    */
-  newRegisteredComponents: Array<IAbstractRegistrableComponent>;
+  $_allComponentsReady: Promise<Array<IAbstractRegistrableComponent>>;
   /**
-   * @property asyncComponentsReady
-   * @description Resolve method for when the new components are ready
+   * @public
+   * @property $_registrableComponents
+   * @description Array of all components that are registrable
    */
-  asyncComponentsReady: Promise<Array<IAbstractRegistrableComponent>>;
-  /**
-   * @property allComponentsReadyResolveMethod
-   * @description All components ready resolve method
-   */
-  allComponentsReadyResolveMethod: (components?: Array<IAbstractRegistrableComponent>) => void;
-  /**
-   * @property componentType
-   * @description The type of the component
-   */
-  componentType: ComponentType;
-  /**
-   * @property componentId
-   * @description The unique id of the rendered component, this is used for fetching the reference if the same
-   * components appears multiple times
-   */
-  componentId: string;
-  /**
-   * @property allComponentsReady
-   * @description When all the transition components within this component are loaded this method will be
-   * triggered. This is usually the point where the transition controller is setup.
-   */
-  allComponentsReady: Promise<void>;
+  $_registrableComponents: Array<IAbstractRegistrableComponent>;
+
   /**
    * @public
    * @method isReady
-   * @description The isReady method should be called when the component is fully ready,
-   * this is usually when it's children are ready but it could require more async data
+   * @description The init method should be called when the component is fully ready,
+   * this is usually when it's mounted but it could require more async data
+   * @returns {void}
    */
   isReady(): void;
-  /**
-   * @public
-   * @method hasChild
-   * @description Check to see if a component with a certain Id exists
-   * @param componentId The id of the desired child component
-   * @param componentType The type of the desired component
-   * @returns a boolean to check if a child exists
-   */
-  hasChild(componentId: string, componentType?: ComponentType): boolean;
-  /**
-   * @public
-   * @method getChild
-   * @description If you want to get a child component based on it's componentId
-   * @param componentId The id of the desired child component
-   * @param componentType The type of the desired component
-   * @returns A child component based on the componentId
-   */
-  getChild(
-    componentId: string,
-    componentType?: ComponentType,
-  ):
-    | IAbstractPageTransitionComponent
-    | IAbstractTransitionComponent
-    | IAbstractRegistrableComponent;
+
   /**
    * @public
    * @method handleAllComponentsReady
-   * @description This method is triggered once when all the components are ready.
+   * @description When all the transition components within this component are loaded this method will be
+   * triggered. This is usually the point where the transition controller is setup.
+   * @returns {void}
    */
   handleAllComponentsReady(): void;
+
   /**
    * @public
    * @method updateRegistrableComponents
-   * @description Call this method when you want to load more components async and have a callback when they are ready
-   * @returns {Promise<Array<IAbstractRegistrableComponent>>}
+   * @param callback
+   * @description Method that watches for async component changes, this means it will create a new promise
+   * that will be resolved when the "new" children are ready
+   * @returns
    */
-  updateRegistrableComponents(
-    callback: (release: () => void) => void,
-  ): Promise<Array<IAbstractRegistrableComponent>>;
+  updateRegistrableComponents(callback: () => void): Promise<void>;
+
   /**
-   * @public
-   * @method $_componentReady
-   * @description This method is a callback for when the child component is ready.
-   * @param component The component reference that is marked as ready.
+   * @private
+   * @method componentReady
+   * @description This method is called by the child component so we can keep track of components that are loaded.
+   * @param component
+   * @returns {void}
    */
   $_componentReady(component: IAbstractRegistrableComponent): void;
+
   /**
    * @private
-   * @method $_checkComponentsReady
-   * @description Method that is triggered to check if all components are ready
+   * @method checkComponentsReady
+   * @description This method checks if all components are loaded on init, overwrite if you need multiple checks!
+   * @param component
+   * @returns {void}
    */
-  $_checkComponentsReady(): void;
+  $_checkComponentsReady(component: IAbstractRegistrableComponent): void;
+
   /**
    * @private
-   * @method $_updateRegistrableComponents
-   * @description Method that is triggered to check if all components are ready
+   * @method update RegistrableComponents
+   * @description Update the array of registrableComponents
    */
   $_updateRegistrableComponents(): void;
 }

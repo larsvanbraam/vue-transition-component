@@ -5,7 +5,6 @@ import IRoute from '../../lib/interface/IRoute';
 import FlowType from '../enum/FlowType';
 import FlowEvent from '../event/FlowEvent';
 import IAbstractPageTransitionComponent from '../interface/IAbstractPageTransitionComponent';
-import { COMPONENT_ID } from '../enum/Functions';
 
 export class FlowManager extends EventDispatcher {
   /**
@@ -95,10 +94,10 @@ export class FlowManager extends EventDispatcher {
   ): void {
     this.disablePointerEvents();
 
-    if (this._previousComponentId === pageInstance[COMPONENT_ID]) {
+    if (this._previousComponentId === pageInstance.$options.name) {
       release();
     } else {
-      this._previousComponentId = pageInstance[COMPONENT_ID];
+      this._previousComponentId = pageInstance.$options.name;
       this.dispatchEvent(new FlowEvent(FlowEvent.START, { to }));
       switch (pageInstance.flow) {
         case FlowType.NORMAL: {

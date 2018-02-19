@@ -8,6 +8,7 @@ interface IAbstractTransitionComponent extends IAbstractRegistrableComponent {
    * @description The transition controller for the component
    */
   transitionController: AbstractTransitionController;
+
   /**
    * @public
    * @method transitionIn
@@ -16,6 +17,7 @@ interface IAbstractTransitionComponent extends IAbstractRegistrableComponent {
    * @returns A promise that will be resolved when the transition in timeline is completed
    */
   transitionIn(forceTransition?: boolean): Promise<void>;
+
   /**
    * @public
    * @method transitionOut

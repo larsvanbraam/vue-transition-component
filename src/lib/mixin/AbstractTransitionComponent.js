@@ -1,12 +1,9 @@
-/* eslint-disable import/no-unresolved */
 import AbstractRegistrableComponent from './AbstractRegistrableComponent';
-import ComponentType from '../enum/ComponentType.ts';
 
 export default {
   name: 'AbstractTransitionComponent',
   extends: AbstractRegistrableComponent,
   beforeCreate() {
-    this.componentType = ComponentType.TRANSITION_COMPONENT;
     this.transitionController = null;
   },
   methods: {
