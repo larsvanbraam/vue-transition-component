@@ -2,8 +2,11 @@ import AbstractTransitionController, { TransitionDirection } from 'transition-co
 import { TimelineLite, TimelineMax } from 'gsap';
 import isString from 'lodash/isString';
 import isElement from 'lodash/isElement';
+import IAbstractTransitionComponent from '../interface/IAbstractTransitionComponent';
 
-export default class AbstractVueTransitionController<T> extends AbstractTransitionController<T> {
+export default abstract class AbstractVueTransitionController extends AbstractTransitionController<
+  IAbstractTransitionComponent
+> {
   /**
    * @protected
    * @abstract getSubTimelineByComponent
@@ -12,17 +15,21 @@ export default class AbstractVueTransitionController<T> extends AbstractTransiti
    * @returns {gsap.TimelineLite | gsap.TimelineMax}
    */
   protected getSubTimelineByComponent(
-    component: string | HTMLElement | T,
+    component: string | HTMLElement | IAbstractTransitionComponent,
     direction: TransitionDirection,
   ): TimelineLite | TimelineMax {
-    let instance: T;
+    let instance: IAbstractTransitionComponent;
 
     if (isElement(component)) {
-      instance = this.parent.$children.find(child => child.$el === component);
+      instance = <IAbstractTransitionComponent>this.parentController.$children.find(
+        child => child.$el === component,
+      );
     } else if (isString(component)) {
-      instance = this.parent.$children.find(child => child.$_componentId === component);
+      instance = <IAbstractTransitionComponent>this.parentController.$children.find(
+        (child: IAbstractTransitionComponent) => child.$_componentId === component,
+      );
     } else {
-      instance = component;
+      instance = <IAbstractTransitionComponent>component;
     }
 
     if (direction === TransitionDirection.IN) {

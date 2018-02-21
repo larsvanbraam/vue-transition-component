@@ -1,7 +1,6 @@
-// import findIndex from 'lodash/findIndex';
 import AbstractTransitionComponent from './AbstractTransitionComponent';
-import FlowType from '../enum/FlowType.ts';
-import FlowManager from '../util/FlowManager.ts';
+import FlowType from '../enum/FlowType';
+import FlowManager from '../util/FlowManager';
 
 export default {
   name: 'AbstractPageTransitionComponent',
@@ -44,15 +43,14 @@ export default {
   beforeRouteUpdate(to, from, next) {
     // Find the old reference and remove it
     /* istanbul ignore next */
-    alert('fix this!');
-    // if (to.name === this.componentId) {
-    //   const index = this.$_registeredComponents.findIndex(
-    //     component => component[COMPONENT_ID] === from.name,
-    //   );
-    //   if (index > -1) {
-    //     this.$_registeredComponents.splice(index);
-    //   }
-    // }
+    if (to.name === this.componentId) {
+      const index = this.$_registeredComponents.findIndex(
+        component => component.$_componentId === from.name,
+      );
+      if (index > -1) {
+        this.$_registeredComponents.splice(index);
+      }
+    }
     // Release the before update hook
     next();
   },

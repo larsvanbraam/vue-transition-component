@@ -1,4 +1,4 @@
-import AbstractTransitionController from '../util/AbstractTransitionController';
+import AbstractVueTransitionController from '../util/AbstractVueTransitionController';
 import IAbstractRegistrableComponent from './IAbstractRegistrableComponent';
 
 interface IAbstractTransitionComponent extends IAbstractRegistrableComponent {
@@ -7,7 +7,7 @@ interface IAbstractTransitionComponent extends IAbstractRegistrableComponent {
    * @property transitionController
    * @description The transition controller for the component
    */
-  transitionController: AbstractTransitionController;
+  transitionController: AbstractVueTransitionController;
 
   /**
    * @public

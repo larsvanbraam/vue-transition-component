@@ -13,9 +13,9 @@ var _FlowType = _interopRequireDefault(require("./lib/enum/FlowType"));
 
 exports.FlowType = _FlowType.default;
 
-var _AbstractTransitionController = _interopRequireDefault(require("./lib/util/AbstractTransitionController"));
+var _AbstractVueTransitionController = _interopRequireDefault(require("./lib/util/AbstractVueTransitionController"));
 
-exports.AbstractTransitionController = _AbstractTransitionController.default;
+exports.AbstractTransitionController = _AbstractVueTransitionController.default;
 
 var _TransitionEvent = _interopRequireDefault(require("./lib/event/TransitionEvent"));
 

@@ -101,7 +101,6 @@
     "typescript": "^2.6.2"
   },
   "dependencies": {
-    "@types/gsap": "^1.19.1",
     "bowser": "^1.8.0",
     "confirm-simple": "^1.0.3",
     "fs-extra": "^4.0.2",

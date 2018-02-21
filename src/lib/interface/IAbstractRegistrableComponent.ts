@@ -3,6 +3,12 @@ import { Vue } from 'vue/types/vue';
 interface IAbstractRegistrableComponent extends Vue {
   /**
    * @public
+   * @property $_componentId
+   * @description Internal id for the component
+   */
+  $_componentId: string;
+  /**
+   * @public
    * @property $_isRegistrable
    * @description Flag used to determine if a component is registrable
    */

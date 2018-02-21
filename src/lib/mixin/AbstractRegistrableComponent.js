@@ -1,6 +1,7 @@
 import isEqual from 'lodash/isEqual';
 import filter from 'lodash/filter';
-import { IS_READY } from '../enum/Functions.ts';
+
+const IS_READY = 'isReady';
 
 export default {
   name: 'AbstractRegistrableComponent',
@@ -12,7 +13,8 @@ export default {
   beforeCreate() {
     // This is used to detect if a component is registrable
     this.$_isRegistrable = true;
-    this.$_componentId = this.name;
+    // We need a component id
+    this.$_componentId = this.$vnode.data.ref || this.$vnode.componentOptions.Ctor.options.name;
     this.$_registeredComponents = [];
     this.$_newRegisteredComponents = [];
     this.$_allComponentsReady = new Promise(resolve => {
@@ -85,7 +87,7 @@ export default {
     },
     $_checkComponentsReady() {
       if (this.$_registrableComponents.length === 0) {
-        this.allComponentsReadyResolveMethod();
+        this.$_allComponentsReadyResolveMethod();
       }
     },
     $_updateRegistrableComponents() {

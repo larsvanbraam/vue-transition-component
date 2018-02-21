@@ -5,11 +5,11 @@ enum FlowType {
   /**
    * The flow will go normal, transition out --> transition in
    */
-  NORMAL = 0,
+  NORMAL,
   /**
    * The in and out transition will go at the same time
    */
-  CROSS = 1,
-}
+  CROSS,
+};
 
 export default FlowType;
