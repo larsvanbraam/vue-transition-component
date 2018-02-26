@@ -10,6 +10,6 @@ enum FlowType {
    * The in and out transition will go at the same time
    */
   CROSS,
-};
+}
 
 export default FlowType;

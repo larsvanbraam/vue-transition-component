@@ -4125,9 +4125,9 @@ tr46@^1.0.0:
   dependencies:
     punycode "^2.1.0"
 
-transition-controller@^0.1.0:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-0.1.5.tgz#0a56eabd8f82956abca6b93f273057ae64711a89"
+transition-controller@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-0.1.6.tgz#a4be6a391b3e17c7704385fd48fb4df5018b0ce3"
   dependencies:
     "@types/gsap" "^1.19.1"
     gsap "^1.20.3"

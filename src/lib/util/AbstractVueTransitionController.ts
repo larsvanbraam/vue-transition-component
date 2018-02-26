@@ -32,9 +32,14 @@ export default abstract class AbstractVueTransitionController extends AbstractTr
       instance = <IAbstractTransitionComponent>component;
     }
 
+    if (instance === undefined) {
+      throw new Error('Unable to find the requested component timeline');
+    }
+
     if (direction === TransitionDirection.IN) {
       return instance.transitionController.transitionInTimeline;
     }
+
     return instance.transitionController.transitionOutTimeline;
   }
 }
