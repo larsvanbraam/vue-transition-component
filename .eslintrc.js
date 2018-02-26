@@ -11,6 +11,12 @@ module.exports = {
   },
   extends: ['airbnb-base', 'prettier'],
   plugins: ['import', 'prettier'],
+  settings: {
+    "import/resolver": {
+      "node": true,
+      "typescript": true
+    },
+  },
   rules: {
     'import/extensions': [
       'error',

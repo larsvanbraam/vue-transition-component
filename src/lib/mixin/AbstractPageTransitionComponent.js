@@ -1,8 +1,8 @@
 import AbstractTransitionComponent from './AbstractTransitionComponent';
 
 // TODO: Disabled because of ts imports inside of js files
-import FlowType from '../enum/FlowType'; // eslint-disable-line
-import FlowManager from '../util/FlowManager'; // eslint-disable-line
+import FlowType from '../enum/FlowType';
+import FlowManager from '../util/FlowManager';
 
 export default {
   name: 'AbstractPageTransitionComponent',
