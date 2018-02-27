@@ -64,7 +64,7 @@ interface IAbstractRegistrableComponent extends Vue {
    * that will be resolved when the "new" children are ready
    * @returns
    */
-  updateRegistrableComponents(callback: () => void): Promise<void>;
+  updateRegistrableComponents(callback: (resolve: () => void) => void): Promise<void>;
 
   /**
    * @private

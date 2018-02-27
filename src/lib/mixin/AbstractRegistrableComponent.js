@@ -13,8 +13,8 @@ export default {
   beforeCreate() {
     // This is used to detect if a component is registrable
     this.$_isRegistrable = true;
-    // We need a component id
-    this.$_componentId = this.$vnode.data.ref || this.$vnode.componentOptions.Ctor.options.name;
+    // Root components do not contain a $vnode, so use the name as a fallback
+    this.$_componentId = this.$vnode ? this.$vnode.data.ref : this.$options.name;
     this.$_registeredComponents = [];
     this.$_newRegisteredComponents = [];
     this.$_allComponentsReady = new Promise(resolve => {

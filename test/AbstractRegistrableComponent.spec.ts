@@ -1,6 +1,41 @@
 import {} from 'mocha';
-import { getMountedComponent } from './util/app/App';
+import { expect } from 'chai';
+import { getMountedComponent } from './util/App';
+import ChildComponentB from './util/ChildComponentB/ChildComponentB';
+import ChildComponentA from './util/ChildComponentA/ChildComponentA';
+import IAbstractTransitionComponent from 'lib/interface/IAbstractTransitionComponent';
 
-describe('AbstractRegistrableComponentSpec', () => {
-  // TODO: Create tests
+describe('AbstractRegistrableComponent', () => {
+  describe('$_checkComponentsReady', () => {
+    it('should check if all components are ready', () => {
+      const component = <IAbstractTransitionComponent>getMountedComponent(ChildComponentB);
+      expect(component.$_checkComponentsReady()).to.be.undefined;
+    });
+  });
+
+  describe('isReady', () => {
+    it('should trigger the isReady method because the component is ready', () => {
+      const component = <IAbstractTransitionComponent>getMountedComponent(ChildComponentA);
+      const childComponent = component.$refs.ChildComponentB;
+      expect(childComponent.isReady()).to.be.undefined;
+    });
+  });
+
+  describe('updateRegistrableComponents', () => {
+    it('should trigger the updateRegistrableComponents method and wait for them to be done', () => {
+      const component = <IAbstractTransitionComponent>getMountedComponent(ChildComponentB);
+      return component.$_allComponentsReady.then(() => {
+        component.updateRegistrableComponents(resolve => setTimeout(resolve, 1))
+          .then(components => expect(components).to.be.an('array').that.is.empty)
+      })
+    });
+  });
+
+  describe('$destroy', () => {
+    it('should trigger the destroy method', () => {
+      const component = <IAbstractTransitionComponent>getMountedComponent(ChildComponentB);
+      component.$destroy();
+      expect(component._isDestroyed).to.be.true;
+    });
+  });
 });
