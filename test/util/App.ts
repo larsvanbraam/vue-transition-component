@@ -25,9 +25,9 @@ export const getApplication = () => {
       PageComponentA,
     },
     template: `<div>
-				<ChildComponentA />
-				<ChildComponentB />
-				<PageComponentA />
+				<ChildComponentA ref="ChildComponentA"/>
+				<ChildComponentB ref="ChildComponentB" />
+				<PageComponentA ref="PageComponentA" />
 			</div>`,
   }).$mount();
 };
@@ -50,4 +50,21 @@ export const getMountedComponent = (
     | IAbstractPageTransitionComponent
     | IAbstractTransitionComponent
     | IAbstractRegistrableComponent>new constructor({ propsData }).$mount();
+};
+
+/**
+ * @description get a child component based on it's componentId
+ * @param {IAbstractRegistrableComponent} app
+ * @param {string} componentId
+ * @returns {Promise<IAbstractPageTransitionComponent|IAbstractTransitionComponent|IAbstractRegistrableComponent>}
+ */
+export const getChildComponent = (
+  app: IAbstractRegistrableComponent,
+  componentId: string,
+): Promise<IAbstractPageTransitionComponent | IAbstractTransitionComponent | IAbstractRegistrableComponent> => {
+  return new Promise(resolve => {
+    app.$_allComponentsReady
+      .then(() => resolve(app.$refs[componentId]))
+      .catch(reason => console.log(reason));
+  });
 };
