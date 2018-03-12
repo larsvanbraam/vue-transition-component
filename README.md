@@ -8,8 +8,6 @@
 </p>
 
 
-TODO: Remove es6-promises module, remove all lodash es6 polyfils and update the readme to inform users on what project specific polyfils are required!
-
 Provides GreenSock transition functionality to vue.js components.
 
 ## Table of contents
@@ -34,24 +32,13 @@ npm i -S vue-transition-component
 ```
 
 ## Demo
-I've created a demo repository that contains the setup for the latest vue-skeleton (v0.8.1) with the
-vue-transition-component (v1.1.17) installed. You can inspect the code there or if you just want to preview the block
-system you can visit the demo online!
-
-### [Demo repository](https://github.com/larsvanbraam/vue-transition-component-demo)
-### [Online demo](http://vue-transition-component.larsvanbraam.nl)
+**Update the documentation for v2.x.x versions**
 
 ## Required polyfills
-To make sure the module works as expected, you will need to make sure your project has support for the following:
-- Promises
-- Array.findIndex
-- Array.find
-- Object.assign
+To make sure the module works as expected, you will need to make sure your projects has the `es6 polyfills`
 
 ## Usage
-Detailed documentation and examples are located in the wiki!
-
-### [Check the wiki!](https://github.com/larsvanbraam/vue-transition-component/wiki)
+**Update the documentation for v2.x.x versions**
 
 ## Building
 

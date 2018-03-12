@@ -8,6 +8,5 @@ export default [
     path: PagePaths.HOME,
     component: HomePage,
     name: PageNames.HOME,
-    props: { [COMPONENT_ID]: PageNames.HOME },
   },
 ];
