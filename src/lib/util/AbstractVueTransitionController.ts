@@ -25,15 +25,25 @@ export default abstract class AbstractVueTransitionController extends AbstractTr
         child => child.$el === component,
       );
     } else if (isString(component)) {
-      instance = <IAbstractTransitionComponent>this.parentController.$children.find(
-        (child: IAbstractTransitionComponent) => child.$_componentId === component,
-      );
+      const instances = this.parentController.$children
+        .map((child: IAbstractTransitionComponent) => {
+          return child.$_componentId === component ? child : null;
+        })
+        .filter(value => value !== null);
+
+      if (instances.length > 1) {
+        throw new Error(
+          `Found multiple components matching [${component}], use a unique ref when requesting a component with an id`,
+        );
+      }
+
+      instance = instances.pop();
     } else {
       instance = <IAbstractTransitionComponent>component;
     }
 
     if (instance === undefined) {
-      throw new Error('Unable to find the requested component timeline');
+      throw new Error(`The requested component [${component}] does not exist`);
     }
 
     if (direction === TransitionDirection.IN) {
