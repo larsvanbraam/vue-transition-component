@@ -1,13 +1,13 @@
 import { COMPONENT_ID } from 'vue-transition-component';
 import HomePage from 'page/HomePage';
-import PagePaths from 'data/enum/PagePaths';
-import PageNames from 'data/enum/PageNames';
+import RoutePaths from 'data/enum/RoutePaths';
+import RouteNames from 'data/enum/RouteNames';
 
 export default [
-  {
-    path: PagePaths.HOME,
-    component: HomePage,
-    name: PageNames.HOME,
-    props: { [COMPONENT_ID]: PageNames.HOME },
-  },
+	{
+		path: RoutePaths.HOME,
+		component: HomePage,
+		name: RouteNames.HOME,
+		props: { [COMPONENT_ID]: RouteNames.HOME },
+	},
 ];
