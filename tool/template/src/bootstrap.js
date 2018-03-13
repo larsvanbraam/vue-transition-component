@@ -3,7 +3,6 @@ import 'asset/style/screen.scss';
 import 'modernizr';
 import 'settings';
 
-import { COMPONENT_ID } from 'vue-transition-component';
 import Vue from 'vue';
 import filter from 'filter';
 import directive from 'directive';
