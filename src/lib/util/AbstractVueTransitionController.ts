@@ -26,9 +26,10 @@ export default abstract class AbstractVueTransitionController extends AbstractTr
       );
     } else if (isString(component)) {
       const instances = this.parentController.$children
-        .map((child: IAbstractTransitionComponent) => {
-          return child.$_componentId === component ? child : null;
-        })
+        .map(
+          (child: IAbstractTransitionComponent) =>
+            child.$_componentId === component ? child : null,
+        )
         .filter(value => value !== null);
 
       if (instances.length > 1) {
