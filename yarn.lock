@@ -4125,9 +4125,9 @@ tr46@^1.0.0:
   dependencies:
     punycode "^2.1.0"
 
-transition-controller@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-0.1.7.tgz#b4b0387b7a7a361523519f6056a1b1860703fdf4"
+transition-controller@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-0.1.9.tgz#6b862dd7bb3d16edb682ff1a9a8b2c3e91508c7d"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.35"
     "@types/gsap" "^1.19.1"
