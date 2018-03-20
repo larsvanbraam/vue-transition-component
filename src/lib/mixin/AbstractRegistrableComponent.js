@@ -80,7 +80,7 @@ export default {
         this.$_allComponentsReadyResolveMethod
       ) {
         this.$_allComponentsReadyResolveMethod(
-          filter(this.$refs, child => this.$_newRegisteredComponents.indexOf(child._uid) > -1),
+          filter(this.$children, child => this.$_newRegisteredComponents.indexOf(child._uid) > -1),
         );
         this.$_newRegisteredComponents = [];
         this.$_allComponentsReadyResolveMethod = null;
@@ -92,7 +92,7 @@ export default {
       }
     },
     $_updateRegistrableComponents() {
-      this.$_registrableComponents = filter(this.$refs, child => child.$_isRegistrable);
+      this.$_registrableComponents = filter(this.$children, child => child.$_isRegistrable);
     },
   },
   mounted() {
