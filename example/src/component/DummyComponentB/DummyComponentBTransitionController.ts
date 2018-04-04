@@ -1,7 +1,7 @@
 import { TimelineLite, TimelineMax, Expo } from 'gsap';
 import AbstractVueTransitionController from "../../../../src/lib/util/AbstractVueTransitionController";
 
-export default class HomePageTransitionController extends AbstractVueTransitionController {
+export default class DummyComponentBTransitionController extends AbstractVueTransitionController {
   /**
    * @public
    * @method setupTransitionInTimeline
@@ -13,11 +13,11 @@ export default class HomePageTransitionController extends AbstractVueTransitionC
       0.5,
       {
         autoAlpha: 0,
-        scale: 0,
+        yPercent: 100,
       },
       {
         autoAlpha: 1,
-        scale: 1,
+        yPercent: 0,
         ease: Expo.easeOut,
       },
     );
@@ -35,7 +35,6 @@ export default class HomePageTransitionController extends AbstractVueTransitionC
       {
         scale: 2,
         autoAlpha: 0,
-        ease: Expo.easeIn,
       },
     );
   }

@@ -1,5 +1,5 @@
 import HomePage from '../../page/HomePage';
-import AboutPage from '../../page/AboutPage';
+import CodePage from '../../page/CodePage';
 
 export default [
   {
@@ -8,8 +8,8 @@ export default [
     name: 'home',
   },
   {
-    path: '/about',
-    component: AboutPage,
-    name: 'about',
+    path: '/code',
+    component: CodePage,
+    name: 'code',
   },
 ];

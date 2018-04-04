@@ -1,7 +1,8 @@
 import { TimelineLite, TimelineMax, Expo } from 'gsap';
 import AbstractVueTransitionController from "../../../../src/lib/util/AbstractVueTransitionController";
+import IAbstractTransitionComponent from "../../../../src/lib/interface/IAbstractTransitionComponent";
 
-export default class HomePageTransitionController extends AbstractVueTransitionController {
+export default class CodepageTransitionController extends AbstractVueTransitionController {
   /**
    * @public
    * @method setupTransitionInTimeline
@@ -21,6 +22,12 @@ export default class HomePageTransitionController extends AbstractVueTransitionC
         ease: Expo.easeOut,
       },
     );
+    // if a ref is provided you can use this to retrieve the subTimeline
+    timeline.add(this.getSubTimeline('infoBoxA'))
+    // You can also retrieve the subTimeline by providing a reference to the TransitionComponent
+    timeline.add(this.getSubTimeline(<IAbstractTransitionComponent>this.parentController.$refs.infoBoxB))
+    // If no ref is provided you can fetch the component by the ComponentName
+    timeline.add(this.getSubTimeline('DummyComponentC'))
   }
 
   /**
