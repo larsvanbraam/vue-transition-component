@@ -1,0 +1,27 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --config ./build-tools/webpack.config.js --mode development",
+    "build": "webpack --config ./build-tools/webpack.config.js --mode production"
+  },
+  "author": "Lars van Braam",
+  "license": "ISC",
+  "dependencies": {
+    "bowser": "^1.9.3",
+    "gsap": "^1.20.4",
+    "lodash": "^4.17.5",
+    "seng-event": "^1.2.3",
+    "transition-controller": "^0.1.10",
+    "ts-loader": "^4.1.0",
+    "vue": "^2.2.5",
+    "vue-loader": "14.1.1",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.2.6",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
+    "webpack-dev-server": "^3.1.1"
+  }
+}
