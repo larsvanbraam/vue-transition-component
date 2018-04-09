@@ -1,10 +1,10 @@
 import * as bowser from 'bowser';
 import { TweenLite } from 'gsap';
 import EventDispatcher from 'seng-event';
-import IRoute from '../../lib/interface/IRoute';
+import { IRoute } from '../../lib/interface/IRoute';
 import FlowType from '../enum/FlowType';
 import FlowEvent from '../event/FlowEvent';
-import IAbstractPageTransitionComponent from '../interface/IAbstractPageTransitionComponent';
+import { IAbstractPageTransitionComponent } from '../interface/IAbstractPageTransitionComponent';
 
 export class FlowManager extends EventDispatcher {
   /**
