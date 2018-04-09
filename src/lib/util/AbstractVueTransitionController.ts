@@ -2,7 +2,7 @@ import AbstractTransitionController, { TransitionDirection } from 'transition-co
 import { TimelineLite, TimelineMax } from 'gsap';
 import isString from 'lodash/isString';
 import isElement from 'lodash/isElement';
-import IAbstractTransitionComponent from '../interface/IAbstractTransitionComponent';
+import { IAbstractTransitionComponent } from '../interface/IAbstractTransitionComponent';
 
 export default abstract class AbstractVueTransitionController extends AbstractTransitionController<
   IAbstractTransitionComponent
