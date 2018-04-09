@@ -2,7 +2,7 @@
  * @description This should be the vue router type but it causes a lot of issues with mismatching versions so create
  * a separate interface for the route
  */
-interface IRoute {
+export interface IRoute {
   path: string;
   name?: string;
   hash: string;
@@ -13,5 +13,3 @@ interface IRoute {
   redirectedFrom?: string;
   meta?: any;
 }
-
-export default IRoute;

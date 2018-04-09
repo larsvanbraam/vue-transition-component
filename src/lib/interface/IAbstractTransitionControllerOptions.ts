@@ -1,4 +1,4 @@
-interface IAbstractTransitionControllerOptions {
+export interface IAbstractTransitionControllerOptions {
   /**
    * @description When set to true we show logs in the flow
    */
@@ -8,5 +8,3 @@ interface IAbstractTransitionControllerOptions {
    */
   useTimelineMax?: boolean;
 }
-
-export default IAbstractTransitionControllerOptions;

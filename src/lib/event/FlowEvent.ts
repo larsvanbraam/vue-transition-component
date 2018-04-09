@@ -1,6 +1,6 @@
 import { AbstractEvent } from 'seng-event';
 import { generateEventTypes, EVENT_TYPE_PLACEHOLDER } from 'seng-event/lib/util/eventTypeUtils';
-import IRoute from '../interface/IRoute';
+import { IRoute } from '../interface/IRoute';
 
 class FlowEvent extends AbstractEvent {
   public static START: string = EVENT_TYPE_PLACEHOLDER;

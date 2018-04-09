@@ -1,6 +1,6 @@
 import { Vue } from 'vue/types/vue';
 
-interface IAbstractRegistrableComponent extends Vue {
+export interface IAbstractRegistrableComponent extends Vue {
   /**
    * @public
    * @property $_componentId
@@ -91,5 +91,3 @@ interface IAbstractRegistrableComponent extends Vue {
    */
   $_updateRegistrableComponents(): void;
 }
-
-export default IAbstractRegistrableComponent;

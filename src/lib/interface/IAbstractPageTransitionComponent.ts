@@ -1,7 +1,7 @@
 import FlowType from '../enum/FlowType';
-import IAbstractTransitionComponent from './IAbstractTransitionComponent';
+import { IAbstractTransitionComponent } from './IAbstractTransitionComponent';
 
-interface IAbstractPageTransitionComponent extends IAbstractTransitionComponent {
+export interface IAbstractPageTransitionComponent extends IAbstractTransitionComponent {
   /**
    * @public
    * @method hijack transition in
@@ -15,5 +15,3 @@ interface IAbstractPageTransitionComponent extends IAbstractTransitionComponent 
    */
   flow: FlowType;
 }
-
-export default IAbstractPageTransitionComponent;

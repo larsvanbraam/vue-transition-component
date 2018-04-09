@@ -1,7 +1,7 @@
 import AbstractVueTransitionController from '../util/AbstractVueTransitionController';
-import IAbstractRegistrableComponent from './IAbstractRegistrableComponent';
+import { IAbstractRegistrableComponent } from './IAbstractRegistrableComponent';
 
-interface IAbstractTransitionComponent extends IAbstractRegistrableComponent {
+export interface IAbstractTransitionComponent extends IAbstractRegistrableComponent {
   /**
    * @public
    * @property transitionController
@@ -27,5 +27,3 @@ interface IAbstractTransitionComponent extends IAbstractRegistrableComponent {
    */
   transitionOut(forceTransition?: boolean): Promise<void>;
 }
-
-export default IAbstractTransitionComponent;
