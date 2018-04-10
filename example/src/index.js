@@ -2,8 +2,6 @@ import Vue from 'vue';
 import App from './App';
 import getRouter from './util/router';
 
-console.log(App);
-
 const router = getRouter();
 
 // Init new vue app

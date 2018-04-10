@@ -7,19 +7,19 @@ export default {
   name: 'AbstractRegistrableComponent',
   data() {
     return {
-      $_registrableComponents: [],
+      registrableComponents: [],
     };
   },
   beforeCreate() {
     // This is used to detect if a component is registrable
-    this.$_isRegistrable = true;
+    this.isRegistrable = true;
     // Root components do not contain a $vnode, so use the name as a fallback
-    this.$_componentId =
+    this.componentId =
       this.$vnode && this.$vnode.data.ref ? this.$vnode.data.ref : this.$options.name;
-    this.$_registeredComponents = [];
-    this.$_newRegisteredComponents = [];
-    this.$_allComponentsReady = new Promise(resolve => {
-      this.$_allComponentsReadyResolveMethod = resolve;
+    this.registeredComponents = [];
+    this.newRegisteredComponents = [];
+    this.allComponentsReady = new Promise(resolve => {
+      this.allComponentsReadyResolveMethod = resolve;
     });
   },
   methods: {
@@ -27,81 +27,75 @@ export default {
       // If you want to you can listen to the isReady event
       this.$emit(IS_READY, this);
       // Notify the parent about being ready
-      if (this.$parent && this.$parent.$_componentReady) {
-        this.$parent.$_componentReady(this);
+      if (this.$parent && this.$parent.componentReady) {
+        this.$parent.componentReady(this);
       }
     },
     handleAllComponentsReady() {},
     updateRegistrableComponents(callback) {
       // Store the components before change
-      const beforeChange = this.$_registrableComponents.map(child => child._uid);
+      const beforeChange = this.registrableComponents.map(child => child._uid);
       // Reset the array
-      this.$_registeredComponents = [];
+      this.registeredComponents = [];
       // Create a new promise for notify'ing about the change
-      this.$_asyncComponentsReady = new Promise(resolve => {
-        this.$_allComponentsReadyResolveMethod = resolve;
+      this.asyncComponentsReady = new Promise(resolve => {
+        this.allComponentsReadyResolveMethod = resolve;
       });
       // Promised is used for doing async code in the component
       new Promise(resolve => callback(resolve)).then(() => {
         // Wait for the next tick
         this.$nextTick(() => {
           // Update the list of registrable components
-          this.$_updateRegistrableComponents();
+          this.registrableComponents = filter(this.$children, child => child.isRegistrable);
           // Find the new components after the change
-          const afterChange = this.$_registrableComponents.map(child => child._uid);
+          const afterChange = this.registrableComponents.map(child => child._uid);
           // Store the id's of the new components
-          this.$_newRegisteredComponents = afterChange.filter(
+          this.newRegisteredComponents = afterChange.filter(
             child => beforeChange.indexOf(child) === -1,
           );
           // Restore the components that were not modified
-          this.$_registeredComponents = afterChange.filter(
-            child => beforeChange.indexOf(child) > -1,
-          );
+          this.registeredComponents = afterChange.filter(child => beforeChange.indexOf(child) > -1);
           // There might be no change so trigger the resolve method right away!
           if (
             isEqual(beforeChange, afterChange) ||
-            (this.$_newRegisteredComponents.length === 0 &&
-              afterChange.length < beforeChange.length)
+            (this.newRegisteredComponents.length === 0 && afterChange.length < beforeChange.length)
           ) {
-            this.$_allComponentsReadyResolveMethod(this.$_newRegisteredComponents);
+            this.allComponentsReadyResolveMethod(this.newRegisteredComponents);
           }
         });
       });
 
       // Return the promise
-      return this.$_asyncComponentsReady;
+      return this.asyncComponentsReady;
     },
-    $_componentReady(component) {
+    componentReady(component) {
       // Store the component id, so we can check if all are loaded
-      this.$_registeredComponents.push(component._uid);
+      this.registeredComponents.push(component._uid);
       // Check if we reached the total amount of transition components
       if (
-        this.$_registrableComponents.length === this.$_registeredComponents.length &&
-        this.$_allComponentsReadyResolveMethod
+        this.registrableComponents.length === this.registeredComponents.length &&
+        this.allComponentsReadyResolveMethod
       ) {
-        this.$_allComponentsReadyResolveMethod(
-          filter(this.$children, child => this.$_newRegisteredComponents.indexOf(child._uid) > -1),
+        this.allComponentsReadyResolveMethod(
+          filter(this.$children, child => this.newRegisteredComponents.indexOf(child._uid) > -1),
         );
-        this.$_newRegisteredComponents = [];
-        this.$_allComponentsReadyResolveMethod = null;
+        this.newRegisteredComponents = [];
+        this.allComponentsReadyResolveMethod = null;
       }
     },
-    $_checkComponentsReady() {
-      if (this.$_registrableComponents.length === 0) {
-        this.$_allComponentsReadyResolveMethod();
+    checkComponentsReady() {
+      if (this.registrableComponents.length === 0) {
+        this.allComponentsReadyResolveMethod();
       }
-    },
-    $_updateRegistrableComponents() {
-      this.$_registrableComponents = filter(this.$children, child => child.$_isRegistrable);
     },
   },
   mounted() {
     // Update the array of registrable components
-    this.$_updateRegistrableComponents();
+    this.registrableComponents = filter(this.$children, child => child.isRegistrable);
     // On init everything is new
-    this.$_newRegisteredComponents = this.$_registrableComponents.map(child => child._uid);
+    this.newRegisteredComponents = this.registrableComponents.map(child => child._uid);
     // Wait for all components to be ready
-    this.$_allComponentsReady
+    this.allComponentsReady
       .then(() => this.handleAllComponentsReady())
       // Add a timeout to allow error throwing in the promise chain!
       .catch(result => {
@@ -111,19 +105,19 @@ export default {
         });
       });
     // We wait for the next tick otherwise the $children might not be set when you use a v-for loop
-    this.$nextTick(() => this.$_checkComponentsReady());
+    this.$nextTick(() => this.checkComponentsReady());
   },
   beforeDestroy() {
-    this.$_isRegistrable = null;
+    this.isRegistrable = null;
 
-    if (this.$_registeredComponents) {
-      this.$_registeredComponents.length = 0;
-      this.$_registeredComponents = null;
+    if (this.registeredComponents) {
+      this.registeredComponents.length = 0;
+      this.registeredComponents = null;
     }
 
-    if (this.$_newRegisteredComponents) {
-      this.$_newRegisteredComponents.length = 0;
-      this.$_newRegisteredComponents = null;
+    if (this.newRegisteredComponents) {
+      this.newRegisteredComponents.length = 0;
+      this.newRegisteredComponents = null;
     }
   },
 };

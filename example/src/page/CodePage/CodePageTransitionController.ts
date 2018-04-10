@@ -1,6 +1,6 @@
 import { TimelineLite, TimelineMax, Expo } from 'gsap';
-import AbstractVueTransitionController from "../../../../src/lib/util/AbstractVueTransitionController";
-import IAbstractTransitionComponent from "../../../../src/lib/interface/IAbstractTransitionComponent";
+import AbstractVueTransitionController from '../../../../src/lib/util/AbstractVueTransitionController';
+import { IAbstractTransitionComponent } from '../../../../src/lib/interface/IAbstractTransitionComponent';
 
 export default class CodepageTransitionController extends AbstractVueTransitionController {
   /**
@@ -23,11 +23,13 @@ export default class CodepageTransitionController extends AbstractVueTransitionC
       },
     );
     // if a ref is provided you can use this to retrieve the subTimeline
-    timeline.add(this.getSubTimeline('infoBoxA'))
+    timeline.add(this.getSubTimeline('infoBoxA'));
     // You can also retrieve the subTimeline by providing a reference to the TransitionComponent
-    timeline.add(this.getSubTimeline(<IAbstractTransitionComponent>this.parentController.$refs.infoBoxB))
+    timeline.add(
+      this.getSubTimeline(<IAbstractTransitionComponent>this.parentController.$refs.infoBoxB),
+    );
     // If no ref is provided you can fetch the component by the ComponentName
-    timeline.add(this.getSubTimeline('DummyComponentC'))
+    timeline.add(this.getSubTimeline('DummyComponentC'));
   }
 
   /**
@@ -36,14 +38,10 @@ export default class CodepageTransitionController extends AbstractVueTransitionC
    * @param {gsap.TimelineLite | gsap.TimelineMax} timeline
    */
   public setupTransitionOutTimeline(timeline: TimelineLite | TimelineMax): void {
-    timeline.to(
-      this.parentController.$el,
-      0.5,
-      {
-        scale: 2,
-        autoAlpha: 0,
-        ease: Expo.easeIn,
-      },
-    );
+    timeline.to(this.parentController.$el, 0.5, {
+      scale: 2,
+      autoAlpha: 0,
+      ease: Expo.easeIn,
+    });
   }
 }

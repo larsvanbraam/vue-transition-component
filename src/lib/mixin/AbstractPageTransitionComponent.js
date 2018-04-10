@@ -7,12 +7,12 @@ export default {
   extends: AbstractTransitionComponent,
   beforeCreate() {
     this.flow = FlowType.NORMAL;
-    this.$_transitionInHijack = Promise.resolve();
+    this.transitionInHijack = Promise.resolve();
   },
   methods: {
     hijackTransitionIn() {
       return new Promise(resolve => {
-        this.$_transitionInHijack = new Promise(release => resolve(release));
+        this.transitionInHijack = new Promise(release => resolve(release));
       });
     },
   },
@@ -25,9 +25,9 @@ export default {
   beforeRouteEnter(to, from, next) {
     /* istanbul ignore next */
     next(vm => {
-      Promise.all([FlowManager.flowHijacked, vm.$_transitionInHijack]).then(() => {
-        if (vm.$parent && vm.$parent.$_allComponentsReady) {
-          vm.$parent.$_allComponentsReady.then(() => vm.transitionIn());
+      Promise.all([FlowManager.flowHijacked, vm.transitionInHijack]).then(() => {
+        if (vm.$parent && vm.$parent.allComponentsReady) {
+          vm.$parent.allComponentsReady.then(() => vm.transitionIn());
         } else {
           vm.transitionIn();
         }
@@ -44,11 +44,11 @@ export default {
     // Find the old reference and remove it
     /* istanbul ignore next */
     if (to.name === this.componentId) {
-      const index = this.$_registeredComponents.findIndex(
-        component => component.$_componentId === from.name,
+      const index = this.registeredComponents.findIndex(
+        component => component.componentId === from.name,
       );
       if (index > -1) {
-        this.$_registeredComponents.splice(index);
+        this.registeredComponents.splice(index);
       }
     }
     // Release the before update hook

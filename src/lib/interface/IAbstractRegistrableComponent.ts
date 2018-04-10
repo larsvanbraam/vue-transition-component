@@ -3,40 +3,40 @@ import { Vue } from 'vue/types/vue';
 export interface IAbstractRegistrableComponent extends Vue {
   /**
    * @public
-   * @property $_componentId
+   * @property componentId
    * @description Internal id for the component
    */
-  $_componentId: string;
+  componentId: string;
   /**
    * @public
-   * @property $_isRegistrable
+   * @property isRegistrable
    * @description Flag used to determine if a component is registrable
    */
-  $_isRegistrable: boolean;
+  isRegistrable: boolean;
   /**
    * @public
-   * @property $_registeredComponents
+   * @property registeredComponents
    * @description Array containing all the registered components
    */
-  $_registeredComponents: Array<IAbstractRegistrableComponent>;
+  registeredComponents: Array<IAbstractRegistrableComponent>;
   /**
    * @public
-   * @property $_newRegisteredComponents
+   * @property newRegisteredComponents
    * @description Array of new components that are registered
    */
-  $_newRegisteredComponents: Array<IAbstractRegistrableComponent>;
+  newRegisteredComponents: Array<IAbstractRegistrableComponent>;
   /**
    * @public
-   * @property $_allComponentsReady
+   * @property allComponentsReady
    * @description The promise that is used to figure out if all components are ready
    */
-  $_allComponentsReady: Promise<Array<IAbstractRegistrableComponent>>;
+  allComponentsReady: Promise<Array<IAbstractRegistrableComponent>>;
   /**
    * @public
-   * @property $_registrableComponents
+   * @property registrableComponents
    * @description Array of all components that are registrable
    */
-  $_registrableComponents: Array<IAbstractRegistrableComponent>;
+  registrableComponents: Array<IAbstractRegistrableComponent>;
 
   /**
    * @public
@@ -73,7 +73,7 @@ export interface IAbstractRegistrableComponent extends Vue {
    * @param component
    * @returns {void}
    */
-  $_componentReady(component: IAbstractRegistrableComponent): void;
+  componentReady(component: IAbstractRegistrableComponent): void;
 
   /**
    * @private
@@ -82,12 +82,12 @@ export interface IAbstractRegistrableComponent extends Vue {
    * @param component
    * @returns {void}
    */
-  $_checkComponentsReady(component: IAbstractRegistrableComponent): void;
+  checkComponentsReady(component: IAbstractRegistrableComponent): void;
 
   /**
    * @private
-   * @method update RegistrableComponents
+   * @method setRegistrableComponents
    * @description Update the array of registrableComponents
    */
-  $_updateRegistrableComponents(): void;
+  setRegistrableComponents(): void;
 }

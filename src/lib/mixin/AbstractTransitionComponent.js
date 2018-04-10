@@ -15,7 +15,7 @@ export default {
      * @returns {Promise<any>}
      */
     transitionIn(forceTransition) {
-      return this.$_allComponentsReady.then(() =>
+      return this.allComponentsReady.then(() =>
         this.transitionController.transitionIn(forceTransition),
       );
     },
