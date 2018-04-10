@@ -1,9 +1,8 @@
 import Vue from 'vue/dist/vue.js';
 import AbstractRegistrableComponent from '../../src/lib/mixin/AbstractRegistrableComponent';
-import IAbstractRegistrableComponent from '../../src/lib/interface/IAbstractRegistrableComponent';
-import IAbstractTransitionComponent from '../../src/lib/interface/IAbstractTransitionComponent';
-import IAbstractPageTransitionComponent from '../../src/lib/interface/IAbstractPageTransitionComponent';
-import AbstractTransitionController from '../../src/lib/util/AbstractTransitionController';
+import { IAbstractRegistrableComponent } from '../../src/lib/interface/IAbstractRegistrableComponent';
+import { IAbstractTransitionComponent } from '../../src/lib/interface/IAbstractTransitionComponent';
+import { IAbstractPageTransitionComponent } from '../../src/lib/interface/IAbstractPageTransitionComponent';
 import ChildComponentA from './ChildComponentA/ChildComponentA';
 import ChildComponentB from './ChildComponentB/ChildComponentB';
 import PageComponentA from './PageComponentA/PageComponentA';
@@ -40,7 +39,7 @@ export const getApplication = () => {
  */
 export const getMountedComponent = (
   component,
-  propsData,
+  propsData = {},
 ):
   | IAbstractPageTransitionComponent
   | IAbstractTransitionComponent
@@ -61,9 +60,11 @@ export const getMountedComponent = (
 export const getChildComponent = (
   app: IAbstractRegistrableComponent,
   componentId: string,
-): Promise<IAbstractPageTransitionComponent | IAbstractTransitionComponent | IAbstractRegistrableComponent> => {
+): Promise<
+  IAbstractPageTransitionComponent | IAbstractTransitionComponent | IAbstractRegistrableComponent
+> => {
   return new Promise(resolve => {
-    app.$_allComponentsReady
+    app.allComponentsReady
       .then(() => resolve(app.$refs[componentId]))
       .catch(reason => console.log(reason));
   });

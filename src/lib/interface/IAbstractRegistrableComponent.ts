@@ -79,10 +79,9 @@ export interface IAbstractRegistrableComponent extends Vue {
    * @private
    * @method checkComponentsReady
    * @description This method checks if all components are loaded on init, overwrite if you need multiple checks!
-   * @param component
    * @returns {void}
    */
-  checkComponentsReady(component: IAbstractRegistrableComponent): void;
+  checkComponentsReady(): void;
 
   /**
    * @private

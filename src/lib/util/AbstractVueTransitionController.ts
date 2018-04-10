@@ -16,7 +16,7 @@ export default abstract class AbstractVueTransitionController extends AbstractTr
    */
   protected getSubTimelineByComponent(
     component: string | HTMLElement | IAbstractTransitionComponent,
-    direction: TransitionDirection,
+    direction: TransitionDirection = TransitionDirection.IN,
   ): TimelineLite | TimelineMax {
     let instance: IAbstractTransitionComponent;
 
