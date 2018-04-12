@@ -38,4 +38,13 @@ export default class DummyComponentBTransitionController extends AbstractVueTran
       },
     );
   }
+
+  /**
+   * @public
+   * @method setupLoopingAnimationTimeline
+   * @param {TimelineMax} timeline
+   * @description Use this method to setup your looping timeline
+   **/
+  protected setupLoopingAnimationTimeline(timeline:TimelineMax): void {
+  }
 }

@@ -26,4 +26,18 @@ export interface IAbstractTransitionComponent extends IAbstractRegistrableCompon
    * @returns A promise that will be resolved when the transition in timeline is completed
    */
   transitionOut(forceTransition?: boolean): Promise<void>;
+
+  /**
+   * @public
+   * @method startLoopingAnimation
+   * @description Start the looping animations on the current component
+   */
+  startLoopingAnimation(): void;
+
+  /**
+   * @public
+   * @method stopLoopingAnimation
+   * @description Stop the looping animations on the current component
+   */
+  stopLoopingAnimation(): void;
 }

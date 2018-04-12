@@ -7,27 +7,19 @@ export default {
     this.transitionController = null;
   },
   methods: {
-    /**
-     * @public
-     * @method transitionIn
-     * @description The main transitionIn method for the component
-     * @param { boolean } forceTransition
-     * @returns {Promise<any>}
-     */
     transitionIn(forceTransition) {
       return this.allComponentsReady.then(() =>
         this.transitionController.transitionIn(forceTransition),
       );
     },
-    /**
-     * @public
-     * @method transitionOut
-     * @description The main transitionOut method for the component
-     * @param { boolean } forceTransition
-     * @returns {Promise<any>}
-     */
     transitionOut(forceTransition) {
       return this.transitionController.transitionOut(forceTransition);
+    },
+    startLoopingAnimation() {
+      this.transitionController.startLoopingAnimation();
+    },
+    stopLoopingAnimation() {
+      this.transitionController.stopLoopingAnimation();
     },
   },
   beforeDestroy() {
