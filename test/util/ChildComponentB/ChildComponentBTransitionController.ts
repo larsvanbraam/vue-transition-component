@@ -1,5 +1,5 @@
 import AbstractVueTransitionController from '../../../src/lib/util/AbstractVueTransitionController';
-import { TimelineLite } from 'gsap';
+import { TimelineLite, TimelineMax } from 'gsap';
 
 class ChildComponentBTransitionController extends AbstractVueTransitionController {
   /**
@@ -8,7 +8,12 @@ class ChildComponentBTransitionController extends AbstractVueTransitionControlle
    * @description overwrite this method in the parent class
    */
   protected setupTransitionInTimeline(): void {
-    this.transitionInTimeline.fromTo(this.parentController.$el, 0.1, { autoAlpha: 0 }, { autoAlpha: 1 });
+    this.transitionInTimeline.fromTo(
+      this.parentController.$el,
+      0.1,
+      { autoAlpha: 0 },
+      { autoAlpha: 1 },
+    );
   }
 
   /**
@@ -16,13 +21,20 @@ class ChildComponentBTransitionController extends AbstractVueTransitionControlle
    * @method setupTransitionOutTimeline
    * @description overwrite this method in the parent class
    * */
-  protected setupTransitionOutTimeline(): void {
-    const timeline = new TimelineLite();
-    timeline.to(document.createElement('div'), 0.1, { autoAlpha: 0 });
+  protected setupTransitionOutTimeline(timeline: TimelineLite): void {
+    const subTimeline = new TimelineLite();
+    subTimeline.to(document.createElement('div'), 0.1, { autoAlpha: 0 });
 
-    this.transitionOutTimeline.to(this.parentController.$el, 0.1, { autoAlpha: 0 });
-    this.transitionOutTimeline.add(timeline);
+    timeline.to(this.parentController.$el, 0.1, { autoAlpha: 0 });
+    timeline.add(subTimeline);
   }
+
+  /**
+   * @public
+   * @method stopLoopingAnimation
+   * @description Stop the looping animations on the current component
+   */
+  protected setupLoopingAnimationTimeline(timeline: TimelineMax): void {}
 }
 
 export default ChildComponentBTransitionController;
