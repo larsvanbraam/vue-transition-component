@@ -43,26 +43,25 @@ export default {
       });
       // Promised is used for doing async code in the component
       new Promise(resolve => callback(resolve)).then(() => {
-        // Wait for the next tick
-        this.$nextTick(() => {
-          // Update the list of registrable components
-          this.registrableComponents = filter(this.$children, child => child.isRegistrable);
-          // Find the new components after the change
-          const afterChange = this.registrableComponents.map(child => child._uid);
-          // Store the id's of the new components
-          this.newRegisteredComponents = afterChange.filter(
-            child => beforeChange.indexOf(child) === -1,
-          );
-          // Restore the components that were not modified
-          this.registeredComponents = afterChange.filter(child => beforeChange.indexOf(child) > -1);
-          // There might be no change so trigger the resolve method right away!
-          if (
-            isEqual(beforeChange, afterChange) ||
-            (this.newRegisteredComponents.length === 0 && afterChange.length < beforeChange.length)
-          ) {
-            this.allComponentsReadyResolveMethod(this.newRegisteredComponents);
-          }
-        });
+        // NOTE: Removed the $nextTick here because sometimes components do not have child components and therefore they
+        // trigger the isReady method right away, breaking the flow!
+        // Update the list of registrable components
+        this.registrableComponents = filter(this.$children, child => child.isRegistrable);
+        // Find the new components after the change
+        const afterChange = this.registrableComponents.map(child => child._uid);
+        // Store the id's of the new components
+        this.newRegisteredComponents = afterChange.filter(
+          child => beforeChange.indexOf(child) === -1,
+        );
+        // Restore the components that were not modified
+        this.registeredComponents = afterChange.filter(child => beforeChange.indexOf(child) > -1);
+        // There might be no change so trigger the resolve method right away!
+        if (
+          isEqual(beforeChange, afterChange) ||
+          (this.newRegisteredComponents.length === 0 && afterChange.length < beforeChange.length)
+        ) {
+          this.allComponentsReadyResolveMethod(this.newRegisteredComponents);
+        }
       });
 
       // Return the promise
