@@ -9,12 +9,12 @@ export default abstract class AbstractVueTransitionController extends AbstractTr
 > {
   /**
    * @protected
-   * @abstract getSubTimelineByComponent
+   * @abstract getTimelineForComponent
    * @param {string | HTMLElement | T} component
    * @param {TransitionDirection} direction
    * @returns {gsap.TimelineLite | gsap.TimelineMax}
    */
-  protected getSubTimelineByComponent(
+  protected getTimelineForComponent(
     component: string | HTMLElement | IAbstractTransitionComponent,
     direction: TransitionDirection = TransitionDirection.IN,
   ): TimelineLite | TimelineMax {

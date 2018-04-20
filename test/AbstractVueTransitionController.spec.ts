@@ -5,12 +5,12 @@ import { getMountedComponent } from './util/App';
 import ChildComponentA from './util/ChildComponentA/ChildComponentA';
 import { IAbstractTransitionComponent } from 'lib/interface/IAbstractTransitionComponent';
 
-describe('AbstractTransitionControllerSpec', () => {
+describe('AbstractVueTransitionControllerSpec', () => {
   describe('getSubTimelineByComponent', () => {
     it('should get the subtimeline by the component reference', () => {
       const component = <IAbstractTransitionComponent>getMountedComponent(ChildComponentA);
       return component.allComponentsReady
-        .then(() => component.transitionController.getSubTimeline('ChildComponentB'))
+        .then(() => component.transitionController.getTimeline('ChildComponentB'))
         .then(component => expect(component).to.not.be.undefined);
     });
 
@@ -18,7 +18,7 @@ describe('AbstractTransitionControllerSpec', () => {
       const component = <IAbstractTransitionComponent>getMountedComponent(ChildComponentA);
       return component.allComponentsReady
         .then(() =>
-          component.transitionController.getSubTimeline(<IAbstractTransitionComponent>component
+          component.transitionController.getTimeline(<IAbstractTransitionComponent>component
             .$refs.ChildComponentB),
         )
         .then(component => expect(component).to.not.be.undefined);
@@ -28,7 +28,7 @@ describe('AbstractTransitionControllerSpec', () => {
       const component = <IAbstractTransitionComponent>getMountedComponent(ChildComponentA);
       return component.allComponentsReady
         .then(() =>
-          component.transitionController.getSubTimeline(
+          component.transitionController.getTimeline(
             (<IAbstractTransitionComponent>component.$refs.ChildComponentB).$el,
           ),
         )
@@ -39,7 +39,7 @@ describe('AbstractTransitionControllerSpec', () => {
       const component = <IAbstractTransitionComponent>getMountedComponent(ChildComponentA);
       return component.allComponentsReady
         .then(() =>
-          component.transitionController.getSubTimeline('ChildComponentB', TransitionDirection.IN),
+          component.transitionController.getTimeline('ChildComponentB', TransitionDirection.IN),
         )
         .then(component => expect(component).to.not.be.undefined);
     });
@@ -47,7 +47,7 @@ describe('AbstractTransitionControllerSpec', () => {
     it('should try to get the subtimeline but fail because it does not exist', () => {
       const component = <IAbstractTransitionComponent>getMountedComponent(ChildComponentA);
       return component.allComponentsReady.then(() =>
-        expect(() => component.transitionController.getSubTimeline('Foo')).to.throw(Error),
+        expect(() => component.transitionController.getTimeline('Foo')).to.throw(Error),
       );
     });
   });

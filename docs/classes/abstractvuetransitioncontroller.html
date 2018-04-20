@@ -114,9 +114,9 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="abstractvuetransitioncontroller.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="abstractvuetransitioncontroller.html#dispatchevent" class="tsd-kind-icon">dispatch<wbr>Event</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="abstractvuetransitioncontroller.html#dispose" class="tsd-kind-icon">dispose</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="abstractvuetransitioncontroller.html#getsubtimeline" class="tsd-kind-icon">get<wbr>Sub<wbr>Timeline</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="abstractvuetransitioncontroller.html#getsubtimelinebycomponent" class="tsd-kind-icon">get<wbr>Sub<wbr>Timeline<wbr>ByComponent</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="abstractvuetransitioncontroller.html#getsubtimelineduration" class="tsd-kind-icon">get<wbr>Sub<wbr>Timeline<wbr>Duration</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="abstractvuetransitioncontroller.html#gettimeline" class="tsd-kind-icon">get<wbr>Timeline</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="abstractvuetransitioncontroller.html#gettimelinedurationforcomponent" class="tsd-kind-icon">get<wbr>Timeline<wbr>Duration<wbr>For<wbr>Component</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="abstractvuetransitioncontroller.html#gettimelineforcomponent" class="tsd-kind-icon">get<wbr>Timeline<wbr>For<wbr>Component</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="abstractvuetransitioncontroller.html#haseventlistener" class="tsd-kind-icon">has<wbr>Event<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="abstractvuetransitioncontroller.html#init" class="tsd-kind-icon">init</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="abstractvuetransitioncontroller.html#isdisposed" class="tsd-kind-icon">is<wbr>Disposed</a></li>
@@ -479,15 +479,15 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="getsubtimeline" class="tsd-anchor"></a>
-					<h3>get<wbr>Sub<wbr>Timeline</h3>
+					<a name="gettimeline" class="tsd-anchor"></a>
+					<h3>get<wbr>Timeline</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Sub<wbr>Timeline<span class="tsd-signature-symbol">(</span>component<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a>, direction<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TransitionDirection</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Animation</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Timeline<span class="tsd-signature-symbol">(</span>component<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a>, direction<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TransitionDirection</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Animation</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from AbstractTransitionController.getSubTimeline</p>
+								<p>Inherited from AbstractTransitionController.getTimeline</p>
 								<ul>
 									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:195</li>
 								</ul>
@@ -495,7 +495,7 @@
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
 									<dt>method</dt>
-									<dd><p>getSubTimeline</p>
+									<dd><p>getTimeline</p>
 									</dd>
 									<dt>description</dt>
 									<dd><p>When nesting transition components you might want to nest the timelines as well, this makes it
@@ -516,24 +516,58 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-					<a name="getsubtimelinebycomponent" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> get<wbr>Sub<wbr>Timeline<wbr>ByComponent</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Sub<wbr>Timeline<wbr>ByComponent<span class="tsd-signature-symbol">(</span>component<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a>, direction<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TransitionDirection</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TimelineLite</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">TimelineMax</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="gettimelinedurationforcomponent" class="tsd-anchor"></a>
+					<h3>get<wbr>Timeline<wbr>Duration<wbr>For<wbr>Component</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Timeline<wbr>Duration<wbr>For<wbr>Component<span class="tsd-signature-symbol">(</span>component<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a>, direction<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TransitionDirection</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides AbstractTransitionController.getSubTimelineByComponent</p>
+								<p>Inherited from AbstractTransitionController.getTimelineDurationForComponent</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e2f1d38/src/lib/util/AbstractVueTransitionController.ts#L17">util/AbstractVueTransitionController.ts:17</a></li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:203</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>getTimelineDurationForComponent</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>component: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> direction: <span class="tsd-signature-type">TransitionDirection</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+					<a name="gettimelineforcomponent" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> get<wbr>Timeline<wbr>For<wbr>Component</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Timeline<wbr>For<wbr>Component<span class="tsd-signature-symbol">(</span>component<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a>, direction<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TransitionDirection</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TimelineLite</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">TimelineMax</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides AbstractTransitionController.getTimelineForComponent</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/d768b63/src/lib/util/AbstractVueTransitionController.ts#L17">util/AbstractVueTransitionController.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
 									<dt>abstract</dt>
-									<dd><p>getSubTimelineByComponent</p>
+									<dd><p>getTimelineForComponent</p>
 									</dd>
 								</dl>
 							</div>
@@ -550,40 +584,6 @@
 								<span class="tsd-signature-symbol"> | </span>
 								<span class="tsd-signature-type">TimelineMax</span>
 							</h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="getsubtimelineduration" class="tsd-anchor"></a>
-					<h3>get<wbr>Sub<wbr>Timeline<wbr>Duration</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Sub<wbr>Timeline<wbr>Duration<span class="tsd-signature-symbol">(</span>component<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a>, direction<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TransitionDirection</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from AbstractTransitionController.getSubTimelineDuration</p>
-								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:203</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>getSubTimelineDuration</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>component: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> direction: <span class="tsd-signature-type">TransitionDirection</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1084,13 +1084,13 @@
 								<a href="abstractvuetransitioncontroller.html#dispose" class="tsd-kind-icon">dispose</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="abstractvuetransitioncontroller.html#getsubtimeline" class="tsd-kind-icon">get<wbr>Sub<wbr>Timeline</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-								<a href="abstractvuetransitioncontroller.html#getsubtimelinebycomponent" class="tsd-kind-icon">get<wbr>Sub<wbr>Timeline<wbr>ByComponent</a>
+								<a href="abstractvuetransitioncontroller.html#gettimeline" class="tsd-kind-icon">get<wbr>Timeline</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="abstractvuetransitioncontroller.html#getsubtimelineduration" class="tsd-kind-icon">get<wbr>Sub<wbr>Timeline<wbr>Duration</a>
+								<a href="abstractvuetransitioncontroller.html#gettimelinedurationforcomponent" class="tsd-kind-icon">get<wbr>Timeline<wbr>Duration<wbr>For<wbr>Component</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+								<a href="abstractvuetransitioncontroller.html#gettimelineforcomponent" class="tsd-kind-icon">get<wbr>Timeline<wbr>For<wbr>Component</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="abstractvuetransitioncontroller.html#haseventlistener" class="tsd-kind-icon">has<wbr>Event<wbr>Listener</a>
