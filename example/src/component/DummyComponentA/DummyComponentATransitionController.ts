@@ -3,11 +3,11 @@ import AbstractVueTransitionController from "../../../../src/lib/util/AbstractVu
 
 export default class DummyComponentATransitionController extends AbstractVueTransitionController {
   /**
-   * @public
+   * @protected
    * @method setupTransitionInTimeline
    * @param {gsap.TimelineLite | gsap.TimelineMax} timeline
    */
-  public setupTransitionInTimeline(timeline: TimelineLite | TimelineMax): void {
+  protected setupTransitionInTimeline(timeline: TimelineLite | TimelineMax): void {
     timeline.fromTo(
       this.parentController.$el,
       0.5,
@@ -25,11 +25,11 @@ export default class DummyComponentATransitionController extends AbstractVueTran
   }
 
   /**
-   * @public
+   * @protected
    * @method setupTransitionOutTimeline
    * @param {gsap.TimelineLite | gsap.TimelineMax} timeline
    */
-  public setupTransitionOutTimeline(timeline: TimelineLite | TimelineMax): void {
+  protected setupTransitionOutTimeline(timeline: TimelineLite | TimelineMax): void {
     timeline.to(
       this.parentController.$el,
       0.5,
@@ -41,7 +41,7 @@ export default class DummyComponentATransitionController extends AbstractVueTran
   }
 
   /**
-   * @public
+   * @protected
    * @method setupLoopingAnimationTimeline
    * @param {TimelineMax} timeline
    * @description Use this method to setup your looping timeline
