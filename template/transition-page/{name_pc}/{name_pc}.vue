@@ -2,7 +2,7 @@
 <script src="./{{name_pc}}.js"></script>
 
 <template>
-	<div>
-		<h2>{{name_pc}}</h2>
-	</div>
+  <div>
+    <h2>{{name_pc}}</h2>
+  </div>
 </template>
