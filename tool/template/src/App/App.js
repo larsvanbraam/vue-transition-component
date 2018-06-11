@@ -1,5 +1,6 @@
 import { FlowManager, AbstractRegistrableComponent } from 'vue-transition-component';
 
+// @vue/component
 export default {
   name: 'App',
   extends: AbstractRegistrableComponent,

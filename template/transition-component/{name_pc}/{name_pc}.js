@@ -1,6 +1,7 @@
 import { AbstractTransitionComponent } from 'vue-transition-component';
 import {{name_pc}}TransitionController from './{{name_pc}}TransitionController';
 
+// @vue/component
 export default {
   name: '{{name_pc}}',
   extends: AbstractTransitionComponent,
