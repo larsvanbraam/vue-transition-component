@@ -23,6 +23,6 @@ export default class {{name_pc}}TransitionController extends AbstractTransitionC
    * @method setupLoopingAnimationTimeline
    * @param {TimelineMax} timeline
    * @description Use this method to setup your looping timeline
-   **/
+   */
   protected setupLoopingAnimationTimeline(timeline:TimelineMax): void {}
 }
