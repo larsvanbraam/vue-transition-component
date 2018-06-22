@@ -7,18 +7,16 @@ export default class {{name_pc}}TransitionController extends AbstractTransitionC
    * @method setupTransitionInTimeline
    * @param {TimelineLite | TimelineMax} timeline
    * @description Use this method to setup your transition in timeline
-   **/
-  protected setupTransitionInTimeline(timeline:TimelineLite|TimelineMax): void {
-  }
+   */
+  protected setupTransitionInTimeline(timeline:TimelineLite|TimelineMax): void {}
 
   /**
    * @public
    * @method setupTransitionOutTimeline
    * @param {TimelineLite | TimelineMax} timeline
    * @description Use this method to setup your transition out timeline
-   **/
-  protected setupTransitionOutTimeline(timeline:TimelineLite|TimelineMax): void {
-  }
+   */
+  protected setupTransitionOutTimeline(timeline:TimelineLite|TimelineMax): void {}
 
   /**
    * @public
@@ -26,6 +24,5 @@ export default class {{name_pc}}TransitionController extends AbstractTransitionC
    * @param {TimelineMax} timeline
    * @description Use this method to setup your looping timeline
    **/
-  protected setupLoopingAnimationTimeline(timeline:TimelineMax): void {
-  }
+  protected setupLoopingAnimationTimeline(timeline:TimelineMax): void {}
 }
