@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>vue-transition-component</title>
+	<title>VueTransitionComponent</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">vue-transition-component</a>
+					<a href="index.html" class="title">VueTransitionComponent</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -38,8 +38,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 							<input type="checkbox" id="tsd-filter-only-exported" />
 							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
@@ -53,81 +51,76 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="index.html">Globals</a>
 				</li>
 			</ul>
-			<h1> vue-transition-component</h1>
+			<h1> VueTransitionComponent</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<p><a href="https://travis-ci.org/larsvanbraam/vue-transition-component"><img src="https://img.shields.io/travis/larsvanbraam/vue-transition-component.svg?maxAge=2592000" alt="Travis"></a>
-					<a href="https://codeclimate.com/github/larsvanbraam/vue-transition-component"><img src="https://img.shields.io/codeclimate/github/larsvanbraam/vue-transition-component.svg?maxAge=2592000" alt="Code Climate"></a>
-					<a href="https://www.npmjs.com/package/vue-transition-component"><img src="https://img.shields.io/npm/dm/vue-transition-component.svg?maxAge=2592000" alt="npm"></a>
-				<a href="https://github.com/larsvanbraam/vue-transition-component/issues"><img src="https://img.shields.io/github/issues/larsvanbraam/vue-transition-component.svg?style=flat-square" alt="GitHub issues"></a></p>
-				<p align="center">
-					<img src="http://vue-transition-component.larsvanbraam.nl/vue-transition-component-1024.png?v=2" alt="vue-transition-component" width="512"/>
-				</p>
-				<p>Provides GreenSock transition functionality to vue.js components.</p>
-				<h2 id="table-of-contents">Table of contents</h2>
-				<ol>
-					<li><a href="#installation">Installation</a></li>
-					<li><a href="#demo">Demo</a></li>
-					<li><a href="#required-polyfills">Required polyfills</a></li>
-					<li><a href="#usage">Usage</a></li>
-					<li><a href="#building">Building</a></li>
-					<li><a href="#authors">Authors</a></li>
-					<li><a href="#contribute">Contribute</a></li>
-					<li><a href="#license">License</a></li>
-				</ol>
-				<h2 id="installation">Installation</h2>
-				<pre><code class="lang-sh">yarn add vue-transition-component
-</code></pre>
-				<pre><code class="lang-sh">npm i -S vue-transition-component
-</code></pre>
-				<h2 id="demo">Demo</h2>
-				<p><strong>Update the documentation for v2.x.x versions</strong></p>
-				<h2 id="required-polyfills">Required polyfills</h2>
-				<p>To make sure the module works as expected, you will need to make sure your projects has the <code>es6 polyfills</code></p>
-				<h2 id="usage">Usage</h2>
-				<p><strong>Update the documentation for v2.x.x versions</strong></p>
-				<h2 id="building">Building</h2>
-				<p>In order to build vue-transition-component, ensure that you have <a href="http://git-scm.com/downloads">Git</a> and <a href="http://nodejs.org/">Node.js</a> installed.</p>
-				<p>Clone a copy of the repo:</p>
-				<pre><code class="lang-sh">git <span class="hljs-built_in">clone</span> https://github.com/larsvanbraam/vue-transition-component.git
-</code></pre>
-				<p>Change to the vue-transition directory:</p>
-				<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> vue-transition-component
-</code></pre>
-				<p>Install dev dependencies:</p>
-				<pre><code class="lang-sh">yarn
-</code></pre>
-				<p>Use one of the following main scripts:</p>
-				<pre><code class="lang-sh">yarn build            <span class="hljs-comment"># build this project</span>
-yarn dev              <span class="hljs-comment"># run compilers in watch mode, both for babel and typescript</span>
-yarn <span class="hljs-built_in">test</span>             <span class="hljs-comment"># run the unit tests incl coverage</span>
-yarn <span class="hljs-built_in">test</span>:dev         <span class="hljs-comment"># run the unit tests in watch mode</span>
-yarn lint             <span class="hljs-comment"># run eslint and tslint on this project</span>
-yarn doc              <span class="hljs-comment"># generate typedoc documentation</span>
-</code></pre>
-				<p>When installing this module, it adds a pre-commit hook, that runs lint and prettier commands
-				before committing, so you can be sure that everything checks out.</p>
-				<h2 id="authors">Authors</h2>
-				<p>View <a href="./AUTHORS.md">AUTHORS.md</a></p>
-				<h2 id="contribute">Contribute</h2>
-				<p>View <a href="./CONTRIBUTING.md">CONTRIBUTING.md</a></p>
-				<h2 id="license">License</h2>
-				<p><a href="./LICENSE">MIT</a> © Lars van Braam</p>
-			</div>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Enumerations</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-enum"><a href="enums/flowtype.html" class="tsd-kind-icon">Flow<wbr>Type</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Classes</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-class"><a href="classes/abstractvuetransitioncontroller.html" class="tsd-kind-icon">Abstract<wbr>Vue<wbr>Transition<wbr>Controller</a></li>
+								<li class="tsd-kind-class"><a href="classes/flowevent.html" class="tsd-kind-icon">Flow<wbr>Event</a></li>
+								<li class="tsd-kind-class"><a href="classes/flowmanager.html" class="tsd-kind-icon">Flow<wbr>Manager</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface"><a href="interfaces/iabstractpagetransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Page<wbr>Transition<wbr>Component</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/iabstractregistrablecomponent.html" class="tsd-kind-icon">IAbstract<wbr>Registrable<wbr>Component</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/iabstracttransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Component</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/iroute.html" class="tsd-kind-icon">IRoute</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="index.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="flowmanager" class="tsd-anchor"></a>
+					<h3>flow<wbr>Manager</h3>
+					<div class="tsd-signature tsd-kind-icon">flow<wbr>Manager<span class="tsd-signature-symbol">:</span> <a href="classes/flowmanager.html" class="tsd-signature-type">FlowManager</a><span class="tsd-signature-symbol"> =&nbsp;new FlowManager()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bc4f4cf/src/lib/util/FlowManager.ts#L223">util/FlowManager.ts:223</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Create the single instance of the flow manager</p>
+						</div>
+					</div>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+					<li class="globals current ">
+						<a href="index.html"><em>Globals</em></a>
 					</li>
 				</ul>
 			</nav>
@@ -145,9 +138,6 @@ yarn doc              <span class="hljs-comment"># generate typedoc documentatio
 					<li class=" tsd-kind-class">
 						<a href="classes/flowmanager.html" class="tsd-kind-icon">Flow<wbr>Manager</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/transitionevent.html" class="tsd-kind-icon">Transition<wbr>Event</a>
-					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iabstractpagetransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Page<wbr>Transition<wbr>Component</a>
 					</li>
@@ -158,13 +148,10 @@ yarn doc              <span class="hljs-comment"># generate typedoc documentatio
 						<a href="interfaces/iabstracttransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/iabstracttransitioncontrolleroptions.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Controller<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="interfaces/iroute.html" class="tsd-kind-icon">IRoute</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="globals.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a>
+						<a href="index.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a>
 					</li>
 				</ul>
 			</nav>

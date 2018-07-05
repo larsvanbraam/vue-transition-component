@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>FlowEvent | vue-transition-component</title>
+	<title>FlowEvent | VueTransitionComponent</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">vue-transition-component</a>
+					<a href="../index.html" class="title">VueTransitionComponent</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -38,8 +38,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 							<input type="checkbox" id="tsd-filter-only-exported" />
 							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
@@ -53,7 +51,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../index.html">Globals</a>
 				</li>
 				<li>
 					<a href="flowevent.html">FlowEvent</a>
@@ -66,6 +64,15 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<h3 id="flowevent">FlowEvent</h3>
+						<p>The FlowManager uses the seng-event module to dispatch events to notify parent classes about
+						certain events. The following events can be listened to.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -136,9 +143,14 @@
 							<aside class="tsd-sources">
 								<p>Overrides AbstractEvent.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/8f8c30d/src/lib/event/FlowEvent.ts#L7">event/FlowEvent.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bc4f4cf/src/lib/event/FlowEvent.ts#L23">event/FlowEvent.ts:23</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Provided the type + data to construct the flow event</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -160,6 +172,10 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> setTimeStamp: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="flowevent.html" class="tsd-signature-type">FlowEvent</a></h4>
@@ -215,9 +231,14 @@
 					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/8f8c30d/src/lib/event/FlowEvent.ts#L7">event/FlowEvent.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bc4f4cf/src/lib/event/FlowEvent.ts#L23">event/FlowEvent.ts:23</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The data contains the target of the flow, this is used for detecting flows that end up at the same location.</p>
+						</div>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -315,9 +336,14 @@
 					<div class="tsd-signature tsd-kind-icon">START<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;EVENT_TYPE_PLACEHOLDER</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/8f8c30d/src/lib/event/FlowEvent.ts#L6">event/FlowEvent.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bc4f4cf/src/lib/event/FlowEvent.ts#L16">event/FlowEvent.ts:16</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The flow start event indicates that the flow has started</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -367,9 +393,14 @@
 							<aside class="tsd-sources">
 								<p>Overrides AbstractEvent.clone</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/8f8c30d/src/lib/event/FlowEvent.ts#L20">event/FlowEvent.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bc4f4cf/src/lib/event/FlowEvent.ts#L51">event/FlowEvent.ts:51</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The clone method returns a cloned instance of the original event.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="flowevent.html" class="tsd-signature-type">FlowEvent</a></h4>
 						</li>
 					</ul>
@@ -462,7 +493,7 @@
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+						<a href="../index.html"><em>Globals</em></a>
 					</li>
 				</ul>
 			</nav>
@@ -534,9 +565,6 @@
 					<li class=" tsd-kind-class">
 						<a href="flowmanager.html" class="tsd-kind-icon">Flow<wbr>Manager</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="transitionevent.html" class="tsd-kind-icon">Transition<wbr>Event</a>
-					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/iabstractpagetransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Page<wbr>Transition<wbr>Component</a>
 					</li>
@@ -547,13 +575,10 @@
 						<a href="../interfaces/iabstracttransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/iabstracttransitioncontrolleroptions.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Controller<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="../interfaces/iroute.html" class="tsd-kind-icon">IRoute</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="../globals.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a>
+						<a href="../index.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a>
 					</li>
 				</ul>
 			</nav>

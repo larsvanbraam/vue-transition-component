@@ -12,11 +12,11 @@ export default {
         this.transitionController.transitionIn(forceTransition),
       );
     },
-    transitionOut(forceTransition) {
-      return this.transitionController.transitionOut(forceTransition);
+    transitionOut(forceTransition, id, reset) {
+      return this.transitionController.transitionOut(forceTransition, id, reset);
     },
-    startLoopingAnimation() {
-      this.transitionController.startLoopingAnimation();
+    startLoopingAnimation(id, reset) {
+      this.transitionController.startLoopingAnimation(id, reset);
     },
     stopLoopingAnimation() {
       this.transitionController.stopLoopingAnimation();

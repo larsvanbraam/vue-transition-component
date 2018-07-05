@@ -7,19 +7,7 @@
     <img src="http://vue-transition-component.larsvanbraam.nl/vue-transition-component-1024.png?v=2" alt="vue-transition-component" width="512"/>
 </p>
 
-
 Provides GreenSock transition functionality to vue.js components.
-
-## Table of contents
-
-1. [Installation](#installation)
-2. [Demo](#demo)
-3. [Required polyfills](#required-polyfills)
-4. [Usage](#usage)
-5. [Building](#building)
-6. [Authors](#authors)
-7. [Contribute](#contribute)
-8. [License](#license)
 
 ## Installation
 
@@ -31,14 +19,25 @@ yarn add vue-transition-component
 npm i -S vue-transition-component
 ```
 
-## Demo
-**Update the documentation for v2.x.x versions**
+## Documentation
 
-## Required polyfills
-To make sure the module works as expected, you will need to make sure your projects has the `es6 polyfills`
+### GitBook
+- [General documentation](https://larsvanbraam.gitbook.io/vue-transition-component/)
 
-## Usage
-**Update the documentation for v2.x.x versions**
+### TypeDoc
+- [Latest TypeDoc](https://larsvanbraam.github.io/vue-transition-component/docs/)
+- [Older TypeDocs](https://vue-transition-component.larsvanbraam.nl)
+
+## Example
+I've included an example setup where you can see the transition controller in action, to run the project follow these steps:
+
+- `git clone https://github.com/larsvanbraam/vue-transition-component.git`
+- `cd vue-transition-component/example`
+- `yarn`
+- `yarn dev`
+- Open your browser `localhost:8080`
+
+or click [this link](https://larsvanbraam.github.io/vue-transition-component/example/) to preview online
 
 ## Building
 

@@ -1,15 +1,21 @@
 import { TimelineLite, TimelineMax, Expo } from 'gsap';
 import AbstractVueTransitionController from "../../../../src/lib/util/AbstractVueTransitionController";
+import {IAbstractTransitionComponent} from "../../../../src";
 
 export default class HomePageTransitionController extends AbstractVueTransitionController {
+
   /**
    * @protected
-   * @method setupTransitionInTimeline
-   * @param {gsap.TimelineLite | gsap.TimelineMax} timeline
+   * @param {TimelineLite | TimelineMax} timeline
+   * @param {IAbstractTransitionComponent} parent
+   * @param {string} id
    */
-  protected setupTransitionInTimeline(timeline: TimelineLite | TimelineMax): void {
+  protected setupTransitionInTimeline(
+    timeline: TimelineLite | TimelineMax,
+    parent:IAbstractTransitionComponent,
+    id:string): void {
     timeline.fromTo(
-      this.parentController.$el,
+      parent.$el,
       0.5,
       {
         autoAlpha: 0,
@@ -25,12 +31,16 @@ export default class HomePageTransitionController extends AbstractVueTransitionC
 
   /**
    * @protected
-   * @method setupTransitionOutTimeline
-   * @param {gsap.TimelineLite | gsap.TimelineMax} timeline
+   * @param {TimelineLite | TimelineMax} timeline
+   * @param {IAbstractTransitionComponent} parent
+   * @param {string} id
    */
-  protected setupTransitionOutTimeline(timeline: TimelineLite | TimelineMax): void {
+  protected setupTransitionOutTimeline(
+    timeline: TimelineLite | TimelineMax,
+    parent:IAbstractTransitionComponent,
+    id:string): void {
     timeline.to(
-      this.parentController.$el,
+      parent.$el,
       0.5,
       {
         scale: 2,
@@ -42,10 +52,12 @@ export default class HomePageTransitionController extends AbstractVueTransitionC
 
   /**
    * @protected
-   * @method setupLoopingAnimationTimeline
    * @param {TimelineMax} timeline
-   * @description Use this method to setup your looping timeline
-   **/
-  protected setupLoopingAnimationTimeline(timeline:TimelineMax): void {
-  }
+   * @param {IAbstractTransitionComponent} parent
+   * @param {string} id
+   */
+  protected setupLoopingAnimationTimeline(
+    timeline:TimelineMax,
+    parent:IAbstractTransitionComponent,
+    id:string): void {}
 }

@@ -57,13 +57,17 @@ import IAbstractTransitionComponent from "../../../../src/lib/interface/IAbstrac
 
 export default class CodepageTransitionController extends AbstractVueTransitionController {
   /**
-   * @public
-   * @method setupTransitionInTimeline
-   * @param {gsap.TimelineLite | gsap.TimelineMax} timeline
+   * @protected
+   * @param {TimelineLite | TimelineMax} timeline
+   * @param {IAbstractTransitionComponent} parent
+   * @param {string} id
    */
-  public setupTransitionInTimeline(timeline: TimelineLite | TimelineMax): void {
+  protected setupTransitionInTimeline(
+    timeline: TimelineLite | TimelineMax,
+    parent:IAbstractTransitionComponent,
+    id:string): void {
     timeline.fromTo(
-      this.parentController.$el,
+      parent.$el,
       0.5,
       {
         autoAlpha: 0,
@@ -76,28 +80,30 @@ export default class CodepageTransitionController extends AbstractVueTransitionC
       },
     );
     // if a ref is provided you can use this to retrieve the subTimeline
-    timeline.add(this.getSubTimeline('infoBoxA'))
+    timeline.add(this.getTimeline('infoBoxA'));
     // You can also retrieve the subTimeline by providing a reference to the TransitionComponent
-    timeline.add(this.getSubTimeline(&#60;IAbstractTransitionComponent&#62;this.parentController.$refs.infoBoxB))
+    timeline.add(
+      this.getTimeline(&#60;IAbstractTransitionComponent&#62;parent.$refs.infoBoxB),
+    );
     // If no ref is provided you can fetch the component by the ComponentName
-    timeline.add(this.getSubTimeline('DummyComponentC'))
+    timeline.add(this.getTimeline('DummyComponentC'));
   }
 
   /**
-   * @public
-   * @method setupTransitionOutTimeline
-   * @param {gsap.TimelineLite | gsap.TimelineMax} timeline
+   * @protected
+   * @param {TimelineLite | TimelineMax} timeline
+   * @param {IAbstractTransitionComponent} parent
+   * @param {string} id
    */
-  public setupTransitionOutTimeline(timeline: TimelineLite | TimelineMax): void {
-    timeline.to(
-      this.parentController.$el,
-      0.5,
-      {
-        scale: 2,
-        autoAlpha: 0,
-        ease: Expo.easeIn,
-      },
-    );
+  protected setupTransitionOutTimeline(
+    timeline: TimelineLite | TimelineMax,
+    parent:IAbstractTransitionComponent,
+    id:string): void {
+    timeline.to(parent.$el, 0.5, {
+      scale: 2,
+      autoAlpha: 0,
+      ease: Expo.easeIn,
+    });
   }
 }
 </pre>

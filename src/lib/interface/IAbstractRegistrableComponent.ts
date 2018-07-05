@@ -1,92 +1,101 @@
 import { Vue } from 'vue/types/vue';
 
+/**
+ * The AbstractRegistrableComponent is the core component of the vue-transition-component. It's used for
+ * registering components and making sure all the children are done before we start creating timelines.
+ * Nested registrable components will let their parent know that they are ready.
+ */
 export interface IAbstractRegistrableComponent extends Vue {
   /**
+   * The internal id of the component is automatically generated or linked to the ref that
+   * is set in the parent component.
+   *
    * @public
-   * @property componentId
-   * @description Internal id for the component
    */
   componentId: string;
+
   /**
+   * Flag used to determine if a component is registrable
+   *
    * @public
-   * @property isRegistrable
-   * @description Flag used to determine if a component is registrable
    */
   isRegistrable: boolean;
+
   /**
+   * Array containing all the registered components
+   *
    * @public
-   * @property registeredComponents
-   * @description Array containing all the registered components
    */
   registeredComponents: Array<IAbstractRegistrableComponent>;
+
   /**
+   * Array of new components that are registered
+   *
    * @public
-   * @property newRegisteredComponents
-   * @description Array of new components that are registered
    */
   newRegisteredComponents: Array<IAbstractRegistrableComponent>;
+
   /**
+   * The promise that is used to figure out if all components are ready
+   *
    * @public
-   * @property allComponentsReady
-   * @description The promise that is used to figure out if all components are ready
    */
   allComponentsReady: Promise<Array<IAbstractRegistrableComponent>>;
+
   /**
+   * Array of all components that are registrable
+   *
    * @public
-   * @property registrableComponents
-   * @description Array of all components that are registrable
    */
   registrableComponents: Array<IAbstractRegistrableComponent>;
 
   /**
-   * @public
-   * @method isReady
-   * @description The init method should be called when the component is fully ready,
+   * The init method should be called when the component is fully ready,
    * this is usually when it's mounted but it could require more async data
-   * @returns {void}
+   *
+   * @public
    */
   isReady(): void;
 
   /**
-   * @public
-   * @method handleAllComponentsReady
-   * @description When all the transition components within this component are loaded this method will be
+   * When all the transition components within this component are loaded this method will be
    * triggered. This is usually the point where the transition controller is setup.
-   * @returns {void}
+   *
+   * @public
    */
   handleAllComponentsReady(): void;
 
   /**
-   * @public
-   * @method updateRegistrableComponents
-   * @param callback
-   * @description Method that watches for async component changes, this means it will create a new promise
+   * Method that watches for async component changes, this means it will create a new promise
    * that will be resolved when the "new" children are ready
-   * @returns
+   *
+   * @public
+   * @param {(resolve: () => void) => void} callback
+   * @returns {Promise<Array<IAbstractRegistrableComponent>>}
    */
-  updateRegistrableComponents(callback: (resolve: () => void) => void): Promise<void>;
+  updateRegistrableComponents(
+    callback: (resolve: () => void) => void,
+  ): Promise<Array<IAbstractRegistrableComponent>>;
 
   /**
-   * @private
-   * @method componentReady
-   * @description This method is called by the child component so we can keep track of components that are loaded.
-   * @param component
-   * @returns {void}
+   * This method is called by the child component so we can keep track of components that are loaded.
+   *
+   * @public
+   * @param {IAbstractRegistrableComponent} component
    */
   componentReady(component: IAbstractRegistrableComponent): void;
 
   /**
-   * @private
-   * @method checkComponentsReady
-   * @description This method checks if all components are loaded on init, overwrite if you need multiple checks!
-   * @returns {void}
+   * This method checks if all components are loaded on init, overwrite if you need multiple checks!
+   *
+   * @public
    */
   checkComponentsReady(): void;
 
   /**
-   * @private
-   * @method setRegistrableComponents
-   * @description Update the array of registrableComponents
+   * Update the array of registrableComponents
+   *
+   * @public
    */
   setRegistrableComponents(): void;
 }

@@ -21,7 +21,7 @@
     "clean:test": "shx rm -rf coverage .nyc_output",
     "clean:npm": "shx rm -rf lib tmp index.js",
     "doc": "npm-run-all -p doc:*",
-    "doc:typedoc": "typedoc src/ --out docs/ --mode file --exclude \"**/index.ts\"",
+    "doc:typedoc": "typedoc src/ --out docs/ --mode file --exclude \"**/index.ts\" --name VueTransitionComponent --excludeExternals --excludePrivate --readme none",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint src --ext .js --cache",
     "lint:ts": "tslint src/**/*.ts -c tslint.json -p tsconfig.json -t verbose",
@@ -112,7 +112,7 @@
     "rimraf": "^2.6.2",
     "seng-disposable": "^1.1.3",
     "seng-event": "^1.2.3",
-    "transition-controller": "^0.1.13",
+    "transition-controller": "^1.0.3",
     "vue": "^2.5.16"
   }
 }

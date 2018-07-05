@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IRoute | vue-transition-component</title>
+	<title>IRoute | VueTransitionComponent</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">vue-transition-component</a>
+					<a href="../index.html" class="title">VueTransitionComponent</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -38,8 +38,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 							<input type="checkbox" id="tsd-filter-only-exported" />
 							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
@@ -53,7 +51,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../index.html">Globals</a>
 				</li>
 				<li>
 					<a href="iroute.html">IRoute</a>
@@ -68,12 +66,10 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt>description</dt>
-						<dd><p>This should be the vue router type but it causes a lot of issues with mismatching versions so create
-							a separate interface for the route</p>
-						</dd>
-					</dl>
+					<div class="lead">
+						<p>This should be the vue router type but it causes a lot of issues with mismatching versions so create
+						a separate interface for the route</p>
+					</div>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -113,9 +109,14 @@
 					<div class="tsd-signature tsd-kind-icon">full<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/8f8c30d/src/lib/interface/IRoute.ts#L11">interface/IRoute.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bc4f4cf/src/lib/interface/IRoute.ts#L35">interface/IRoute.ts:35</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This is the full path of the route that we will navigate to</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="hash" class="tsd-anchor"></a>
@@ -123,9 +124,14 @@
 					<div class="tsd-signature tsd-kind-icon">hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/8f8c30d/src/lib/interface/IRoute.ts#L8">interface/IRoute.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bc4f4cf/src/lib/interface/IRoute.ts#L20">interface/IRoute.ts:20</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The hash that is part of the route</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="matched" class="tsd-anchor"></a>
@@ -133,9 +139,14 @@
 					<div class="tsd-signature tsd-kind-icon">matched<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/8f8c30d/src/lib/interface/IRoute.ts#L12">interface/IRoute.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bc4f4cf/src/lib/interface/IRoute.ts#L40">interface/IRoute.ts:40</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An array of the matched vue components</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="meta" class="tsd-anchor"></a>
@@ -143,9 +154,14 @@
 					<div class="tsd-signature tsd-kind-icon">meta<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/8f8c30d/src/lib/interface/IRoute.ts#L14">interface/IRoute.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bc4f4cf/src/lib/interface/IRoute.ts#L50">interface/IRoute.ts:50</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Any meta data defined on the route object</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="name" class="tsd-anchor"></a>
@@ -153,9 +169,14 @@
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/8f8c30d/src/lib/interface/IRoute.ts#L7">interface/IRoute.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bc4f4cf/src/lib/interface/IRoute.ts#L15">interface/IRoute.ts:15</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The target name of the route</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="params" class="tsd-anchor"></a>
@@ -163,9 +184,14 @@
 					<div class="tsd-signature tsd-kind-icon">params<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/8f8c30d/src/lib/interface/IRoute.ts#L10">interface/IRoute.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bc4f4cf/src/lib/interface/IRoute.ts#L30">interface/IRoute.ts:30</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Any route params will be in here</p>
+						</div>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -181,9 +207,14 @@
 					<div class="tsd-signature tsd-kind-icon">path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/8f8c30d/src/lib/interface/IRoute.ts#L6">interface/IRoute.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bc4f4cf/src/lib/interface/IRoute.ts#L10">interface/IRoute.ts:10</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The target path of the route</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="query" class="tsd-anchor"></a>
@@ -191,9 +222,14 @@
 					<div class="tsd-signature tsd-kind-icon">query<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/8f8c30d/src/lib/interface/IRoute.ts#L9">interface/IRoute.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bc4f4cf/src/lib/interface/IRoute.ts#L25">interface/IRoute.ts:25</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Any query params that are part of the route will be in here</p>
+						</div>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -209,9 +245,14 @@
 					<div class="tsd-signature tsd-kind-icon">redirected<wbr>From<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/8f8c30d/src/lib/interface/IRoute.ts#L13">interface/IRoute.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bc4f4cf/src/lib/interface/IRoute.ts#L45">interface/IRoute.ts:45</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>When redirected this will contain the path of the source</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -219,7 +260,7 @@
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+						<a href="../index.html"><em>Globals</em></a>
 					</li>
 				</ul>
 			</nav>
@@ -237,9 +278,6 @@
 					<li class=" tsd-kind-class">
 						<a href="../classes/flowmanager.html" class="tsd-kind-icon">Flow<wbr>Manager</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/transitionevent.html" class="tsd-kind-icon">Transition<wbr>Event</a>
-					</li>
 					<li class=" tsd-kind-interface">
 						<a href="iabstractpagetransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Page<wbr>Transition<wbr>Component</a>
 					</li>
@@ -248,9 +286,6 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="iabstracttransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="iabstracttransitioncontrolleroptions.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Controller<wbr>Options</a>
 					</li>
 				</ul>
 				<ul class="current">
@@ -289,7 +324,7 @@
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-variable">
-						<a href="../globals.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a>
+						<a href="../index.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a>
 					</li>
 				</ul>
 			</nav>

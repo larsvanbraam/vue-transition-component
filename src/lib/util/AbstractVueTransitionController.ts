@@ -1,5 +1,4 @@
 import AbstractTransitionController, { TransitionDirection } from 'transition-controller';
-import { TimelineLite, TimelineMax } from 'gsap';
 import isString from 'lodash/isString';
 import isElement from 'lodash/isElement';
 import { IAbstractTransitionComponent } from '../interface/IAbstractTransitionComponent';
@@ -8,16 +7,17 @@ export default abstract class AbstractVueTransitionController extends AbstractTr
   IAbstractTransitionComponent
 > {
   /**
+   * This method finds a component based on a string, a html element or the instance.
+   *
    * @protected
-   * @abstract getTimelineForComponent
-   * @param {string | HTMLElement | T} component
+   * @param {string | HTMLElement | IAbstractTransitionComponent} component
    * @param {TransitionDirection} direction
    * @returns {gsap.TimelineLite | gsap.TimelineMax}
    */
-  protected getTimelineForComponent(
+  protected getComponent(
     component: string | HTMLElement | IAbstractTransitionComponent,
     direction: TransitionDirection = TransitionDirection.IN,
-  ): TimelineLite | TimelineMax {
+  ): IAbstractTransitionComponent {
     let instance: IAbstractTransitionComponent;
 
     if (isElement(component)) {
@@ -46,10 +46,6 @@ export default abstract class AbstractVueTransitionController extends AbstractTr
       throw new Error(`The requested component [${component}] does not exist`);
     }
 
-    if (direction === TransitionDirection.IN) {
-      return instance.transitionController.transitionInTimeline;
-    }
-
-    return instance.transitionController.transitionOutTimeline;
+    return instance;
   }
 }

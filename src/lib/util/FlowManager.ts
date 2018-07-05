@@ -6,29 +6,55 @@ import FlowType from '../enum/FlowType';
 import FlowEvent from '../event/FlowEvent';
 import { IAbstractPageTransitionComponent } from '../interface/IAbstractPageTransitionComponent';
 
+/**
+ * ### FlowManager
+ * The FlowManager is a singleton that is used to trigger page transitions
+ * between pages. It is triggered when Vue.js detects a beforeRouteLeave,
+ * passes along the next method and calls it when the transition out of the
+ * current page has been completed. It can also be used for hijacking the page
+ * flow, this will make sure the new page does not transition in until the
+ * release method has been called.
+ */
 export class FlowManager extends EventDispatcher {
   /**
-   * @property transitionOut
-   * @type Promise<void>
+   * This property contains a promise that is the transition out method that
+   * is called when we leave the page. When the transition out is done this
+   * promise will be resolved and the flow is allowed to continue.
+   *
+   * @public
    */
   public transitionOut: Promise<void>;
+
   /**
-   * @property _previousComponentId
-   * @type string
-   */
-  private _previousComponentId: string;
-  /**
-   * @property
-   * @description Div used when pointer events none is not supported
-   */
-  private _pointerDiv: HTMLElement;
-  /**
+   * This property contains the promise that hijacks the flow. When the flow
+   * hijack is released this promise will be released as well and the flow is allowed to continue.
+   *
    * @public
-   * @type {Promise<void>}
-   * @description Promise that contains the hijacked state of the flow
    */
   public flowHijacked: Promise<void> = Promise.resolve();
 
+  /**
+   * This property contains the componentId of the last page/component that was active. The vue-router
+   * onLeave method is triggered twice, therefore we store the previous componentId so we can ignore
+   * the second time.
+   *
+   * @private
+   */
+  private _previousComponentId: string;
+
+  /**
+   * If pointer-events none is not supported we inject a div into the DOM that blocks
+   * all other click events. This property contains the reference to this element
+   *
+   * @private
+   */
+  private _pointerDiv: HTMLElement;
+
+  /**
+   * When the FlowManager is initially constructed it detects if we are using a browser
+   * that does not support pointer-events. If it's not supported the fallback div is
+   * created and injected into the DOM.
+   */
   constructor() {
     super();
 
@@ -53,9 +79,10 @@ export class FlowManager extends EventDispatcher {
   }
 
   /**
+   * When this method is called it will return a promise with a resolve method
+   * that can be called to release the hijack. When the hijack is released the flow will continue.
+   *
    * @public
-   * @method hijackFlow
-   * @returns {Promise<()=>void>}
    */
   public hijackFlow(): Promise<() => void> {
     return new Promise<() => void>((resolve: (release) => void) => {
@@ -64,10 +91,12 @@ export class FlowManager extends EventDispatcher {
   }
 
   /**
+   * When the flow is fully done this method should be called. For example when the
+   * transition out of the current page is completely done. It will reset the transition
+   * out promise, clear the previous component id and re-enable all the pointer events so
+   * the user can navigate further.
+   *
    * @public
-   * @method done
-   * @description Trigger this method when the flow is fully done, it resets the promise and allows for further
-   * navigation
    */
   public done(): void {
     this.transitionOut = null;
@@ -78,14 +107,13 @@ export class FlowManager extends EventDispatcher {
   }
 
   /**
-   * @public
-   * @method start
-   * @param pageInstance
-   * @param release
-   * @param path
-   * @description The vue router triggers the onLeave method twice, so we need to store the current componentId to
+   * The vue router triggers the onLeave method twice, so we need to store the current componentId to
    * avoid weird page transition issues. If it's triggered on the same page we release the hijack right away.
-   * @returns {void}
+   *
+   * @public
+   * @param {IAbstractPageTransitionComponent} pageInstance
+   * @param {(param?: (string | boolean)) => void} release
+   * @param {IRoute} to
    */
   public start(
     pageInstance: IAbstractPageTransitionComponent,
@@ -126,9 +154,11 @@ export class FlowManager extends EventDispatcher {
   }
 
   /**
+   * During page navigation we want to disable all pointer events so the user
+   * cannot navigate to another page while the current page switch is still running.
+   * This causes major flow issues, might not be the prettiest solution but hey it works!
+   *
    * @private
-   * @method disablePointerEvents
-   * @description Disable pointer events during page switches
    */
   private disablePointerEvents(): void {
     /* istanbul ignore if  */
@@ -140,9 +170,10 @@ export class FlowManager extends EventDispatcher {
   }
 
   /**
+   * After the flow is completed the pointer events can be enabled again so the
+   * user can continue navigating.
+   *
    * @private
-   * @method enablePointerEvents
-   * @description Enable pointer events and allow flow navigation
    */
   private enablePointerEvents(): void {
     /* istanbul ignore if  */
@@ -154,21 +185,24 @@ export class FlowManager extends EventDispatcher {
   }
 
   /**
+   * This method checks if the page we are navigating to is a new component. If the current component
+   * shares the same name (for example: when using params to change content) it means it's not a new component and the
+   * current component will never leave the DOM!
+   *
    * @private
-   * @method isNewPageComponent
-   * @param pageInstance
-   * @param to
+   * @param {IAbstractPageTransitionComponent} pageInstance
+   * @param {IRoute} to
    * @returns {boolean}
    */
   private isNewPageComponent(pageInstance: IAbstractPageTransitionComponent, to: IRoute): boolean {
-    // Check if the current component shares the same component name, this means it's not a new component and
-    // the current one will never leave the DOM
     return pageInstance.$options.name !== to.matched[0].components.default['name'];
   }
 
   /**
+   * This method will probably never be called but if you want to you can dispose of
+   * the flow manager and everything will be cleaned.
+   *
    * @public
-   * @description Dispose the flow manager
    */
   public dispose(): void {
     this.transitionOut = null;
@@ -183,6 +217,9 @@ export class FlowManager extends EventDispatcher {
   }
 }
 
+/**
+ * Create the single instance of the flow manager
+ */
 const flowManager = new FlowManager();
 
 export default flowManager;
