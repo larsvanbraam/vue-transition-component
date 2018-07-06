@@ -20,7 +20,7 @@ class FlowEvent extends AbstractEvent {
    *
    * @public
    */
-  public data: { to: IRoute };
+  public data: { to: IRoute; from: IRoute };
 
   /**
    * Provided the type + data to construct the flow event
@@ -33,7 +33,7 @@ class FlowEvent extends AbstractEvent {
    */
   constructor(
     type: string,
-    data: { to: IRoute },
+    data: { to: IRoute; from: IRoute },
     bubbles?: boolean,
     cancelable?: boolean,
     setTimeStamp?: boolean,

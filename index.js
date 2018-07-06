@@ -3,7 +3,7 @@
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
-exports.IRoute = exports.IAbstractTransitionComponent = exports.IAbstractRegistrableComponent = exports.IAbstractPageTransitionComponent = exports.AbstractPageTransitionComponent = exports.AbstractTransitionComponent = exports.AbstractRegistrableComponent = exports.FlowType = exports.AbstractTransitionController = exports.FlowManager = exports.ICreateTimelineOptions = exports.IAbstractTransitionControllerOptions = exports.TransitionEvent = void 0;
+exports.IRoute = exports.IAbstractTransitionComponent = exports.IAbstractRegistrableComponent = exports.IAbstractPageTransitionComponent = exports.AbstractPageTransitionComponent = exports.AbstractTransitionComponent = exports.AbstractRegistrableComponent = exports.FlowEvent = exports.FlowType = exports.AbstractTransitionController = exports.FlowManager = exports.ICreateTimelineOptions = exports.IAbstractTransitionControllerOptions = exports.TransitionEvent = void 0;
 
 var _transitionController = require("transition-controller");
 
@@ -22,6 +22,10 @@ exports.AbstractTransitionController = _AbstractVueTransitionController.default;
 var _FlowType = _interopRequireDefault(require("./lib/enum/FlowType"));
 
 exports.FlowType = _FlowType.default;
+
+var _FlowEvent = _interopRequireDefault(require("./lib/event/FlowEvent"));
+
+exports.FlowEvent = _FlowEvent.default;
 
 var _IAbstractPageTransitionComponent = require("./lib/interface/IAbstractPageTransitionComponent");
 

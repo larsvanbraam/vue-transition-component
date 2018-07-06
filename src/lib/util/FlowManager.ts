@@ -119,6 +119,7 @@ export class FlowManager extends EventDispatcher {
     pageInstance: IAbstractPageTransitionComponent,
     release: (param?: string | boolean) => void,
     to: IRoute,
+    from: IRoute,
   ): void {
     this.disablePointerEvents();
 
@@ -126,7 +127,7 @@ export class FlowManager extends EventDispatcher {
       release();
     } else {
       this._previousComponentId = pageInstance.$options.name;
-      this.dispatchEvent(new FlowEvent(FlowEvent.START, { to }));
+      this.dispatchEvent(new FlowEvent(FlowEvent.START, { to, from }));
       switch (pageInstance.flow) {
         case FlowType.NORMAL: {
           this.transitionOut = pageInstance.transitionOut(true);
