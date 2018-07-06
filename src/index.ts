@@ -13,6 +13,9 @@ export {
 // Export enums
 export { default as FlowType } from './lib/enum/FlowType';
 
+// Export events
+export { default as FlowEvent } from './lib/event/FlowEvent';
+
 // Export interfaces
 export { IAbstractPageTransitionComponent } from './lib/interface/IAbstractPageTransitionComponent';
 export { IAbstractRegistrableComponent } from './lib/interface/IAbstractRegistrableComponent';
