@@ -6,6 +6,12 @@ export default {
   beforeCreate() {
     this.transitionController = null;
   },
+  destroy() {
+    if (this.transitionController) {
+      this.transitionController.dispose();
+      this.transitionController = null;
+    }
+  },
   methods: {
     transitionIn(forceTransition) {
       return this.allComponentsReady.then(() =>
@@ -21,11 +27,5 @@ export default {
     stopLoopingAnimation() {
       this.transitionController.stopLoopingAnimation();
     },
-  },
-  beforeDestroy() {
-    if (this.transitionController) {
-      this.transitionController.dispose();
-      this.transitionController = null;
-    }
   },
 };

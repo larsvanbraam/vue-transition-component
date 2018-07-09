@@ -22,6 +22,19 @@ export default {
       this.allComponentsReadyResolveMethod = resolve;
     });
   },
+  destroy() {
+    this.isRegistrable = null;
+
+    if (this.registeredComponents) {
+      this.registeredComponents.length = 0;
+      this.registeredComponents = null;
+    }
+
+    if (this.newRegisteredComponents) {
+      this.newRegisteredComponents.length = 0;
+      this.newRegisteredComponents = null;
+    }
+  },
   methods: {
     isReady() {
       // If you want to you can listen to the isReady event
@@ -105,18 +118,5 @@ export default {
       });
     // We wait for the next tick otherwise the $children might not be set when you use a v-for loop
     this.$nextTick(() => this.checkComponentsReady());
-  },
-  beforeDestroy() {
-    this.isRegistrable = null;
-
-    if (this.registeredComponents) {
-      this.registeredComponents.length = 0;
-      this.registeredComponents = null;
-    }
-
-    if (this.newRegisteredComponents) {
-      this.newRegisteredComponents.length = 0;
-      this.newRegisteredComponents = null;
-    }
   },
 };
