@@ -5128,13 +5128,12 @@ tough-cookie@~2.3.0:
   dependencies:
     punycode "^1.4.1"
 
-transition-controller@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-1.1.0.tgz#7e63ab89611c3f867c9237db09a6da962a40ba3d"
+transition-controller@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-1.1.2.tgz#726d9be9dffed44ccdc50afed4f979ecaeddac14"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.35"
     "@types/gsap" "^1.19.2"
-    gsap "^2.0.1"
     lodash "^4.17.4"
     seng-event "^1.2.3"
 
