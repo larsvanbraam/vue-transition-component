@@ -1,5 +1,4 @@
 import * as bowser from 'bowser';
-import { TweenLite } from 'gsap';
 import EventDispatcher from 'seng-event';
 import { IRoute } from '../../lib/interface/IRoute';
 import FlowType from '../enum/FlowType';
@@ -63,16 +62,14 @@ export class FlowManager extends EventDispatcher {
     if (bowser.msie && bowser.version <= 10) {
       this._pointerDiv = document.createElement('div');
 
-      TweenLite.set(this._pointerDiv, {
-        className: 'vueTransitionComponentPointerDiv',
-        display: 'none',
-        position: 'fixed',
-        left: '0px',
-        top: '0px',
-        width: '100%',
-        height: '100%',
-        zIndex: 99999,
-      });
+      this._pointerDiv.classList.add('vueTransitionComponentPointerDiv');
+      this._pointerDiv.style.display = 'none';
+      this._pointerDiv.style.position = 'fixed';
+      this._pointerDiv.style.left = '0px';
+      this._pointerDiv.style.top = '0px';
+      this._pointerDiv.style.width = '100%';
+      this._pointerDiv.style.height = '100%';
+      this._pointerDiv.style.zIndex = '99999';
 
       document.body.appendChild(this._pointerDiv);
     }
