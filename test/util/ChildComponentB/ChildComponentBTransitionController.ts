@@ -1,5 +1,5 @@
 import AbstractVueTransitionController from '../../../src/lib/util/AbstractVueTransitionController';
-import { TimelineLite, TimelineMax } from 'gsap';
+import { TimelineMax } from 'gsap';
 
 class ChildComponentBTransitionController extends AbstractVueTransitionController {
   /**
@@ -21,8 +21,8 @@ class ChildComponentBTransitionController extends AbstractVueTransitionControlle
    * @method setupTransitionOutTimeline
    * @description overwrite this method in the parent class
    * */
-  protected setupTransitionOutTimeline(timeline: TimelineLite): void {
-    const subTimeline = new TimelineLite();
+  protected setupTransitionOutTimeline(timeline: TimelineMax): void {
+    const subTimeline = new TimelineMax();
     subTimeline.to(document.createElement('div'), 0.1, { autoAlpha: 0 });
 
     timeline.to(this.parentController.$el, 0.1, { autoAlpha: 0 });

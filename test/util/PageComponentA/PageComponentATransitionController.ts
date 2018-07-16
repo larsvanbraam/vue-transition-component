@@ -1,5 +1,5 @@
 import AbstractVueTransitionController from '../../../src/lib/util/AbstractVueTransitionController';
-import { TimelineLite, TimelineMax } from 'gsap';
+import { TimelineMax } from 'gsap';
 
 class PageComponentATransitionController extends AbstractVueTransitionController {
   /**
@@ -7,7 +7,7 @@ class PageComponentATransitionController extends AbstractVueTransitionController
    * @method setupTransitionInTimeline
    * @description overwrite this method in the parent class
    */
-  protected setupTransitionInTimeline(timeline: TimelineLite): void {
+  protected setupTransitionInTimeline(timeline: TimelineMax): void {
     this.transitionInTimeline.fromTo(
       this.parentController.$el,
       0.1,
@@ -21,7 +21,7 @@ class PageComponentATransitionController extends AbstractVueTransitionController
    * @method setupTransitionOutTimeline
    * @description overwrite this method in the parent class
    * */
-  protected setupTransitionOutTimeline(timeline: TimelineLite): void {}
+  protected setupTransitionOutTimeline(timeline: TimelineMax): void {}
 
   /**
    * @public

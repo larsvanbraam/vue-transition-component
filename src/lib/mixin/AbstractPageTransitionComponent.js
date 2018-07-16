@@ -18,9 +18,9 @@ export default {
   },
   /**
    * @description Before the route is entered we trigger the transition in
-   * @param to
-   * @param from
-   * @param next
+   * @param to The route we are about to enter
+   * @param from The route we left
+   * @param next The method that releases the vue-router flow
    */
   beforeRouteEnter(to, from, next) {
     /* istanbul ignore next */
@@ -36,9 +36,9 @@ export default {
   },
   /**
    * @description This method is triggered when we navigate to a sub-page of the current existing page
-   * @param to
-   * @param from
-   * @param next
+   * @param to The route we are about to enter
+   * @param from The route we left
+   * @param next The method that releases the vue-router flow
    */
   beforeRouteUpdate(to, from, next) {
     // Find the old reference and remove it
@@ -56,9 +56,9 @@ export default {
   },
   /**
    * @description This method handles the default page switches
-   * @param to
-   * @param from
-   * @param next
+   * @param to The route we are about to enter
+   * @param from The route we left
+   * @param next The method that releases the vue-router flow
    */
   beforeRouteLeave(to, from, next) {
     /* istanbul ignore next */

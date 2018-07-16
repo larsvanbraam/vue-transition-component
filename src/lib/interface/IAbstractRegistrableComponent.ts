@@ -70,8 +70,8 @@ export interface IAbstractRegistrableComponent extends Vue {
    * that will be resolved when the "new" children are ready
    *
    * @public
-   * @param {(resolve: () => void) => void} callback
-   * @returns {Promise<Array<IAbstractRegistrableComponent>>}
+   * @param {(resolve: () => void) => void} callback The method that will be called so you can release the update method
+   * @returns {Promise<Array<IAbstractRegistrableComponent>>} An array containing the newly registered components
    */
   updateRegistrableComponents(
     callback: (resolve: () => void) => void,
@@ -81,7 +81,7 @@ export interface IAbstractRegistrableComponent extends Vue {
    * This method is called by the child component so we can keep track of components that are loaded.
    *
    * @public
-   * @param {IAbstractRegistrableComponent} component
+   * @param {IAbstractRegistrableComponent} component The reference to the component that is ready
    */
   componentReady(component: IAbstractRegistrableComponent): void;
 

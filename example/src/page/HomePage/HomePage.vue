@@ -20,18 +20,22 @@
           <p>When using vue-transition-component you add the power of GSAP to your components. Creating complex animation
             timelines and keeping all your animation code separate has never been easier. Create custom transition in
             and transition out timelines for your components and nest them within the timelines of other components.</p>
-          <p>This demo contains a very minimal vue.js setup in combination with vue-transition-component 2.x.x module. On the code page you can preview the code that
-            is used to output that page animation</p>
+          <p>This demo contains a very minimal vue.js setup in combination with vue-transition-component 2.x.x module. On the code page you can preview the code that is used to output that page animation</p>
         </div>
         <div class="col-lg-6">
           <div class="page-header">
             <h2>External links:</h2>
           </div>
           <div class="list-group">
-            <a class="list-group-item" href="https://larsvanbraam.gitbooks.io/vue-transition-component/content"
+            <a class="list-group-item" href="https://larsvanbraam.gitbook.io/vue-transition-component/"
                target="_blank">
               <span class="icon glyphicon glyphicon-book"></span>
-              <span class="icon-label">View documentation</span>
+              <span class="icon-label">View examples</span>
+            </a>
+            <a class="list-group-item" href="https://larsvanbraam.github.io/vue-transition-component/docs"
+               target="_blank">
+              <span class="icon glyphicon glyphicon-book"></span>
+              <span class="icon-label">View TypeDoc</span>
             </a>
             <a class="list-group-item" href="https://www.npmjs.com/package/vue-transition-component" target="_blank">
               <span class="icon glyphicon glyphicon-globe"></span>

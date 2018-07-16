@@ -1,4 +1,4 @@
-import AbstractTransitionController, { TransitionDirection } from 'transition-controller';
+import AbstractTransitionController from 'transition-controller';
 import isString from 'lodash/isString';
 import isElement from 'lodash/isElement';
 import { IAbstractTransitionComponent } from '../interface/IAbstractTransitionComponent';
@@ -10,13 +10,11 @@ export default abstract class AbstractVueTransitionController extends AbstractTr
    * This method finds a component based on a string, a html element or the instance.
    *
    * @protected
-   * @param {string | HTMLElement | IAbstractTransitionComponent} component
-   * @param {TransitionDirection} direction
-   * @returns {gsap.TimelineLite | gsap.TimelineMax}
+   * @param {string | HTMLElement | IAbstractTransitionComponent} component The selector for the component
+   * @returns {IAbstractTransitionComponent} The instance of the component you requested
    */
   protected getComponent(
     component: string | HTMLElement | IAbstractTransitionComponent,
-    direction: TransitionDirection = TransitionDirection.IN,
   ): IAbstractTransitionComponent {
     let instance: IAbstractTransitionComponent;
 

@@ -25,11 +25,15 @@ class FlowEvent extends AbstractEvent {
   /**
    * Provided the type + data to construct the flow event
    *
-   * @param {string} type
-   * @param {{to: IRoute}} data
-   * @param {boolean} bubbles
-   * @param {boolean} cancelable
-   * @param {boolean} setTimeStamp
+   * @param {string} type The type of the event. Event listeners will only be called if their eventType match this type.
+   * @param {{to: IRoute; from: IRoute}} data The data that is linked to the event. It contains the from and to information.
+   * @param {boolean} bubbles If true, the event will also go through a bubbling phase.
+   * @param {boolean} cancelable Indicates if preventDefault can be called on this event. This will prevent the 'default
+   * action' of the event from being executed. It is up to the EventDispatcher instance that dispatches the
+   * event to stop the default action from executing when the dispatchEvent
+   * method returns _false_
+   * @param {boolean} If true, will set the [[timeStamp]] property of this event to the current time whenever
+   * this event is dispatched.
    */
   constructor(
     type: string,

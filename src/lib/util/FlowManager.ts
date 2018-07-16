@@ -39,7 +39,7 @@ export class FlowManager extends EventDispatcher {
    *
    * @private
    */
-  private _previousComponentId: string;
+  private previousComponentId: string;
 
   /**
    * If pointer-events none is not supported we inject a div into the DOM that blocks
@@ -47,7 +47,7 @@ export class FlowManager extends EventDispatcher {
    *
    * @private
    */
-  private _pointerDiv: HTMLElement;
+  private pointerDiv: HTMLElement;
 
   /**
    * When the FlowManager is initially constructed it detects if we are using a browser
@@ -60,18 +60,18 @@ export class FlowManager extends EventDispatcher {
     // Fallback for IE10
     /* istanbul ignore if  */
     if (bowser.msie && bowser.version <= 10) {
-      this._pointerDiv = document.createElement('div');
+      this.pointerDiv = document.createElement('div');
 
-      this._pointerDiv.classList.add('vueTransitionComponentPointerDiv');
-      this._pointerDiv.style.display = 'none';
-      this._pointerDiv.style.position = 'fixed';
-      this._pointerDiv.style.left = '0px';
-      this._pointerDiv.style.top = '0px';
-      this._pointerDiv.style.width = '100%';
-      this._pointerDiv.style.height = '100%';
-      this._pointerDiv.style.zIndex = '99999';
+      this.pointerDiv.classList.add('vueTransitionComponentPointerDiv');
+      this.pointerDiv.style.display = 'none';
+      this.pointerDiv.style.position = 'fixed';
+      this.pointerDiv.style.left = '0px';
+      this.pointerDiv.style.top = '0px';
+      this.pointerDiv.style.width = '100%';
+      this.pointerDiv.style.height = '100%';
+      this.pointerDiv.style.zIndex = '99999';
 
-      document.body.appendChild(this._pointerDiv);
+      document.body.appendChild(this.pointerDiv);
     }
   }
 
@@ -98,7 +98,7 @@ export class FlowManager extends EventDispatcher {
   public done(): void {
     this.transitionOut = null;
     // Reset the previous component id when the flow is done to allow re-opening of the same page after closing it
-    this._previousComponentId = null;
+    this.previousComponentId = null;
     // Enable the pointer events and allow the flow
     this.enablePointerEvents();
   }
@@ -108,9 +108,10 @@ export class FlowManager extends EventDispatcher {
    * avoid weird page transition issues. If it's triggered on the same page we release the hijack right away.
    *
    * @public
-   * @param {IAbstractPageTransitionComponent} pageInstance
-   * @param {(param?: (string | boolean)) => void} release
-   * @param {IRoute} to
+   * @param {IAbstractPageTransitionComponent} pageInstance The reference to the current page instance
+   * @param {(param?: (string | boolean)) => void} release The release method that will allow the vue-router to continue
+   * @param {IRoute} to The target route we are navigating to
+   * @param {IRoute} from The current route we are navigating away from
    */
   public start(
     pageInstance: IAbstractPageTransitionComponent,
@@ -120,10 +121,10 @@ export class FlowManager extends EventDispatcher {
   ): void {
     this.disablePointerEvents();
 
-    if (this._previousComponentId === pageInstance.$options.name) {
+    if (this.previousComponentId === pageInstance.$options.name) {
       release();
     } else {
-      this._previousComponentId = pageInstance.$options.name;
+      this.previousComponentId = pageInstance.$options.name;
       this.dispatchEvent(new FlowEvent(FlowEvent.START, { to, from }));
       switch (pageInstance.flow) {
         case FlowType.NORMAL: {
@@ -161,7 +162,7 @@ export class FlowManager extends EventDispatcher {
   private disablePointerEvents(): void {
     /* istanbul ignore if  */
     if (bowser.msie && bowser.version <= 10) {
-      this._pointerDiv.style.display = 'block';
+      this.pointerDiv.style.display = 'block';
     } else {
       document.body.style.pointerEvents = 'none';
     }
@@ -176,7 +177,7 @@ export class FlowManager extends EventDispatcher {
   private enablePointerEvents(): void {
     /* istanbul ignore if  */
     if (bowser.msie && bowser.version <= 10) {
-      this._pointerDiv.style.display = 'none';
+      this.pointerDiv.style.display = 'none';
     } else {
       document.body.style.pointerEvents = 'all';
     }
@@ -188,9 +189,9 @@ export class FlowManager extends EventDispatcher {
    * current component will never leave the DOM!
    *
    * @private
-   * @param {IAbstractPageTransitionComponent} pageInstance
-   * @param {IRoute} to
-   * @returns {boolean}
+   * @param {IAbstractPageTransitionComponent} pageInstance The reference of the page that we are currently on
+   * @param {IRoute} to The route we are about to navigate to
+   * @returns {boolean} This indicates if the page we are going to is the same as the page we are currently on
    */
   private isNewPageComponent(pageInstance: IAbstractPageTransitionComponent, to: IRoute): boolean {
     return pageInstance.$options.name !== to.matched[0].components.default['name'];
@@ -204,11 +205,11 @@ export class FlowManager extends EventDispatcher {
    */
   public dispose(): void {
     this.transitionOut = null;
-    this._previousComponentId = null;
+    this.previousComponentId = null;
     /* istanbul ignore if  */
-    if (this._pointerDiv !== undefined && document.body !== null) {
-      document.body.removeChild(this._pointerDiv);
-      this._pointerDiv = null;
+    if (this.pointerDiv !== undefined && document.body !== null) {
+      document.body.removeChild(this.pointerDiv);
+      this.pointerDiv = null;
     }
 
     super.dispose();

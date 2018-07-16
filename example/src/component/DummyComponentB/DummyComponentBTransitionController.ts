@@ -1,4 +1,4 @@
-import { TimelineLite, TimelineMax, Expo } from 'gsap';
+import { TimelineMax, Expo } from 'gsap';
 import AbstractVueTransitionController from "../../../../src/lib/util/AbstractVueTransitionController";
 
 export default class DummyComponentBTransitionController extends AbstractVueTransitionController {
@@ -7,7 +7,7 @@ export default class DummyComponentBTransitionController extends AbstractVueTran
    * @method setupTransitionInTimeline
    * @param {gsap.TimelineLite | gsap.TimelineMax} timeline
    */
-  protected setupTransitionInTimeline(timeline: TimelineLite | TimelineMax): void {
+  protected setupTransitionInTimeline(timeline: TimelineMax): void {
     timeline.fromTo(
       this.parentController.$el,
       0.5,
@@ -28,7 +28,7 @@ export default class DummyComponentBTransitionController extends AbstractVueTran
    * @method setupTransitionOutTimeline
    * @param {gsap.TimelineLite | gsap.TimelineMax} timeline
    */
-  protected setupTransitionOutTimeline(timeline: TimelineLite | TimelineMax): void {
+  protected setupTransitionOutTimeline(timeline: TimelineMax): void {
     timeline.to(
       this.parentController.$el,
       0.5,

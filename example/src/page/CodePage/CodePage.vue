@@ -58,12 +58,12 @@ import IAbstractTransitionComponent from "../../../../src/lib/interface/IAbstrac
 export default class CodepageTransitionController extends AbstractVueTransitionController {
   /**
    * @protected
-   * @param {TimelineLite | TimelineMax} timeline
+   * @param {TimelineMax} timeline
    * @param {IAbstractTransitionComponent} parent
    * @param {string} id
    */
   protected setupTransitionInTimeline(
-    timeline: TimelineLite | TimelineMax,
+    timeline: TimelineMax,
     parent:IAbstractTransitionComponent,
     id:string): void {
     timeline.fromTo(
@@ -91,12 +91,12 @@ export default class CodepageTransitionController extends AbstractVueTransitionC
 
   /**
    * @protected
-   * @param {TimelineLite | TimelineMax} timeline
+   * @param {TimelineMax} timeline
    * @param {IAbstractTransitionComponent} parent
    * @param {string} id
    */
   protected setupTransitionOutTimeline(
-    timeline: TimelineLite | TimelineMax,
+    timeline: TimelineMax,
     parent:IAbstractTransitionComponent,
     id:string): void {
     timeline.to(parent.$el, 0.5, {

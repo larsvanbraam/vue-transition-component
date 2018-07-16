@@ -5128,9 +5128,9 @@ tough-cookie@~2.3.0:
   dependencies:
     punycode "^1.4.1"
 
-transition-controller@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-1.1.2.tgz#726d9be9dffed44ccdc50afed4f979ecaeddac14"
+transition-controller@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-1.2.0.tgz#3ec3f96db4873039d49abc8171eaf23445df22bb"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.35"
     "@types/gsap" "^1.19.2"

@@ -1,5 +1,5 @@
 import { AbstractTransitionController, IAbstractTransitionComponent } from 'vue-transition-component';
-import { TimelineLite, TimelineMax } from 'gsap';
+import { TimelineMax } from 'gsap';
 
 export default class {{name_pc}}TransitionController extends AbstractTransitionController {
   /**
@@ -12,7 +12,7 @@ export default class {{name_pc}}TransitionController extends AbstractTransitionC
    * @param {string} id The transition id that was provided when constructing the controller
    */
   protected setupTransitionInTimeline(
-    timeline:TimelineLite|TimelineMax,
+    timeline:TimelineMax,
     parent:IAbstractTransitionComponent,
     id:string): void {}
 
@@ -26,7 +26,7 @@ export default class {{name_pc}}TransitionController extends AbstractTransitionC
    * @param {string} id The transition id that was provided when constructing the controller
    */
   protected setupTransitionOutTimeline(
-    timeline:TimelineLite|TimelineMax,
+    timeline:TimelineMax,
     parent:IAbstractTransitionComponent,
     id:string): void {}
 

@@ -1,5 +1,6 @@
 export {
   TransitionEvent,
+  TimelineType,
   IAbstractTransitionControllerOptions,
   ICreateTimelineOptions,
 } from 'transition-controller';
