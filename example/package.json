@@ -15,7 +15,7 @@
     "highlight.js": "^9.12.0",
     "lodash": "^4.17.5",
     "seng-event": "^1.2.3",
-    "transition-controller": "^1.2.2",
+    "transition-controller": "^1.2.4",
     "ts-loader": "^4.1.0",
     "vue": "^2.2.5",
     "vue-loader": "14.1.1",

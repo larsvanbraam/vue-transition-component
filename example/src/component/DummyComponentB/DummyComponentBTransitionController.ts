@@ -8,6 +8,7 @@ export default class DummyComponentBTransitionController extends AbstractVueTran
    * @param {gsap.TimelineLite | gsap.TimelineMax} timeline
    */
   protected setupTransitionInTimeline(timeline: TimelineMax): void {
+    console.log(this);
     timeline.fromTo(
       this.parentController.$el,
       0.5,
