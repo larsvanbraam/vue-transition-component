@@ -457,7 +457,7 @@
 								<p>Inherited from AbstractTransitionController.dispose</p>
 								<p>Overrides EventDispatcher.dispose</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:277</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:283</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -481,7 +481,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides AbstractTransitionController.getComponent</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/9819afc/src/lib/util/AbstractVueTransitionController.ts#L16">util/AbstractVueTransitionController.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/1f82fde/src/lib/util/AbstractVueTransitionController.ts#L16">util/AbstractVueTransitionController.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -507,14 +507,14 @@
 					<a name="gettimeline" class="tsd-anchor"></a>
 					<h3>get<wbr>Timeline</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Timeline<span class="tsd-signature-symbol">(</span>component<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a>, direction<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TransitionDirection</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Animation</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Timeline<span class="tsd-signature-symbol">(</span>component<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a>, direction<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TransitionDirection</span>, reset<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, id<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Animation</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from AbstractTransitionController.getTimeline</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:167</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:169</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -538,6 +538,18 @@
 										<p>The direction of the timeline that you want</p>
 									</div>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> reset: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>This flag determines if we reset the existing timeline or re-create it from scratch</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>This is the id of the timeline that we are requesting</p>
+									</div>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Animation</span></h4>
 							<p>The timeline that is retrieved</p>
@@ -548,14 +560,14 @@
 					<a name="gettimelinedurationforcomponent" class="tsd-anchor"></a>
 					<h3>get<wbr>Timeline<wbr>Duration<wbr>For<wbr>Component</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Timeline<wbr>Duration<wbr>For<wbr>Component<span class="tsd-signature-symbol">(</span>component<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a>, direction<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TransitionDirection</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Timeline<wbr>Duration<wbr>For<wbr>Component<span class="tsd-signature-symbol">(</span>component<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HTMLElement</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a>, direction<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TransitionDirection</span>, reset<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, id<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from AbstractTransitionController.getTimelineDurationForComponent</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:174</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:178</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -572,6 +584,18 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> direction: <span class="tsd-signature-type">TransitionDirection</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The direction that you want to check for</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> reset: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>This flag determines if we reset the existing timeline or re-create it from scratch</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>This is the id of the timeline that we are requesting</p>
 									</div>
 								</li>
 							</ul>
@@ -639,7 +663,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from AbstractTransitionController.init</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:189</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:193</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -772,7 +796,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from AbstractTransitionController.setupLoopingAnimationTimeline</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:220</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:224</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -817,7 +841,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from AbstractTransitionController.setupTimeline</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:183</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:187</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -861,7 +885,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from AbstractTransitionController.setupTransitionInTimeline</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:210</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:214</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -906,7 +930,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from AbstractTransitionController.setupTransitionOutTimeline</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:200</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/transition-controller/lib/AbstractTransitionController.d.ts:204</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

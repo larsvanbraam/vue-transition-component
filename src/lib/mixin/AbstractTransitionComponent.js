@@ -6,7 +6,7 @@ export default {
   beforeCreate() {
     this.transitionController = null;
   },
-  destroy() {
+  destroyed() {
     if (this.transitionController) {
       this.transitionController.dispose();
       this.transitionController = null;

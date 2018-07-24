@@ -22,7 +22,7 @@ export default {
       this.allComponentsReadyResolveMethod = resolve;
     });
   },
-  destroy() {
+  destroyed() {
     this.isRegistrable = null;
 
     if (this.registeredComponents) {
