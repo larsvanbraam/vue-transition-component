@@ -3,10 +3,7 @@
 
 <template>
   <div>
-    <transition
-      :css="false"
-      @leave="onLeave"
-    >
+    <transition @leave="onLeave" >
       <router-view />
     </transition>
   </div>
