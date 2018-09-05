@@ -82,7 +82,7 @@ export class FlowManager extends EventDispatcher {
    * @public
    */
   public hijackFlow(): Promise<() => void> {
-    return new Promise<() => void>((resolve: (release) => void) => {
+    return new Promise<() => void>((resolve: (release: () => void) => void) => {
       this.flowHijacked = new Promise<void>(release => resolve(release));
     });
   }
