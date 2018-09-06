@@ -24,6 +24,9 @@ export {
   IRoute,
 };
 
-export const AbstractRegistrableComponent: IAbstractRegistrableComponent = require('./lib/mixin/AbstractRegistrableComponent');
-export const AbstractTransitionComponent: IAbstractTransitionComponent = require('./lib/mixin/AbstractTransitionComponent');
-export const AbstractPageTransitionComponent: IAbstractPageTransitionComponent = require('./lib/mixin/AbstractPageTransitionComponent');
+export const AbstractRegistrableComponent: IAbstractRegistrableComponent = require('./lib/mixin/AbstractRegistrableComponent')
+  .default;
+export const AbstractTransitionComponent: IAbstractTransitionComponent = require('./lib/mixin/AbstractTransitionComponent')
+  .default;
+export const AbstractPageTransitionComponent: IAbstractPageTransitionComponent = require('./lib/mixin/AbstractPageTransitionComponent')
+  .default;

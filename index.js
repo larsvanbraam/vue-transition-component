@@ -45,14 +45,14 @@ var _FlowEvent = _interopRequireDefault(require("./lib/event/FlowEvent"));
 
 exports.FlowEvent = _FlowEvent.default;
 
-var AbstractRegistrableComponent = require('./lib/mixin/AbstractRegistrableComponent');
+var AbstractRegistrableComponent = require('./lib/mixin/AbstractRegistrableComponent').default;
 
 exports.AbstractRegistrableComponent = AbstractRegistrableComponent;
 
-var AbstractTransitionComponent = require('./lib/mixin/AbstractTransitionComponent');
+var AbstractTransitionComponent = require('./lib/mixin/AbstractTransitionComponent').default;
 
 exports.AbstractTransitionComponent = AbstractTransitionComponent;
 
-var AbstractPageTransitionComponent = require('./lib/mixin/AbstractPageTransitionComponent');
+var AbstractPageTransitionComponent = require('./lib/mixin/AbstractPageTransitionComponent').default;
 
 exports.AbstractPageTransitionComponent = AbstractPageTransitionComponent;
