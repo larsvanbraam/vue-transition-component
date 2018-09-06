@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IAbstractRegistrableComponent | vue-transition-component</title>
+	<title>IAbstractRegistrableComponent | VueTransitionComponent</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">vue-transition-component</a>
+					<a href="../index.html" class="title">VueTransitionComponent</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -38,8 +38,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 							<input type="checkbox" id="tsd-filter-only-exported" />
 							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
@@ -53,7 +51,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../index.html">Globals</a>
 				</li>
 				<li>
 					<a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>
@@ -66,6 +64,15 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The AbstractRegistrableComponent is the core component of the vue-transition-component. It&#39;s used for
+							registering components and making sure all the children are done before we start creating timelines.
+						Nested registrable components will let their parent know that they are ready.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -111,19 +118,16 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_vnode" class="tsd-kind-icon">$vnode</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#vue" class="tsd-kind-icon">Vue</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#allcomponentsready" class="tsd-kind-icon">all<wbr>Components<wbr>Ready</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#allcomponentsreadyresolvemethod" class="tsd-kind-icon">all<wbr>Components<wbr>Ready<wbr>Resolve<wbr>Method</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#componentid" class="tsd-kind-icon">component<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#componenttype" class="tsd-kind-icon">component<wbr>Type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#components" class="tsd-kind-icon">components</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#isregistrable" class="tsd-kind-icon">is<wbr>Registrable</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#newregisteredcomponents" class="tsd-kind-icon">new<wbr>Registered<wbr>Components</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#registeredcomponents" class="tsd-kind-icon">registered<wbr>Components</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#registrablecomponents" class="tsd-kind-icon">registrable<wbr>Components</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-private"><a href="iabstractregistrablecomponent.html#__checkcomponentsready" class="tsd-kind-icon">$_<wbr>check<wbr>Components<wbr>Ready</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#__componentready" class="tsd-kind-icon">$_<wbr>component<wbr>Ready</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-private"><a href="iabstractregistrablecomponent.html#__updateregistrablecomponents" class="tsd-kind-icon">$_<wbr>update<wbr>Registrable<wbr>Components</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_destroy" class="tsd-kind-icon">$destroy</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_emit" class="tsd-kind-icon">$emit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_forceupdate" class="tsd-kind-icon">$force<wbr>Update</a></li>
@@ -133,10 +137,11 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_on" class="tsd-kind-icon">$on</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_once" class="tsd-kind-icon">$once</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_watch" class="tsd-kind-icon">$watch</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#getchild" class="tsd-kind-icon">get<wbr>Child</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#checkcomponentsready" class="tsd-kind-icon">check<wbr>Components<wbr>Ready</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#componentready" class="tsd-kind-icon">component<wbr>Ready</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#handleallcomponentsready" class="tsd-kind-icon">handle<wbr>All<wbr>Components<wbr>Ready</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#haschild" class="tsd-kind-icon">has<wbr>Child</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#isready" class="tsd-kind-icon">is<wbr>Ready</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#setregistrablecomponents" class="tsd-kind-icon">set<wbr>Registrable<wbr>Components</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#updateregistrablecomponents" class="tsd-kind-icon">update<wbr>Registrable<wbr>Components</a></li>
 							</ul>
 						</section>
@@ -236,7 +241,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="_options" class="tsd-anchor"></a>
 					<h3>$options</h3>
-					<div class="tsd-signature tsd-kind-icon">$options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ComponentOptions</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">$options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ComponentOptions</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Vue</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from Vue.$options</p>
 						<ul>
@@ -373,64 +378,23 @@
 					<div class="tsd-signature tsd-kind-icon">Vue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">VueConstructor</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:122</li>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:124</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="allcomponentsready" class="tsd-anchor"></a>
 					<h3>all<wbr>Components<wbr>Ready</h3>
-					<div class="tsd-signature tsd-kind-icon">all<wbr>Components<wbr>Ready<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">all<wbr>Components<wbr>Ready<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/interface/IAbstractRegistrableComponent.ts#L39">lib/interface/IAbstractRegistrableComponent.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L43">interface/IAbstractRegistrableComponent.ts:43</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
-						<dl class="tsd-comment-tags">
-							<dt>property</dt>
-							<dd><p>allComponentsReady</p>
-							</dd>
-							<dt>description</dt>
-							<dd><p>When all the transition components within this component are loaded this method will be
-								triggered. This is usually the point where the transition controller is setup.</p>
-							</dd>
-						</dl>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="allcomponentsreadyresolvemethod" class="tsd-anchor"></a>
-					<h3>all<wbr>Components<wbr>Ready<wbr>Resolve<wbr>Method</h3>
-					<div class="tsd-signature tsd-kind-icon">all<wbr>Components<wbr>Ready<wbr>Resolve<wbr>Method<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/interface/IAbstractRegistrableComponent.ts#L22">lib/interface/IAbstractRegistrableComponent.ts:22</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<dl class="tsd-comment-tags">
-							<dt>property</dt>
-							<dd><p>allComponentsReadyResolveMethod</p>
-							</dd>
-							<dt>description</dt>
-							<dd><p>All components ready resolve method</p>
-							</dd>
-						</dl>
-					</div>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
+						<div class="lead">
+							<p>The promise that is used to figure out if all components are ready</p>
+						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -439,174 +403,79 @@
 					<div class="tsd-signature tsd-kind-icon">component<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/interface/IAbstractRegistrableComponent.ts#L33">lib/interface/IAbstractRegistrableComponent.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L15">interface/IAbstractRegistrableComponent.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
-						<dl class="tsd-comment-tags">
-							<dt>property</dt>
-							<dd><p>componentId</p>
-							</dd>
-							<dt>description</dt>
-							<dd><p>The unique id of the rendered component, this is used for fetching the reference if the same
-								components appears multiple times</p>
-							</dd>
-						</dl>
+						<div class="lead">
+							<p>The internal id of the component is automatically generated or linked to the ref that
+							is set in the parent component.</p>
+						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="componenttype" class="tsd-anchor"></a>
-					<h3>component<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">component<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/componenttype.html" class="tsd-signature-type">ComponentType</a></div>
+					<a name="isregistrable" class="tsd-anchor"></a>
+					<h3>is<wbr>Registrable</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Registrable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/interface/IAbstractRegistrableComponent.ts#L27">lib/interface/IAbstractRegistrableComponent.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L22">interface/IAbstractRegistrableComponent.ts:22</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
-						<dl class="tsd-comment-tags">
-							<dt>property</dt>
-							<dd><p>componentType</p>
-							</dd>
-							<dt>description</dt>
-							<dd><p>The type of the component</p>
-							</dd>
-						</dl>
+						<div class="lead">
+							<p>Flag used to determine if a component is registrable</p>
+						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="components" class="tsd-anchor"></a>
-					<h3>components</h3>
-					<div class="tsd-signature tsd-kind-icon">components<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="newregisteredcomponents" class="tsd-anchor"></a>
+					<h3>new<wbr>Registered<wbr>Components</h3>
+					<div class="tsd-signature tsd-kind-icon">new<wbr>Registered<wbr>Components<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/interface/IAbstractRegistrableComponent.ts#L12">lib/interface/IAbstractRegistrableComponent.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L36">interface/IAbstractRegistrableComponent.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
-						<dl class="tsd-comment-tags">
-							<dt>property</dt>
-							<dd><p>components</p>
-							</dd>
-							<dt>description</dt>
-							<dd><p>All components inside this component</p>
-							</dd>
-						</dl>
+						<div class="lead">
+							<p>Array of new components that are registered</p>
+						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="registeredcomponents" class="tsd-anchor"></a>
 					<h3>registered<wbr>Components</h3>
-					<div class="tsd-signature tsd-kind-icon">registered<wbr>Components<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">registered<wbr>Components<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/interface/IAbstractRegistrableComponent.ts#L17">lib/interface/IAbstractRegistrableComponent.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L29">interface/IAbstractRegistrableComponent.ts:29</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
-						<dl class="tsd-comment-tags">
-							<dt>property</dt>
-							<dd><p>registeredComponents</p>
-							</dd>
-							<dt>description</dt>
-							<dd><p>Array of registered components</p>
-							</dd>
-						</dl>
+						<div class="lead">
+							<p>Array containing all the registered components</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="registrablecomponents" class="tsd-anchor"></a>
+					<h3>registrable<wbr>Components</h3>
+					<div class="tsd-signature tsd-kind-icon">registrable<wbr>Components<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L50">interface/IAbstractRegistrableComponent.ts:50</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Array of all components that are registrable</p>
+						</div>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-private">
-					<a name="__checkcomponentsready" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> $_<wbr>check<wbr>Components<wbr>Ready</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">$_<wbr>check<wbr>Components<wbr>Ready<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/interface/IAbstractRegistrableComponent.ts#L93">lib/interface/IAbstractRegistrableComponent.ts:93</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>$_checkComponentsReady</p>
-									</dd>
-									<dt>description</dt>
-									<dd><p>Method that is triggered to check if all components are ready</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="__componentready" class="tsd-anchor"></a>
-					<h3>$_<wbr>component<wbr>Ready</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">$_<wbr>component<wbr>Ready<span class="tsd-signature-symbol">(</span>component<span class="tsd-signature-symbol">: </span><a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/interface/IAbstractRegistrableComponent.ts#L87">lib/interface/IAbstractRegistrableComponent.ts:87</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>$_componentReady</p>
-									</dd>
-									<dt>description</dt>
-									<dd><p>This method is a callback for when the child component is ready.</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>component: <a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The component reference that is marked as ready.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-private">
-					<a name="__updateregistrablecomponents" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> $_<wbr>update<wbr>Registrable<wbr>Components</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">$_<wbr>update<wbr>Registrable<wbr>Components<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/interface/IAbstractRegistrableComponent.ts#L99">lib/interface/IAbstractRegistrableComponent.ts:99</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>$_updateRegistrableComponents</p>
-									</dd>
-									<dt>description</dt>
-									<dd><p>Method that is triggered to check if all components are ready</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 					<a name="_destroy" class="tsd-anchor"></a>
 					<h3>$destroy</h3>
@@ -674,7 +543,7 @@
 					<a name="_mount" class="tsd-anchor"></a>
 					<h3>$mount</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">$mount<span class="tsd-signature-symbol">(</span>elementOrSelector<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Element</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">String</span>, hydrating<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+						<li class="tsd-signature tsd-kind-icon">$mount<span class="tsd-signature-symbol">(</span>elementOrSelector<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Element</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, hydrating<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -687,7 +556,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> elementOrSelector: <span class="tsd-signature-type">Element</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">String</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> elementOrSelector: <span class="tsd-signature-type">Element</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> hydrating: <span class="tsd-signature-type">boolean</span></h5>
@@ -718,7 +587,7 @@
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
 												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
@@ -854,7 +723,7 @@
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
 												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span>, n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, o<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
@@ -884,7 +753,7 @@
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
 							<ul class="tsd-parameters">
 								<li class="tsd-parameter-siganture">
-									<ul class="tsd-signatures tsd-kind-type-literal">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
 										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 									</ul>
 									<ul class="tsd-descriptions">
@@ -914,7 +783,7 @@
 									<h5>expOrFn: <span class="tsd-signature-type">function</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
 												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
@@ -935,7 +804,7 @@
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
 												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span>, n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, o<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
@@ -965,7 +834,7 @@
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
 							<ul class="tsd-parameters">
 								<li class="tsd-parameter-siganture">
-									<ul class="tsd-signatures tsd-kind-type-literal">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
 										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 									</ul>
 									<ul class="tsd-descriptions">
@@ -979,50 +848,55 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="getchild" class="tsd-anchor"></a>
-					<h3>get<wbr>Child</h3>
+					<a name="checkcomponentsready" class="tsd-anchor"></a>
+					<h3>check<wbr>Components<wbr>Ready</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Child<span class="tsd-signature-symbol">(</span>componentId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, componentType<span class="tsd-signature-symbol">?: </span><a href="../enums/componenttype.html" class="tsd-signature-type">ComponentType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iabstractpagetransitioncomponent.html" class="tsd-signature-type">IAbstractPageTransitionComponent</a><span class="tsd-signature-symbol"> | </span><a href="iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a><span class="tsd-signature-symbol"> | </span><a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a></li>
+						<li class="tsd-signature tsd-kind-icon">check<wbr>Components<wbr>Ready<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/interface/IAbstractRegistrableComponent.ts#L64">lib/interface/IAbstractRegistrableComponent.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L93">interface/IAbstractRegistrableComponent.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>getChild</p>
-									</dd>
-									<dt>description</dt>
-									<dd><p>If you want to get a child component based on it&#39;s componentId</p>
-									</dd>
-								</dl>
+								<div class="lead">
+									<p>This method checks if all components are loaded on init, overwrite if you need multiple checks!</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="componentready" class="tsd-anchor"></a>
+					<h3>component<wbr>Ready</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">component<wbr>Ready<span class="tsd-signature-symbol">(</span>component<span class="tsd-signature-symbol">: </span><a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L86">interface/IAbstractRegistrableComponent.ts:86</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>This method is called by the child component so we can keep track of components that are loaded.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>componentId: <span class="tsd-signature-type">string</span></h5>
+									<h5>component: <a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The id of the desired child component</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> componentType: <a href="../enums/componenttype.html" class="tsd-signature-type">ComponentType</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The type of the desired component</p>
+										<p>The reference to the component that is ready</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="iabstractpagetransitioncomponent.html" class="tsd-signature-type">IAbstractPageTransitionComponent</a>
-								<span class="tsd-signature-symbol"> | </span>
-								<a href="iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a>
-								<span class="tsd-signature-symbol"> | </span>
-								<a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a>
-							</h4>
-							<p>A child component based on the componentId</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1036,63 +910,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/interface/IAbstractRegistrableComponent.ts#L73">lib/interface/IAbstractRegistrableComponent.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L66">interface/IAbstractRegistrableComponent.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>handleAllComponentsReady</p>
-									</dd>
-									<dt>description</dt>
-									<dd><p>This method is triggered once when all the components are ready.</p>
-									</dd>
-								</dl>
+								<div class="lead">
+									<p>When all the transition components within this component are loaded this method will be
+									triggered. This is usually the point where the transition controller is setup.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="haschild" class="tsd-anchor"></a>
-					<h3>has<wbr>Child</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">has<wbr>Child<span class="tsd-signature-symbol">(</span>componentId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, componentType<span class="tsd-signature-symbol">?: </span><a href="../enums/componenttype.html" class="tsd-signature-type">ComponentType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/interface/IAbstractRegistrableComponent.ts#L55">lib/interface/IAbstractRegistrableComponent.ts:55</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>hasChild</p>
-									</dd>
-									<dt>description</dt>
-									<dd><p>Check to see if a component with a certain Id exists</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>componentId: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The id of the desired child component</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> componentType: <a href="../enums/componenttype.html" class="tsd-signature-type">ComponentType</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The type of the desired component</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>a boolean to check if a child exists</p>
 						</li>
 					</ul>
 				</section>
@@ -1106,19 +933,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/interface/IAbstractRegistrableComponent.ts#L46">lib/interface/IAbstractRegistrableComponent.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L58">interface/IAbstractRegistrableComponent.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>isReady</p>
-									</dd>
-									<dt>description</dt>
-									<dd><p>The isReady method should be called when the component is fully ready,
-										this is usually when it&#39;s children are ready but it could require more async data</p>
-									</dd>
-								</dl>
+								<div class="lead">
+									<p>The init method should be called when the component is fully ready,
+									this is usually when it&#39;s mounted but it could require more async data</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="setregistrablecomponents" class="tsd-anchor"></a>
+					<h3>set<wbr>Registrable<wbr>Components</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Registrable<wbr>Components<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L100">interface/IAbstractRegistrableComponent.ts:100</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Update the array of registrableComponents</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -1134,37 +978,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/interface/IAbstractRegistrableComponent.ts#L80">lib/interface/IAbstractRegistrableComponent.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L76">interface/IAbstractRegistrableComponent.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>updateRegistrableComponents</p>
-									</dd>
-									<dt>description</dt>
-									<dd><p>Call this method when you want to load more components async and have a callback when they are ready</p>
-									</dd>
-								</dl>
+								<div class="lead">
+									<p>Method that watches for async component changes, this means it will create a new promise
+									that will be resolved when the &quot;new&quot; children are ready</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The method that will be called so you can release the update method</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>release<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>resolve<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>release: <span class="tsd-signature-type">function</span></h5>
+															<h5>resolve: <span class="tsd-signature-type">function</span></h5>
 															<ul class="tsd-parameters">
 																<li class="tsd-parameter-siganture">
-																	<ul class="tsd-signatures tsd-kind-type-literal">
+																	<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
 																		<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 																	</ul>
 																	<ul class="tsd-descriptions">
@@ -1184,6 +1027,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An array containing the newly registered components</p>
 						</li>
 					</ul>
 				</section>
@@ -1193,29 +1037,23 @@
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+						<a href="../index.html"><em>Globals</em></a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum">
-						<a href="../enums/componenttype.html" class="tsd-kind-icon">Component<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-enum">
 						<a href="../enums/flowtype.html" class="tsd-kind-icon">Flow<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="../classes/abstracttransitioncontroller.html" class="tsd-kind-icon">Abstract<wbr>Transition<wbr>Controller</a>
+						<a href="../classes/abstractvuetransitioncontroller.html" class="tsd-kind-icon">Abstract<wbr>Vue<wbr>Transition<wbr>Controller</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/flowevent.html" class="tsd-kind-icon">Flow<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="../classes/flowmanager.html" class="tsd-kind-icon">Flow<wbr>Manager</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/transitionevent.html" class="tsd-kind-icon">Transition<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="iabstractpagetransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Page<wbr>Transition<wbr>Component</a>
@@ -1286,28 +1124,19 @@
 								<a href="iabstractregistrablecomponent.html#allcomponentsready" class="tsd-kind-icon">all<wbr>Components<wbr>Ready</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="iabstractregistrablecomponent.html#allcomponentsreadyresolvemethod" class="tsd-kind-icon">all<wbr>Components<wbr>Ready<wbr>Resolve<wbr>Method</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="iabstractregistrablecomponent.html#componentid" class="tsd-kind-icon">component<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="iabstractregistrablecomponent.html#componenttype" class="tsd-kind-icon">component<wbr>Type</a>
+								<a href="iabstractregistrablecomponent.html#isregistrable" class="tsd-kind-icon">is<wbr>Registrable</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="iabstractregistrablecomponent.html#components" class="tsd-kind-icon">components</a>
+								<a href="iabstractregistrablecomponent.html#newregisteredcomponents" class="tsd-kind-icon">new<wbr>Registered<wbr>Components</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="iabstractregistrablecomponent.html#registeredcomponents" class="tsd-kind-icon">registered<wbr>Components</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-private">
-								<a href="iabstractregistrablecomponent.html#__checkcomponentsready" class="tsd-kind-icon">$_<wbr>check<wbr>Components<wbr>Ready</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="iabstractregistrablecomponent.html#__componentready" class="tsd-kind-icon">$_<wbr>component<wbr>Ready</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-private">
-								<a href="iabstractregistrablecomponent.html#__updateregistrablecomponents" class="tsd-kind-icon">$_<wbr>update<wbr>Registrable<wbr>Components</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="iabstractregistrablecomponent.html#registrablecomponents" class="tsd-kind-icon">registrable<wbr>Components</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="iabstractregistrablecomponent.html#_destroy" class="tsd-kind-icon">$destroy</a>
@@ -1337,16 +1166,19 @@
 								<a href="iabstractregistrablecomponent.html#_watch" class="tsd-kind-icon">$watch</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="iabstractregistrablecomponent.html#getchild" class="tsd-kind-icon">get<wbr>Child</a>
+								<a href="iabstractregistrablecomponent.html#checkcomponentsready" class="tsd-kind-icon">check<wbr>Components<wbr>Ready</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iabstractregistrablecomponent.html#componentready" class="tsd-kind-icon">component<wbr>Ready</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iabstractregistrablecomponent.html#handleallcomponentsready" class="tsd-kind-icon">handle<wbr>All<wbr>Components<wbr>Ready</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="iabstractregistrablecomponent.html#haschild" class="tsd-kind-icon">has<wbr>Child</a>
+								<a href="iabstractregistrablecomponent.html#isready" class="tsd-kind-icon">is<wbr>Ready</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="iabstractregistrablecomponent.html#isready" class="tsd-kind-icon">is<wbr>Ready</a>
+								<a href="iabstractregistrablecomponent.html#setregistrablecomponents" class="tsd-kind-icon">set<wbr>Registrable<wbr>Components</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="iabstractregistrablecomponent.html#updateregistrablecomponents" class="tsd-kind-icon">update<wbr>Registrable<wbr>Components</a>
@@ -1359,37 +1191,10 @@
 						<a href="iabstracttransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="iabstracttransitioncontrolleroptions.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Controller<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="iroute.html" class="tsd-kind-icon">IRoute</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="../globals.html#component_id" class="tsd-kind-icon">COMPONENT_<wbr>ID</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#is_ready" class="tsd-kind-icon">IS_<wbr>READY</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#assign" class="tsd-kind-icon">assign</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#find" class="tsd-kind-icon">find</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#findindex" class="tsd-kind-icon">find<wbr>Index</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#iselement" class="tsd-kind-icon">is<wbr>Element</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#isequal" class="tsd-kind-icon">is<wbr>Equal</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#isstring" class="tsd-kind-icon">is<wbr>String</a>
+						<a href="../index.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a>
 					</li>
 				</ul>
 			</nav>

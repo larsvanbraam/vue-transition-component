@@ -9,18 +9,7 @@
 
 Provides GreenSock transition functionality to vue.js components.
 
-## Table of contents
-
-1. [Installation](#installation)
-2. [Demo](#demo)
-3. [Usage](#usage)
-4. [Building](#building)
-5. [Authors](#authors)
-6. [Contribute](#contribute)
-7. [License](#license)
-
 ## Installation
-### yarn / npm
 
 ```sh
 yarn add vue-transition-component
@@ -30,19 +19,25 @@ yarn add vue-transition-component
 npm i -S vue-transition-component
 ```
 
-## Demo
-I've created a demo repository that contains the setup for the latest vue-skeleton (v0.8.1) with the 
-vue-transition-component (v1.1.17) installed. You can inspect the code there or if you just want to preview the block 
-system you can visit the demo online!
+## Documentation
 
-### [Demo repository](https://github.com/larsvanbraam/vue-transition-component-demo)
-### [Online demo](http://vue-transition-component.larsvanbraam.nl)
+### GitBook
+- [General documentation](https://larsvanbraam.gitbook.io/vue-transition-component/)
 
-## Usage
-Detailed documentation and examples are located in the wiki!
+### TypeDoc
+- [Latest TypeDoc](https://larsvanbraam.github.io/vue-transition-component/docs/)
+- [Older TypeDocs](https://vue-transition-component.larsvanbraam.nl)
 
-### [Check the wiki!](https://github.com/larsvanbraam/vue-transition-component/wiki)
+## Example
+I've included an example setup where you can see the transition controller in action, to run the project follow these steps:
 
+- `git clone https://github.com/larsvanbraam/vue-transition-component.git`
+- `cd vue-transition-component/example`
+- `yarn`
+- `yarn dev`
+- Open your browser `localhost:8080`
+
+or click [this link](https://larsvanbraam.github.io/vue-transition-component/example/) to preview online
 
 ## Building
 
@@ -65,36 +60,16 @@ yarn
 
 Use one of the following main scripts:
 ```sh
-yarn build           # build this project
-yarn dev             # run dev-watch mode, serving example/index.html in the browser
-yarn generate        # generate all artifacts (compiles ts, webpack, docs and coverage)
-yarn test:unit       # run the unit tests
-yarn validate        # runs validation scripts, including test, lint and coverage check
-yarn lint            # run tslint on this project
-yarn doc             # generate typedoc documentation
+yarn build            # build this project
+yarn dev              # run compilers in watch mode, both for babel and typescript
+yarn test             # run the unit tests incl coverage
+yarn test:dev         # run the unit tests in watch mode
+yarn lint             # run eslint and tslint on this project
+yarn doc              # generate typedoc documentation
 ```
 
-When installing this module, it adds a pre-push hook, that runs the `validate`
-script before committing, so you can be sure that everything checks out.
-
-If you want to create the distribution files yourself, you can run the
-`build-dist` script, and the following files will get generated in the
-`dist` folder:
-
-- **/dist/vue-transition-component.js**: bundled with webpack, can be loaded from
-	a script tag, available as `window.SengScrollTracker`
-- **/dist/vue-transition-component.min.js**: same as above, but minified
-- **/dist/vue-transition-component-amd.js**: bundled with webpack, can be used
-	with e.g. requirejs
-- **/dist/vue-transition-component-commonjs.js**: bundled with webpack, can be
-	used in systems that support commonjs, but you should just use npm
-- **/dist/vue-transition-component-umd.js**: bundled with webpack, works in the
-	browser, with requirejs, and in a commonjs system
-- **/dist/vue-transition-component-umd.min.js**: same as above, but minified
-- **/dist/vue-transition-component-system.js**: bundled with typescript, can be
-	used in systems	that support systemjs
-- **/dist/vue-transition-component-es6.zip**: transpiled with typescript, only
-	types are removed from the source files
+When installing this module, it adds a pre-commit hook, that runs lint and prettier commands
+before committing, so you can be sure that everything checks out.
 
 ## Authors
 View [AUTHORS.md](./AUTHORS.md)

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>FlowManager | vue-transition-component</title>
+	<title>FlowManager | VueTransitionComponent</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">vue-transition-component</a>
+					<a href="../index.html" class="title">VueTransitionComponent</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -38,8 +38,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 							<input type="checkbox" id="tsd-filter-only-exported" />
 							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
@@ -53,7 +51,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../index.html">Globals</a>
 				</li>
 				<li>
 					<a href="flowmanager.html">FlowManager</a>
@@ -66,6 +64,19 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<h3 id="flowmanager">FlowManager</h3>
+						<p>The FlowManager is a singleton that is used to trigger page transitions
+							between pages. It is triggered when Vue.js detects a beforeRouteLeave,
+							passes along the next method and calls it when the transition out of the
+							current page has been completed. It can also be used for hijacking the page
+							flow, this will make sure the new page does not transition in until the
+						release method has been called.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -99,32 +110,21 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="flowmanager.html#_pointerdiv" class="tsd-kind-icon">_pointer<wbr>Div</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="flowmanager.html#_previouscomponentid" class="tsd-kind-icon">_previous<wbr>Component<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="flowmanager.html#_transitionout" class="tsd-kind-icon">_transition<wbr>Out</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowmanager.html#flowhijacked" class="tsd-kind-icon">flow<wbr>Hijacked</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#parent" class="tsd-kind-icon">parent</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Accessors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="flowmanager.html#transitionout" class="tsd-kind-icon">transition<wbr>Out</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowmanager.html#transitionout" class="tsd-kind-icon">transition<wbr>Out</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="flowmanager.html#disablepointerevents" class="tsd-kind-icon">disable<wbr>Pointer<wbr>Events</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#dispatchevent" class="tsd-kind-icon">dispatch<wbr>Event</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="flowmanager.html#dispose" class="tsd-kind-icon">dispose</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="flowmanager.html#done" class="tsd-kind-icon">done</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="flowmanager.html#enablepointerevents" class="tsd-kind-icon">enable<wbr>Pointer<wbr>Events</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#haseventlistener" class="tsd-kind-icon">has<wbr>Event<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="flowmanager.html#hijackflow" class="tsd-kind-icon">hijack<wbr>Flow</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#isdisposed" class="tsd-kind-icon">is<wbr>Disposed</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="flowmanager.html#isnewpagecomponent" class="tsd-kind-icon">is<wbr>New<wbr>Page<wbr>Component</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#removealleventlisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Event<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowmanager.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="flowmanager.html#start" class="tsd-kind-icon">start</a></li>
@@ -147,9 +147,16 @@
 							<aside class="tsd-sources">
 								<p>Overrides EventDispatcher.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/FlowManager.ts#L32">lib/util/FlowManager.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/util/FlowManager.ts#L50">util/FlowManager.ts:50</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>When the FlowManager is initially constructed it detects if we are using a browser
+										that does not support pointer-events. If it&#39;s not supported the fallback div is
+									created and injected into the DOM.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="flowmanager.html" class="tsd-signature-type">FlowManager</a></h4>
 						</li>
 					</ul>
@@ -157,83 +164,20 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_pointerdiv" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _pointer<wbr>Div</h3>
-					<div class="tsd-signature tsd-kind-icon">_pointer<wbr>Div<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLElement</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/FlowManager.ts#L26">lib/util/FlowManager.ts:26</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<dl class="tsd-comment-tags">
-							<dt>property</dt>
-							<dd></dd>
-							<dt>description</dt>
-							<dd><p>Div used when pointer events none is not supported</p>
-							</dd>
-						</dl>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_previouscomponentid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _previous<wbr>Component<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">_previous<wbr>Component<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/FlowManager.ts#L21">lib/util/FlowManager.ts:21</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<dl class="tsd-comment-tags">
-							<dt>property</dt>
-							<dd><p>_previousComponentId</p>
-							</dd>
-							<dt>type</dt>
-							<dd><p>string</p>
-							</dd>
-						</dl>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_transitionout" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _transition<wbr>Out</h3>
-					<div class="tsd-signature tsd-kind-icon">_transition<wbr>Out<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/FlowManager.ts#L16">lib/util/FlowManager.ts:16</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<dl class="tsd-comment-tags">
-							<dt>property</dt>
-							<dd><p>_transitionOut</p>
-							</dd>
-							<dt>type</dt>
-							<dd><p>Promise<void></p>
-							</dd>
-						</dl>
-					</div>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="flowhijacked" class="tsd-anchor"></a>
 					<h3>flow<wbr>Hijacked</h3>
 					<div class="tsd-signature tsd-kind-icon">flow<wbr>Hijacked<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;Promise.resolve()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/FlowManager.ts#L32">lib/util/FlowManager.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/util/FlowManager.ts#L33">util/FlowManager.ts:33</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
-						<dl class="tsd-comment-tags">
-							<dt>type</dt>
-							<dd><p>{Promise<void>}</p>
-							</dd>
-							<dt>description</dt>
-							<dd><p>Promise that contains the hijacked state of the flow</p>
-							</dd>
-						</dl>
+						<div class="lead">
+							<p>This property contains the promise that hijacks the flow. When the flow
+							hijack is released this promise will be released as well and the flow is allowed to continue.</p>
+						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -258,32 +202,22 @@
 						</dl>
 					</div>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Accessors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="transitionout" class="tsd-anchor"></a>
 					<h3>transition<wbr>Out</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> transitionOut<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/FlowManager.ts#L73">lib/util/FlowManager.ts:73</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>get transitionOut</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
+					<div class="tsd-signature tsd-kind-icon">transition<wbr>Out<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/util/FlowManager.ts#L25">util/FlowManager.ts:25</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>This property contains a promise that is the transition out method that
+								is called when we leave the page. When the transition out is done this
+							promise will be resolved and the flow is allowed to continue.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -360,33 +294,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="disablepointerevents" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> disable<wbr>Pointer<wbr>Events</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">disable<wbr>Pointer<wbr>Events<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/FlowManager.ts#L143">lib/util/FlowManager.ts:143</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>disablePointerEvents</p>
-									</dd>
-									<dt>description</dt>
-									<dd><p>Disable pointer events during page switches</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="dispatchevent" class="tsd-anchor"></a>
 					<h3>dispatch<wbr>Event</h3>
@@ -456,15 +363,14 @@
 							<aside class="tsd-sources">
 								<p>Overrides EventDispatcher.dispose</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/FlowManager.ts#L183">lib/util/FlowManager.ts:183</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/util/FlowManager.ts#L206">util/FlowManager.ts:206</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>description</dt>
-									<dd><p>Dispose the flow manager</p>
-									</dd>
-								</dl>
+								<div class="lead">
+									<p>This method will probably never be called but if you want to you can dispose of
+									the flow manager and everything will be cleaned.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -480,46 +386,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/FlowManager.ts#L83">lib/util/FlowManager.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/util/FlowManager.ts#L98">util/FlowManager.ts:98</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>done</p>
-									</dd>
-									<dt>description</dt>
-									<dd><p>Trigger this method when the flow is fully done, it resets the promise and allows for further
-										navigation</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="enablepointerevents" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> enable<wbr>Pointer<wbr>Events</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">enable<wbr>Pointer<wbr>Events<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/FlowManager.ts#L157">lib/util/FlowManager.ts:157</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>enablePointerEvents</p>
-									</dd>
-									<dt>description</dt>
-									<dd><p>Enable pointer events and allow flow navigation</p>
-									</dd>
-								</dl>
+								<div class="lead">
+									<p>When the flow is fully done this method should be called. For example when the
+										transition out of the current page is completely done. It will reset the transition
+										out promise, clear the previous component id and re-enable all the pointer events so
+									the user can navigate further.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -583,15 +459,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/FlowManager.ts#L62">lib/util/FlowManager.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/util/FlowManager.ts#L84">util/FlowManager.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>hijackFlow</p>
-									</dd>
-								</dl>
+								<div class="lead">
+									<p>When this method is called it will return a promise with a resolve method
+									that can be called to release the hijack. When the hijack is released the flow will continue.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
@@ -617,39 +492,6 @@
 									Use this method to determine whether dispose() should be run again.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="isnewpagecomponent" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> is<wbr>New<wbr>Page<wbr>Component</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>New<wbr>Page<wbr>Component<span class="tsd-signature-symbol">(</span>pageInstance<span class="tsd-signature-symbol">: </span><a href="../interfaces/iabstractpagetransitioncomponent.html" class="tsd-signature-type">IAbstractPageTransitionComponent</a>, to<span class="tsd-signature-symbol">: </span><a href="../interfaces/iroute.html" class="tsd-signature-type">IRoute</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/FlowManager.ts#L173">lib/util/FlowManager.ts:173</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>isNewPageComponent</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>pageInstance: <a href="../interfaces/iabstractpagetransitioncomponent.html" class="tsd-signature-type">IAbstractPageTransitionComponent</a></h5>
-								</li>
-								<li>
-									<h5>to: <a href="../interfaces/iroute.html" class="tsd-signature-type">IRoute</a></h5>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
@@ -744,33 +586,34 @@
 					<a name="start" class="tsd-anchor"></a>
 					<h3>start</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">start<span class="tsd-signature-symbol">(</span>pageInstance<span class="tsd-signature-symbol">: </span><a href="../interfaces/iabstractpagetransitioncomponent.html" class="tsd-signature-type">IAbstractPageTransitionComponent</a>, release<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, to<span class="tsd-signature-symbol">: </span><a href="../interfaces/iroute.html" class="tsd-signature-type">IRoute</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">start<span class="tsd-signature-symbol">(</span>pageInstance<span class="tsd-signature-symbol">: </span><a href="../interfaces/iabstractpagetransitioncomponent.html" class="tsd-signature-type">IAbstractPageTransitionComponent</a>, release<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, to<span class="tsd-signature-symbol">: </span><a href="../interfaces/iroute.html" class="tsd-signature-type">IRoute</a>, from<span class="tsd-signature-symbol">: </span><a href="../interfaces/iroute.html" class="tsd-signature-type">IRoute</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/315ce69b/src/lib/util/FlowManager.ts#L101">lib/util/FlowManager.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/util/FlowManager.ts#L116">util/FlowManager.ts:116</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>start</p>
-									</dd>
-									<dt>description</dt>
-									<dd><p>The vue router triggers the onLeave method twice, so we need to store the current componentId to
-										avoid weird page transition issues. If it&#39;s triggered on the same page we release the hijack right away.</p>
-									</dd>
-								</dl>
+								<div class="lead">
+									<p>The vue router triggers the onLeave method twice, so we need to store the current componentId to
+									avoid weird page transition issues. If it&#39;s triggered on the same page we release the hijack right away.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>pageInstance: <a href="../interfaces/iabstractpagetransitioncomponent.html" class="tsd-signature-type">IAbstractPageTransitionComponent</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The reference to the current page instance</p>
+									</div>
 								</li>
 								<li>
 									<h5>release: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The release method that will allow the vue-router to continue</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -792,6 +635,15 @@
 								</li>
 								<li>
 									<h5>to: <a href="../interfaces/iroute.html" class="tsd-signature-type">IRoute</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The target route we are navigating to</p>
+									</div>
+								</li>
+								<li>
+									<h5>from: <a href="../interfaces/iroute.html" class="tsd-signature-type">IRoute</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The current route we are navigating away from</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -838,20 +690,17 @@
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+						<a href="../index.html"><em>Globals</em></a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum">
-						<a href="../enums/componenttype.html" class="tsd-kind-icon">Component<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-enum">
 						<a href="../enums/flowtype.html" class="tsd-kind-icon">Flow<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="abstracttransitioncontroller.html" class="tsd-kind-icon">Abstract<wbr>Transition<wbr>Controller</a>
+						<a href="abstractvuetransitioncontroller.html" class="tsd-kind-icon">Abstract<wbr>Vue<wbr>Transition<wbr>Controller</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="flowevent.html" class="tsd-kind-icon">Flow<wbr>Event</a>
@@ -864,29 +713,17 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="flowmanager.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="flowmanager.html#_pointerdiv" class="tsd-kind-icon">_pointer<wbr>Div</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="flowmanager.html#_previouscomponentid" class="tsd-kind-icon">_previous<wbr>Component<wbr>Id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="flowmanager.html#_transitionout" class="tsd-kind-icon">_transition<wbr>Out</a>
-							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="flowmanager.html#flowhijacked" class="tsd-kind-icon">flow<wbr>Hijacked</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="flowmanager.html#parent" class="tsd-kind-icon">parent</a>
 							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="flowmanager.html#transitionout" class="tsd-kind-icon">transition<wbr>Out</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="flowmanager.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="flowmanager.html#disablepointerevents" class="tsd-kind-icon">disable<wbr>Pointer<wbr>Events</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="flowmanager.html#dispatchevent" class="tsd-kind-icon">dispatch<wbr>Event</a>
@@ -897,9 +734,6 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="flowmanager.html#done" class="tsd-kind-icon">done</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="flowmanager.html#enablepointerevents" class="tsd-kind-icon">enable<wbr>Pointer<wbr>Events</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="flowmanager.html#haseventlistener" class="tsd-kind-icon">has<wbr>Event<wbr>Listener</a>
 							</li>
@@ -908,9 +742,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="flowmanager.html#isdisposed" class="tsd-kind-icon">is<wbr>Disposed</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="flowmanager.html#isnewpagecomponent" class="tsd-kind-icon">is<wbr>New<wbr>Page<wbr>Component</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="flowmanager.html#removealleventlisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Event<wbr>Listeners</a>
@@ -928,9 +759,6 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="transitionevent.html" class="tsd-kind-icon">Transition<wbr>Event</a>
-					</li>
 					<li class=" tsd-kind-interface">
 						<a href="../interfaces/iabstractpagetransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Page<wbr>Transition<wbr>Component</a>
 					</li>
@@ -941,37 +769,10 @@
 						<a href="../interfaces/iabstracttransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/iabstracttransitioncontrolleroptions.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Controller<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="../interfaces/iroute.html" class="tsd-kind-icon">IRoute</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="../globals.html#component_id" class="tsd-kind-icon">COMPONENT_<wbr>ID</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#is_ready" class="tsd-kind-icon">IS_<wbr>READY</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#assign" class="tsd-kind-icon">assign</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#find" class="tsd-kind-icon">find</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#findindex" class="tsd-kind-icon">find<wbr>Index</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#iselement" class="tsd-kind-icon">is<wbr>Element</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#isequal" class="tsd-kind-icon">is<wbr>Equal</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#isstring" class="tsd-kind-icon">is<wbr>String</a>
+						<a href="../index.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a>
 					</li>
 				</ul>
 			</nav>

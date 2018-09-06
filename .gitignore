@@ -1,19 +1,17 @@
-# copy to .npmignore
-.idea
-node_modules
-typings
-.tscache
-.sass-cache
+## copy to .npmignore
 .DS_Store
-npm-debug.log
-/coverage
-/dist
-/seng-*.zip
-/seng-*.tar.gz
-/test/*.js
-!/test/index.vue
+.idea
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+node_modules/
+.npm
+.eslintcache
+/coverage/
+/.nyc_output/
+/tmp/
 
-# only ignore in git
+## only ignore in git
 /lib
-/index.vue
+/index.js
 /index.d.ts

@@ -1,102 +1,101 @@
 import { Vue } from 'vue/types/vue';
-import { Promise } from 'es6-promise';
-import IAbstractTransitionComponent from './IAbstractTransitionComponent';
-import IAbstractPageTransitionComponent from './IAbstractPageTransitionComponent';
-import ComponentType from '../enum/ComponentType';
 
-interface IAbstractRegistrableComponent extends Vue {
-	/**
-	 * @property components
-	 * @description All components inside this component
-	 */
-	components: Array<IAbstractRegistrableComponent>;
-	/**
-	 * @property registeredComponents
-	 * @description Array of registered components
-	 */
-	registeredComponents: Array<string>;
-	/**
-	 * @property allComponentsReadyResolveMethod
-	 * @description All components ready resolve method
-	 */
-	allComponentsReadyResolveMethod: () => void;
-	/**
-	 * @property componentType
-	 * @description The type of the component
-	 */
-	componentType: ComponentType;
-	/**
-	 * @property componentId
-	 * @description The unique id of the rendered component, this is used for fetching the reference if the same
-	 * components appears multiple times
-	 */
-	componentId: string;
-	/**
-	 * @property allComponentsReady
-	 * @description When all the transition components within this component are loaded this method will be
-	 * triggered. This is usually the point where the transition controller is setup.
-	 */
-	allComponentsReady: Promise<void>;
-	/**
-	 * @public
-	 * @method isReady
-	 * @description The isReady method should be called when the component is fully ready,
-	 * this is usually when it's children are ready but it could require more async data
-	 */
-	isReady(): void;
-	/**
-	 * @public
-	 * @method hasChild
-	 * @description Check to see if a component with a certain Id exists
-	 * @param componentId The id of the desired child component
-	 * @param componentType The type of the desired component
-	 * @returns a boolean to check if a child exists
-	 */
-	hasChild(componentId: string, componentType?:ComponentType): boolean;
-	/**
-	 * @public
-	 * @method getChild
-	 * @description If you want to get a child component based on it's componentId
-	 * @param componentId The id of the desired child component
-	 * @param componentType The type of the desired component
-	 * @returns A child component based on the componentId
-	 */
-	getChild(
-		componentId: string,
-		componentType?:ComponentType,
-	): IAbstractPageTransitionComponent | IAbstractTransitionComponent | IAbstractRegistrableComponent;
-	/**
-	 * @public
-	 * @method handleAllComponentsReady
-	 * @description This method is triggered once when all the components are ready.
-	 */
-	handleAllComponentsReady(): void;
-	/**
-	 * @public
-	 * @method updateRegistrableComponents
-	 * @description Call this method when you want to load more components async and have a callback when they are ready
-	 * @returns {Promise<Array<IAbstractRegistrableComponent>>}
-	 */
-	updateRegistrableComponents(callback:(release:() => void) => void):Promise<Array<IAbstractRegistrableComponent>>;
-	/**
-	 * @public
-	 * @method $_componentReady
-	 * @description This method is a callback for when the child component is ready.
-	 * @param component The component reference that is marked as ready.
-	 */
-	$_componentReady(component: IAbstractRegistrableComponent): void;
-	/**
-	 * @private
-	 * @method $_checkComponentsReady
-	 * @description Method that is triggered to check if all components are ready
-	 */
-	$_checkComponentsReady(): void;
-	/**
-	 * @private
-	 * @method $_updateRegistrableComponents
-	 * @description Method that is triggered to check if all components are ready
-	 */
-	$_updateRegistrableComponents(): void;
+/**
+ * The AbstractRegistrableComponent is the core component of the vue-transition-component. It's used for
+ * registering components and making sure all the children are done before we start creating timelines.
+ * Nested registrable components will let their parent know that they are ready.
+ */
+export interface IAbstractRegistrableComponent extends Vue {
+  /**
+   * The internal id of the component is automatically generated or linked to the ref that
+   * is set in the parent component.
+   *
+   * @public
+   */
+  componentId: string;
+
+  /**
+   * Flag used to determine if a component is registrable
+   *
+   * @public
+   */
+  isRegistrable: boolean;
+
+  /**
+   * Array containing all the registered components
+   *
+   * @public
+   */
+  registeredComponents: Array<IAbstractRegistrableComponent>;
+
+  /**
+   * Array of new components that are registered
+   *
+   * @public
+   */
+  newRegisteredComponents: Array<IAbstractRegistrableComponent>;
+
+  /**
+   * The promise that is used to figure out if all components are ready
+   *
+   * @public
+   */
+  allComponentsReady: Promise<Array<IAbstractRegistrableComponent>>;
+
+  /**
+   * Array of all components that are registrable
+   *
+   * @public
+   */
+  registrableComponents: Array<IAbstractRegistrableComponent>;
+
+  /**
+   * The init method should be called when the component is fully ready,
+   * this is usually when it's mounted but it could require more async data
+   *
+   * @public
+   */
+  isReady(): void;
+
+  /**
+   * When all the transition components within this component are loaded this method will be
+   * triggered. This is usually the point where the transition controller is setup.
+   *
+   * @public
+   */
+  handleAllComponentsReady(): void;
+
+  /**
+   * Method that watches for async component changes, this means it will create a new promise
+   * that will be resolved when the "new" children are ready
+   *
+   * @public
+   * @param {(resolve: () => void) => void} callback The method that will be called so you can release the update method
+   * @returns {Promise<Array<IAbstractRegistrableComponent>>} An array containing the newly registered components
+   */
+  updateRegistrableComponents(
+    callback: (resolve: () => void) => void,
+  ): Promise<Array<IAbstractRegistrableComponent>>;
+
+  /**
+   * This method is called by the child component so we can keep track of components that are loaded.
+   *
+   * @public
+   * @param {IAbstractRegistrableComponent} component The reference to the component that is ready
+   */
+  componentReady(component: IAbstractRegistrableComponent): void;
+
+  /**
+   * This method checks if all components are loaded on init, overwrite if you need multiple checks!
+   *
+   * @public
+   */
+  checkComponentsReady(): void;
+
+  /**
+   * Update the array of registrableComponents
+   *
+   * @public
+   */
+  setRegistrableComponents(): void;
 }
-
-export default IAbstractRegistrableComponent;
