@@ -51,8 +51,25 @@ export default {
         this.registeredComponents.splice(index);
       }
     }
-    // Release the before update hook
-    next();
+
+    // - What we want: trigger a transition-out/in if you are changing the param of a child router-view.
+    // - How to achieve: Not setting a :key to this router-view will not destroy the component and therefore we can
+    // trigger a transitionOut and transitionIn again.
+    // - SideNote: if a :key is set to the router-view it will be destroyed && created again and therefore we can
+    // run the transitionOut/In.
+    if (
+      to.matched[to.matched.length - 1].components.default.name === this.componentId &&
+      !this._isDestroyed
+    ) {
+      this.transitionOut()
+        .then(() => next())
+        .then(() => {
+          this.$nextTick(() => this.transitionIn());
+        });
+    } else {
+      // Release the before update hook
+      next();
+    }
   },
   /**
    * @description This method handles the default page switches
