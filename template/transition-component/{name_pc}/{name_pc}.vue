@@ -2,7 +2,7 @@
 <script src="./{{name_pc}}.js"></script>
 
 <template>
-  <div :class="[$style.{{name_cc}}]>
+  <div :class="[$style.{{name_cc}}]">
     <h2>{{name_pc}}</h2>
   </div>
 </template>
