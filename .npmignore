@@ -30,3 +30,4 @@ tslint.json
 /example
 /src
 /test
+/build-tools
