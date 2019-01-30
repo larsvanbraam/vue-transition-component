@@ -1,4 +1,6 @@
-language: node_js
+language: generic
+
+python: 3.6.7
 
 cache: yarn
 
@@ -11,7 +13,7 @@ sudo: false
 
 before_install:
   - yarn global add codeclimate-test-reporter
-  - brew install mkdocs
+  - pip install mkdocs
 
 script:
   - yarn test
