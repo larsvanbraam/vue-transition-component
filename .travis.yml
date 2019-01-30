@@ -11,6 +11,7 @@ sudo: false
 
 before_install:
   - yarn global add codeclimate-test-reporter
+  - brew install mkdocs
 
 script:
   - yarn test
@@ -20,13 +21,17 @@ after_script:
   - node_modules/.bin/coveralls < coverage/lcov.info
 
 deploy:
-  provider: npm
-  email: 'larsvanbraam@gmail.com'
-  api_key: $NPM_TOKEN
-  on:
-    tags: true
-    node: '8'
-  skip_cleanup: true
+  - provider: npm
+    email: 'larsvanbraam@gmail.com'
+    api_key: $NPM_TOKEN
+    on:
+      tags: true
+      node: '8'
+    skip_cleanup: true
+  - provider: script
+    script: yarn deploy-docs --host=$SFTP_HOST --port=$SFTP_PORT --serverPath=$SFTP_SERVER_PATH --username=$SFTP_USERNAME --privateKey=$SFTP_KEY
+    on:
+      branch: master
 
 addons:
   code_climate:

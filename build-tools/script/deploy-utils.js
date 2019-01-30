@@ -8,6 +8,7 @@ async function connectToServer(client, config) {
   return new Promise((resolve, reject) => {
     client
       .on('ready', error => (error ? reject(error) : resolve(client)))
+      .on('error', error => reject(error))
       .connect(config);
   });
 }
@@ -47,18 +48,6 @@ async function readDirectory(sftp, path) {
 async function createDirectory(sftp, path) {
   return new Promise((resolve, reject) => {
     sftp.mkdir(path, error => (error ? reject(error) : resolve()));
-  });
-}
-
-/**
- * Remove a path on the server
- * @param sftp
- * @param path
- * @returns {Promise<*>}
- */
-async function removePath(sftp, path) {
-  return new Promise((resolve, reject) => {
-    sftp.rmdir(path, error => (error ? reject(error) : resolve()));
   });
 }
 
@@ -105,7 +94,6 @@ module.exports = {
   createSftpConnection,
   readDirectory,
   createDirectory,
-  removePath,
   getFiles,
   uploadFile,
   asyncForEach,

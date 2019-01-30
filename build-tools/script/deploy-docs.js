@@ -1,3 +1,49 @@
+const { argv } = require('yargs')
+  .option('platform', {
+    describe: 'The documentation platform.',
+    type: 'string',
+    demandOption: true,
+  })
+  .option('source', {
+    describe: 'Relative local build location.',
+    type: 'string',
+    demandOption: true,
+  })
+  .option('host', {
+    describe: 'The host to connect to',
+    type: 'string',
+    demandOption: true,
+  })
+  .option('port', {
+    describe: 'The port used for the connection',
+    type: 'number',
+    demandOption: true,
+  })
+  .option('serverPath', {
+    describe: 'Full absolute server path.',
+    type: 'string',
+    demandOption: true,
+  })
+  .option('username', {
+    describe: 'SFTP username',
+    type: 'string',
+    demandOption: true,
+  })
+  .option('password', {
+    describe: 'SFTP password.',
+    type: 'string',
+    demandOption: true,
+  })
+  .option('privateKey', {
+    describe: 'SSH key.',
+    type: 'string',
+    demandOption: false,
+  });
+const fs = require('fs');
+const path = require('path');
+const chalk = require('chalk');
+const { Client } = require('ssh2');
+const { version } = require('../../package.json');
 const {
   asyncForEach,
   connectToServer,
@@ -8,35 +54,20 @@ const {
   uploadFile,
 } = require('./deploy-utils');
 
-const fs = require('fs');
-const path = require('path');
-const terminalLink = require('terminal-link');
-const chalk = require('chalk');
-const { Client } = require('ssh2');
-
-let config;
-
-try {
-  config = require('../config/deploy-config');
-} catch (e) {
-  console.log(
-    chalk.red(
-      `Unable to fetch the configuration, make sure to setup the ${chalk.underline(
-        `./build-tools/config/deploy-config.js`,
-      )} file!`,
-    ),
-  );
-
-  process.exit();
-}
-
 const client = new Client();
-const platform = process.argv.slice(2).shift();
+const { platform, source, host, port, serverPath, username, privateKey, password } = argv;
 
 (async () => {
-  const { source, target } = config.path[platform];
+  const target = `${serverPath}/${platform}/${version}`;
 
-  await connectToServer(client, config.connection);
+  await connectToServer(client, {
+    host,
+    port,
+    username,
+    password,
+    privateKey,
+  });
+
   const sftp = await createSftpConnection(client);
   const list = await readDirectory(sftp, target);
 
@@ -62,15 +93,7 @@ const platform = process.argv.slice(2).shift();
   });
 })()
   .then(() => {
-    console.log(
-      `🎉 Docs have been generated and uploaded to: ${chalk.bold(
-        terminalLink(
-          `version ${config.version}`,
-          `http://vue-transition-component.larsvanbraam.nl/${platform}/${config.version}/`,
-        ),
-      )}`,
-    );
-
+    console.log(`🎉 ${platform} have been generated and uploaded to: ${chalk.bold(`version ${version}`)}`);
     client.end();
   })
   .catch(error => {
