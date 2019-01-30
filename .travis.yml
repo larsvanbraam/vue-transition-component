@@ -10,7 +10,7 @@ node_js:
 sudo: false
 
 before_install:
-  - yarn global npm-run-all
+  - yarn global add npm-run-all
   - yarn global add codeclimate-test-reporter
   - pip install --user mkdocs
 
