@@ -32,7 +32,7 @@ const { argv } = require('yargs')
   .option('password', {
     describe: 'SFTP password.',
     type: 'string',
-    demandOption: true,
+    demandOption: false,
   })
   .option('privateKey', {
     describe: 'SSH key.',
