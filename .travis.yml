@@ -13,6 +13,7 @@ sudo: false
 
 before_install:
   - yarn global add codeclimate-test-reporter
+  - pip install --upgrade pip
   - pip install mkdocs
 
 script:
