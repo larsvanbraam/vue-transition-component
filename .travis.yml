@@ -7,9 +7,10 @@ node_js:
   - '6'
   - '8'
 
-sudo: true
+sudo: false
 
 before_install:
+  - yarn global npm-run-all
   - yarn global add codeclimate-test-reporter
   - pip install --user mkdocs
 
@@ -30,6 +31,7 @@ deploy:
     skip_cleanup: true
   - provider: script
     script: yarn deploy-docs --host=$SFTP_HOST --port=$SFTP_PORT --serverPath=$SFTP_SERVER_PATH --username=$SFTP_USERNAME --privateKey=$SFTP_KEY
+    skip_cleanup: true
     on:
       branch: master
 
