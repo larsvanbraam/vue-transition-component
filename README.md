@@ -21,7 +21,7 @@ npm i -S vue-transition-component
 
 ## Documentation
 
-- [📗 General documentation](https://vue-transition-component.larsvanbraam.nl/general/)
+- [📗 General documentation](https://vue-transition-component.larsvanbraam.nl/mkdocs/)
 - [📘 TypeDoc documentation](https://vue-transition-component.larsvanbraam.nl/typedoc/)
 - [📚 All documentation](https://vue-transition-component.larsvanbraam.nl)
 
