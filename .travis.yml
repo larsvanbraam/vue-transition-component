@@ -4,7 +4,6 @@ cache: yarn
 
 node_js:
   - '9'
-  - '6'
   - '8'
 
 sudo: false
