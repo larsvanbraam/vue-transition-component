@@ -12,12 +12,36 @@ export default {
   beforeCreate() {
     // Create the scroll tracker manager
     this.scrollTrackerComponentManager = new ScrollTrackerComponentManager({
+      // component settings
       element: '$el',
+      enterView: 'enterView',
+      leaveView: 'leaveView',
+      beyondView: 'beyondView',
+      inViewProgress: 'inViewProgress',
+      inViewProgressThreshold: 'inViewProgressThreshold',
       enterViewThreshold: 'transitionInThreshold',
+      hasEntered: 'hasEntered',
+      currentViewProgress: 'currentViewProgress',
       componentId: 'componentId',
+
+      // global settings
+      container: window,
+      inViewProgressEnabled: true,
       setDebugLabel: true,
       debugBorderColor: 'red',
+      scrollThrottle: 100,
       resizeDebounce: 100,
+      // smooth scroll settings
+      enableSmoothScroll: false,
+      smoothScrollOptions: {
+        damping: 0.2,
+        thumbMinSize: 20,
+        renderByPixels: true,
+        alwaysShowTracks: false,
+        wheelEventTarget: null,
+        continuousScrolling: true,
+        plugins: {},
+      },
     });
   },
   methods: {
