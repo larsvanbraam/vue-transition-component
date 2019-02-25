@@ -512,6 +512,12 @@
     core-js "^2.4.0"
     regenerator-runtime "^0.11.1"
 
+"@babel/runtime@^7.3.1":
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.3.1.tgz#574b03e8e8a9898eaf4a872a92ea20b7846f6f2a"
+  dependencies:
+    regenerator-runtime "^0.12.0"
+
 "@babel/template@7.0.0-beta.36":
   version "7.0.0-beta.36"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.0.0-beta.36.tgz#02e903de5d68bd7899bce3c5b5447e59529abb00"
@@ -1242,6 +1248,10 @@ core-js@^2.4.0:
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.3.tgz#8acc38345824f16d8365b7c9b4259168e8ed603e"
 
+core-js@^2.5.1:
+  version "2.6.5"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
+
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -1455,6 +1465,10 @@ electron-to-chromium@^1.3.30:
 elegant-spinner@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/elegant-spinner/-/elegant-spinner-1.0.1.tgz#db043521c95d7e303fd8f345bedc3349cfb0729e"
+
+element-size@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/element-size/-/element-size-1.1.1.tgz#64e5f159d97121631845bcbaecaf279c39b5e34e"
 
 error-ex@^1.2.0, error-ex@^1.3.1:
   version "1.3.1"
@@ -2786,6 +2800,10 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
+lodash-es@^4.17.4:
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.11.tgz#145ab4a7ac5c5e52a3531fb4f310255a152b4be0"
+
 lodash.cond@^4.3.0:
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/lodash.cond/-/lodash.cond-4.5.2.tgz#f471a1da486be60f6ab955d17115523dd1d255d5"
@@ -2797,6 +2815,10 @@ lodash.sortby@^4.7.0:
 lodash@^4.13.1, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+
+lodash@^4.17.10:
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
 log-driver@1.2.5:
   version "1.2.5"
@@ -3524,6 +3546,10 @@ regenerator-runtime@^0.11.0, regenerator-runtime@^0.11.1:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
 
+regenerator-runtime@^0.12.0:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.12.1.tgz#fa1a71544764c036f8c49b13a08b2594c9f8a0de"
+
 regenerator-transform@^0.12.3:
   version "0.12.3"
   resolved "https://registry.yarnpkg.com/regenerator-transform/-/regenerator-transform-0.12.3.tgz#459adfb64f6a27164ab991b7873f45ab969eca8b"
@@ -3757,6 +3783,16 @@ sax@^1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
+scroll-tracker-component-manager@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/scroll-tracker-component-manager/-/scroll-tracker-component-manager-2.1.1.tgz#3f5acaed0eeb9bc3eae9386eb3a7fc9685863654"
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    element-size "^1.1.1"
+    lodash "^4.17.10"
+    seng-scroll-tracker "^1.2.7"
+    smooth-scrollbar "^8.3.1"
+
 "semver@2 || 3 || 4 || 5", semver@^5.3.0:
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
@@ -3772,6 +3808,15 @@ seng-event@^1.2.3:
   resolved "https://registry.yarnpkg.com/seng-event/-/seng-event-1.2.3.tgz#073ae3fa5e9d49677361a3dc97da752285b6467d"
   dependencies:
     seng-disposable "^1.1.3"
+    tslib "^1.2.0"
+
+seng-scroll-tracker@^1.2.7:
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/seng-scroll-tracker/-/seng-scroll-tracker-1.2.7.tgz#cb092532edf372bba42dc52f25363a55b7146257"
+  dependencies:
+    element-size "^1.1.1"
+    lodash "^4.17.4"
+    seng-event "^1.2.3"
     tslib "^1.2.0"
 
 set-blocking@^2.0.0, set-blocking@~2.0.0:
@@ -3838,6 +3883,14 @@ slice-ansi@1.0.0:
 slide@^1.1.5:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/slide/-/slide-1.1.6.tgz#56eb027d65b4d2dce6cb2e2d32c4d4afc9e1d707"
+
+smooth-scrollbar@^8.3.1:
+  version "8.3.1"
+  resolved "https://registry.yarnpkg.com/smooth-scrollbar/-/smooth-scrollbar-8.3.1.tgz#1db5458bb874a600c88b67c44b550737c6f9dbf4"
+  dependencies:
+    core-js "^2.5.1"
+    lodash-es "^4.17.4"
+    tslib "^1.7.1"
 
 sntp@1.x.x:
   version "1.0.9"
@@ -4332,6 +4385,12 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+vue-types@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/vue-types/-/vue-types-1.5.0.tgz#ed7988896bdb4fb1fe47df293d289e5c36d7d418"
+  dependencies:
+    lodash "^4.17.10"
 
 vue@^2.5.16:
   version "2.5.16"

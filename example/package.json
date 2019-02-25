@@ -14,6 +14,7 @@
     "gsap": "^2.0.1",
     "highlight.js": "^9.12.0",
     "lodash": "^4.17.5",
+    "scroll-tracker-component-manager": "^2.1.1",
     "seng-event": "^1.2.3",
     "transition-controller": "^1.2.6",
     "ts-loader": "^4.1.0",
@@ -21,6 +22,7 @@
     "vue-loader": "14.1.1",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.2.6",
+    "vue-types": "^1.5.0",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",
     "webpack-dev-server": "^3.1.1"

@@ -100,7 +100,8 @@
     "tslint-config-prettier": "^1.6.0",
     "typedoc": "^0.9.0",
     "typescript": "^2.6.2",
-    "vue": "^2.5.16"
+    "vue": "^2.5.16",
+    "vue-types": "^1.5.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.35",
@@ -111,11 +112,13 @@
     "node-run-cmd": "^1.0.1",
     "path": "^0.12.7",
     "rimraf": "^2.6.2",
+    "scroll-tracker-component-manager": "^2.1.1",
     "seng-disposable": "^1.1.3",
     "seng-event": "^1.2.3",
     "transition-controller": "^1.2.6"
   },
   "peerDependencies": {
-    "vue": "^2.5.16"
+    "vue": "^2.5.16",
+    "vue-types": "^1.5.0"
   }
 }
