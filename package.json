@@ -22,7 +22,7 @@
     "clean:npm": "shx rm -rf lib tmp index.js",
     "doc": "npm-run-all -p doc:*",
     "doc:typedoc": "typedoc src/ --out docs/typedoc --mode file --exclude \"**/index.ts\" --name VueTransitionComponent --excludeExternals --excludePrivate --readme none",
-    "doc:mkdocs": "mkdocs build --clean --config-file ./docs/general/mkdocs.yml",
+    "doc:mkdocs": "mkdocs --version && mkdocs build --clean --config-file ./docs/general/mkdocs.yml",
     "deploy:mkdocs": "node ./build-tools/script/deploy-docs.js --platform=mkdocs --source=./docs/general/dist",
     "deploy:typedoc": "node ./build-tools/script/deploy-docs.js --platform=typedoc --source=./docs/typedoc",
     "deploy-docs": "npm-run-all doc \"deploy:* {@}\" --",
