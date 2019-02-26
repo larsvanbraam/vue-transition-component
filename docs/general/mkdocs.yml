@@ -2,6 +2,7 @@ site_name: vue-transition-component
 site_url: https://vue-transition-component.larsvanbraam.nl/general/
 site_description: Provides GreenSock transition functionality to vue.js components.
 site_author: Lars van Braam
+docs_dir: docs
 site_dir: dist
 repo_url: https://github.com/larsvanbraam/vue-transition-component/
 edit_uri: blob/master/docs/general
