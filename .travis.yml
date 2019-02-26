@@ -6,7 +6,9 @@ node_js:
   - '9'
   - '8'
 
-sudo: true
+sudo: false
+
+python: pypy3.5
 
 before_install:
   - yarn global add npm-run-all
