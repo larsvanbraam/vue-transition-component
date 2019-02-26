@@ -1,6 +1,6 @@
 language: node_js
 
-python: 2.7.9
+dist: trusty
 
 cache: yarn
 
@@ -14,8 +14,6 @@ before_install:
   - yarn global add npm-run-all
   - yarn global add codeclimate-test-reporter
   - python --version
-  - apt-get install python 2.7.10
-  - pip install --user --upgrade pip
   - pip install --user mkdocs==1.0
 
 script:
