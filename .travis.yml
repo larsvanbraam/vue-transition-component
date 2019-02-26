@@ -36,7 +36,7 @@ deploy:
     script: yarn deploy-docs --host=$SFTP_HOST --port=$SFTP_PORT --serverPath=$SFTP_SERVER_PATH --username=$SFTP_USERNAME --privateKey=$SFTP_KEY
     skip_cleanup: true
     on:
-      tags: true
+      tags: true1
       node: '8'
 
 addons:

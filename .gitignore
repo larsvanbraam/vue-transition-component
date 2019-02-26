@@ -10,7 +10,6 @@ node_modules/
 /coverage/
 /.nyc_output/
 /tmp/
-/build-tools/config/deploy-config.js
 /docs/general/dist
 
 ## only ignore in git
