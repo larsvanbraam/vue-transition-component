@@ -65,7 +65,7 @@ const { platform, source, host, port, serverPath, username, privateKey, password
     port,
     username,
     password,
-    privateKey,
+    privateKey: Buffer.from(privateKey, 'base64'),
   });
 
   const sftp = await createSftpConnection(client);
