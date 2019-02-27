@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IAbstractPageTransitionComponent | VueTransitionComponent</title>
+	<title>IAbstractRegistrableComponent | VueTransitionComponent</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="iabstractpagetransitioncomponent.html">IAbstractPageTransitionComponent</a>
+					<a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>
 				</li>
 			</ul>
-			<h1>Interface IAbstractPageTransitionComponent</h1>
+			<h1>Interface IAbstractRegistrableComponent</h1>
 		</div>
 	</div>
 </header>
@@ -67,9 +67,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Transition pages are basically the same as transition components the only difference is
-							they are linked to the vue-router and the transitionIn and transitionOut methods will be
-						called when the changes.</p>
+						<p>The AbstractRegistrableComponent is the core component of the vue-transition-component. It&#39;s used for
+							registering components and making sure all the children are done before we start creating timelines.
+						Nested registrable components will let their parent know that they are ready.</p>
 					</div>
 				</div>
 			</section>
@@ -77,10 +77,15 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a>
+						<span class="tsd-signature-type">Vue</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">IAbstractPageTransitionComponent</span>
+								<span class="target">IAbstractRegistrableComponent</span>
+								<ul class="tsd-hierarchy">
+									<li>
+										<a href="iabstracttransitioncomponent.html" class="tsd-signature-type">IAbstractTransitionComponent</a>
+									</li>
+								</ul>
 							</li>
 						</ul>
 					</li>
@@ -93,58 +98,51 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_attrs" class="tsd-kind-icon">$attrs</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_children" class="tsd-kind-icon">$children</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_createelement" class="tsd-kind-icon">$create<wbr>Element</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_data" class="tsd-kind-icon">$data</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_delete" class="tsd-kind-icon">$delete</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_el" class="tsd-kind-icon">$el</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_isserver" class="tsd-kind-icon">$is<wbr>Server</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_listeners" class="tsd-kind-icon">$listeners</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_options" class="tsd-kind-icon">$options</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_parent" class="tsd-kind-icon">$parent</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_props" class="tsd-kind-icon">$props</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_refs" class="tsd-kind-icon">$refs</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_root" class="tsd-kind-icon">$root</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_scopedslots" class="tsd-kind-icon">$scoped<wbr>Slots</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_set" class="tsd-kind-icon">$set</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_slots" class="tsd-kind-icon">$slots</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_ssrcontext" class="tsd-kind-icon">$ssr<wbr>Context</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_vnode" class="tsd-kind-icon">$vnode</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#allcomponentsready" class="tsd-kind-icon">all<wbr>Components<wbr>Ready</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#componentid" class="tsd-kind-icon">component<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractpagetransitioncomponent.html#flow" class="tsd-kind-icon">flow</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#isregistrable" class="tsd-kind-icon">is<wbr>Registrable</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#newregisteredcomponents" class="tsd-kind-icon">new<wbr>Registered<wbr>Components</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#registeredcomponents" class="tsd-kind-icon">registered<wbr>Components</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#registrablecomponents" class="tsd-kind-icon">registrable<wbr>Components</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#transitioncontroller" class="tsd-kind-icon">transition<wbr>Controller</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractpagetransitioncomponent.html#transitioninhijack" class="tsd-kind-icon">transition<wbr>InHijack</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_attrs" class="tsd-kind-icon">$attrs</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_children" class="tsd-kind-icon">$children</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_createelement" class="tsd-kind-icon">$create<wbr>Element</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_data" class="tsd-kind-icon">$data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_delete" class="tsd-kind-icon">$delete</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_el" class="tsd-kind-icon">$el</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_isserver" class="tsd-kind-icon">$is<wbr>Server</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_listeners" class="tsd-kind-icon">$listeners</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_options" class="tsd-kind-icon">$options</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_parent" class="tsd-kind-icon">$parent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_props" class="tsd-kind-icon">$props</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_refs" class="tsd-kind-icon">$refs</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_root" class="tsd-kind-icon">$root</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_scopedslots" class="tsd-kind-icon">$scoped<wbr>Slots</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_set" class="tsd-kind-icon">$set</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_slots" class="tsd-kind-icon">$slots</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_ssrcontext" class="tsd-kind-icon">$ssr<wbr>Context</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_vnode" class="tsd-kind-icon">$vnode</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#vue" class="tsd-kind-icon">Vue</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#allcomponentsready" class="tsd-kind-icon">all<wbr>Components<wbr>Ready</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#componentid" class="tsd-kind-icon">component<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#isregistrable" class="tsd-kind-icon">is<wbr>Registrable</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#newregisteredcomponents" class="tsd-kind-icon">new<wbr>Registered<wbr>Components</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#registeredcomponents" class="tsd-kind-icon">registered<wbr>Components</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#registrablecomponents" class="tsd-kind-icon">registrable<wbr>Components</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_destroy" class="tsd-kind-icon">$destroy</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_emit" class="tsd-kind-icon">$emit</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_forceupdate" class="tsd-kind-icon">$force<wbr>Update</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_mount" class="tsd-kind-icon">$mount</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_nexttick" class="tsd-kind-icon">$next<wbr>Tick</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_off" class="tsd-kind-icon">$off</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_on" class="tsd-kind-icon">$on</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_once" class="tsd-kind-icon">$once</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#_watch" class="tsd-kind-icon">$watch</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#checkcomponentsready" class="tsd-kind-icon">check<wbr>Components<wbr>Ready</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#componentready" class="tsd-kind-icon">component<wbr>Ready</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#handleallcomponentsready" class="tsd-kind-icon">handle<wbr>All<wbr>Components<wbr>Ready</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractpagetransitioncomponent.html#hijacktransitionin" class="tsd-kind-icon">hijack<wbr>Transition<wbr>In</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#isready" class="tsd-kind-icon">is<wbr>Ready</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#setregistrablecomponents" class="tsd-kind-icon">set<wbr>Registrable<wbr>Components</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#startloopinganimation" class="tsd-kind-icon">start<wbr>Looping<wbr>Animation</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#stoploopinganimation" class="tsd-kind-icon">stop<wbr>Looping<wbr>Animation</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#transitionin" class="tsd-kind-icon">transition<wbr>In</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#transitionout" class="tsd-kind-icon">transition<wbr>Out</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractpagetransitioncomponent.html#updateregistrablecomponents" class="tsd-kind-icon">update<wbr>Registrable<wbr>Components</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_destroy" class="tsd-kind-icon">$destroy</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_emit" class="tsd-kind-icon">$emit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_forceupdate" class="tsd-kind-icon">$force<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_mount" class="tsd-kind-icon">$mount</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_nexttick" class="tsd-kind-icon">$next<wbr>Tick</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_off" class="tsd-kind-icon">$off</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_on" class="tsd-kind-icon">$on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_once" class="tsd-kind-icon">$once</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited"><a href="iabstractregistrablecomponent.html#_watch" class="tsd-kind-icon">$watch</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#checkcomponentsready" class="tsd-kind-icon">check<wbr>Components<wbr>Ready</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#componentready" class="tsd-kind-icon">component<wbr>Ready</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#handleallcomponentsready" class="tsd-kind-icon">handle<wbr>All<wbr>Components<wbr>Ready</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#isready" class="tsd-kind-icon">is<wbr>Ready</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#setregistrablecomponents" class="tsd-kind-icon">set<wbr>Registrable<wbr>Components</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="iabstractregistrablecomponent.html#updateregistrablecomponents" class="tsd-kind-icon">update<wbr>Registrable<wbr>Components</a></li>
 							</ul>
 						</section>
 					</div>
@@ -374,14 +372,23 @@
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="vue" class="tsd-anchor"></a>
+					<h3>Vue</h3>
+					<div class="tsd-signature tsd-kind-icon">Vue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">VueConstructor</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/vue/types/vue.d.ts:124</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="allcomponentsready" class="tsd-anchor"></a>
 					<h3>all<wbr>Components<wbr>Ready</h3>
 					<div class="tsd-signature tsd-kind-icon">all<wbr>Components<wbr>Ready<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#allcomponentsready">allComponentsReady</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L43">interface/IAbstractRegistrableComponent.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/interface/IAbstractRegistrableComponent.ts#L43">interface/IAbstractRegistrableComponent.ts:43</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -390,14 +397,13 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="componentid" class="tsd-anchor"></a>
 					<h3>component<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">component<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#componentid">componentId</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L15">interface/IAbstractRegistrableComponent.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/interface/IAbstractRegistrableComponent.ts#L15">interface/IAbstractRegistrableComponent.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -408,28 +414,12 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="flow" class="tsd-anchor"></a>
-					<h3>flow</h3>
-					<div class="tsd-signature tsd-kind-icon">flow<span class="tsd-signature-symbol">:</span> <a href="../enums/flowtype.html" class="tsd-signature-type">FlowType</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractPageTransitionComponent.ts#L30">interface/IAbstractPageTransitionComponent.ts:30</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The flow of the page transition, see the FlowTypes file for the options</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="isregistrable" class="tsd-anchor"></a>
 					<h3>is<wbr>Registrable</h3>
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Registrable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#isregistrable">isRegistrable</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L22">interface/IAbstractRegistrableComponent.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/interface/IAbstractRegistrableComponent.ts#L22">interface/IAbstractRegistrableComponent.ts:22</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -438,14 +428,13 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="newregisteredcomponents" class="tsd-anchor"></a>
 					<h3>new<wbr>Registered<wbr>Components</h3>
 					<div class="tsd-signature tsd-kind-icon">new<wbr>Registered<wbr>Components<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#newregisteredcomponents">newRegisteredComponents</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L36">interface/IAbstractRegistrableComponent.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/interface/IAbstractRegistrableComponent.ts#L36">interface/IAbstractRegistrableComponent.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -454,14 +443,13 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="registeredcomponents" class="tsd-anchor"></a>
 					<h3>registered<wbr>Components</h3>
 					<div class="tsd-signature tsd-kind-icon">registered<wbr>Components<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#registeredcomponents">registeredComponents</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L29">interface/IAbstractRegistrableComponent.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/interface/IAbstractRegistrableComponent.ts#L29">interface/IAbstractRegistrableComponent.ts:29</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -470,50 +458,18 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="registrablecomponents" class="tsd-anchor"></a>
 					<h3>registrable<wbr>Components</h3>
 					<div class="tsd-signature tsd-kind-icon">registrable<wbr>Components<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#registrablecomponents">registrableComponents</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L50">interface/IAbstractRegistrableComponent.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/interface/IAbstractRegistrableComponent.ts#L50">interface/IAbstractRegistrableComponent.ts:50</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Array of all components that are registrable</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="transitioncontroller" class="tsd-anchor"></a>
-					<h3>transition<wbr>Controller</h3>
-					<div class="tsd-signature tsd-kind-icon">transition<wbr>Controller<span class="tsd-signature-symbol">:</span> <a href="../classes/abstractvuetransitioncontroller.html" class="tsd-signature-type">AbstractVueTransitionController</a></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="iabstracttransitioncomponent.html">IAbstractTransitionComponent</a>.<a href="iabstracttransitioncomponent.html#transitioncontroller">transitionController</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractTransitionComponent.ts#L14">interface/IAbstractTransitionComponent.ts:14</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>This is the instance of the transition controller that contains your timelines.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="transitioninhijack" class="tsd-anchor"></a>
-					<h3>transition<wbr>InHijack</h3>
-					<div class="tsd-signature tsd-kind-icon">transition<wbr>InHijack<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractPageTransitionComponent.ts#L15">interface/IAbstractPageTransitionComponent.ts:15</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The promised used for hijacking the transition in</p>
 						</div>
 					</div>
 				</section>
@@ -891,18 +847,17 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="checkcomponentsready" class="tsd-anchor"></a>
 					<h3>check<wbr>Components<wbr>Ready</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
 						<li class="tsd-signature tsd-kind-icon">check<wbr>Components<wbr>Ready<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#checkcomponentsready">checkComponentsReady</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L93">interface/IAbstractRegistrableComponent.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/interface/IAbstractRegistrableComponent.ts#L93">interface/IAbstractRegistrableComponent.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -914,18 +869,17 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="componentready" class="tsd-anchor"></a>
 					<h3>component<wbr>Ready</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
 						<li class="tsd-signature tsd-kind-icon">component<wbr>Ready<span class="tsd-signature-symbol">(</span>component<span class="tsd-signature-symbol">: </span><a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#componentready">componentReady</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L86">interface/IAbstractRegistrableComponent.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/interface/IAbstractRegistrableComponent.ts#L86">interface/IAbstractRegistrableComponent.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -946,18 +900,17 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="handleallcomponentsready" class="tsd-anchor"></a>
 					<h3>handle<wbr>All<wbr>Components<wbr>Ready</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
 						<li class="tsd-signature tsd-kind-icon">handle<wbr>All<wbr>Components<wbr>Ready<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#handleallcomponentsready">handleAllComponentsReady</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L66">interface/IAbstractRegistrableComponent.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/interface/IAbstractRegistrableComponent.ts#L66">interface/IAbstractRegistrableComponent.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -971,40 +924,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="hijacktransitionin" class="tsd-anchor"></a>
-					<h3>hijack<wbr>Transition<wbr>In</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">hijack<wbr>Transition<wbr>In<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractPageTransitionComponent.ts#L23">interface/IAbstractPageTransitionComponent.ts:23</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Sometimes you might want to hijack the page transitionIn, this method allows you to do it.
-									Call the method, do your pre-transitionIn code and release the flow.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 					<a name="isready" class="tsd-anchor"></a>
 					<h3>is<wbr>Ready</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
 						<li class="tsd-signature tsd-kind-icon">is<wbr>Ready<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#isready">isReady</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L58">interface/IAbstractRegistrableComponent.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/interface/IAbstractRegistrableComponent.ts#L58">interface/IAbstractRegistrableComponent.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1017,18 +946,17 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="setregistrablecomponents" class="tsd-anchor"></a>
 					<h3>set<wbr>Registrable<wbr>Components</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
 						<li class="tsd-signature tsd-kind-icon">set<wbr>Registrable<wbr>Components<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#setregistrablecomponents">setRegistrableComponents</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L100">interface/IAbstractRegistrableComponent.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/interface/IAbstractRegistrableComponent.ts#L100">interface/IAbstractRegistrableComponent.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1040,164 +968,17 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<a name="startloopinganimation" class="tsd-anchor"></a>
-					<h3>start<wbr>Looping<wbr>Animation</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>Looping<wbr>Animation<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, reset<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="iabstracttransitioncomponent.html">IAbstractTransitionComponent</a>.<a href="iabstracttransitioncomponent.html#startloopinganimation">startLoopingAnimation</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractTransitionComponent.ts#L46">interface/IAbstractTransitionComponent.ts:46</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Start the looping animations on the current component</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> id: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>This is the id of the transition out timeline that you want to play</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> reset: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>If the reset flag is set to true it will re-initialize the current timeline</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<a name="stoploopinganimation" class="tsd-anchor"></a>
-					<h3>stop<wbr>Looping<wbr>Animation</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">stop<wbr>Looping<wbr>Animation<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="iabstracttransitioncomponent.html">IAbstractTransitionComponent</a>.<a href="iabstracttransitioncomponent.html#stoploopinganimation">stopLoopingAnimation</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractTransitionComponent.ts#L53">interface/IAbstractTransitionComponent.ts:53</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>This will stop the current looping animation, keep in mind it will not reset it just stop at the current state.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<a name="transitionin" class="tsd-anchor"></a>
-					<h3>transition<wbr>In</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">transition<wbr>In<span class="tsd-signature-symbol">(</span>forceTransition<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="iabstracttransitioncomponent.html">IAbstractTransitionComponent</a>.<a href="iabstracttransitioncomponent.html#transitionin">transitionIn</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractTransitionComponent.ts#L24">interface/IAbstractTransitionComponent.ts:24</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Calling transition in will trigger transitionIn on your transition controller and
-									start the desired timeline.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> forceTransition: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Add this flag if you want to overwrite any active transitions</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A promise that will be resolved when the transition in is completed</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<a name="transitionout" class="tsd-anchor"></a>
-					<h3>transition<wbr>Out</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">transition<wbr>Out<span class="tsd-signature-symbol">(</span>forceTransition<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, id<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, reset<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="iabstracttransitioncomponent.html">IAbstractTransitionComponent</a>.<a href="iabstracttransitioncomponent.html#transitionout">transitionOut</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractTransitionComponent.ts#L37">interface/IAbstractTransitionComponent.ts:37</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Calling transition out will trigger transitionOut on your transition controller and
-									start the desired timeline.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>transitionOut</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> forceTransition: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Add this flag if you want to overwrite any active transitions</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> id: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>This is the id of the transition out timeline that you want to play</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> reset: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>If the reset flag is set to true it will re-initialize the current timeline</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A promise that will be resolved when the transition out is completed</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="updateregistrablecomponents" class="tsd-anchor"></a>
 					<h3>update<wbr>Registrable<wbr>Components</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
 						<li class="tsd-signature tsd-kind-icon">update<wbr>Registrable<wbr>Components<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="iabstractregistrablecomponent.html" class="tsd-signature-type">IAbstractRegistrableComponent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="iabstractregistrablecomponent.html">IAbstractRegistrableComponent</a>.<a href="iabstractregistrablecomponent.html#updateregistrablecomponents">updateRegistrableComponents</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/bd9a61f/src/lib/interface/IAbstractRegistrableComponent.ts#L76">interface/IAbstractRegistrableComponent.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/interface/IAbstractRegistrableComponent.ts#L76">interface/IAbstractRegistrableComponent.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1274,159 +1055,138 @@
 					<li class=" tsd-kind-class">
 						<a href="../classes/flowmanager.html" class="tsd-kind-icon">Flow<wbr>Manager</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="iabstractpagetransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Page<wbr>Transition<wbr>Component</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="iabstractpagetransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Page<wbr>Transition<wbr>Component</a>
+						<a href="iabstractregistrablecomponent.html" class="tsd-kind-icon">IAbstract<wbr>Registrable<wbr>Component</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_attrs" class="tsd-kind-icon">$attrs</a>
+								<a href="iabstractregistrablecomponent.html#_attrs" class="tsd-kind-icon">$attrs</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_children" class="tsd-kind-icon">$children</a>
+								<a href="iabstractregistrablecomponent.html#_children" class="tsd-kind-icon">$children</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_createelement" class="tsd-kind-icon">$create<wbr>Element</a>
+								<a href="iabstractregistrablecomponent.html#_createelement" class="tsd-kind-icon">$create<wbr>Element</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_data" class="tsd-kind-icon">$data</a>
+								<a href="iabstractregistrablecomponent.html#_data" class="tsd-kind-icon">$data</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_delete" class="tsd-kind-icon">$delete</a>
+								<a href="iabstractregistrablecomponent.html#_delete" class="tsd-kind-icon">$delete</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_el" class="tsd-kind-icon">$el</a>
+								<a href="iabstractregistrablecomponent.html#_el" class="tsd-kind-icon">$el</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_isserver" class="tsd-kind-icon">$is<wbr>Server</a>
+								<a href="iabstractregistrablecomponent.html#_isserver" class="tsd-kind-icon">$is<wbr>Server</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_listeners" class="tsd-kind-icon">$listeners</a>
+								<a href="iabstractregistrablecomponent.html#_listeners" class="tsd-kind-icon">$listeners</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_options" class="tsd-kind-icon">$options</a>
+								<a href="iabstractregistrablecomponent.html#_options" class="tsd-kind-icon">$options</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_parent" class="tsd-kind-icon">$parent</a>
+								<a href="iabstractregistrablecomponent.html#_parent" class="tsd-kind-icon">$parent</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_props" class="tsd-kind-icon">$props</a>
+								<a href="iabstractregistrablecomponent.html#_props" class="tsd-kind-icon">$props</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_refs" class="tsd-kind-icon">$refs</a>
+								<a href="iabstractregistrablecomponent.html#_refs" class="tsd-kind-icon">$refs</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_root" class="tsd-kind-icon">$root</a>
+								<a href="iabstractregistrablecomponent.html#_root" class="tsd-kind-icon">$root</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_scopedslots" class="tsd-kind-icon">$scoped<wbr>Slots</a>
+								<a href="iabstractregistrablecomponent.html#_scopedslots" class="tsd-kind-icon">$scoped<wbr>Slots</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_set" class="tsd-kind-icon">$set</a>
+								<a href="iabstractregistrablecomponent.html#_set" class="tsd-kind-icon">$set</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_slots" class="tsd-kind-icon">$slots</a>
+								<a href="iabstractregistrablecomponent.html#_slots" class="tsd-kind-icon">$slots</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_ssrcontext" class="tsd-kind-icon">$ssr<wbr>Context</a>
+								<a href="iabstractregistrablecomponent.html#_ssrcontext" class="tsd-kind-icon">$ssr<wbr>Context</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_vnode" class="tsd-kind-icon">$vnode</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#allcomponentsready" class="tsd-kind-icon">all<wbr>Components<wbr>Ready</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#componentid" class="tsd-kind-icon">component<wbr>Id</a>
+								<a href="iabstractregistrablecomponent.html#_vnode" class="tsd-kind-icon">$vnode</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="iabstractpagetransitioncomponent.html#flow" class="tsd-kind-icon">flow</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#isregistrable" class="tsd-kind-icon">is<wbr>Registrable</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#newregisteredcomponents" class="tsd-kind-icon">new<wbr>Registered<wbr>Components</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#registeredcomponents" class="tsd-kind-icon">registered<wbr>Components</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#registrablecomponents" class="tsd-kind-icon">registrable<wbr>Components</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#transitioncontroller" class="tsd-kind-icon">transition<wbr>Controller</a>
+								<a href="iabstractregistrablecomponent.html#vue" class="tsd-kind-icon">Vue</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="iabstractpagetransitioncomponent.html#transitioninhijack" class="tsd-kind-icon">transition<wbr>InHijack</a>
+								<a href="iabstractregistrablecomponent.html#allcomponentsready" class="tsd-kind-icon">all<wbr>Components<wbr>Ready</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="iabstractregistrablecomponent.html#componentid" class="tsd-kind-icon">component<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="iabstractregistrablecomponent.html#isregistrable" class="tsd-kind-icon">is<wbr>Registrable</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="iabstractregistrablecomponent.html#newregisteredcomponents" class="tsd-kind-icon">new<wbr>Registered<wbr>Components</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="iabstractregistrablecomponent.html#registeredcomponents" class="tsd-kind-icon">registered<wbr>Components</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="iabstractregistrablecomponent.html#registrablecomponents" class="tsd-kind-icon">registrable<wbr>Components</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_destroy" class="tsd-kind-icon">$destroy</a>
+								<a href="iabstractregistrablecomponent.html#_destroy" class="tsd-kind-icon">$destroy</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_emit" class="tsd-kind-icon">$emit</a>
+								<a href="iabstractregistrablecomponent.html#_emit" class="tsd-kind-icon">$emit</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_forceupdate" class="tsd-kind-icon">$force<wbr>Update</a>
+								<a href="iabstractregistrablecomponent.html#_forceupdate" class="tsd-kind-icon">$force<wbr>Update</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_mount" class="tsd-kind-icon">$mount</a>
+								<a href="iabstractregistrablecomponent.html#_mount" class="tsd-kind-icon">$mount</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_nexttick" class="tsd-kind-icon">$next<wbr>Tick</a>
+								<a href="iabstractregistrablecomponent.html#_nexttick" class="tsd-kind-icon">$next<wbr>Tick</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_off" class="tsd-kind-icon">$off</a>
+								<a href="iabstractregistrablecomponent.html#_off" class="tsd-kind-icon">$off</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_on" class="tsd-kind-icon">$on</a>
+								<a href="iabstractregistrablecomponent.html#_on" class="tsd-kind-icon">$on</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_once" class="tsd-kind-icon">$once</a>
+								<a href="iabstractregistrablecomponent.html#_once" class="tsd-kind-icon">$once</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#_watch" class="tsd-kind-icon">$watch</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#checkcomponentsready" class="tsd-kind-icon">check<wbr>Components<wbr>Ready</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#componentready" class="tsd-kind-icon">component<wbr>Ready</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#handleallcomponentsready" class="tsd-kind-icon">handle<wbr>All<wbr>Components<wbr>Ready</a>
+								<a href="iabstractregistrablecomponent.html#_watch" class="tsd-kind-icon">$watch</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="iabstractpagetransitioncomponent.html#hijacktransitionin" class="tsd-kind-icon">hijack<wbr>Transition<wbr>In</a>
+								<a href="iabstractregistrablecomponent.html#checkcomponentsready" class="tsd-kind-icon">check<wbr>Components<wbr>Ready</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#isready" class="tsd-kind-icon">is<wbr>Ready</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iabstractregistrablecomponent.html#componentready" class="tsd-kind-icon">component<wbr>Ready</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#setregistrablecomponents" class="tsd-kind-icon">set<wbr>Registrable<wbr>Components</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iabstractregistrablecomponent.html#handleallcomponentsready" class="tsd-kind-icon">handle<wbr>All<wbr>Components<wbr>Ready</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#startloopinganimation" class="tsd-kind-icon">start<wbr>Looping<wbr>Animation</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iabstractregistrablecomponent.html#isready" class="tsd-kind-icon">is<wbr>Ready</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#stoploopinganimation" class="tsd-kind-icon">stop<wbr>Looping<wbr>Animation</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iabstractregistrablecomponent.html#setregistrablecomponents" class="tsd-kind-icon">set<wbr>Registrable<wbr>Components</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#transitionin" class="tsd-kind-icon">transition<wbr>In</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#transitionout" class="tsd-kind-icon">transition<wbr>Out</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="iabstractpagetransitioncomponent.html#updateregistrablecomponents" class="tsd-kind-icon">update<wbr>Registrable<wbr>Components</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="iabstractregistrablecomponent.html#updateregistrablecomponents" class="tsd-kind-icon">update<wbr>Registrable<wbr>Components</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface">
-						<a href="iabstractregistrablecomponent.html" class="tsd-kind-icon">IAbstract<wbr>Registrable<wbr>Component</a>
-					</li>
 					<li class=" tsd-kind-interface">
 						<a href="iabstracttransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Component</a>
 					</li>

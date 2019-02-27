@@ -21,12 +21,10 @@ npm i -S vue-transition-component
 
 ## Documentation
 
-### GitBook
-- [General documentation](https://larsvanbraam.gitbook.io/vue-transition-component/)
+- [📗 General documentation](https://vue-transition-component.larsvanbraam.nl/mkdocs/)
+- [📘 TypeDoc documentation](https://vue-transition-component.larsvanbraam.nl/typedoc/)
+- [📚 All documentation](https://vue-transition-component.larsvanbraam.nl)
 
-### TypeDoc
-- [Latest TypeDoc](https://larsvanbraam.github.io/vue-transition-component/docs/)
-- [Older TypeDocs](https://vue-transition-component.larsvanbraam.nl)
 
 ## Example
 I've included an example setup where you can see the transition controller in action, to run the project follow these steps:
