@@ -2085,7 +2085,7 @@ lodash@^4.17.11:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
 
-lodash@^4.17.4, lodash@^4.17.5:
+lodash@^4.17.5:
   version "4.17.5"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
 
@@ -3481,16 +3481,16 @@ tough-cookie@~2.3.0:
   dependencies:
     punycode "^1.4.1"
 
-transition-controller@^1.2.8:
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-1.2.8.tgz#887a66d73ab099da262fcf8ec859714361efcfa7"
-  integrity sha512-pGFgJCfuIIFyqeiLj8aj39OEx+LYXjI1qEDjuEiIjZC8QFL/TFWgUnTeejb1S8TO90duEuJ6g8raNY2zRSpF4A==
+transition-controller@^1.2.9:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-1.2.9.tgz#e53a64014d4797922557aa19ae7e63990ab884c3"
+  integrity sha512-TCUN0NyLRcEfKIzG/Fy3Glvgn0wZLT4QHLHD2LJJkiapw8He405fWkiS2mOZHFP5Gi7AnF9AUo3Ock7W5bZQFA==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.3.4"
     "@babel/plugin-proposal-object-rest-spread" "^7.3.4"
     "@babel/runtime" "^7.3.4"
     "@types/gsap" "^1.19.2"
-    lodash "^4.17.4"
+    lodash "^4.17.11"
     seng-event "^1.2.3"
 
 trim-right@^1.0.1:
