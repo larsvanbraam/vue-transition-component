@@ -92,7 +92,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-prettier": "^2.4.0",
     "glob": "^7.1.3",
-    "gsap": "^2.0.1",
+    "gsap": "^2.1.1",
     "husky": "^0.14.3",
     "jsdom": "^13.2.0",
     "jsdom-global": "^3.0.2",
@@ -124,9 +124,10 @@
     "rimraf": "^2.6.2",
     "seng-disposable": "^1.1.3",
     "seng-event": "^1.2.3",
-    "transition-controller": "^1.2.7"
+    "transition-controller": "^1.2.8"
   },
   "peerDependencies": {
+    "gsap": "^2.1.1",
     "vue": "^2.5.16"
   }
 }

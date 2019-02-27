@@ -669,13 +669,6 @@
     pirates "^4.0.0"
     source-map-support "^0.5.9"
 
-"@babel/runtime@^7.0.0-beta.35":
-  version "7.0.0-beta.37"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.37.tgz#a717c99db91d64e988788bcf9df68a7779bbc98d"
-  dependencies:
-    core-js "^2.4.0"
-    regenerator-runtime "^0.11.1"
-
 "@babel/runtime@^7.3.4":
   version "7.3.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.3.4.tgz#73d12ba819e365fcf7fd152aed56d6df97d21c83"
@@ -1480,10 +1473,6 @@ copy-descriptor@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
-
-core-js@^2.4.0:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.3.tgz#8acc38345824f16d8365b7c9b4259168e8ed603e"
 
 core-js@^2.5.7:
   version "2.6.5"
@@ -2365,9 +2354,10 @@ growl@1.10.3:
   resolved "https://registry.yarnpkg.com/growl/-/growl-1.10.5.tgz#f2735dc2283674fa67478b10181059355c369e5e"
   integrity sha512-qBr4OuELkhPenW6goKVXiv47US3clb3/IbuWF9KNKEijAy9oeHxU9IgzjvJhHkUzhaj7rOUD7+YGWqUjLp5oSA==
 
-gsap@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/gsap/-/gsap-2.0.1.tgz#c784500e80dc7591131478f0787b67bacc9a8c52"
+gsap@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-2.1.1.tgz#31c14ed4b8cfc2a795492b70b01a5787eb1c8378"
+  integrity sha512-+K9n1IB3cHu6s3nSWfjBSpwYFo4OBzOswjtzMvLK2fBsfcOijTNQdJ5NxRIg5rNPjIexIUGZd4xFekHvS+3OZg==
 
 handlebars@^4.0.6:
   version "4.0.11"
@@ -4129,10 +4119,6 @@ regenerate@^1.4.0:
   resolved "https://registry.yarnpkg.com/regenerate/-/regenerate-1.4.0.tgz#4a856ec4b56e4077c557589cae85e7a4c8869a11"
   integrity sha512-1G6jJVDWrt0rK99kBjvEtziZNCICAuvIPkSiUFIQxVP06RCVpq3dmDo2oi6ABpYaDYaTRr67BEhL8r1wgEZZKg==
 
-regenerator-runtime@^0.11.1:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
-
 regenerator-runtime@^0.12.0:
   version "0.12.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.12.1.tgz#fa1a71544764c036f8c49b13a08b2594c9f8a0de"
@@ -4897,12 +4883,14 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-transition-controller@^1.2.7:
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-1.2.7.tgz#41d9895006d3775e2306e3ec8dcbcbc1d5c3d86c"
-  integrity sha512-53NJ8nby2FGNNgYvtJ4Wpt5nCBJxsT4ToMYhi/pjRQPb0wdHPQCjxgY0eKFY+NdgNq/+CSH336hzYOXD0GMvXw==
+transition-controller@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-1.2.8.tgz#887a66d73ab099da262fcf8ec859714361efcfa7"
+  integrity sha512-pGFgJCfuIIFyqeiLj8aj39OEx+LYXjI1qEDjuEiIjZC8QFL/TFWgUnTeejb1S8TO90duEuJ6g8raNY2zRSpF4A==
   dependencies:
-    "@babel/runtime" "^7.0.0-beta.35"
+    "@babel/plugin-proposal-class-properties" "^7.3.4"
+    "@babel/plugin-proposal-object-rest-spread" "^7.3.4"
+    "@babel/runtime" "^7.3.4"
     "@types/gsap" "^1.19.2"
     lodash "^4.17.4"
     seng-event "^1.2.3"
