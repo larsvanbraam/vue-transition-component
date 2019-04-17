@@ -3481,10 +3481,10 @@ tough-cookie@~2.3.0:
   dependencies:
     punycode "^1.4.1"
 
-transition-controller@^1.2.9:
-  version "1.2.9"
-  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-1.2.9.tgz#e53a64014d4797922557aa19ae7e63990ab884c3"
-  integrity sha512-TCUN0NyLRcEfKIzG/Fy3Glvgn0wZLT4QHLHD2LJJkiapw8He405fWkiS2mOZHFP5Gi7AnF9AUo3Ock7W5bZQFA==
+transition-controller@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-1.3.1.tgz#37614474859498d9c39dbb775996c198781ef2f7"
+  integrity sha512-V02AT3kTO/ImTE1vxzsi/3tSSH4zNdx7rp4lRMHwpLBvIxWXup+mo6IFictTRqHFxbgzTxzQxmf/IKxH6RcBnQ==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.3.4"
     "@babel/plugin-proposal-object-rest-spread" "^7.3.4"
