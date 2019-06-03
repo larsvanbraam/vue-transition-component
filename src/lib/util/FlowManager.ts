@@ -125,7 +125,7 @@ export class FlowManager extends EventDispatcher {
       release();
     } else {
       this.previousComponentId = pageInstance.$options.name;
-      this.dispatchEvent(new FlowEvent(FlowEvent.START, { to, from }));
+      this.dispatchEvent(new FlowEvent(FlowEvent.types.START, { to, from }));
       switch (pageInstance.flow) {
         case FlowType.NORMAL: {
           this.transitionOut = pageInstance.transitionOut(true);
