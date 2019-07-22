@@ -4174,10 +4174,10 @@ seng-event@^1.2.3:
     seng-disposable "^1.1.3"
     tslib "^1.2.0"
 
-seng-event@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/seng-event/-/seng-event-2.0.0.tgz#55e47350772a47cd5fbff97fde9f16ea6e9d4e4c"
-  integrity sha512-z8TO1ZYa9XYASd1pC+abf7TEsf779O3T0O9kNxhzbMEDFkHmu99ubdxETiBWPw0g3H66R2BU68INmV5uRA3J0g==
+seng-event@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/seng-event/-/seng-event-2.0.2.tgz#9ecbdbc811b2f21df05ee8c73078b1d57d52d166"
+  integrity sha512-sBkVy9Bkfmlq3ISfQNiDQ1QU4E1U5MCV0hDQFBgHe8+cQVAE/D/z5HBZIDUenUnkNgOZd+NmOOvrTrmE80tTGQ==
   dependencies:
     "@babel/runtime" "^7.3.1"
     seng-disposable "^1.1.3"
