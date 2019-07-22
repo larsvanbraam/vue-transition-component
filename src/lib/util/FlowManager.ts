@@ -146,7 +146,7 @@ export class FlowManager extends EventDispatcher {
           break;
         }
         default: {
-          throw new Error('[FlowManager] Unknown flow: [' + pageInstance.flow + ']');
+          throw new Error(`[FlowManager] Unknown flow: [${pageInstance.flow}]`);
         }
       }
     }
