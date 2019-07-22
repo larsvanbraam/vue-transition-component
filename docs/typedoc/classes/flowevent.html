@@ -57,7 +57,7 @@
 					<a href="flowevent.html">FlowEvent</a>
 				</li>
 			</ul>
-			<h1>Class FlowEvent</h1>
+			<h1>Class FlowEvent&lt;TDataType, TEventType&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -73,11 +73,22 @@
 					</div>
 				</div>
 			</section>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>TDataType</h4>
+					</li>
+					<li>
+						<h4>TEventType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h4>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="tsd-signature-type">AbstractEvent</span>
+						<span class="tsd-signature-type">BaseEvent</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">FlowEvent</span>
@@ -86,42 +97,35 @@
 					</li>
 				</ul>
 			</section>
-			<section class="tsd-panel">
-				<h3>Implements</h3>
-				<ul class="tsd-hierarchy">
-					<li><span class="tsd-signature-type">IEvent</span></li>
-				</ul>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="flowevent.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="flowevent.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="flowevent.html#bubbles" class="tsd-kind-icon">bubbles</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="flowevent.html#cancelable" class="tsd-kind-icon">cancelable</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="flowevent.html#currenttarget" class="tsd-kind-icon">current<wbr>Target</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="flowevent.html#data" class="tsd-kind-icon">data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="flowevent.html#data" class="tsd-kind-icon">data</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="flowevent.html#defaultprevented" class="tsd-kind-icon">default<wbr>Prevented</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="flowevent.html#eventphase" class="tsd-kind-icon">event<wbr>Phase</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="flowevent.html#target" class="tsd-kind-icon">target</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="flowevent.html#timestamp" class="tsd-kind-icon">time<wbr>Stamp</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="flowevent.html#type" class="tsd-kind-icon">type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="flowevent.html#start" class="tsd-kind-icon">START</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="flowevent.html#type" class="tsd-kind-icon">type</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowevent.html#calllistener" class="tsd-kind-icon">call<wbr>Listener</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="flowevent.html#clone" class="tsd-kind-icon">clone</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="flowevent.html#clone" class="tsd-kind-icon">clone</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowevent.html#preventdefault" class="tsd-kind-icon">prevent<wbr>Default</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowevent.html#stopimmediatepropagation" class="tsd-kind-icon">stop<wbr>Immediate<wbr>Propagation</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="flowevent.html#stoppropagation" class="tsd-kind-icon">stop<wbr>Propagation</a></li>
@@ -130,58 +134,48 @@
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Flow<wbr>Event<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, bubbles<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, cancelable<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, setTimeStamp<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="flowevent.html" class="tsd-signature-type">FlowEvent</a></li>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Flow<wbr>Event<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TEventType</span>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TDataType</span>, bubbles<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, cancelable<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, setTimeStamp<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="flowevent.html" class="tsd-signature-type">FlowEvent</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from BaseEvent.__constructor</p>
 								<p>Overrides AbstractEvent.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/event/FlowEvent.ts#L23">event/FlowEvent.ts:23</a></li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/BaseEvent.d.ts:16</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Provided the type + data to construct the flow event</p>
-								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>type: <span class="tsd-signature-type">string</span></h5>
+									<h5>type: <span class="tsd-signature-type">TEventType</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>The type of the event. Event listeners will only be called if their eventType match this type.</p>
+											<p>The event type</p>
 										</div>
 									</div>
 								</li>
 								<li>
-									<h5>data: <span class="tsd-signature-type">object</span></h5>
+									<h5>data: <span class="tsd-signature-type">TDataType</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>The data that is linked to the event. It contains the from and to information.</p>
+											<p>The data to attach to the event</p>
 										</div>
 									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>from<span class="tsd-signature-symbol">: </span><a href="../interfaces/iroute.html" class="tsd-signature-type">IRoute</a></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>to<span class="tsd-signature-symbol">: </span><a href="../interfaces/iroute.html" class="tsd-signature-type">IRoute</a></h5>
-										</li>
-									</ul>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> bubbles: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>If true, the event will also go through a bubbling phase.</p>
+											<p>see [[AbstractEvent]]</p>
 										</div>
 									</div>
 								</li>
@@ -189,15 +183,17 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> cancelable: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>Indicates if preventDefault can be called on this event. This will prevent the &#39;default
-												action&#39; of the event from being executed. It is up to the EventDispatcher instance that dispatches the
-												event to stop the default action from executing when the dispatchEvent
-											method returns <em>false</em></p>
+											<p>see [[AbstractEvent]]</p>
 										</div>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> setTimeStamp: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>see [[AbstractEvent]]</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="flowevent.html" class="tsd-signature-type">FlowEvent</a></h4>
@@ -205,7 +201,7 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="bubbles" class="tsd-anchor"></a>
@@ -214,9 +210,15 @@
 					<aside class="tsd-sources">
 						<p>Inherited from AbstractEvent.bubbles</p>
 						<ul>
-							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:13</li>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:23</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If true, the event will also go through a bubbling phase. See [[EventDispatcher.dispatchEvent]]
+							for more information on the event phases.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="cancelable" class="tsd-anchor"></a>
@@ -225,53 +227,46 @@
 					<aside class="tsd-sources">
 						<p>Inherited from AbstractEvent.cancelable</p>
 						<ul>
-							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:14</li>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:30</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates if <a href="flowevent.html#preventdefault">preventDefault</a> can be called on this event. This will prevent the &#39;default
+								action&#39; of the event from being executed. It is up to the [[EventDispatcher]] instance that dispatches the
+								event to stop the default action from executing when the [[EventDispatcher.dispatchEvent|dispatchEvent]]
+							method returns <code>false</code></p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="currenttarget" class="tsd-anchor"></a>
 					<h3>current<wbr>Target</h3>
-					<div class="tsd-signature tsd-kind-icon">current<wbr>Target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IEventDispatcher</span></div>
+					<div class="tsd-signature tsd-kind-icon">current<wbr>Target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventDispatcher</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from AbstractEvent.currentTarget</p>
 						<ul>
-							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:20</li>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:36</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Will be updated by [[EventDispatcher]] during the dispatch of an event to the target that
 								listeners are currently being called on. After completion of an event dispatch this value
-							will be reset to <em>null</em>.</p>
+							will be reset to <code>null</code>.</p>
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="data" class="tsd-anchor"></a>
 					<h3>data</h3>
-					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TDataType</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from BaseEvent.data</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/event/FlowEvent.ts#L23">event/FlowEvent.ts:23</a></li>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/BaseEvent.d.ts:16</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The data contains the target of the flow, this is used for detecting flows that end up at the same location.</p>
-						</div>
-					</div>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter">
-								<h5>from<span class="tsd-signature-symbol">: </span><a href="../interfaces/iroute.html" class="tsd-signature-type">IRoute</a></h5>
-							</li>
-							<li class="tsd-parameter">
-								<h5>to<span class="tsd-signature-symbol">: </span><a href="../interfaces/iroute.html" class="tsd-signature-type">IRoute</a></h5>
-							</li>
-						</ul>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="defaultprevented" class="tsd-anchor"></a>
@@ -280,12 +275,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from AbstractEvent.defaultPrevented</p>
 						<ul>
-							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:43</li>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:59</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p> <em>true</em> if <a href="flowevent.html#cancelable">cancelable</a> is true and <a href="flowevent.html#preventdefault">preventDefault</a> has been called on this event.</p>
+							<p> <code>true</code> if <a href="flowevent.html#cancelable">cancelable</a> is true and <a href="flowevent.html#preventdefault">preventDefault</a> has been called on this event.</p>
 						</div>
 					</div>
 				</section>
@@ -296,7 +291,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from AbstractEvent.eventPhase</p>
 						<ul>
-							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:33</li>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:49</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -311,11 +306,11 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="target" class="tsd-anchor"></a>
 					<h3>target</h3>
-					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IEventDispatcher</span></div>
+					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventDispatcher</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from AbstractEvent.target</p>
 						<ul>
-							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:26</li>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:42</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -333,58 +328,44 @@
 					<aside class="tsd-sources">
 						<p>Inherited from AbstractEvent.timeStamp</p>
 						<ul>
-							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:39</li>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:55</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Indicates the time this event is dispatched in the number of milliseconds elapsed since
 								<em>1 January 1970 00:00:00 UTC</em>. This value will only be set if the setTimestamp parameter in the constructor
-							is set to <em>true</em>. Otherwise, this value will be <em>0</em>.</p>
+							is set to <code>true</code>. Otherwise, this value will be <em>0</em>.</p>
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="type" class="tsd-anchor"></a>
 					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TEventType</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from AbstractEvent.type</p>
+						<p>Inherited from BaseEvent.type</p>
+						<p>Overrides AbstractEvent.type</p>
 						<ul>
-							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:12</li>
+							<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/BaseEvent.d.ts:15</li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-					<a name="start" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> START</h3>
-					<div class="tsd-signature tsd-kind-icon">START<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;EVENT_TYPE_PLACEHOLDER</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/event/FlowEvent.ts#L16">event/FlowEvent.ts:16</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The flow start event indicates that the flow has started</p>
-						</div>
-					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="calllistener" class="tsd-anchor"></a>
 					<h3>call<wbr>Listener</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">call<wbr>Listener<span class="tsd-signature-symbol">(</span>handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventHandler</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CallListenerResult</span></li>
+						<li class="tsd-signature tsd-kind-icon">call<wbr>Listener<span class="tsd-signature-symbol">(</span>handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventHandlerForEvent</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CallListenerResult</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from AbstractEvent.callListener</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:80</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:96</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -396,7 +377,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>handler: <span class="tsd-signature-type">EventHandler</span></h5>
+									<h5>handler: <span class="tsd-signature-type">EventHandlerForEvent</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The event handler to execute</p>
 									</div>
@@ -407,26 +388,22 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="clone" class="tsd-anchor"></a>
 					<h3>clone</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="flowevent.html" class="tsd-signature-type">FlowEvent</a></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BaseEvent</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TDataType</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TEventType</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from BaseEvent.clone</p>
 								<p>Overrides AbstractEvent.clone</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e5523e7/src/lib/event/FlowEvent.ts#L54">event/FlowEvent.ts:54</a></li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/BaseEvent.d.ts:26</li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>The clone method returns a cloned instance of the original event.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <a href="flowevent.html" class="tsd-signature-type">FlowEvent</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">BaseEvent</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TDataType</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TEventType</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -441,12 +418,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from AbstractEvent.preventDefault</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:73</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:89</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>May only be called when the <a href="flowevent.html#cancelable">cancelable</a> property of an event is set to <em>true</em>. Indicates to the
+									<p>May only be called when the <a href="flowevent.html#cancelable">cancelable</a> property of an event is set to <code>true</code>. Indicates to the
 									instance that dispatched the event that the default action for the event should not be executed.</p>
 								</div>
 							</div>
@@ -465,7 +442,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from AbstractEvent.stopImmediatePropagation</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:68</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:84</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -494,7 +471,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from AbstractEvent.stopPropagation</p>
 								<ul>
-									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:62</li>
+									<li>Defined in /Users/lars/Projects/_private/modules/vue-transition-component/node_modules/seng-event/lib/AbstractEvent.d.ts:78</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -532,10 +509,10 @@
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
+					<li class="current tsd-kind-class tsd-has-type-parameter">
 						<a href="flowevent.html" class="tsd-kind-icon">Flow<wbr>Event</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="flowevent.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -547,7 +524,7 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="flowevent.html#currenttarget" class="tsd-kind-icon">current<wbr>Target</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="flowevent.html#data" class="tsd-kind-icon">data</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -562,16 +539,13 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="flowevent.html#timestamp" class="tsd-kind-icon">time<wbr>Stamp</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="flowevent.html#type" class="tsd-kind-icon">type</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="flowevent.html#start" class="tsd-kind-icon">START</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="flowevent.html#calllistener" class="tsd-kind-icon">call<wbr>Listener</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="flowevent.html#clone" class="tsd-kind-icon">clone</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -587,7 +561,7 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
+					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="flowmanager.html" class="tsd-kind-icon">Flow<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-interface">
