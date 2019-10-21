@@ -1,6 +1,10 @@
 import { IAbstractRegistrableComponent } from './lib/interface/IAbstractRegistrableComponent';
 import { IAbstractTransitionComponent } from './lib/interface/IAbstractTransitionComponent';
 import { IAbstractPageTransitionComponent } from './lib/interface/IAbstractPageTransitionComponent';
+import { IAbstractScrollComponent } from './lib/interface/IAbstractScrollComponent';
+import { IAbstractPageScrollComponent } from './lib/interface/IAbstractPageScrollComponent';
+import { getEventBus } from './scrollTrackerPlugin';
+import { ADD_COMPONENTS, REMOVE_COMPONENTS } from './lib/eventbus/scrollTrackerEvents';
 import { IRoute } from './lib/interface/IRoute';
 
 export {
@@ -21,7 +25,12 @@ export {
   IAbstractPageTransitionComponent,
   IAbstractRegistrableComponent,
   IAbstractTransitionComponent,
+  IAbstractScrollComponent,
+  IAbstractPageScrollComponent,
   IRoute,
+  getEventBus,
+  ADD_COMPONENTS,
+  REMOVE_COMPONENTS,
 };
 
 export const AbstractRegistrableComponent: IAbstractRegistrableComponent = require('./lib/mixin/AbstractRegistrableComponent')
@@ -29,4 +38,8 @@ export const AbstractRegistrableComponent: IAbstractRegistrableComponent = requi
 export const AbstractTransitionComponent: IAbstractTransitionComponent = require('./lib/mixin/AbstractTransitionComponent')
   .default;
 export const AbstractPageTransitionComponent: IAbstractPageTransitionComponent = require('./lib/mixin/AbstractPageTransitionComponent')
+  .default;
+export const AbstractScrollComponent: IAbstractScrollComponent = require('./lib/mixin/AbstractScrollComponent')
+  .default;
+export const AbstractPageScrollComponent: IAbstractPageScrollComponent = require('./lib/mixin/AbstractPageScrollComponent')
   .default;

@@ -1,15 +1,27 @@
 import { TimelineMax, Expo } from 'gsap';
+import { IAbstractTransitionComponent } from '../../../../src/lib/interface/IAbstractTransitionComponent';
 import AbstractVueTransitionController from '../../../../src/lib/util/AbstractVueTransitionController';
 
 export default class DummyScrollComponentATransitionController extends AbstractVueTransitionController {
   /**
+   * Use this method to setup your transition in timeline
+   *
    * @protected
    * @method setupTransitionInTimeline
-   * @param {gsap.TimelineLite | gsap.TimelineMax} timeline
+   * @param {TimelineMax} timeline The transition in timeline
+   * @param {IAbstractTransitionComponent} parent The reference to the parent controller
+   * @param {string} id The transition id that was provided when constructing the controller
    */
-  protected setupTransitionInTimeline(timeline: TimelineMax): void {
+  protected setupTransitionInTimeline(
+    timeline: TimelineMax,
+    parent: IAbstractTransitionComponent,
+    id: string,
+  ): void {
+    if(id) {
+      console.log(id);
+    }
     timeline.fromTo(
-      this.parentController.$el,
+      parent.$el,
       0.5,
       {
         autoAlpha: 0,
@@ -24,11 +36,18 @@ export default class DummyScrollComponentATransitionController extends AbstractV
   }
 
   /**
+   * Use this method to setup your transition out timeline
+   *
    * @protected
    * @method setupTransitionOutTimeline
-   * @param {gsap.TimelineLite | gsap.TimelineMax} timeline
+   * @param {TimelineLite | TimelineMax} timeline The transition in timeline
+   * @param {IAbstractTransitionComponent} parent The reference to the parent controller
+   * @param {string} id The transition id that was provided when constructing the controller
    */
-  protected setupTransitionOutTimeline(timeline: TimelineMax): void {
+  protected setupTransitionOutTimeline(
+    timeline: TimelineMax,
+    parent: IAbstractTransitionComponent,
+    id: string): void {
     timeline.to(
       this.parentController.$el,
       0.5,
@@ -38,4 +57,18 @@ export default class DummyScrollComponentATransitionController extends AbstractV
       },
     );
   }
+
+  /**
+   * Use this method to setup your looping timeline
+   *
+   * @protected
+   * @method setupLoopingAnimationTimeline
+   * @param {TimelineLite | TimelineMax} timeline The transition in timeline
+   * @param {IAbstractTransitionComponent} parent The reference to the parent controller
+   * @param {string} id The transition id that was provided when constructing the controller
+   */
+  protected setupLoopingAnimationTimeline(
+    timeline:TimelineMax,
+    parent:IAbstractTransitionComponent,
+    id:string): void {}
 }

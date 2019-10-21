@@ -11,20 +11,20 @@
   "license": "ISC",
   "dependencies": {
     "bowser": "^1.9.3",
-    "gsap": "^2.0.1",
+    "gsap": "^2.1.1",
     "highlight.js": "^9.12.0",
     "lodash": "^4.17.5",
-    "scroll-tracker-component-manager": "^2.1.1",
-    "seng-event": "^1.2.3",
-    "transition-controller": "^1.2.6",
+    "scroll-tracker-component-manager": "^2.2.2",
+    "seng-event": "^2.0.2",
+    "transition-controller": "^2.0.0",
     "ts-loader": "^4.1.0",
     "vue": "^2.2.5",
     "vue-loader": "14.1.1",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.2.6",
-    "vue-types": "^1.5.0",
+    "vue-types": "@1.5.0",
     "webpack": "^4.1.1",
-    "webpack-cli": "^2.0.12",
-    "webpack-dev-server": "^3.1.1"
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
   }
 }

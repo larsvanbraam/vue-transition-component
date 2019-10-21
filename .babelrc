@@ -1,32 +1,40 @@
 {
   "presets": [
-    ["@babel/env", {
-      "targets": {
-        "browsers": ["last 2 versions"],
-        "node": "6"
-      },
-      "loose": true,
-      "useBuiltIns": false
-    }],
-    "@babel/preset-stage-3",
+    [
+      "@babel/env",
+      {
+        "targets": {
+          "browsers": [
+            "last 2 versions"
+          ],
+          "node": "6"
+        },
+        "loose": true,
+        "useBuiltIns": false
+      }
+    ],
     "@babel/typescript"
   ],
   "plugins": [
-    ["./arrow-function-coverage-fix.js"],
-    ["@babel/plugin-transform-runtime", {
-      "helpers": true,
-      "polyfill": false,
-      "regenerator": false,
-      "moduleName": "@babel/runtime"
-    }]
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "helpers": true
+      }
+    ],
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread"
   ],
   "env": {
     "test": {
-      "plugins": [ "istanbul" ]
+      "plugins": [
+        "./test/_setup/arrow-function-coverage-fix.js",
+        "istanbul"
+      ]
     }
   },
   "ignore": [
     "src/lib/vendor/**/*.*",
-    "./arrow-function-coverage-fix.js"
+    "./test/_setup/arrow-function-coverage-fix.js"
   ]
 }

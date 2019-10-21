@@ -7,6 +7,7 @@ export default {
   extends: AbstractTransitionComponent,
   beforeCreate() {
     this.flow = FlowType.NORMAL;
+    this.transitionOnRouteUpdate = false;
     this.transitionInHijack = Promise.resolve();
   },
   methods: {
@@ -34,6 +35,9 @@ export default {
       });
     });
   },
+
+  onBeforeRouteUpdate() {},
+
   /**
    * @description This method is triggered when we navigate to a sub-page of the current existing page
    * @param to The route we are about to enter
@@ -41,6 +45,8 @@ export default {
    * @param next The method that releases the vue-router flow
    */
   beforeRouteUpdate(to, from, next) {
+    this.onBeforeRouteUpdate(to, from);
+
     // Find the old reference and remove it
     /* istanbul ignore next */
     if (to.name === this.componentId) {
@@ -51,8 +57,26 @@ export default {
         this.registeredComponents.splice(index);
       }
     }
-    // Release the before update hook
-    next();
+
+    // - What we want: trigger a transition-out/in if you are changing the param of a child router-view.
+    // - How to achieve: Not setting a :key to this router-view will not destroy the component and therefore we can
+    // trigger a transitionOut and transitionIn again. But sometimes we don't want this, therefore is requires the flag 'transitionOnRouteUpdate'
+    // - SideNote: if a :key is set to the router-view it will be destroyed && created again and therefore we can
+    // run the transitionOut/In.
+    if (
+      to.matched[to.matched.length - 1].components.default.name === this.componentId &&
+      !this._isDestroyed &&
+      this.transitionOnRouteUpdate
+    ) {
+      this.transitionOut()
+        .then(() => next())
+        .then(() => {
+          this.$nextTick(() => this.transitionIn());
+        });
+    } else {
+      // Release the before update hook
+      next();
+    }
   },
   /**
    * @description This method handles the default page switches

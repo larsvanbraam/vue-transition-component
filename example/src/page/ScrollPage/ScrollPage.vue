@@ -4,7 +4,13 @@
 <template>
   <div>
     <DummyScrollComponentA
-      @isReady="addToScrollTracker"
+      @isReady="handleScrollComponentReady"
+    />
+    <DummyScrollComponentA
+      @isReady="handleScrollComponentReady"
+    />
+    <DummyScrollComponentA
+      @isReady="handleScrollComponentReady"
     />
   </div>
 </template>

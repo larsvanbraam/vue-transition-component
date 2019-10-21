@@ -1,5 +1,4 @@
 [![Travis](https://img.shields.io/travis/larsvanbraam/vue-transition-component.svg?maxAge=2592000)](https://travis-ci.org/larsvanbraam/vue-transition-component)
-[![Code Climate](https://img.shields.io/codeclimate/github/larsvanbraam/vue-transition-component.svg?maxAge=2592000)](https://codeclimate.com/github/larsvanbraam/vue-transition-component)
 [![npm](https://img.shields.io/npm/dm/vue-transition-component.svg?maxAge=2592000)](https://www.npmjs.com/package/vue-transition-component)
 [![GitHub issues](https://img.shields.io/github/issues/larsvanbraam/vue-transition-component.svg?style=flat-square)](https://github.com/larsvanbraam/vue-transition-component/issues)
 
@@ -21,12 +20,10 @@ npm i -S vue-transition-component
 
 ## Documentation
 
-### GitBook
-- [General documentation](https://larsvanbraam.gitbook.io/vue-transition-component/)
+- [📗 General documentation](https://vue-transition-component.larsvanbraam.nl/mkdocs/)
+- [📘 TypeDoc documentation](https://vue-transition-component.larsvanbraam.nl/typedoc/)
+- [📚 All documentation](https://vue-transition-component.larsvanbraam.nl)
 
-### TypeDoc
-- [Latest TypeDoc](https://larsvanbraam.github.io/vue-transition-component/docs/)
-- [Older TypeDocs](https://vue-transition-component.larsvanbraam.nl)
 
 ## Example
 I've included an example setup where you can see the transition controller in action, to run the project follow these steps:

@@ -1,5 +1,7 @@
+import Vue from 'vue';
 import AbstractRegistrableComponent from '../../../src/lib/mixin/AbstractRegistrableComponent';
 import FlowManager from '../../../src/lib/util/FlowManager';
+import ScrollTrackerPlugin from '../../../src/scrollTrackerPlugin';
 
 export default {
   name: 'App',
@@ -14,6 +16,13 @@ export default {
     $route(value) {
       this.pageName = value.name;
     },
+  },
+  mounted() {
+    Vue.use(ScrollTrackerPlugin, {
+      config: {
+        container: this.$el,
+      },
+    });
   },
   methods: {
     handleAllComponentsReady() {

@@ -1,0 +1,22 @@
+site_name: vue-transition-component
+site_url: https://vue-transition-component.larsvanbraam.nl/general/
+site_description: Provides GreenSock transition functionality to vue.js components.
+site_author: Lars van Braam
+docs_dir: docs
+site_dir: dist
+repo_url: https://github.com/larsvanbraam/vue-transition-component/
+edit_uri: blob/master/docs/general
+theme: readthedocs
+nav:
+    - Introduction: index.md
+    - Setup the seng-generator: setup-seng-generator.md
+    - Setup page transitioning: setup-page-transitioning.md
+    - Creating a component: creating-a-component.md
+    - Examples:
+        - Child page transitioning: examples/child-page-transitioning.md
+        - Page flows: examples/page-flows.md
+        - Listening to events: examples/listening-to-events.md
+        - Hijacking flows: examples/hijacking-flows.md
+        - Adding a pre-loader: examples/adding-a-preloader.md
+        - Multiple page timelines: examples/multiple-page-timelines.md
+    - FAQ: faq.md

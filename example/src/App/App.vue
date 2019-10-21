@@ -3,6 +3,7 @@
 
 <template>
   <div>
+
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -27,10 +28,12 @@
         </div>
       </div>
     </nav>
+
     <div class="container">
       <transition @leave="onLeave" v-bind:css="false">
         <router-view></router-view>
       </transition>
     </div>
+
   </div>
 </template>

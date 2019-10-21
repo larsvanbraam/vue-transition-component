@@ -1,9 +1,12 @@
-import * as bowser from 'bowser';
+import * as Bowser from 'bowser';
 import EventDispatcher from 'seng-event';
 import { IRoute } from '../../lib/interface/IRoute';
 import FlowType from '../enum/FlowType';
 import FlowEvent from '../event/FlowEvent';
 import { IAbstractPageTransitionComponent } from '../interface/IAbstractPageTransitionComponent';
+
+// We need the Bowser parser to detect the browser version
+const browser = Bowser.getParser(window.navigator.userAgent);
 
 /**
  * ### FlowManager
@@ -50,6 +53,14 @@ export class FlowManager extends EventDispatcher {
   private pointerDiv: HTMLElement;
 
   /**
+   * Old browser that do not support some functionality will have a fallback
+   *
+   * @private
+   */
+  private oldBrowser = browser.getBrowserName() === 'Internet Explorer' &&
+    parseFloat(browser.getBrowserVersion()) <= 10;
+
+  /**
    * When the FlowManager is initially constructed it detects if we are using a browser
    * that does not support pointer-events. If it's not supported the fallback div is
    * created and injected into the DOM.
@@ -59,7 +70,7 @@ export class FlowManager extends EventDispatcher {
 
     // Fallback for IE10
     /* istanbul ignore if  */
-    if (bowser.msie && bowser.version <= 10) {
+    if (this.oldBrowser) {
       this.pointerDiv = document.createElement('div');
 
       this.pointerDiv.classList.add('vueTransitionComponentPointerDiv');
@@ -125,7 +136,7 @@ export class FlowManager extends EventDispatcher {
       release();
     } else {
       this.previousComponentId = pageInstance.$options.name;
-      this.dispatchEvent(new FlowEvent(FlowEvent.START, { to, from }));
+      this.dispatchEvent(new FlowEvent(FlowEvent.types.START, { to, from }));
       switch (pageInstance.flow) {
         case FlowType.NORMAL: {
           this.transitionOut = pageInstance.transitionOut(true);
@@ -146,7 +157,7 @@ export class FlowManager extends EventDispatcher {
           break;
         }
         default: {
-          throw new Error('[FlowManager] Unknown flow: [' + pageInstance.flow + ']');
+          throw new Error(`[FlowManager] Unknown flow: [${pageInstance.flow}]`);
         }
       }
     }
@@ -161,7 +172,7 @@ export class FlowManager extends EventDispatcher {
    */
   private disablePointerEvents(): void {
     /* istanbul ignore if  */
-    if (bowser.msie && bowser.version <= 10) {
+    if (this.oldBrowser) {
       this.pointerDiv.style.display = 'block';
     } else {
       document.body.style.pointerEvents = 'none';
@@ -176,7 +187,7 @@ export class FlowManager extends EventDispatcher {
    */
   private enablePointerEvents(): void {
     /* istanbul ignore if  */
-    if (bowser.msie && bowser.version <= 10) {
+    if (this.oldBrowser) {
       this.pointerDiv.style.display = 'none';
     } else {
       document.body.style.pointerEvents = 'all';

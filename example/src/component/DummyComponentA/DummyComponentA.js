@@ -1,6 +1,6 @@
-import DummyComponentATransitionController from "./DummyComponentATransitionController";
-import AbstractTransitionComponent from "../../../../src/lib/mixin/AbstractTransitionComponent";
-import DummyComponentB from "../DummyComponentB";
+import DummyComponentATransitionController from './DummyComponentATransitionController';
+import AbstractTransitionComponent from '../../../../src/lib/mixin/AbstractTransitionComponent';
+import DummyComponentB from '../DummyComponentB';
 
 export default {
   name: 'DummyComponentA',
@@ -12,6 +12,6 @@ export default {
     handleAllComponentsReady() {
       this.transitionController = new DummyComponentATransitionController(this);
       this.isReady();
-    }
+    },
   },
 };
