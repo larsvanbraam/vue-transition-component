@@ -1,23 +1,17 @@
 import { TimelineMax, Expo } from 'gsap';
-import AbstractVueTransitionController from '../../../../src/lib/util/AbstractVueTransitionController';
-import { IAbstractTransitionComponent } from '../../../../src/lib/interface/IAbstractTransitionComponent';
+import AbstractVueTransitionController from "../../../../src/lib/util/AbstractVueTransitionController";
+import { IAbstractTransitionComponent } from "../../../../src";
 
 export default class DummyComponentATransitionController extends AbstractVueTransitionController {
   /**
-   * Use this method to setup your transition in timeline
-   *
    * @protected
    * @method setupTransitionInTimeline
-   * @param {TimelineLite | TimelineMax} timeline The transition in timeline
-   * @param {IAbstractTransitionComponent} parent The reference to the parent controller
-   * @param {string} id The transition id that was provided when constructing the controller
+   * @param {TimelineMax} timeline
+   * @param {IAbstractTransitionComponent} parent
    */
-  protected setupTransitionInTimeline(
-    timeline:TimelineMax,
-    parent:IAbstractTransitionComponent,
-    id:string): void {
+  protected setupTransitionInTimeline(timeline: TimelineMax, parent: IAbstractTransitionComponent): void {
     timeline.fromTo(
-      this.parentController.$el,
+      parent.$el,
       0.5,
       {
         autoAlpha: 0,
@@ -33,20 +27,14 @@ export default class DummyComponentATransitionController extends AbstractVueTran
   }
 
   /**
-   * Use this method to setup your transition out timeline
-   *
    * @protected
    * @method setupTransitionOutTimeline
-   * @param {TimelineLite | TimelineMax} timeline The transition in timeline
-   * @param {IAbstractTransitionComponent} parent The reference to the parent controller
-   * @param {string} id The transition id that was provided when constructing the controller
+   * @param {TimelineMax} timeline
+   * @param {IAbstractTransitionComponent} parent
    */
-  protected setupTransitionOutTimeline(
-    timeline:TimelineMax,
-    parent:IAbstractTransitionComponent,
-    id:string): void {
+  protected setupTransitionOutTimeline(timeline: TimelineMax, parent: IAbstractTransitionComponent): void {
     timeline.to(
-      this.parentController.$el,
+      parent.$el,
       0.5,
       {
         scale: 2,
@@ -56,16 +44,11 @@ export default class DummyComponentATransitionController extends AbstractVueTran
   }
 
   /**
-   * Use this method to setup your looping timeline
-   *
    * @protected
    * @method setupLoopingAnimationTimeline
-   * @param {TimelineLite | TimelineMax} timeline The transition in timeline
-   * @param {IAbstractTransitionComponent} parent The reference to the parent controller
-   * @param {string} id The transition id that was provided when constructing the controller
-   */
-  protected setupLoopingAnimationTimeline(
-    timeline:TimelineMax,
-    parent:IAbstractTransitionComponent,
-    id:string): void {}
+   * @param {TimelineMax} timeline
+   * @description Use this method to setup your looping timeline
+   **/
+  protected setupLoopingAnimationTimeline(timeline:TimelineMax): void {
+  }
 }
