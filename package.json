@@ -13,7 +13,7 @@
     "build": "npm-run-all -s clean build:* doc:*",
     "build:babel": "babel ./src -x \".ts\" -x \".js\" --out-dir ./",
     "build:ts": "npm-run-all -s ts:build clean:tmp",
-    "ts:build": "tsc --p ./tsconfig.build.json",
+    "ts:build": "tsc -p ./tsconfig.build.json && shx cp -Rf decl/* .",
     "test": "cross-env NODE_ENV=test nyc mocha --exit \"./test/**/*.spec.{ts,js}\" ",
     "test:dev": "mocha -w --watch-extensions ts,js \"./test/**/*.spec.{ts,js}\"",
     "clean": "npm-run-all clean:*",
