@@ -10,7 +10,7 @@ let eventBus: Vue;
 
 export interface IOptions {
   exposeToVue?: boolean;
-  config?: any;
+  config?: IScrollTrackerComponentManagerOptions;
 }
 
 export const getEventBus = (): Vue => {
