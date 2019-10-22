@@ -9,11 +9,43 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-gist.min.css">
 
   <style>
+
+    html,
+    body {
+      height: 100%;
+    }
+
     body {
       padding-top: 50px;
       overflow-x: hidden;
       overflow-y: scroll;
       width: 100%;
+    }
+
+    html,
+    body.is-smooth-scroll {
+      overflow: hidden;
+      height: 100%;
+    }
+
+    html,
+    body {
+      overflow: hidden;
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    .container {
+      height: 100%;
+    }
+
+    .app {
+      /*position: relative;*/
+      height: 100%;
+      /*overflow: auto;*/
     }
 
     .center {
@@ -29,6 +61,29 @@
 
     .icon-label {
       margin-left: 10px;
+    }
+
+    .panel-large {
+      height: 75vh;
+    }
+
+    .progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: purple;
+      opacity: 0.5;
+      width: 0;
+
+      height: 100%;
+      z-index: 0;
+    }
+
+    .percentage {
+      position: relative;
+      font-size: 40px;
+      color: black;
+      z-index: 1;
     }
 
   </style>

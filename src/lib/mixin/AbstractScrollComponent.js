@@ -18,11 +18,6 @@ export default {
     this.currentViewProgress = 0;
     this.hasEntered = false;
   },
-  mounted() {
-    if (true) {
-      this.addDebugLabel();
-    }
-  },
   methods: {
     enterView() {
       this.inView = true;
@@ -38,24 +33,6 @@ export default {
       }
     },
     // eslint-disable-next-line
-    inViewProgress(progress) {
-      console.log(progress);
-    },
-    addDebugLabel() {
-      // const debugLabel = document.createElement('div');
-      // let breadCrumbs = '';
-      // let parent = this.$parent;
-      // while (
-      //   parent &&
-      //   parent.componentType === ComponentType.CONTENT_PAGE &&
-      //   config.debug.blockLabel.nestedLabels
-      //   ) {
-      //   breadCrumbs = `${parent.componentId} » ${breadCrumbs}`;
-      //   parent = parent.$parent;
-      // }
-      // debugLabel.innerHTML = breadCrumbs + this.componentId;
-      // TweenLite.set(debugLabel, config.debug.blockLabel.style);
-      // this.$el.appendChild(debugLabel);
-    },
+    inViewProgress(progress) {},
   },
 };

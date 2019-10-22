@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="app">
 
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
@@ -21,6 +21,9 @@
             <li :class="[{'active': pageName === 'home'}]">
               <router-link :to="{name: 'home'}">Home</router-link>
             </li>
+            <li :class="[{'active': pageName === 'scroll'}]">
+              <router-link :to="{name: 'scroll'}">Scroll</router-link>
+            </li>
             <li :class="[{'active': pageName === 'code'}]">
               <router-link :to="{name: 'code'}">Code</router-link>
             </li>
@@ -29,7 +32,9 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div
+      ref="container"
+      class="container">
       <transition @leave="onLeave" v-bind:css="false">
         <router-view></router-view>
       </transition>

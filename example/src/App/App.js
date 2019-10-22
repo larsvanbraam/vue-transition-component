@@ -18,9 +18,17 @@ export default {
     },
   },
   mounted() {
+    const enableSmoothScroll = true;
+
+    if (enableSmoothScroll) {
+      document.body.classList.add('is-smooth-scroll');
+    }
+
     Vue.use(ScrollTrackerPlugin, {
       config: {
-        container: this.$el,
+        enableSmoothScroll,
+        container: this.$refs.container,
+        inViewProgressEnabled: true,
       },
     });
   },

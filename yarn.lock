@@ -681,8 +681,8 @@
     source-map-support "^0.5.9"
 
 "@babel/runtime@^7.3.1":
-  version "7.4.5"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.5.tgz#582bb531f5f9dc67d2fcb682979894f75e253f12"
+  version "7.6.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.6.3.tgz#935122c74c73d2240cafd32ddb5fc2a6cd35cf1f"
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -820,8 +820,8 @@
     "@types/node" "*"
 
 "@types/gsap@^1.19.2":
-  version "1.19.2"
-  resolved "https://registry.yarnpkg.com/@types/gsap/-/gsap-1.19.2.tgz#ffa045fe9ca25f18a175fac4918e17d6a7ef8d7b"
+  version "1.20.2"
+  resolved "https://registry.yarnpkg.com/@types/gsap/-/gsap-1.20.2.tgz#038d0e81a8dd50b9b6894f34f3cd4045f71c62b8"
 
 "@types/handlebars@^4.0.38":
   version "4.0.40"
@@ -852,8 +852,8 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.3.0.tgz#3a129cda7c4e5df2409702626892cb4b96546dd5"
 
 "@types/node@^12.11.1":
-  version "12.11.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.11.1.tgz#1fd7b821f798b7fa29f667a1be8f3442bb8922a3"
+  version "12.11.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.11.2.tgz#75ba3beda30d690b89a5089ca1c6e8e386150b76"
 
 "@types/shelljs@^0.8.0":
   version "0.8.3"
@@ -4272,8 +4272,8 @@ saxes@^3.1.5:
     xmlchars "^1.3.1"
 
 scroll-tracker-component-manager@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/scroll-tracker-component-manager/-/scroll-tracker-component-manager-2.2.2.tgz#013831f0bab10233fbaa07ec36be8eb38a7a36ef"
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/scroll-tracker-component-manager/-/scroll-tracker-component-manager-2.2.3.tgz#f77f00bbf058cef48626be4a12e7e181ba7ee4c8"
   dependencies:
     "@babel/runtime" "^7.3.1"
     element-size "^1.1.1"
@@ -4299,14 +4299,7 @@ seng-disposable@^1.1.3:
   dependencies:
     tslib "^1.2.0"
 
-seng-event@^1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/seng-event/-/seng-event-1.2.3.tgz#073ae3fa5e9d49677361a3dc97da752285b6467d"
-  dependencies:
-    seng-disposable "^1.1.3"
-    tslib "^1.2.0"
-
-seng-event@^2.0.2:
+seng-event@^2.0.1, seng-event@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/seng-event/-/seng-event-2.0.2.tgz#9ecbdbc811b2f21df05ee8c73078b1d57d52d166"
   dependencies:
@@ -4775,16 +4768,16 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-transition-controller@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-1.3.1.tgz#37614474859498d9c39dbb775996c198781ef2f7"
+transition-controller@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-2.0.0.tgz#9215168396fd811eaaec43412f9564b18c5e4d7c"
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.3.4"
     "@babel/plugin-proposal-object-rest-spread" "^7.3.4"
     "@babel/runtime" "^7.3.4"
     "@types/gsap" "^1.19.2"
     lodash "^4.17.11"
-    seng-event "^1.2.3"
+    seng-event "^2.0.1"
 
 trim-right@^1.0.1:
   version "1.0.1"
@@ -4794,11 +4787,11 @@ tslib@1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"
 
-tslib@^1.10.0:
+tslib@^1.10.0, tslib@^1.2.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
 
-tslib@^1.2.0, tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1:
+tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.8.1.tgz#6946af2d1d651a7b1863b531d6e5afa41aa44eac"
 

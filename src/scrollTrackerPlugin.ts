@@ -2,26 +2,28 @@ import {
   ScrollTrackerComponentManager,
   IScrollTrackerComponentManagerOptions,
 } from 'scroll-tracker-component-manager';
-import { Vue, VueConstructor } from 'vue/types/vue';
+import { VueConstructor } from 'vue/types/vue';
+import EventBus from 'vue';
 import { ADD_COMPONENTS, REMOVE_COMPONENTS } from './lib/eventbus/scrollTrackerEvents';
 import { IAbstractScrollComponent } from './lib/interface/IAbstractScrollComponent';
 
-let eventBus: Vue;
+let eventBus: EventBus;
 
 export interface IOptions {
-  exposeToVue?: boolean;
   config?: IScrollTrackerComponentManagerOptions;
 }
 
-export const getEventBus = (): Vue => {
+export const getEventBus = (): EventBus => {
   if (eventBus === undefined) {
     throw new Error('Plugin has not been initialized yet, cannot get eventBus');
   }
   return eventBus;
 };
 
+/**
+ * DOCS: https://github.com/riccoarntz/scroll-tracker-component-manager/wiki
+ */
 const defaultOptions: IOptions = {
-  exposeToVue: true,
   config: {
     // component settings
     element: '$el',
@@ -36,37 +38,46 @@ const defaultOptions: IOptions = {
     componentId: 'componentId',
 
     // global settings
+    inViewProgressEnabled: false,
+    /**
+     * When this is set to a container other than the window, you need to set the html/body tag to a fixed
+     height(100%) and overflow: hidden. And set the container to a fixed height(100%) and overflow: auto.
+     */
     container: window,
-    inViewProgressEnabled: true,
     setDebugLabel: true,
     debugBorderColor: 'red',
     scrollThrottle: 100,
     resizeDebounce: 100,
+    /**
+     * When this is enabled you should set the container(body) to a fixed height(100%).
+     */
+    enableSmoothScroll: false,
+    smoothScrollOptions: {
+      damping: 0.1,
+      thumbMinSize: 20,
+      renderByPixels: true,
+      alwaysShowTracks: false,
+      continuousScrolling: true,
+      wheelEventTarget: null,
+      plugins: {},
+    },
   },
 };
 
-// define as empty object so we can export it
-export const options: IOptions = {};
-
 export default {
   install(Vue: VueConstructor, userOptions: IOptions = {}) {
-    eventBus = new Vue();
+    eventBus = new EventBus();
 
-    console.log(IScrollTrackerComponentManagerOptions);
-
-    Object.assign(options, defaultOptions, userOptions);
-
-    // Create the scroll tracker manager
-    Vue.prototype.$scrollTracker = new ScrollTrackerComponentManager(options.config);
+    // eslint-disable-next-line
+    Vue.prototype.$scrollTracker = new ScrollTrackerComponentManager({
+      ...defaultOptions.config,
+      ...userOptions.config,
+    });
 
     getEventBus().$on(
       ADD_COMPONENTS,
       (
-        components:
-          | Array<IAbstractScrollComponent>
-          | {
-              [key: string]: IAbstractScrollComponent;
-            },
+        components: Array<IAbstractScrollComponent> | { [key: string]: IAbstractScrollComponent },
       ) => {
         Vue.prototype.$scrollTracker.addComponentsToScrollTrackers(components);
       },
@@ -75,11 +86,7 @@ export default {
     getEventBus().$on(
       REMOVE_COMPONENTS,
       (
-        components:
-          | Array<IAbstractScrollComponent>
-          | {
-              [key: string]: IAbstractScrollComponent;
-            },
+        components: Array<IAbstractScrollComponent> | { [key: string]: IAbstractScrollComponent },
       ) => {
         Vue.prototype.$scrollTracker.removeComponentsFromScrollTracker(components);
       },

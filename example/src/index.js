@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import App from './App';
 import getRouter from './util/router';
+// import ScrollTrackerPlugin from '../../src/scrollTrackerPlugin';
 
 const router = getRouter();
 
