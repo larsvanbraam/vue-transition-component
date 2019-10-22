@@ -82,17 +82,36 @@
 						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface"><a href="interfaces/iabstractpagescrollcomponent.html" class="tsd-kind-icon">IAbstract<wbr>Page<wbr>Scroll<wbr>Component</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/iabstractpagetransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Page<wbr>Transition<wbr>Component</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/iabstractregistrablecomponent.html" class="tsd-kind-icon">IAbstract<wbr>Registrable<wbr>Component</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/iabstractscrollcomponent.html" class="tsd-kind-icon">IAbstract<wbr>Scroll<wbr>Component</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/iabstracttransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Component</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/ioptions.html" class="tsd-kind-icon">IOptions</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/iroute.html" class="tsd-kind-icon">IRoute</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="index.html#add_components" class="tsd-kind-icon">ADD_<wbr>COMPONENTS</a></li>
+								<li class="tsd-kind-variable"><a href="index.html#remove_components" class="tsd-kind-icon">REMOVE_<wbr>COMPONENTS</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="index.html#browser" class="tsd-kind-icon">browser</a></li>
+								<li class="tsd-kind-variable tsd-is-not-exported"><a href="index.html#eventbus" class="tsd-kind-icon">event<wbr>Bus</a></li>
 								<li class="tsd-kind-variable"><a href="index.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a></li>
+								<li class="tsd-kind-variable"><a href="index.html#namespace" class="tsd-kind-icon">namespace</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="index.html#geteventbus" class="tsd-kind-icon">get<wbr>Event<wbr>Bus</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal tsd-is-not-exported"><a href="index.html#defaultoptions" class="tsd-kind-icon">default<wbr>Options</a></li>
 							</ul>
 						</section>
 					</div>
@@ -100,13 +119,43 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="add_components" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> ADD_<wbr>COMPONENTS</h3>
+					<div class="tsd-signature tsd-kind-icon">ADD_<wbr>COMPONENTS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${namespace}/addComponents&#x60;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/eventbus/scrollTrackerEvents.ts#L3">eventbus/scrollTrackerEvents.ts:3</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="remove_components" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> REMOVE_<wbr>COMPONENTS</h3>
+					<div class="tsd-signature tsd-kind-icon">REMOVE_<wbr>COMPONENTS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;${namespace}/removeComponents&#x60;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/eventbus/scrollTrackerEvents.ts#L4">eventbus/scrollTrackerEvents.ts:4</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
 					<a name="browser" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> browser</h3>
 					<div class="tsd-signature tsd-kind-icon">browser<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Parser</span><span class="tsd-signature-symbol"> =&nbsp;Bowser.getParser(window.navigator.userAgent)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/4348d8b/src/lib/util/FlowManager.ts#L9">util/FlowManager.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/util/FlowManager.ts#L9">util/FlowManager.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
+					<a name="eventbus" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagLet">Let</span> event<wbr>Bus</h3>
+					<div class="tsd-signature tsd-kind-icon">event<wbr>Bus<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventBus</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L10">scrollTrackerPlugin.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -116,7 +165,7 @@
 					<div class="tsd-signature tsd-kind-icon">flow<wbr>Manager<span class="tsd-signature-symbol">:</span> <a href="classes/flowmanager.html" class="tsd-signature-type">FlowManager</a><span class="tsd-signature-symbol"> =&nbsp;new FlowManager()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/4348d8b/src/lib/util/FlowManager.ts#L233">util/FlowManager.ts:233</a></li>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/util/FlowManager.ts#L233">util/FlowManager.ts:233</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -124,6 +173,330 @@
 							<p>Create the single instance of the flow manager</p>
 						</div>
 					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="namespace" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> namespace</h3>
+					<div class="tsd-signature tsd-kind-icon">namespace<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"vue-transition-component/scroll-tracker-component-manager"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;vue-transition-component/scroll-tracker-component-manager&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/eventbus/scrollTrackerEvents.ts#L1">eventbus/scrollTrackerEvents.ts:1</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="geteventbus" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Event<wbr>Bus</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Event<wbr>Bus<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventBus</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L16">scrollTrackerPlugin.ts:16</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">EventBus</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-is-not-exported">
+					<a name="defaultoptions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> default<wbr>Options</h3>
+					<div class="tsd-signature tsd-kind-icon">default<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L26">scrollTrackerPlugin.ts:26</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>DOCS: <a href="https://github.com/riccoarntz/scroll-tracker-component-manager/wiki">https://github.com/riccoarntz/scroll-tracker-component-manager/wiki</a></p>
+						</div>
+					</div>
+					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal tsd-is-not-exported">
+						<a name="defaultoptions.config" class="tsd-anchor"></a>
+						<h3>config</h3>
+						<div class="tsd-signature tsd-kind-icon">config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L27">scrollTrackerPlugin.ts:27</a></li>
+							</ul>
+						</aside>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.beyondview" class="tsd-anchor"></a>
+							<h3>beyond<wbr>View</h3>
+							<div class="tsd-signature tsd-kind-icon">beyond<wbr>View<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;beyondView&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L32">scrollTrackerPlugin.ts:32</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.componentid" class="tsd-anchor"></a>
+							<h3>component<wbr>Id</h3>
+							<div class="tsd-signature tsd-kind-icon">component<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;componentId&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L38">scrollTrackerPlugin.ts:38</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.container" class="tsd-anchor"></a>
+							<h3>container</h3>
+							<div class="tsd-signature tsd-kind-icon">container<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Window</span><span class="tsd-signature-symbol"> =&nbsp;window</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L46">scrollTrackerPlugin.ts:46</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>When this is set to a container other than the window, you need to set the html/body tag to a fixed
+									height(100%) and overflow: hidden. And set the container to a fixed height(100%) and overflow: auto.</p>
+								</div>
+							</div>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.currentviewprogress" class="tsd-anchor"></a>
+							<h3>current<wbr>View<wbr>Progress</h3>
+							<div class="tsd-signature tsd-kind-icon">current<wbr>View<wbr>Progress<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;currentViewProgress&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L37">scrollTrackerPlugin.ts:37</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.debugbordercolor" class="tsd-anchor"></a>
+							<h3>debug<wbr>Border<wbr>Color</h3>
+							<div class="tsd-signature tsd-kind-icon">debug<wbr>Border<wbr>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;red&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L48">scrollTrackerPlugin.ts:48</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.element" class="tsd-anchor"></a>
+							<h3>element</h3>
+							<div class="tsd-signature tsd-kind-icon">element<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;$el&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L29">scrollTrackerPlugin.ts:29</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.enablesmoothscroll" class="tsd-anchor"></a>
+							<h3>enable<wbr>Smooth<wbr>Scroll</h3>
+							<div class="tsd-signature tsd-kind-icon">enable<wbr>Smooth<wbr>Scroll<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L54">scrollTrackerPlugin.ts:54</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>When this is enabled you should set the container(body) to a fixed height(100%).</p>
+								</div>
+							</div>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.enterview" class="tsd-anchor"></a>
+							<h3>enter<wbr>View</h3>
+							<div class="tsd-signature tsd-kind-icon">enter<wbr>View<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;enterView&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L30">scrollTrackerPlugin.ts:30</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.enterviewthreshold" class="tsd-anchor"></a>
+							<h3>enter<wbr>View<wbr>Threshold</h3>
+							<div class="tsd-signature tsd-kind-icon">enter<wbr>View<wbr>Threshold<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;transitionInThreshold&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L35">scrollTrackerPlugin.ts:35</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.hasentered" class="tsd-anchor"></a>
+							<h3>has<wbr>Entered</h3>
+							<div class="tsd-signature tsd-kind-icon">has<wbr>Entered<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;hasEntered&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L36">scrollTrackerPlugin.ts:36</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.inviewprogress" class="tsd-anchor"></a>
+							<h3>in<wbr>View<wbr>Progress</h3>
+							<div class="tsd-signature tsd-kind-icon">in<wbr>View<wbr>Progress<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;inViewProgress&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L33">scrollTrackerPlugin.ts:33</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.inviewprogressenabled" class="tsd-anchor"></a>
+							<h3>in<wbr>View<wbr>Progress<wbr>Enabled</h3>
+							<div class="tsd-signature tsd-kind-icon">in<wbr>View<wbr>Progress<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L41">scrollTrackerPlugin.ts:41</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.inviewprogressthreshold" class="tsd-anchor"></a>
+							<h3>in<wbr>View<wbr>Progress<wbr>Threshold</h3>
+							<div class="tsd-signature tsd-kind-icon">in<wbr>View<wbr>Progress<wbr>Threshold<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;inViewProgressThreshold&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L34">scrollTrackerPlugin.ts:34</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.leaveview" class="tsd-anchor"></a>
+							<h3>leave<wbr>View</h3>
+							<div class="tsd-signature tsd-kind-icon">leave<wbr>View<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;leaveView&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L31">scrollTrackerPlugin.ts:31</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.resizedebounce" class="tsd-anchor"></a>
+							<h3>resize<wbr>Debounce</h3>
+							<div class="tsd-signature tsd-kind-icon">resize<wbr>Debounce<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;100</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L50">scrollTrackerPlugin.ts:50</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.scrollthrottle" class="tsd-anchor"></a>
+							<h3>scroll<wbr>Throttle</h3>
+							<div class="tsd-signature tsd-kind-icon">scroll<wbr>Throttle<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;100</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L49">scrollTrackerPlugin.ts:49</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.setdebuglabel" class="tsd-anchor"></a>
+							<h3>set<wbr>Debug<wbr>Label</h3>
+							<div class="tsd-signature tsd-kind-icon">set<wbr>Debug<wbr>Label<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L47">scrollTrackerPlugin.ts:47</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal tsd-is-not-exported">
+							<a name="defaultoptions.config.smoothscrolloptions" class="tsd-anchor"></a>
+							<h3>smooth<wbr>Scroll<wbr>Options</h3>
+							<div class="tsd-signature tsd-kind-icon">smooth<wbr>Scroll<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L55">scrollTrackerPlugin.ts:55</a></li>
+								</ul>
+							</aside>
+							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+								<a name="defaultoptions.config.smoothscrolloptions.alwaysshowtracks" class="tsd-anchor"></a>
+								<h3>always<wbr>Show<wbr>Tracks</h3>
+								<div class="tsd-signature tsd-kind-icon">always<wbr>Show<wbr>Tracks<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L59">scrollTrackerPlugin.ts:59</a></li>
+									</ul>
+								</aside>
+							</section>
+							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+								<a name="defaultoptions.config.smoothscrolloptions.continuousscrolling" class="tsd-anchor"></a>
+								<h3>continuous<wbr>Scrolling</h3>
+								<div class="tsd-signature tsd-kind-icon">continuous<wbr>Scrolling<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L60">scrollTrackerPlugin.ts:60</a></li>
+									</ul>
+								</aside>
+							</section>
+							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+								<a name="defaultoptions.config.smoothscrolloptions.damping" class="tsd-anchor"></a>
+								<h3>damping</h3>
+								<div class="tsd-signature tsd-kind-icon">damping<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0.1</span></div>
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L56">scrollTrackerPlugin.ts:56</a></li>
+									</ul>
+								</aside>
+							</section>
+							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+								<a name="defaultoptions.config.smoothscrolloptions.plugins" class="tsd-anchor"></a>
+								<h3>plugins</h3>
+								<div class="tsd-signature tsd-kind-icon">plugins<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L62">scrollTrackerPlugin.ts:62</a></li>
+									</ul>
+								</aside>
+								<div class="tsd-type-declaration">
+									<h4>Type declaration</h4>
+									<ul class="tsd-parameters">
+									</ul>
+								</div>
+							</section>
+							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+								<a name="defaultoptions.config.smoothscrolloptions.renderbypixels" class="tsd-anchor"></a>
+								<h3>render<wbr>ByPixels</h3>
+								<div class="tsd-signature tsd-kind-icon">render<wbr>ByPixels<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L58">scrollTrackerPlugin.ts:58</a></li>
+									</ul>
+								</aside>
+							</section>
+							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+								<a name="defaultoptions.config.smoothscrolloptions.thumbminsize" class="tsd-anchor"></a>
+								<h3>thumb<wbr>Min<wbr>Size</h3>
+								<div class="tsd-signature tsd-kind-icon">thumb<wbr>Min<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;20</span></div>
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L57">scrollTrackerPlugin.ts:57</a></li>
+									</ul>
+								</aside>
+							</section>
+							<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-not-exported">
+								<a name="defaultoptions.config.smoothscrolloptions.wheeleventtarget" class="tsd-anchor"></a>
+								<h3>wheel<wbr>Event<wbr>Target</h3>
+								<div class="tsd-signature tsd-kind-icon">wheel<wbr>Event<wbr>Target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in <a href="https://github.com/larsvanbraam/vue-transition-component/blob/e8c2d9c/src/lib/scrollTrackerPlugin.ts#L61">scrollTrackerPlugin.ts:61</a></li>
+									</ul>
+								</aside>
+							</section>
+						</section>
+					</section>
 				</section>
 			</section>
 		</div>
@@ -150,22 +523,49 @@
 						<a href="classes/flowmanager.html" class="tsd-kind-icon">Flow<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/iabstractpagescrollcomponent.html" class="tsd-kind-icon">IAbstract<wbr>Page<wbr>Scroll<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/iabstractpagetransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Page<wbr>Transition<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iabstractregistrablecomponent.html" class="tsd-kind-icon">IAbstract<wbr>Registrable<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/iabstractscrollcomponent.html" class="tsd-kind-icon">IAbstract<wbr>Scroll<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/iabstracttransitioncomponent.html" class="tsd-kind-icon">IAbstract<wbr>Transition<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ioptions.html" class="tsd-kind-icon">IOptions</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iroute.html" class="tsd-kind-icon">IRoute</a>
 					</li>
+					<li class=" tsd-kind-variable">
+						<a href="index.html#add_components" class="tsd-kind-icon">ADD_<wbr>COMPONENTS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="index.html#remove_components" class="tsd-kind-icon">REMOVE_<wbr>COMPONENTS</a>
+					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="index.html#browser" class="tsd-kind-icon">browser</a>
 					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="index.html#eventbus" class="tsd-kind-icon">event<wbr>Bus</a>
+					</li>
 					<li class=" tsd-kind-variable">
 						<a href="index.html#flowmanager" class="tsd-kind-icon">flow<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="index.html#namespace" class="tsd-kind-icon">namespace</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="index.html#geteventbus" class="tsd-kind-icon">get<wbr>Event<wbr>Bus</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-is-not-exported">
+						<a href="index.html#defaultoptions" class="tsd-kind-icon">default<wbr>Options</a>
 					</li>
 				</ul>
 			</nav>

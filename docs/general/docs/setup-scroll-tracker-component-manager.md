@@ -51,15 +51,15 @@ export default {
   methods: {
     onBeforeRouteUpdate(to, from) {
       // In case we are staying on the same page but with different component/content we are removing the items from the
-       scroll-tracker-component manager
+      // scroll-tracker-component manager
       if (to.path !== from.path) {
         getEventBus().$emit(REMOVE_COMPONENTS, this.scrollComponents);
         this.scrollComponents = {};
       }
     },
     handleScrollComponentReady(component) {
-      // This is where we keep track of the scroll-components that are added we add to the
-      scroll-tracker-component-manager as soon as all component are ready in the page.
+      // This is where we keep track of the scroll-components that are added to the
+      // scroll-tracker-component-manager as soon as all component are ready in the page.
       if (component.addToScrollTracker) {
         this.scrollComponents[component.componentId] = component;
       }
