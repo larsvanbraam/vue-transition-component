@@ -21,6 +21,7 @@ export {
 } from './lib/util/AbstractVueTransitionController';
 export { default as FlowType } from './lib/enum/FlowType';
 export { default as FlowEvent } from './lib/event/FlowEvent';
+export { default as ScrollTrackerPlugin } from './lib/scrollTrackerPlugin';
 export {
   IAbstractPageTransitionComponent,
   IAbstractRegistrableComponent,
