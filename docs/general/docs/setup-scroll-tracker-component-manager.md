@@ -14,7 +14,9 @@ export default {
       config: {
         // When this is enabled you should set the container(body) to a fixed height(100%).
         enableSmoothScroll: false,
-        // When this is set to a container other than the window, you need to set the html/body tag to a fixed height(100%) and overflow: hidden. And set the container to a fixed height(100%) and overflow: auto.
+        // When this is set to a container other than the window, you need to set
+        // the html/body tag to a fixed height(100%) and overflow: hidden.
+        // And set the container to a fixed height(100%) and overflow: auto.
         container: this.$refs.container,
         inViewProgressEnabled: false,
       },
@@ -151,6 +153,6 @@ You can also manually add/remove components to the scroll-tracker-manager by cal
 ```
 import {  getEventBus, REMOVE_COMPONENTS, ADD_COMPONENTS }  from 'vue-transition-component';
 
-getEventBus().$emit(REMOVE_COMPONENTS, yourScrollComponent);
+getEventBus().$emit(ADD_COMPONENTS, yourScrollComponent);
 getEventBus().$emit(REMOVE_COMPONENTS, yourScrollComponent);
 ```

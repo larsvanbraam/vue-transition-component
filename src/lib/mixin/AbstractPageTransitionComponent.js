@@ -11,6 +11,7 @@ export default {
     this.transitionInHijack = Promise.resolve();
   },
   methods: {
+    onBeforeRouteUpdate() {},
     hijackTransitionIn() {
       return new Promise(resolve => {
         this.transitionInHijack = new Promise(release => resolve(release));
@@ -35,8 +36,6 @@ export default {
       });
     });
   },
-
-  onBeforeRouteUpdate() {},
 
   /**
    * @description This method is triggered when we navigate to a sub-page of the current existing page

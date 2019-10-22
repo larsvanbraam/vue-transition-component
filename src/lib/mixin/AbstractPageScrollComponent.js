@@ -1,5 +1,5 @@
 import AbstractPageTransitionComponent from './AbstractTransitionComponent';
-import { getEventBus } from '../../scrollTrackerPlugin';
+import { getEventBus } from '../../lib/scrollTrackerPlugin';
 import { REMOVE_COMPONENTS } from '../eventbus/scrollTrackerEvents';
 
 export default {

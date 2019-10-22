@@ -1,5 +1,5 @@
 import { AbstractScrollComponent } from 'vue-transition-component';
-{name_pc}}TransitionController from './{{name_pc}}TransitionController';
+import {{name_pc}}TransitionController from './{{name_pc}}TransitionController';
 
 // @vue/component
 export default {

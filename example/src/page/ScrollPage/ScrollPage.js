@@ -1,7 +1,7 @@
 import AbstractPageScrollComponent from '../../../../src/lib/mixin/AbstractPageScrollComponent';
 import ScrollPageTransitionController from './ScrollPageTransitionController';
 import DummyScrollComponentA from '../../component/DummyScrollComponentA/DummyScrollComponentA';
-import { getEventBus } from '../../../../src/scrollTrackerPlugin';
+import { getEventBus } from '../../../../src/lib/scrollTrackerPlugin';
 import { ADD_COMPONENTS } from '../../../../src/lib/eventbus/scrollTrackerEvents';
 
 export default {

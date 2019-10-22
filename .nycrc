@@ -5,7 +5,7 @@
   "per-file": true,
   "lines": 40,
   "statements": 40,
-  "functions": 40,
+  "functions": 36,
   "branches": 0,
   "include": [
     "src/**/*.{js,ts}"

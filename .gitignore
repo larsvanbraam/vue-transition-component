@@ -17,3 +17,5 @@ node_modules/
 /lib
 /index.js
 /index.d.ts
+/scrollTrackerPlugin.js
+/scrollTrackerPlugin.d.ts

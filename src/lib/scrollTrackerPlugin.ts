@@ -4,8 +4,8 @@ import {
 } from 'scroll-tracker-component-manager';
 import { VueConstructor } from 'vue/types/vue';
 import EventBus from 'vue';
-import { ADD_COMPONENTS, REMOVE_COMPONENTS } from './lib/eventbus/scrollTrackerEvents';
-import { IAbstractScrollComponent } from './lib/interface/IAbstractScrollComponent';
+import { ADD_COMPONENTS, REMOVE_COMPONENTS } from '../lib/eventbus/scrollTrackerEvents';
+import { IAbstractScrollComponent } from '../lib/interface/IAbstractScrollComponent';
 
 let eventBus: EventBus;
 

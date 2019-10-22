@@ -3,7 +3,7 @@ import { IAbstractTransitionComponent } from './lib/interface/IAbstractTransitio
 import { IAbstractPageTransitionComponent } from './lib/interface/IAbstractPageTransitionComponent';
 import { IAbstractScrollComponent } from './lib/interface/IAbstractScrollComponent';
 import { IAbstractPageScrollComponent } from './lib/interface/IAbstractPageScrollComponent';
-import { getEventBus } from './scrollTrackerPlugin';
+import { getEventBus } from './lib/scrollTrackerPlugin';
 import { ADD_COMPONENTS, REMOVE_COMPONENTS } from './lib/eventbus/scrollTrackerEvents';
 import { IRoute } from './lib/interface/IRoute';
 

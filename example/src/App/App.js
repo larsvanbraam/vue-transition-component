@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import AbstractRegistrableComponent from '../../../src/lib/mixin/AbstractRegistrableComponent';
 import FlowManager from '../../../src/lib/util/FlowManager';
-import ScrollTrackerPlugin from '../../../src/scrollTrackerPlugin';
+import ScrollTrackerPlugin from '../../../src/lib/scrollTrackerPlugin';
 
 export default {
   name: 'App',
