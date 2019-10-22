@@ -12,6 +12,8 @@ nav:
     - Setup the seng-generator: setup-seng-generator.md
     - Setup page transitioning: setup-page-transitioning.md
     - Creating a component: creating-a-component.md
+    - Setup page transitioning: setup-page-transitioning.md
+    - Setup ScrollTrackerComponentManager: setup-scroll-tracker-component-manager.md
     - Examples:
         - Child page transitioning: examples/child-page-transitioning.md
         - Page flows: examples/page-flows.md
