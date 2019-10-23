@@ -17,22 +17,24 @@ export default class DummyScrollComponentATransitionController extends AbstractV
     parent: IAbstractTransitionComponent,
     id: string,
   ): void {
-    if(id) {
+    if (id) {
       console.log(id);
     }
-    timeline.fromTo(
-      parent.$el,
-      0.5,
-      {
-        autoAlpha: 0,
-        xPercent: 100,
-      },
-      {
-        autoAlpha: 1,
-        xPercent: 0,
-        ease: Expo.easeOut,
-      },
-    );
+    const textContent = <HTMLElement>parent.$refs.textContent;
+    const loopingTitle = <HTMLElement>parent.$refs.loopingTitle;
+    const loopingAnimation = <HTMLElement>parent.$refs.loopingAnimation;
+
+    timeline.from(parent.$refs.background, 1.2, { width: 0, ease: Expo.easeInOut, clearProps: 'width' });
+    timeline.addLabel('afterBg', '-=0.6');
+
+    timeline.from(textContent, 0.8, { opacity: 0 }, 'afterBg');
+    timeline.from(textContent, 0.8, { y: 30, ease: Expo.easeOut, clearProps: 'all' }, 'afterBg');
+
+    timeline.from(loopingTitle, 0.8, { opacity: 0 }, 'afterBg+=0.4');
+    timeline.from(loopingTitle, 0.8, { y: 20, ease: Expo.easeOut }, 'afterBg+=0.4');
+
+    timeline.from(loopingAnimation, 0.8, { opacity: 0 }, 'afterBg+=0.8');
+    timeline.from(loopingAnimation, 0.8, { y: 20, ease: Expo.easeOut }, 'afterBg+=0.8');
   }
 
   /**
@@ -48,14 +50,7 @@ export default class DummyScrollComponentATransitionController extends AbstractV
     timeline: TimelineMax,
     parent: IAbstractTransitionComponent,
     id: string): void {
-    timeline.to(
-      this.parentController.$el,
-      0.5,
-      {
-        scale: 2,
-        autoAlpha: 0,
-      },
-    );
+    timeline.to(parent.$el, 0.8, { opacity: 0 });
   }
 
   /**
@@ -68,7 +63,14 @@ export default class DummyScrollComponentATransitionController extends AbstractV
    * @param {string} id The transition id that was provided when constructing the controller
    */
   protected setupLoopingAnimationTimeline(
-    timeline:TimelineMax,
-    parent:IAbstractTransitionComponent,
-    id:string): void {}
+    timeline: TimelineMax,
+    parent: IAbstractTransitionComponent,
+    id: string): void {
+    timeline.yoyo(true);
+
+    timeline.to(parent.$refs.loopingAnimation, 1, { scale: .9, yPercent: 50, ease: Expo.easeInOut });
+    timeline.to(parent.$refs.loopingAnimation, .5, { xPercent: 50, ease: Expo.easeInOut });
+    timeline.to(parent.$refs.loopingAnimation, .5, { xPercent: -50, ease: Expo.easeInOut });
+
+  }
 }

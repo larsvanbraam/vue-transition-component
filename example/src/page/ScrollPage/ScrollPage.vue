@@ -17,5 +17,20 @@
       @isReady="handleScrollComponentReady"
       ref="ref3"
     />
+
+    <DummyScrollComponentA
+      @isReady="handleScrollComponentReady"
+      ref="ref4"
+    />
+
+    <DummyScrollComponentA
+      @isReady="handleScrollComponentReady"
+      ref="ref5"
+    />
+
+    <DummyScrollComponentA
+      @isReady="handleScrollComponentReady"
+      ref="ref6"
+    />
   </div>
 </template>

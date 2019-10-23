@@ -67,25 +67,116 @@
       height: 75vh;
     }
 
+    /* Heading */
+    .heading-01 {
+      font-size: 8vw;
+      font-weight: 100;
+    }
+
+    /* Buttons */
+    .button {
+      position: relative;
+      text-align: center;
+      outline: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      font-size: 12px;
+      cursor: pointer;
+      background-color: transparent;
+    }
+
+    .primary-button {
+      border: 1px solid #41a6ff;
+      color: #41a6ff;
+      border-radius: .25rem;
+      font-weight: 400;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .primary-button:hover {
+      background-color: #41a6ff;
+      color: white;
+    }
+
+    h1,h2,h3,h4 {
+      padding: 0;
+      margin: 0;
+    }
+
+    .abs-center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .abs-fill {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    /* Dummy Scroll Component A */
+    .dummy-scroll-component-a {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      text-align: center;
+      white-space: nowrap;
+      color: #41a6ff;
+      border-bottom: 1px dotted white;
+    }
+
     .progress {
       position: absolute;
       top: 0;
       left: 0;
-      background-color: purple;
-      opacity: 0.5;
       width: 0;
-
       height: 100%;
-      z-index: 0;
+      background-color: #6c757d;
+      font-size: 3vw;
+      color: white;
     }
 
-    .percentage {
-      position: relative;
-      font-size: 40px;
-      color: black;
-      z-index: 1;
+    .dummy-foo-bg {
+      background-color: #2b3035;
     }
 
+    .dummy-scroll-component-a:nth-child(n+2) {
+      color: #6c757d;
+    }
+
+    .dummy-scroll-component-a:nth-child(n+2) .progress {
+      /*background-color: #6c757d;*/
+      background-color: #41a6ff;
+    }
+
+    .dummy-scroll-component-a:nth-child(n+2) .dummy-foo-bg {
+      /*background-color: white;*/
+    }
+
+    .looping-animation-title {
+      margin: 50px 0 0;
+      color: white;
+    }
+
+    .looping-animation {
+      width: 10px;
+      height: 10px;
+      border: 20px solid #212529;
+      display: inline-block;
+      border-radius: 100%;
+      background-color: white;
+    }
+
+    .dummy-scroll-component-a:nth-child(n+2) .looping-animation-title {
+      color: inherit;
+    }
   </style>
 </head>
 <body>

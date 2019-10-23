@@ -1,18 +1,30 @@
 <script src="./DummyScrollComponentA.js"></script>
 
 <template>
-  <div class="panel-large panel panel-info">
-    <div class="panel-heading">
-      <h3 class="panel-title">DummyComponentA</h3>
-    </div>
-    <div class="panel-body">
-      <div ref="progress" class="progress" />
+  <section
+    class="dummy-scroll-component-a">
+      <span
+        ref="background"
+        class="dummy-foo-bg abs-fill">
+        <div
+          v-html="`${Math.round(progress * 100)}%`"
+          :style="{
+            width: `${progress * 100}%`,
+          }"
+          ref="percentage" class="progress"/>
+      </span>
 
-      <p
-        class="percentage"
-        ref="percentage"
-        v-html="`${Math.round(progress * 100)}%`"
-      />
+    <div
+      ref="textContent"
+      class="abs-center">
+      <h1 class="heading-01">Scroll Transition</h1>
+
+      <h2
+        ref="loopingTitle"
+        class="looping-animation-title heading-03">Looping Animation</h2>
+      <div
+        ref="loopingAnimation"
+        class="looping-animation"></div>
     </div>
-  </div>
+  </section>
 </template>
