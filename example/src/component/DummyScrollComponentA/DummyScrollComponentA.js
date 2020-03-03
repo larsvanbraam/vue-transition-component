@@ -10,10 +10,8 @@ export default {
     };
   },
   methods: {
-    // eslint-disable-next-line
     inViewProgress(progress) {
-      // this.$refs.progress.style.width = `${progress * 100}%`;
-      this.progress = this.currentViewProgress;
+      this.progress = progress;
     },
     handleAllComponentsReady() {
       this.transitionController = new DummyScrollComponentATransitionController(this);
