@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { Axis } from 'scroll-tracker-component-manager';
 import AbstractRegistrableComponent from '../../../src/lib/mixin/AbstractRegistrableComponent';
 import FlowManager from '../../../src/lib/util/FlowManager';
 import ScrollTrackerPlugin from '../../../src/lib/scrollTrackerPlugin';
@@ -27,6 +28,7 @@ export default {
     Vue.use(ScrollTrackerPlugin, {
       config: {
         enableSmoothScroll,
+        axis: Axis.Y,
         container: this.$refs.container,
         inViewProgressEnabled: true,
       },

@@ -1,6 +1,7 @@
 import {
   ScrollTrackerComponentManager,
   IScrollTrackerComponentManagerOptions,
+  Axis,
 } from 'scroll-tracker-component-manager';
 import { VueConstructor } from 'vue/types/vue';
 import EventBus from 'vue';
@@ -48,6 +49,7 @@ const defaultOptions: IOptions = {
     debugBorderColor: 'red',
     scrollThrottle: 100,
     resizeDebounce: 100,
+    axis: Axis.Y,
     /**
      * When this is enabled you should set the container(body) to a fixed height(100%).
      */
