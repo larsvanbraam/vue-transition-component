@@ -1,4 +1,4 @@
-import { TimelineMax, Expo } from 'gsap';
+import gsap, { Expo } from 'gsap';
 import { IAbstractTransitionComponent } from '../../../../src/lib/interface/IAbstractTransitionComponent';
 import AbstractVueTransitionController from '../../../../src/lib/util/AbstractVueTransitionController';
 
@@ -13,7 +13,7 @@ export default class DummyScrollComponentATransitionController extends AbstractV
    * @param {string} id The transition id that was provided when constructing the controller
    */
   protected setupTransitionInTimeline(
-    timeline: TimelineMax,
+    timeline: gsap.core.Timeline,
     parent: IAbstractTransitionComponent,
     id: string,
   ): void {
@@ -47,7 +47,7 @@ export default class DummyScrollComponentATransitionController extends AbstractV
    * @param {string} id The transition id that was provided when constructing the controller
    */
   protected setupTransitionOutTimeline(
-    timeline: TimelineMax,
+    timeline: gsap.core.Timeline,
     parent: IAbstractTransitionComponent,
     id: string): void {
     timeline.to(parent.$el, 0.8, { opacity: 0 });
@@ -63,7 +63,7 @@ export default class DummyScrollComponentATransitionController extends AbstractV
    * @param {string} id The transition id that was provided when constructing the controller
    */
   protected setupLoopingAnimationTimeline(
-    timeline: TimelineMax,
+    timeline: gsap.core.Timeline,
     parent: IAbstractTransitionComponent,
     id: string): void {
     timeline.yoyo(true);

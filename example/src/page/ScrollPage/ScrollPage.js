@@ -1,15 +1,15 @@
-import AbstractPageScrollComponent from '../../../../src/lib/mixin/AbstractPageScrollComponent';
 import ScrollPageTransitionController from './ScrollPageTransitionController';
 import DummyScrollComponentA from '../../component/DummyScrollComponentA/DummyScrollComponentA';
-import { getEventBus } from '../../../../src/lib/scrollTrackerPlugin';
-import { ADD_COMPONENTS } from '../../../../src/lib/eventbus/scrollTrackerEvents';
+import AbstractPageScrollComponent from '../../../../src/lib/mixin/AbstractPageScrollComponent';
+import { ADD_COMPONENTS } from '../../../../lib/eventbus/scrollTrackerEvents';
+import { getEventBus } from '../../../../src';
 
 export default {
   name: 'ScrollPage',
-  extends: AbstractPageScrollComponent,
   components: {
     DummyScrollComponentA,
   },
+  extends: AbstractPageScrollComponent,
   methods: {
     handleAllComponentsReady() {
       this.transitionController = new ScrollPageTransitionController(this);

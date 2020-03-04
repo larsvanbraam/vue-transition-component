@@ -5,7 +5,7 @@ import routes from './routes';
 
 Vue.use(VueRouter);
 
-let router:VueRouter = null;
+let router: VueRouter = null;
 
 const getRouter = () => {
   if (!router) {

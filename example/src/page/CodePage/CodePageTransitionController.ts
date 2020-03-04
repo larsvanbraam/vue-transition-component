@@ -1,4 +1,4 @@
-import { TimelineMax, Expo } from 'gsap';
+import gsap, { Expo  } from 'gsap';
 import AbstractVueTransitionController from '../../../../src/lib/util/AbstractVueTransitionController';
 import { IAbstractTransitionComponent } from '../../../../src/lib/interface/IAbstractTransitionComponent';
 
@@ -11,9 +11,9 @@ export default class CodepageTransitionController extends AbstractVueTransitionC
    * @param {string} id
    */
   protected setupTransitionInTimeline(
-    timeline: TimelineMax,
-    parent:IAbstractTransitionComponent,
-    id:string): void {
+    timeline: gsap.core.Timeline,
+    parent: IAbstractTransitionComponent,
+    id: string): void {
     timeline.fromTo(
       parent.$el,
       0.5,
@@ -44,9 +44,9 @@ export default class CodepageTransitionController extends AbstractVueTransitionC
    * @param {string} id
    */
   protected setupTransitionOutTimeline(
-    timeline: TimelineMax,
-    parent:IAbstractTransitionComponent,
-    id:string): void {
+    timeline: gsap.core.Timeline,
+    parent: IAbstractTransitionComponent,
+    id: string): void {
     timeline.to(parent.$el, 0.5, {
       scale: 2,
       autoAlpha: 0,
@@ -61,7 +61,8 @@ export default class CodepageTransitionController extends AbstractVueTransitionC
    * @param {string} id
    */
   protected setupLoopingAnimationTimeline(
-    timeline:TimelineMax,
-    parent:IAbstractTransitionComponent,
-    id:string): void {}
+    timeline: gsap.core.Timeline,
+    parent: IAbstractTransitionComponent,
+    id: string): void {
+  }
 }

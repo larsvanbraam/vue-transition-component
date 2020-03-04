@@ -819,10 +819,6 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/gsap@^1.19.2":
-  version "1.20.2"
-  resolved "https://registry.yarnpkg.com/@types/gsap/-/gsap-1.20.2.tgz#038d0e81a8dd50b9b6894f34f3cd4045f71c62b8"
-
 "@types/handlebars@^4.0.38":
   version "4.0.40"
   resolved "https://registry.yarnpkg.com/@types/handlebars/-/handlebars-4.0.40.tgz#b714e13d296a75bff3f199316d1311933ca79ffd"
@@ -2345,9 +2341,9 @@ growl@1.10.5, "growl@~> 1.10.0":
   version "1.10.5"
   resolved "https://registry.yarnpkg.com/growl/-/growl-1.10.5.tgz#f2735dc2283674fa67478b10181059355c369e5e"
 
-gsap@^2.1.1:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/gsap/-/gsap-2.1.3.tgz#c63ee3a50f0b7dc3b46ed0845bb0f09049feb944"
+gsap@^3.2.4:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.2.4.tgz#60c1e3e91a0b3b0ce2161da73b105ae495b13425"
 
 handlebars@^4.0.6:
   version "4.0.11"
@@ -4768,14 +4764,13 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-transition-controller@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-2.0.0.tgz#9215168396fd811eaaec43412f9564b18c5e4d7c"
+transition-controller@^3.1.0-beta.1:
+  version "3.1.0-beta.1"
+  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-3.1.0-beta.1.tgz#80c06edcfd6387e33f249101b3748d8667d2d876"
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.3.4"
     "@babel/plugin-proposal-object-rest-spread" "^7.3.4"
     "@babel/runtime" "^7.3.4"
-    "@types/gsap" "^1.19.2"
     lodash "^4.17.11"
     seng-event "^2.0.1"
 

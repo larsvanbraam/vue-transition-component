@@ -148,10 +148,6 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@types/gsap@^1.19.2":
-  version "1.19.2"
-  resolved "https://registry.yarnpkg.com/@types/gsap/-/gsap-1.19.2.tgz#ffa045fe9ca25f18a175fac4918e17d6a7ef8d7b"
-
 "@types/node@^12.11.1":
   version "12.11.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.11.2.tgz#75ba3beda30d690b89a5089ca1c6e8e386150b76"
@@ -1498,9 +1494,9 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
-gsap@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/gsap/-/gsap-2.1.1.tgz#31c14ed4b8cfc2a795492b70b01a5787eb1c8378"
+gsap@^3.2.4:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.2.4.tgz#60c1e3e91a0b3b0ce2161da73b105ae495b13425"
 
 handle-thing@^2.0.0:
   version "2.0.0"
@@ -3458,14 +3454,13 @@ tough-cookie@~2.3.0:
   dependencies:
     punycode "^1.4.1"
 
-transition-controller@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-2.0.0.tgz#9215168396fd811eaaec43412f9564b18c5e4d7c"
+transition-controller@^3.1.0-beta.1:
+  version "3.1.0-beta.1"
+  resolved "https://registry.yarnpkg.com/transition-controller/-/transition-controller-3.1.0-beta.1.tgz#80c06edcfd6387e33f249101b3748d8667d2d876"
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.3.4"
     "@babel/plugin-proposal-object-rest-spread" "^7.3.4"
     "@babel/runtime" "^7.3.4"
-    "@types/gsap" "^1.19.2"
     lodash "^4.17.11"
     seng-event "^2.0.1"
 

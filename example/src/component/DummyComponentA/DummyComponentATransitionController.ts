@@ -1,6 +1,6 @@
-import { TimelineMax, Expo } from 'gsap';
-import AbstractVueTransitionController from "../../../../src/lib/util/AbstractVueTransitionController";
-import { IAbstractTransitionComponent } from "../../../../src";
+import gsap, { Expo } from 'gsap';
+import AbstractVueTransitionController from '../../../../src/lib/util/AbstractVueTransitionController';
+import { IAbstractTransitionComponent } from '../../../../src';
 
 export default class DummyComponentATransitionController extends AbstractVueTransitionController {
   /**
@@ -9,7 +9,7 @@ export default class DummyComponentATransitionController extends AbstractVueTran
    * @param {TimelineMax} timeline
    * @param {IAbstractTransitionComponent} parent
    */
-  protected setupTransitionInTimeline(timeline: TimelineMax, parent: IAbstractTransitionComponent): void {
+  protected setupTransitionInTimeline(timeline: gsap.core.Timeline, parent: IAbstractTransitionComponent): void {
     timeline.fromTo(
       parent.$el,
       0.5,
@@ -32,7 +32,7 @@ export default class DummyComponentATransitionController extends AbstractVueTran
    * @param {TimelineMax} timeline
    * @param {IAbstractTransitionComponent} parent
    */
-  protected setupTransitionOutTimeline(timeline: TimelineMax, parent: IAbstractTransitionComponent): void {
+  protected setupTransitionOutTimeline(timeline: gsap.core.Timeline, parent: IAbstractTransitionComponent): void {
     timeline.to(
       parent.$el,
       0.5,
@@ -49,6 +49,6 @@ export default class DummyComponentATransitionController extends AbstractVueTran
    * @param {TimelineMax} timeline
    * @description Use this method to setup your looping timeline
    **/
-  protected setupLoopingAnimationTimeline(timeline:TimelineMax): void {
+  protected setupLoopingAnimationTimeline(timeline: gsap.core.Timeline): void {
   }
 }

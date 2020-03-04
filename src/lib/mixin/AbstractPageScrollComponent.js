@@ -1,15 +1,15 @@
-import AbstractPageTransitionComponent from './AbstractTransitionComponent';
+import AbstractPageTransitionComponent from './AbstractPageTransitionComponent';
 import { getEventBus } from '../../lib/scrollTrackerPlugin';
 import { REMOVE_COMPONENTS } from '../eventbus/scrollTrackerEvents';
 
 export default {
   name: 'AbstractPageScrollComponent',
   extends: AbstractPageTransitionComponent,
-  beforeDestroy() {
-    getEventBus().$emit(REMOVE_COMPONENTS, this.scrollComponents);
-  },
   beforeCreate() {
     this.scrollComponents = {};
+  },
+  beforeDestroy() {
+    getEventBus().$emit(REMOVE_COMPONENTS, this.scrollComponents);
   },
   methods: {
     onBeforeRouteUpdate(to, from) {
