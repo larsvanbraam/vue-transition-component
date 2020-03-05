@@ -15,6 +15,8 @@ export {
   ICreateTimelineOptions,
 } from 'transition-controller';
 
+export { Direction } from 'scroll-tracker-component-manager';
+
 export { default as FlowManager } from './lib/util/FlowManager';
 export {
   default as AbstractTransitionController,

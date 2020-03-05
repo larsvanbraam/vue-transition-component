@@ -7,12 +7,17 @@
         ref="background"
         class="dummy-foo-bg abs-fill">
         <div
-          v-html="`${Math.round(progress * 100)}%`"
           :style="{
             width: `${progress * 100}%`,
           }"
           ref="percentage" class="progress"/>
       </span>
+
+    <ul class="specs">
+      <li>progress: {{`${Math.round(progress * 100)}%`}}</li>
+      <li>scroll-direction: {{direction}}</li>
+      <li>in-view: {{inView}}</li>
+    </ul>
 
     <div
       ref="textContent"

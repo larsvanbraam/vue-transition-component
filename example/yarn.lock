@@ -2973,9 +2973,9 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-scroll-tracker-component-manager@^2.2.12:
-  version "2.2.12"
-  resolved "https://registry.yarnpkg.com/scroll-tracker-component-manager/-/scroll-tracker-component-manager-2.2.12.tgz#e55409592d395f8ba251735dfa3f390870f48efe"
+scroll-tracker-component-manager@^2.2.13:
+  version "2.2.13"
+  resolved "https://registry.yarnpkg.com/scroll-tracker-component-manager/-/scroll-tracker-component-manager-2.2.13.tgz#ab4934889d54b4b4676a07cf5d9b9b91e2f9af03"
   dependencies:
     "@babel/runtime" "^7.3.1"
     element-size "^1.1.1"

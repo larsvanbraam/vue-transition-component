@@ -1,4 +1,5 @@
 import VueTypes from 'vue-types';
+import { Direction } from 'scroll-tracker-component-manager';
 import AbstractTransitionComponent from './AbstractTransitionComponent';
 
 export default {
@@ -15,6 +16,7 @@ export default {
     };
   },
   created() {
+    this.scrollDirection = Direction.FORWARD;
     this.currentViewProgress = 0;
     this.hasEntered = false;
   },
