@@ -23,7 +23,7 @@ export default class DummyComponentATransitionController extends AbstractVueTran
         ease: Expo.easeOut,
       },
     );
-    timeline.add(this.getTimeline('infoBox'));
+    timeline.add(this.getTimeline('infoBox'), 5);
   }
 
   /**
