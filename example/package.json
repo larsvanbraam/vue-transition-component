@@ -14,7 +14,7 @@
     "gsap": "^2.1.1",
     "highlight.js": "^9.12.0",
     "lodash": "^4.17.5",
-    "scroll-tracker-component-manager": "^2.2.13",
+    "scroll-tracker-component-manager": "^2.2.14",
     "seng-event": "^2.0.2",
     "transition-controller": "^2.0.0",
     "ts-loader": "^4.1.0",
