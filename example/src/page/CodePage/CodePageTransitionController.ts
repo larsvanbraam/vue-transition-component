@@ -30,9 +30,9 @@ export default class CodepageTransitionController extends AbstractVueTransitionC
     // if a ref is provided you can use this to retrieve the subTimeline
     timeline.add(this.getTimeline('infoBoxA'), 0);
     // You can also retrieve the subTimeline by providing a reference to the TransitionComponent
-    timeline.add(this.getTimeline(<IAbstractTransitionComponent>parent.$refs.infoBoxB), 0);
+    timeline.add(this.getTimeline(<IAbstractTransitionComponent>parent.$refs.infoBoxB), 1);
     // If no ref is provided you can fetch the component by the ComponentName
-    timeline.add(this.getTimeline('DummyComponentC'), 0);
+    timeline.add(this.getTimeline('DummyComponentC'), 2);
   }
 
   /**
