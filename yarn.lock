@@ -2341,9 +2341,9 @@ growl@1.10.5, "growl@~> 1.10.0":
   version "1.10.5"
   resolved "https://registry.yarnpkg.com/growl/-/growl-1.10.5.tgz#f2735dc2283674fa67478b10181059355c369e5e"
 
-gsap@^3.2.4:
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.2.4.tgz#60c1e3e91a0b3b0ce2161da73b105ae495b13425"
+gsap@^3.3.4:
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.3.4.tgz#759b9ecba1d21ad243f0d09900f29c4773b8cb32"
 
 handlebars@^4.0.6:
   version "4.0.11"
